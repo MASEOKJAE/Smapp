@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F49A000027840CF500DAC7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49AFFFE27840CF500DAC7AA /* Main.storyboard */; };
+		F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49A000127840CFC00DAC7AA /* Assets.xcassets */; };
+		F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */; };
+		F49A001027840CFD00DAC7AA /* SmappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A000F27840CFD00DAC7AA /* SmappTests.swift */; };
+		F49A001A27840CFD00DAC7AA /* SmappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A001927840CFD00DAC7AA /* SmappUITests.swift */; };
+		F49A001C27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */; };
+		F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFF827840CF500DAC7AA /* AppDelegate.swift */; };
+		F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */; };
+		F49AFFFD27840CF500DAC7AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFFC27840CF500DAC7AA /* ViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F49A000C27840CFD00DAC7AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F49AFFED27840CF500DAC7AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F49AFFF427840CF500DAC7AA;
+			remoteInfo = Smapp;
+		};
+		F49A001627840CFD00DAC7AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F49AFFED27840CF500DAC7AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F49AFFF427840CF500DAC7AA;
+			remoteInfo = Smapp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F49A000127840CFC00DAC7AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F49A000427840CFC00DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F49A000627840CFC00DAC7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F49A000B27840CFD00DAC7AA /* SmappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F49A000F27840CFD00DAC7AA /* SmappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmappTests.swift; sourceTree = "<group>"; };
+		F49A001527840CFD00DAC7AA /* SmappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F49A001927840CFD00DAC7AA /* SmappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmappUITests.swift; sourceTree = "<group>"; };
+		F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmappUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F49AFFF527840CF500DAC7AA /* Smapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F49AFFF827840CF500DAC7AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F49AFFFC27840CF500DAC7AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F49AFFFF27840CF500DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F49A000827840CFD00DAC7AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F49A001227840CFD00DAC7AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F49AFFF227840CF500DAC7AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F49A000E27840CFD00DAC7AA /* SmappTests */ = {
+			isa = PBXGroup;
+			children = (
+				F49A000F27840CFD00DAC7AA /* SmappTests.swift */,
+			);
+			path = SmappTests;
+			sourceTree = "<group>";
+		};
+		F49A001827840CFD00DAC7AA /* SmappUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F49A001927840CFD00DAC7AA /* SmappUITests.swift */,
+				F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */,
+			);
+			path = SmappUITests;
+			sourceTree = "<group>";
+		};
+		F49AFFEC27840CF500DAC7AA = {
+			isa = PBXGroup;
+			children = (
+				F49AFFF727840CF500DAC7AA /* Smapp */,
+				F49A000E27840CFD00DAC7AA /* SmappTests */,
+				F49A001827840CFD00DAC7AA /* SmappUITests */,
+				F49AFFF627840CF500DAC7AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F49AFFF627840CF500DAC7AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F49AFFF527840CF500DAC7AA /* Smapp.app */,
+				F49A000B27840CFD00DAC7AA /* SmappTests.xctest */,
+				F49A001527840CFD00DAC7AA /* SmappUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F49AFFF727840CF500DAC7AA /* Smapp */ = {
+			isa = PBXGroup;
+			children = (
+				F49AFFF827840CF500DAC7AA /* AppDelegate.swift */,
+				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
+				F49AFFFC27840CF500DAC7AA /* ViewController.swift */,
+				F49AFFFE27840CF500DAC7AA /* Main.storyboard */,
+				F49A000127840CFC00DAC7AA /* Assets.xcassets */,
+				F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */,
+				F49A000627840CFC00DAC7AA /* Info.plist */,
+			);
+			path = Smapp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F49A000A27840CFD00DAC7AA /* SmappTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F49A002227840CFD00DAC7AA /* Build configuration list for PBXNativeTarget "SmappTests" */;
+			buildPhases = (
+				F49A000727840CFD00DAC7AA /* Sources */,
+				F49A000827840CFD00DAC7AA /* Frameworks */,
+				F49A000927840CFD00DAC7AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F49A000D27840CFD00DAC7AA /* PBXTargetDependency */,
+			);
+			name = SmappTests;
+			productName = SmappTests;
+			productReference = F49A000B27840CFD00DAC7AA /* SmappTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F49A001427840CFD00DAC7AA /* SmappUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F49A002527840CFD00DAC7AA /* Build configuration list for PBXNativeTarget "SmappUITests" */;
+			buildPhases = (
+				F49A001127840CFD00DAC7AA /* Sources */,
+				F49A001227840CFD00DAC7AA /* Frameworks */,
+				F49A001327840CFD00DAC7AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F49A001727840CFD00DAC7AA /* PBXTargetDependency */,
+			);
+			name = SmappUITests;
+			productName = SmappUITests;
+			productReference = F49A001527840CFD00DAC7AA /* SmappUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		F49AFFF427840CF500DAC7AA /* Smapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F49A001F27840CFD00DAC7AA /* Build configuration list for PBXNativeTarget "Smapp" */;
+			buildPhases = (
+				F49AFFF127840CF500DAC7AA /* Sources */,
+				F49AFFF227840CF500DAC7AA /* Frameworks */,
+				F49AFFF327840CF500DAC7AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Smapp;
+			productName = Smapp;
+			productReference = F49AFFF527840CF500DAC7AA /* Smapp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F49AFFED27840CF500DAC7AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					F49A000A27840CFD00DAC7AA = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = F49AFFF427840CF500DAC7AA;
+					};
+					F49A001427840CFD00DAC7AA = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = F49AFFF427840CF500DAC7AA;
+					};
+					F49AFFF427840CF500DAC7AA = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = F49AFFF027840CF500DAC7AA /* Build configuration list for PBXProject "Smapp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F49AFFEC27840CF500DAC7AA;
+			productRefGroup = F49AFFF627840CF500DAC7AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F49AFFF427840CF500DAC7AA /* Smapp */,
+				F49A000A27840CFD00DAC7AA /* SmappTests */,
+				F49A001427840CFD00DAC7AA /* SmappUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F49A000927840CFD00DAC7AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F49A001327840CFD00DAC7AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F49AFFF327840CF500DAC7AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */,
+				F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */,
+				F49A000027840CF500DAC7AA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F49A000727840CFD00DAC7AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49A001027840CFD00DAC7AA /* SmappTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F49A001127840CFD00DAC7AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49A001C27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift in Sources */,
+				F49A001A27840CFD00DAC7AA /* SmappUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F49AFFF127840CF500DAC7AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49AFFFD27840CF500DAC7AA /* ViewController.swift in Sources */,
+				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
+				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F49A000D27840CFD00DAC7AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F49AFFF427840CF500DAC7AA /* Smapp */;
+			targetProxy = F49A000C27840CFD00DAC7AA /* PBXContainerItemProxy */;
+		};
+		F49A001727840CFD00DAC7AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F49AFFF427840CF500DAC7AA /* Smapp */;
+			targetProxy = F49A001627840CFD00DAC7AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F49A000427840CFC00DAC7AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F49AFFFE27840CF500DAC7AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F49AFFFF27840CF500DAC7AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F49A001D27840CFD00DAC7AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F49A001E27840CFD00DAC7AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F49A002027840CFD00DAC7AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Smapp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sj.Smapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F49A002127840CFD00DAC7AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Smapp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sj.Smapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F49A002327840CFD00DAC7AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sj.SmappTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smapp.app/Smapp";
+			};
+			name = Debug;
+		};
+		F49A002427840CFD00DAC7AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sj.SmappTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smapp.app/Smapp";
+			};
+			name = Release;
+		};
+		F49A002627840CFD00DAC7AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sj.SmappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Smapp;
+			};
+			name = Debug;
+		};
+		F49A002727840CFD00DAC7AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sj.SmappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Smapp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F49A001F27840CFD00DAC7AA /* Build configuration list for PBXNativeTarget "Smapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F49A002027840CFD00DAC7AA /* Debug */,
+				F49A002127840CFD00DAC7AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F49A002227840CFD00DAC7AA /* Build configuration list for PBXNativeTarget "SmappTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F49A002327840CFD00DAC7AA /* Debug */,
+				F49A002427840CFD00DAC7AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F49A002527840CFD00DAC7AA /* Build configuration list for PBXNativeTarget "SmappUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F49A002627840CFD00DAC7AA /* Debug */,
+				F49A002727840CFD00DAC7AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F49AFFF027840CF500DAC7AA /* Build configuration list for PBXProject "Smapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F49A001D27840CFD00DAC7AA /* Debug */,
+				F49A001E27840CFD00DAC7AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F49AFFED27840CF500DAC7AA /* Project object */;
+}
