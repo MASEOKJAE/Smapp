@@ -103,7 +103,6 @@
 				D480EC7242977B735A45E3DC /* Pods-SmappTests.debug.xcconfig */,
 				9A036B2E10EE8B581FDFC3DC /* Pods-SmappTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
