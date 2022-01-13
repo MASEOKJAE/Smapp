@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet var AppTitle: UILabel!
     @IBOutlet var AppSubTitle: UILabel!
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
-
+    
 
     @IBAction func TapGoogleLogin(_ sender: Any) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -37,6 +37,14 @@ class ViewController: UIViewController {
         Auth.auth().signIn(with: credential) {_,_ in
             // token을 넘겨주면, 성공했는지 안했는지에 대한 result값과 error값을 넘겨줌
             //self.showMainViewController()
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+            
+            // This is to get the SceneDelegate object from your view controller
+            // then call the change root view controller function to change to main tab bar
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+            
         }
       }
     }
