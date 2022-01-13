@@ -64,11 +64,22 @@
                     </tabBar>
                     <connections>
                         <segue destination="ujs-Zq-kAB" kind="relationship" relationship="viewControllers" id="Xri-Se-HMe"/>
+                        <segue destination="Qgn-oe-zo7" kind="relationship" relationship="viewControllers" id="Cus-th-hRL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNN-uy-gaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="718" y="89"/>
+        </scene>
+        <!--MypageStoryboard-->
+        <scene sceneID="Dog-L5-4SA">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MypageStoryboard" storyboardName="MypageStoryboard" id="Qgn-oe-zo7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="X0x-Dz-qNW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPp-Rb-Isn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1360" y="6"/>
         </scene>
         <!--Categories-->
         <scene sceneID="fcD-o9-1UM">
@@ -78,7 +89,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHO-2m-w7n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1290" y="88"/>
+            <point key="canvasLocation" x="1362" y="220"/>
         </scene>
     </scenes>
     <resources>

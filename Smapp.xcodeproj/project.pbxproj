@@ -13,6 +13,14 @@
 		1F04AE45278E97B7008AC901 /* CategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */; };
 		1F04AE47278EA765008AC901 /* CategoriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */; };
 		1F04AE4B278EBF9D008AC901 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE4A278EBF9D008AC901 /* Subject.storyboard */; };
+		1F3600BB27900F9100EC8019 /* MypageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600BA27900F9100EC8019 /* MypageStoryboard.storyboard */; };
+		1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */; };
+		1F3600C027900FA800EC8019 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600BD27900FA700EC8019 /* CustomTableCell.swift */; };
+		1F3600C127900FA800EC8019 /* ChatRoomStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600BE27900FA700EC8019 /* ChatRoomStoryboard.storyboard */; };
+		1F3600C327900FB000EC8019 /* myLikedTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C227900FB000EC8019 /* myLikedTableVC.swift */; };
+		1F3600C727900FBD00EC8019 /* RegisterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600C427900FBC00EC8019 /* RegisterStoryboard.storyboard */; };
+		1F3600C827900FBD00EC8019 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C527900FBD00EC8019 /* MypageViewController.swift */; };
+		1F3600C927900FBD00EC8019 /* myPartTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C627900FBD00EC8019 /* myPartTableVC.swift */; };
 		41139F3F799CB2AB16F76B69 /* Pods_Smapp_SmappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE9F9F8B206B6BF51054784 /* Pods_Smapp_SmappUITests.framework */; };
 		6618945927841531009C6730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6618945827841530009C6730 /* GoogleService-Info.plist */; };
 		87228B8B694A7DC5F14C3410 /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DB37636C9A0C1B72FCD0EE /* Pods_Smapp.framework */; };
@@ -53,6 +61,14 @@
 		1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListViewController.swift; sourceTree = "<group>"; };
 		1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDetailViewController.swift; sourceTree = "<group>"; };
 		1F04AE4A278EBF9D008AC901 /* Subject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Subject.storyboard; sourceTree = "<group>"; };
+		1F3600BA27900F9100EC8019 /* MypageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MypageStoryboard.storyboard; sourceTree = "<group>"; };
+		1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
+		1F3600BD27900FA700EC8019 /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
+		1F3600BE27900FA700EC8019 /* ChatRoomStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatRoomStoryboard.storyboard; sourceTree = "<group>"; };
+		1F3600C227900FB000EC8019 /* myLikedTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myLikedTableVC.swift; sourceTree = "<group>"; };
+		1F3600C427900FBC00EC8019 /* RegisterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterStoryboard.storyboard; sourceTree = "<group>"; };
+		1F3600C527900FBD00EC8019 /* MypageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		1F3600C627900FBD00EC8019 /* myPartTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myPartTableVC.swift; sourceTree = "<group>"; };
 		32C367027C9B73BE98BA5FE7 /* Pods-Smapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.debug.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.debug.xcconfig"; sourceTree = "<group>"; };
 		6618945827841530009C6730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		86B825E544529305BB563ABF /* Pods-Smapp-SmappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.release.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,10 +189,18 @@
 				F49AFFF827840CF500DAC7AA /* AppDelegate.swift */,
 				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
 				F49AFFFE27840CF500DAC7AA /* Main.storyboard */,
+				1F3600BA27900F9100EC8019 /* MypageStoryboard.storyboard */,
 				F49AFFFC27840CF500DAC7AA /* LoginViewController.swift */,
 				1F04AE3E278E644C008AC901 /* Categories.storyboard */,
 				1F04AE40278E689E008AC901 /* Categories.swift */,
 				1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */,
+				1F3600BE27900FA700EC8019 /* ChatRoomStoryboard.storyboard */,
+				1F3600C227900FB000EC8019 /* myLikedTableVC.swift */,
+				1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */,
+				1F3600C527900FBD00EC8019 /* MypageViewController.swift */,
+				1F3600C627900FBD00EC8019 /* myPartTableVC.swift */,
+				1F3600C427900FBC00EC8019 /* RegisterStoryboard.storyboard */,
+				1F3600BD27900FA700EC8019 /* CustomTableCell.swift */,
 				1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */,
 				1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */,
 				1F04AE4A278EBF9D008AC901 /* Subject.storyboard */,
@@ -311,11 +335,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3600BB27900F9100EC8019 /* MypageStoryboard.storyboard in Resources */,
 				F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */,
+				1F3600C127900FA800EC8019 /* ChatRoomStoryboard.storyboard in Resources */,
 				1F04AE4B278EBF9D008AC901 /* Subject.storyboard in Resources */,
 				6618945927841531009C6730 /* GoogleService-Info.plist in Resources */,
 				F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */,
 				1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */,
+				1F3600C727900FBD00EC8019 /* RegisterStoryboard.storyboard in Resources */,
 				F49A000027840CF500DAC7AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,12 +475,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F04AE43278E95CB008AC901 /* CategoriesListCell.swift in Sources */,
+				1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */,
+				1F3600C027900FA800EC8019 /* CustomTableCell.swift in Sources */,
 				F49AFFFD27840CF500DAC7AA /* LoginViewController.swift in Sources */,
+				1F3600C927900FBD00EC8019 /* myPartTableVC.swift in Sources */,
 				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
 				1F04AE41278E689E008AC901 /* Categories.swift in Sources */,
 				1F04AE45278E97B7008AC901 /* CategoriesListViewController.swift in Sources */,
+				1F3600C327900FB000EC8019 /* myLikedTableVC.swift in Sources */,
 				1F04AE47278EA765008AC901 /* CategoriesDetailViewController.swift in Sources */,
 				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
+				1F3600C827900FBD00EC8019 /* MypageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
