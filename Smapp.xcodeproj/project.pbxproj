@@ -23,6 +23,10 @@
 		1F3600C927900FBD00EC8019 /* myPartTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C627900FBD00EC8019 /* myPartTableVC.swift */; };
 		41139F3F799CB2AB16F76B69 /* Pods_Smapp_SmappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE9F9F8B206B6BF51054784 /* Pods_Smapp_SmappUITests.framework */; };
 		6618945927841531009C6730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6618945827841530009C6730 /* GoogleService-Info.plist */; };
+		664A73042791484600A82E7C /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73032791484600A82E7C /* SubjectVC.swift */; };
+		664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73052791488500A82E7C /* SubjectFormVC.swift */; };
+		664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7307279148AF00A82E7C /* SubjectCell.swift */; };
+		664A730A279148CE00A82E7C /* SubjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7309279148CE00A82E7C /* SubjectData.swift */; };
 		87228B8B694A7DC5F14C3410 /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DB37636C9A0C1B72FCD0EE /* Pods_Smapp.framework */; };
 		BC51E104EADF266EEFC3D3E6 /* Pods_SmappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BDCB94FE902FDE3B08B747 /* Pods_SmappTests.framework */; };
 		F49A000027840CF500DAC7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49AFFFE27840CF500DAC7AA /* Main.storyboard */; };
@@ -71,6 +75,10 @@
 		1F3600C627900FBD00EC8019 /* myPartTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myPartTableVC.swift; sourceTree = "<group>"; };
 		32C367027C9B73BE98BA5FE7 /* Pods-Smapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.debug.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.debug.xcconfig"; sourceTree = "<group>"; };
 		6618945827841530009C6730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
+		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
+		664A7307279148AF00A82E7C /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
+		664A7309279148CE00A82E7C /* SubjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectData.swift; sourceTree = "<group>"; };
 		86B825E544529305BB563ABF /* Pods-Smapp-SmappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.release.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A036B2E10EE8B581FDFC3DC /* Pods-SmappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmappTests.release.xcconfig"; path = "Target Support Files/Pods-SmappTests/Pods-SmappTests.release.xcconfig"; sourceTree = "<group>"; };
 		A40EA6B6F610EB673AE126D5 /* Pods-Smapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.release.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,11 +211,15 @@
 				1F3600BD27900FA700EC8019 /* CustomTableCell.swift */,
 				1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */,
 				1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */,
-				1F04AE4A278EBF9D008AC901 /* Subject.storyboard */,
 				F49A000127840CFC00DAC7AA /* Assets.xcassets */,
 				F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */,
 				6618945827841530009C6730 /* GoogleService-Info.plist */,
 				F49A000627840CFC00DAC7AA /* Info.plist */,
+				1F04AE4A278EBF9D008AC901 /* Subject.storyboard */,
+				664A73032791484600A82E7C /* SubjectVC.swift */,
+				664A73052791488500A82E7C /* SubjectFormVC.swift */,
+				664A7307279148AF00A82E7C /* SubjectCell.swift */,
+				664A7309279148CE00A82E7C /* SubjectData.swift */,
 			);
 			path = Smapp;
 			sourceTree = "<group>";
@@ -474,13 +486,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664A73042791484600A82E7C /* SubjectVC.swift in Sources */,
 				1F04AE43278E95CB008AC901 /* CategoriesListCell.swift in Sources */,
 				1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */,
 				1F3600C027900FA800EC8019 /* CustomTableCell.swift in Sources */,
 				F49AFFFD27840CF500DAC7AA /* LoginViewController.swift in Sources */,
+				664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */,
+				664A730A279148CE00A82E7C /* SubjectData.swift in Sources */,
 				1F3600C927900FBD00EC8019 /* myPartTableVC.swift in Sources */,
 				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
 				1F04AE41278E689E008AC901 /* Categories.swift in Sources */,
+				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
 				1F04AE45278E97B7008AC901 /* CategoriesListViewController.swift in Sources */,
 				1F3600C327900FB000EC8019 /* myLikedTableVC.swift in Sources */,
 				1F04AE47278EA765008AC901 /* CategoriesDetailViewController.swift in Sources */,
