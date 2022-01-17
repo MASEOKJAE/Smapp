@@ -77,6 +77,9 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="WVw-TK-pc9" kind="show" id="8Qe-Tb-DRk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sWq-gh-2gS"/>
@@ -104,6 +107,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i29-7p-zdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="672.46376811594212" y="-53.571428571428569"/>
+        </scene>
+        <!--ChatRoomStoryboard-->
+        <scene sceneID="jRq-1A-Lfz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChatRoomStoryboard" id="WVw-TK-pc9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="p9S-du-hBI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MzL-Bb-s9m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1233" y="-54"/>
         </scene>
     </scenes>
     <resources>
