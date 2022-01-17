@@ -29,6 +29,10 @@
 		664A730A279148CE00A82E7C /* SubjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7309279148CE00A82E7C /* SubjectData.swift */; };
 		87228B8B694A7DC5F14C3410 /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DB37636C9A0C1B72FCD0EE /* Pods_Smapp.framework */; };
 		BC51E104EADF266EEFC3D3E6 /* Pods_SmappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BDCB94FE902FDE3B08B747 /* Pods_SmappTests.framework */; };
+		F4765EEA2795360600D3CE86 /* RoomEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EE92795360600D3CE86 /* RoomEnterViewController.swift */; };
+		F4765EEC2795362A00D3CE86 /* RoomEnterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */; };
+		F4765EEE2795364A00D3CE86 /* MakeRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EED2795364A00D3CE86 /* MakeRoomViewController.swift */; };
+		F4765EF02795366800D3CE86 /* MakeRoomStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EEF2795366800D3CE86 /* MakeRoomStoryboard.storyboard */; };
 		F49A000027840CF500DAC7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49AFFFE27840CF500DAC7AA /* Main.storyboard */; };
 		F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49A000127840CFC00DAC7AA /* Assets.xcassets */; };
 		F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */; };
@@ -86,6 +90,10 @@
 		D480EC7242977B735A45E3DC /* Pods-SmappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmappTests.debug.xcconfig"; path = "Target Support Files/Pods-SmappTests/Pods-SmappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEE9F9F8B206B6BF51054784 /* Pods_Smapp_SmappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smapp_SmappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C2E4684FC4081FC4618599 /* Pods-Smapp-SmappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4765EE92795360600D3CE86 /* RoomEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomEnterViewController.swift; sourceTree = "<group>"; };
+		F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomEnterStoryboard.storyboard; sourceTree = "<group>"; };
+		F4765EED2795364A00D3CE86 /* MakeRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRoomViewController.swift; sourceTree = "<group>"; };
+		F4765EEF2795366800D3CE86 /* MakeRoomStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MakeRoomStoryboard.storyboard; sourceTree = "<group>"; };
 		F49A000127840CFC00DAC7AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F49A000427840CFC00DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F49A000627840CFC00DAC7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,6 +219,10 @@
 				1F3600BD27900FA700EC8019 /* CustomTableCell.swift */,
 				1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */,
 				1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */,
+				F4765EE92795360600D3CE86 /* RoomEnterViewController.swift */,
+				F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */,
+				F4765EED2795364A00D3CE86 /* MakeRoomViewController.swift */,
+				F4765EEF2795366800D3CE86 /* MakeRoomStoryboard.storyboard */,
 				F49A000127840CFC00DAC7AA /* Assets.xcassets */,
 				F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */,
 				6618945827841530009C6730 /* GoogleService-Info.plist */,
@@ -354,8 +366,10 @@
 				6618945927841531009C6730 /* GoogleService-Info.plist in Resources */,
 				F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */,
 				1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */,
+				F4765EF02795366800D3CE86 /* MakeRoomStoryboard.storyboard in Resources */,
 				1F3600C727900FBD00EC8019 /* RegisterStoryboard.storyboard in Resources */,
 				F49A000027840CF500DAC7AA /* Main.storyboard in Resources */,
+				F4765EEC2795362A00D3CE86 /* RoomEnterStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4765EEA2795360600D3CE86 /* RoomEnterViewController.swift in Sources */,
 				664A73042791484600A82E7C /* SubjectVC.swift in Sources */,
 				1F04AE43278E95CB008AC901 /* CategoriesListCell.swift in Sources */,
 				1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */,
@@ -502,6 +517,7 @@
 				1F04AE47278EA765008AC901 /* CategoriesDetailViewController.swift in Sources */,
 				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
 				1F3600C827900FBD00EC8019 /* MypageViewController.swift in Sources */,
+				F4765EEE2795364A00D3CE86 /* MakeRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
