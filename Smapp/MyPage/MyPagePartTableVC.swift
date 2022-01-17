@@ -7,7 +7,7 @@
 
 import UIKit
 
-class myPartTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let titleOfRoom = ["특론 스터디 모집~", "머러 스터디 구해요!", "데구 같이 공부하실분", "자바 궁금한 거", "논설 알려주실분ㅠㅠ",
     "OSS 스터디입니다", "컴비 같이 하실분"]
     let partsOfRoom = ["3/4", "1/4", "4/4", "2/2", "1/3", "1/2", "2/3"]
@@ -29,7 +29,7 @@ class myPartTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as? CustomTableCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as? MyPageTableCell else {
              return UITableViewCell()
          }
         cell.roomTitle.text = titleOfRoom[indexPath.row]

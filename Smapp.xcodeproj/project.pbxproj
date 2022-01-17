@@ -15,24 +15,24 @@
 		1F04AE4B278EBF9D008AC901 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE4A278EBF9D008AC901 /* Subject.storyboard */; };
 		1F3600BB27900F9100EC8019 /* MypageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600BA27900F9100EC8019 /* MypageStoryboard.storyboard */; };
 		1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */; };
-		1F3600C027900FA800EC8019 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600BD27900FA700EC8019 /* CustomTableCell.swift */; };
+		1F3600C027900FA800EC8019 /* MyPageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600BD27900FA700EC8019 /* MyPageTableCell.swift */; };
 		1F3600C127900FA800EC8019 /* ChatRoomStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600BE27900FA700EC8019 /* ChatRoomStoryboard.storyboard */; };
-		1F3600C327900FB000EC8019 /* myLikedTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C227900FB000EC8019 /* myLikedTableVC.swift */; };
-		1F3600C727900FBD00EC8019 /* RegisterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600C427900FBC00EC8019 /* RegisterStoryboard.storyboard */; };
-		1F3600C827900FBD00EC8019 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C527900FBD00EC8019 /* MypageViewController.swift */; };
-		1F3600C927900FBD00EC8019 /* myPartTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C627900FBD00EC8019 /* myPartTableVC.swift */; };
+		1F3600C327900FB000EC8019 /* MyPageLikedTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C227900FB000EC8019 /* MyPageLikedTableVC.swift */; };
+		1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600C427900FBC00EC8019 /* Register.storyboard */; };
+		1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C527900FBD00EC8019 /* MyPageVC.swift */; };
+		1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */; };
 		41139F3F799CB2AB16F76B69 /* Pods_Smapp_SmappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE9F9F8B206B6BF51054784 /* Pods_Smapp_SmappUITests.framework */; };
 		6618945927841531009C6730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6618945827841530009C6730 /* GoogleService-Info.plist */; };
 		664A73042791484600A82E7C /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73032791484600A82E7C /* SubjectVC.swift */; };
 		664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73052791488500A82E7C /* SubjectFormVC.swift */; };
 		664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7307279148AF00A82E7C /* SubjectCell.swift */; };
 		664A730A279148CE00A82E7C /* SubjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7309279148CE00A82E7C /* SubjectData.swift */; };
+		66C94C46279544FC00644BDA /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C45279544FC00644BDA /* RoomData.swift */; };
+		66C94C48279545B100644BDA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C47279545B100644BDA /* UserData.swift */; };
 		87228B8B694A7DC5F14C3410 /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DB37636C9A0C1B72FCD0EE /* Pods_Smapp.framework */; };
 		BC51E104EADF266EEFC3D3E6 /* Pods_SmappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BDCB94FE902FDE3B08B747 /* Pods_SmappTests.framework */; };
-		F4765EEA2795360600D3CE86 /* RoomEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EE92795360600D3CE86 /* RoomEnterViewController.swift */; };
+		F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EE92795360600D3CE86 /* RoomEnterVC.swift */; };
 		F4765EEC2795362A00D3CE86 /* RoomEnterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */; };
-		F4765EEE2795364A00D3CE86 /* MakeRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EED2795364A00D3CE86 /* MakeRoomViewController.swift */; };
-		F4765EF02795366800D3CE86 /* MakeRoomStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EEF2795366800D3CE86 /* MakeRoomStoryboard.storyboard */; };
 		F49A000027840CF500DAC7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49AFFFE27840CF500DAC7AA /* Main.storyboard */; };
 		F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49A000127840CFC00DAC7AA /* Assets.xcassets */; };
 		F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */; };
@@ -71,18 +71,20 @@
 		1F04AE4A278EBF9D008AC901 /* Subject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Subject.storyboard; sourceTree = "<group>"; };
 		1F3600BA27900F9100EC8019 /* MypageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MypageStoryboard.storyboard; sourceTree = "<group>"; };
 		1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
-		1F3600BD27900FA700EC8019 /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
+		1F3600BD27900FA700EC8019 /* MyPageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageTableCell.swift; sourceTree = "<group>"; };
 		1F3600BE27900FA700EC8019 /* ChatRoomStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatRoomStoryboard.storyboard; sourceTree = "<group>"; };
-		1F3600C227900FB000EC8019 /* myLikedTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myLikedTableVC.swift; sourceTree = "<group>"; };
-		1F3600C427900FBC00EC8019 /* RegisterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterStoryboard.storyboard; sourceTree = "<group>"; };
-		1F3600C527900FBD00EC8019 /* MypageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
-		1F3600C627900FBD00EC8019 /* myPartTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myPartTableVC.swift; sourceTree = "<group>"; };
+		1F3600C227900FB000EC8019 /* MyPageLikedTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageLikedTableVC.swift; sourceTree = "<group>"; };
+		1F3600C427900FBC00EC8019 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		1F3600C527900FBD00EC8019 /* MyPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPagePartTableVC.swift; sourceTree = "<group>"; };
 		32C367027C9B73BE98BA5FE7 /* Pods-Smapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.debug.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.debug.xcconfig"; sourceTree = "<group>"; };
 		6618945827841530009C6730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
 		664A7307279148AF00A82E7C /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
 		664A7309279148CE00A82E7C /* SubjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectData.swift; sourceTree = "<group>"; };
+		66C94C45279544FC00644BDA /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
+		66C94C47279545B100644BDA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		86B825E544529305BB563ABF /* Pods-Smapp-SmappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.release.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A036B2E10EE8B581FDFC3DC /* Pods-SmappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmappTests.release.xcconfig"; path = "Target Support Files/Pods-SmappTests/Pods-SmappTests.release.xcconfig"; sourceTree = "<group>"; };
 		A40EA6B6F610EB673AE126D5 /* Pods-Smapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.release.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,10 +92,8 @@
 		D480EC7242977B735A45E3DC /* Pods-SmappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmappTests.debug.xcconfig"; path = "Target Support Files/Pods-SmappTests/Pods-SmappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEE9F9F8B206B6BF51054784 /* Pods_Smapp_SmappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smapp_SmappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C2E4684FC4081FC4618599 /* Pods-Smapp-SmappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F4765EE92795360600D3CE86 /* RoomEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomEnterViewController.swift; sourceTree = "<group>"; };
+		F4765EE92795360600D3CE86 /* RoomEnterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomEnterVC.swift; sourceTree = "<group>"; };
 		F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomEnterStoryboard.storyboard; sourceTree = "<group>"; };
-		F4765EED2795364A00D3CE86 /* MakeRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRoomViewController.swift; sourceTree = "<group>"; };
-		F4765EEF2795366800D3CE86 /* MakeRoomStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MakeRoomStoryboard.storyboard; sourceTree = "<group>"; };
 		F49A000127840CFC00DAC7AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F49A000427840CFC00DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F49A000627840CFC00DAC7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,6 +150,80 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		66C94C3D279540E200644BDA /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				1F04AE3E278E644C008AC901 /* Categories.storyboard */,
+				1F04AE40278E689E008AC901 /* Categories.swift */,
+				1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */,
+				1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */,
+				1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		66C94C3E2795426200644BDA /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				1F3600BE27900FA700EC8019 /* ChatRoomStoryboard.storyboard */,
+				1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */,
+			);
+			path = ChatRoom;
+			sourceTree = "<group>";
+		};
+		66C94C3F2795429600644BDA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */,
+				F49AFFFE27840CF500DAC7AA /* Main.storyboard */,
+				1F3600C427900FBC00EC8019 /* Register.storyboard */,
+				F49AFFFC27840CF500DAC7AA /* LoginViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		66C94C41279543B900644BDA /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				1F3600C227900FB000EC8019 /* MyPageLikedTableVC.swift */,
+				1F3600BA27900F9100EC8019 /* MypageStoryboard.storyboard */,
+				1F3600BD27900FA700EC8019 /* MyPageTableCell.swift */,
+				1F3600C527900FBD00EC8019 /* MyPageVC.swift */,
+				1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		66C94C42279543FD00644BDA /* RoomEnter */ = {
+			isa = PBXGroup;
+			children = (
+				F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */,
+				F4765EE92795360600D3CE86 /* RoomEnterVC.swift */,
+			);
+			path = RoomEnter;
+			sourceTree = "<group>";
+		};
+		66C94C432795441A00644BDA /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				1F04AE4A278EBF9D008AC901 /* Subject.storyboard */,
+				664A7307279148AF00A82E7C /* SubjectCell.swift */,
+				664A7309279148CE00A82E7C /* SubjectData.swift */,
+				664A73052791488500A82E7C /* SubjectFormVC.swift */,
+				664A73032791484600A82E7C /* SubjectVC.swift */,
+			);
+			path = Subject;
+			sourceTree = "<group>";
+		};
+		66C94C44279544E900644BDA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				66C94C45279544FC00644BDA /* RoomData.swift */,
+				66C94C47279545B100644BDA /* UserData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		E70FE7D9593D689538D41C58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,36 +276,18 @@
 		F49AFFF727840CF500DAC7AA /* Smapp */ = {
 			isa = PBXGroup;
 			children = (
+				66C94C44279544E900644BDA /* Data */,
 				F49AFFF827840CF500DAC7AA /* AppDelegate.swift */,
-				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
-				F49AFFFE27840CF500DAC7AA /* Main.storyboard */,
-				1F3600BA27900F9100EC8019 /* MypageStoryboard.storyboard */,
-				F49AFFFC27840CF500DAC7AA /* LoginViewController.swift */,
-				1F04AE3E278E644C008AC901 /* Categories.storyboard */,
-				1F04AE40278E689E008AC901 /* Categories.swift */,
-				1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */,
-				1F3600BE27900FA700EC8019 /* ChatRoomStoryboard.storyboard */,
-				1F3600C227900FB000EC8019 /* myLikedTableVC.swift */,
-				1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */,
-				1F3600C527900FBD00EC8019 /* MypageViewController.swift */,
-				1F3600C627900FBD00EC8019 /* myPartTableVC.swift */,
-				1F3600C427900FBC00EC8019 /* RegisterStoryboard.storyboard */,
-				1F3600BD27900FA700EC8019 /* CustomTableCell.swift */,
-				1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */,
-				1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */,
-				F4765EE92795360600D3CE86 /* RoomEnterViewController.swift */,
-				F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */,
-				F4765EED2795364A00D3CE86 /* MakeRoomViewController.swift */,
-				F4765EEF2795366800D3CE86 /* MakeRoomStoryboard.storyboard */,
 				F49A000127840CFC00DAC7AA /* Assets.xcassets */,
-				F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */,
+				66C94C3D279540E200644BDA /* Category */,
+				66C94C3E2795426200644BDA /* ChatRoom */,
 				6618945827841530009C6730 /* GoogleService-Info.plist */,
 				F49A000627840CFC00DAC7AA /* Info.plist */,
-				1F04AE4A278EBF9D008AC901 /* Subject.storyboard */,
-				664A73032791484600A82E7C /* SubjectVC.swift */,
-				664A73052791488500A82E7C /* SubjectFormVC.swift */,
-				664A7307279148AF00A82E7C /* SubjectCell.swift */,
-				664A7309279148CE00A82E7C /* SubjectData.swift */,
+				66C94C3F2795429600644BDA /* Main */,
+				66C94C41279543B900644BDA /* MyPage */,
+				66C94C42279543FD00644BDA /* RoomEnter */,
+				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
+				66C94C432795441A00644BDA /* Subject */,
 			);
 			path = Smapp;
 			sourceTree = "<group>";
@@ -366,8 +422,7 @@
 				6618945927841531009C6730 /* GoogleService-Info.plist in Resources */,
 				F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */,
 				1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */,
-				F4765EF02795366800D3CE86 /* MakeRoomStoryboard.storyboard in Resources */,
-				1F3600C727900FBD00EC8019 /* RegisterStoryboard.storyboard in Resources */,
+				1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */,
 				F49A000027840CF500DAC7AA /* Main.storyboard in Resources */,
 				F4765EEC2795362A00D3CE86 /* RoomEnterStoryboard.storyboard in Resources */,
 			);
@@ -500,24 +555,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4765EEA2795360600D3CE86 /* RoomEnterViewController.swift in Sources */,
+				F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */,
 				664A73042791484600A82E7C /* SubjectVC.swift in Sources */,
 				1F04AE43278E95CB008AC901 /* CategoriesListCell.swift in Sources */,
+				66C94C48279545B100644BDA /* UserData.swift in Sources */,
 				1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */,
-				1F3600C027900FA800EC8019 /* CustomTableCell.swift in Sources */,
+				1F3600C027900FA800EC8019 /* MyPageTableCell.swift in Sources */,
 				F49AFFFD27840CF500DAC7AA /* LoginViewController.swift in Sources */,
 				664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */,
 				664A730A279148CE00A82E7C /* SubjectData.swift in Sources */,
-				1F3600C927900FBD00EC8019 /* myPartTableVC.swift in Sources */,
+				1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */,
 				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
 				1F04AE41278E689E008AC901 /* Categories.swift in Sources */,
 				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
+				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
 				1F04AE45278E97B7008AC901 /* CategoriesListViewController.swift in Sources */,
-				1F3600C327900FB000EC8019 /* myLikedTableVC.swift in Sources */,
+				1F3600C327900FB000EC8019 /* MyPageLikedTableVC.swift in Sources */,
 				1F04AE47278EA765008AC901 /* CategoriesDetailViewController.swift in Sources */,
 				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
-				1F3600C827900FBD00EC8019 /* MypageViewController.swift in Sources */,
-				F4765EEE2795364A00D3CE86 /* MakeRoomViewController.swift in Sources */,
+				1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

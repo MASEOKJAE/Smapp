@@ -8,7 +8,7 @@
 import UIKit
 
 
-class MypageViewController: UIViewController{
+class MyPageVC: UIViewController{
     
     
     @IBOutlet weak var partStudy: UIView!
