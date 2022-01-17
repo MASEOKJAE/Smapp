@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YzX-LP-TCP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--스터디룸 입장하기-->
+        <scene sceneID="pKX-lI-q9k">
+            <objects>
+                <viewController storyboardIdentifier="RoomEnterViewController" id="YzX-LP-TCP" customClass="RoomEnterViewController" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UyZ-nm-GSM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BLj-Cd-c4G">
+                                <rect key="frame" x="20" y="101" width="374" height="524"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BLj-Cd-c4G" secondAttribute="height" multiplier="187:273" constant="15.06959706959708" id="5yE-xh-AUg"/>
+                                    <constraint firstAttribute="height" constant="524" id="CPy-Li-jRf"/>
+                                    <constraint firstAttribute="width" constant="374" id="fvH-vi-OeM"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kJa-6K-K16">
+                                <rect key="frame" x="332.5" y="118" width="45.5" height="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="like_off">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="strokeColor" systemColor="labelColor"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle"/>
+                                    <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="LikeButtonClick:" destination="YzX-LP-TCP" eventType="touchUpInside" id="tsr-5e-ceu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfH-aw-Y22">
+                                <rect key="frame" x="20" y="587" width="36.5" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="strokeColor" systemColor="labelColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <attributedString key="attributedSubtitle"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="AddImage:" destination="YzX-LP-TCP" eventType="touchUpInside" id="sKf-bJ-Pyv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVc-MK-qD6">
+                                <rect key="frame" x="20" y="652" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Z2-re-NEq">
+                                <rect key="frame" x="107" y="784" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="UQD-h5-Pfv"/>
+                                    <constraint firstAttribute="height" constant="44" id="kkk-h0-ap3"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="스터디룸 입장하기" cornerStyle="medium">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sWq-gh-2gS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BLj-Cd-c4G" firstAttribute="leading" secondItem="gfH-aw-Y22" secondAttribute="leading" id="18H-MR-3NF"/>
+                            <constraint firstItem="1Z2-re-NEq" firstAttribute="centerX" secondItem="UyZ-nm-GSM" secondAttribute="centerX" id="Cu4-yL-23i"/>
+                            <constraint firstItem="kJa-6K-K16" firstAttribute="top" secondItem="BLj-Cd-c4G" secondAttribute="top" constant="17" id="MbV-6J-4rz"/>
+                            <constraint firstItem="nVc-MK-qD6" firstAttribute="top" secondItem="BLj-Cd-c4G" secondAttribute="bottom" constant="27" id="RZZ-Aj-pHO"/>
+                            <constraint firstItem="sWq-gh-2gS" firstAttribute="bottom" secondItem="1Z2-re-NEq" secondAttribute="bottom" constant="34" id="Wdk-zL-ery"/>
+                            <constraint firstItem="BLj-Cd-c4G" firstAttribute="leading" secondItem="UyZ-nm-GSM" secondAttribute="leadingMargin" id="YBM-W1-zzJ"/>
+                            <constraint firstItem="BLj-Cd-c4G" firstAttribute="bottom" secondItem="gfH-aw-Y22" secondAttribute="bottom" id="bbk-ez-CPJ"/>
+                            <constraint firstItem="BLj-Cd-c4G" firstAttribute="centerX" secondItem="UyZ-nm-GSM" secondAttribute="centerX" id="dfs-Wf-ufT"/>
+                            <constraint firstItem="sWq-gh-2gS" firstAttribute="trailing" secondItem="kJa-6K-K16" secondAttribute="trailing" constant="36" id="fm8-tT-ckP"/>
+                            <constraint firstItem="BLj-Cd-c4G" firstAttribute="centerY" secondItem="UyZ-nm-GSM" secondAttribute="centerY" constant="-85" id="tll-Eb-GXz"/>
+                            <constraint firstItem="BLj-Cd-c4G" firstAttribute="leading" secondItem="nVc-MK-qD6" secondAttribute="leading" id="zdO-yX-LZU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="스터디룸 입장하기" id="bdh-wC-7kZ"/>
+                    <connections>
+                        <outlet property="ImageView" destination="BLj-Cd-c4G" id="tS6-bN-iWw"/>
+                        <outlet property="LikeButton" destination="kJa-6K-K16" id="nyn-D5-Fcu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i29-7p-zdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="672.46376811594212" y="-53.571428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="like_off" width="64" height="64"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
