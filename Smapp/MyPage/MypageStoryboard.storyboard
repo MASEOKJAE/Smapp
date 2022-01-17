@@ -11,7 +11,7 @@
         <!--마이페이지-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MypageViewController" title="마이페이지" id="Y6W-OH-hqX" customClass="MypageViewController" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MypageViewController" title="마이페이지" id="Y6W-OH-hqX" customClass="MyPageVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="130.76923076923077" y="64.691943127962077"/>
         </scene>
-        <!--My Part TableVC-->
+        <!--My Page Part TableVC-->
         <scene sceneID="Znc-SZ-AQA">
             <objects>
-                <viewController id="E4J-bB-xBg" customClass="myPartTableVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="E4J-bB-xBg" customClass="MyPagePartTableVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5rA-dw-OyV">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,10 +113,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableCell" rowHeight="70" id="eVh-fY-HeU" customClass="CustomTableCell" customModule="Smapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableCell" rowHeight="70" id="eVh-fY-HeU" customClass="MyPageTableCell" customModule="Smapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="350" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eVh-fY-HeU" id="El8-G5-oCY" customClass="CustomTableCell" customModule="Smapp" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eVh-fY-HeU" id="El8-G5-oCY" customClass="MyPageTableCell" customModule="Smapp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -188,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="112" y="539"/>
         </scene>
-        <!--My Liked TableVC-->
+        <!--My Page Liked TableVC-->
         <scene sceneID="SAB-lK-Cq4">
             <objects>
-                <viewController id="9kV-ih-jS7" customClass="myLikedTableVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9kV-ih-jS7" customClass="MyPageLikedTableVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7qo-VF-gbW">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,10 +201,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableCell" id="DJp-7w-fel" customClass="CustomTableCell" customModule="Smapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableCell" id="DJp-7w-fel" customClass="MyPageTableCell" customModule="Smapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DJp-7w-fel" id="msu-PG-SzR" customClass="CustomTableCell" customModule="Smapp" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DJp-7w-fel" id="msu-PG-SzR" customClass="MyPageTableCell" customModule="Smapp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class myLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MyPageLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let likedTitleOfRoom = ["네똑 스터디 하실 분ㅠㅠ~", "웹서개 스터디 입니다!!"]
     let likedPartsOfRoom = ["2/4", "4/4"]
     
@@ -25,7 +25,7 @@ class myLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as? CustomTableCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as? MyPageTableCell else {
              return UITableViewCell()
          }
          cell.likedRoomTitle.text = likedTitleOfRoom[indexPath.row]

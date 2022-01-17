@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTableCell: UITableViewCell {
+class MyPageTableCell: UITableViewCell {
     
     @IBOutlet weak var roomTitle: UILabel!
     @IBOutlet weak var participants: UILabel!

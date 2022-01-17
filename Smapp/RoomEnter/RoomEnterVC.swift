@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RoomEnterViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+class RoomEnterVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
     func openLibrary(){
       picker.sourceType = .photoLibrary

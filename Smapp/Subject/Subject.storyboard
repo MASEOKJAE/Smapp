@@ -12,7 +12,6 @@
         <!--SubjectVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Subject" id="Y6W-OH-hqX" customClass="SubjectVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -74,6 +73,9 @@
                                                     <buttonConfiguration key="configuration" style="filled" title="참가" cornerStyle="large">
                                                         <color key="baseBackgroundColor" red="0.94262164829999995" green="0.60267573600000002" blue="0.2155309618" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <segue destination="G8S-ed-qji" kind="show" id="o7S-W1-BON"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="과목명" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf9-pc-YNL">
                                                     <rect key="frame" x="71" y="28" width="52" height="24"/>
@@ -100,8 +102,19 @@
                         <outlet property="collectionView" destination="JXZ-WU-bh2" id="s4s-9B-gng"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-42.028985507246382" y="2.6785714285714284"/>
+        </scene>
+        <!--RoomEnterStoryboard-->
+        <scene sceneID="ZaN-aB-UNA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RoomEnterStoryboard" id="G8S-ed-qji" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="H9y-qS-6r1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ufm-t6-c2s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-41" y="392"/>
         </scene>
         <!--스터디 만들기-->
         <scene sceneID="0yQ-U6-m7z">
