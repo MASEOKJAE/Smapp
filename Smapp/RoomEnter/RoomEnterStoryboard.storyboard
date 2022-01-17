@@ -108,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="672.46376811594212" y="-53.571428571428569"/>
         </scene>
-        <!--ChatRoomStoryboard-->
+        <!--ChatRoom-->
         <scene sceneID="jRq-1A-Lfz">
             <objects>
-                <viewControllerPlaceholder storyboardName="ChatRoomStoryboard" id="WVw-TK-pc9" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ChatRoom" id="WVw-TK-pc9" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="p9S-du-hBI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MzL-Bb-s9m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

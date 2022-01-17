@@ -11,7 +11,7 @@
         <!--마이페이지-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MypageViewController" title="마이페이지" id="Y6W-OH-hqX" customClass="MyPageVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPage" title="마이페이지" id="Y6W-OH-hqX" customClass="MyPageVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="-538.46153846153845" y="561.61137440758296"/>
         </scene>
-        <!--ChatRoomVC-->
+        <!--ChatRoom-->
         <scene sceneID="6hQ-ZN-35w">
             <objects>
-                <viewControllerPlaceholder storyboardName="ChatRoomStoryboard" referencedIdentifier="ChatRoomVC" id="Y9s-JG-Aou" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ChatRoom" id="Y9s-JG-Aou" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="lAG-uH-wUh"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v88-gu-ajf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

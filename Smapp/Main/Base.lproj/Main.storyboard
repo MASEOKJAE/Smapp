@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="718" y="89"/>
         </scene>
-        <!--MypageStoryboard-->
+        <!--MyPage-->
         <scene sceneID="Dog-L5-4SA">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MypageStoryboard" storyboardName="MypageStoryboard" id="Qgn-oe-zo7" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="MypageStoryboard" storyboardName="MyPage" id="Qgn-oe-zo7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="X0x-Dz-qNW"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPp-Rb-Isn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
