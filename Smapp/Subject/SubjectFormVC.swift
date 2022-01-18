@@ -7,9 +7,14 @@
 
 import UIKit
 
-class SubjectFormVC: UIViewController, UITextViewDelegate {
-    @IBOutlet weak var subject: UITextView!
-    @IBOutlet weak var contents: UITextView!
+class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+    @IBOutlet weak var roomTitle: UITextField!
+    @IBOutlet weak var contents: UITextField!
+    @IBOutlet weak var subject: UITextField!
+    @IBOutlet weak var professor: UITextField!
+    @IBOutlet weak var major: UITextField!
+    @IBOutlet weak var numberOfMax: UITextField!
+    @IBOutlet weak var dueDate: UITextField!
     
     
     @IBAction func save(_ sender: Any) {
@@ -20,13 +25,26 @@ class SubjectFormVC: UIViewController, UITextViewDelegate {
             return
         }
         
-        let data = SubjectData()
+        let data = RoomData()
         
-        data.subject = self.subject.text
+        data.title = self.roomTitle.text
         data.contents = self.contents.text
+        data.subject = self.subject.text
+        data.professor = self.professor.text
+        data.major = ""
+        data.numberOfPart = 1
+        data.numberOfMax = Int(self.numberOfMax.text!)
+        data.openDate = Date()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        data.dueDate = formatter.date(from: self.dueDate.text!)
+        
+        data.isOnce = false
+        data.isClosed = false
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.subjectList.append(data)
+        appDelegate.roomList.append(data)
         
         _ = self.navigationController?.popViewController(animated: true)
     }

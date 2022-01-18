@@ -20,7 +20,6 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view.
         
     }
-    
 
     @IBAction func TapGoogleLogin(_ sender: Any) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }

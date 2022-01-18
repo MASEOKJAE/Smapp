@@ -12,7 +12,7 @@
         <!--채팅방-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="ChatRoom" title="채팅방" id="Y6W-OH-hqX" customClass="ChatRoomVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatRoom" title="채팅방" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="ChatRoomVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,6 +60,19 @@
                                     <action selector="tapSendButtonWith_sender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tV2-fZ-5yn"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JiK-CY-3iL">
+                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="채팅방" id="WIg-9i-QDC">
+                                        <barButtonItem key="rightBarButtonItem" title="임시(탈출)" id="7PB-Vt-oSK">
+                                            <connections>
+                                                <segue destination="Zrq-LV-ANh" kind="show" id="czH-Oq-2pg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -83,6 +96,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="81.538461538461533" y="97.393364928909946"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="g5Z-Hy-9NE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Categories" id="Zrq-LV-ANh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="SZL-2z-eCP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HjO-Cj-6wb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="32"/>
         </scene>
     </scenes>
     <resources>

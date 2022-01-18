@@ -64,7 +64,7 @@ class RoomEnterVC: UIViewController, UIImagePickerControllerDelegate & UINavigat
     
     
     @IBAction func LikeButtonClick(_ sender: UIButton) {
-         if LikeButton.tag == 0{
+         if LikeButton.tag == 0 {
             LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)
             LikeButton.tag = 1
         }

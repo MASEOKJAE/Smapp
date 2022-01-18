@@ -10,8 +10,8 @@ import UIKit
 class SubjectVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +22,17 @@ class SubjectVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView.reloadData()
-        
-        let n = self.appDelegate.subjectList.count
-        print(n)
-        if(n > 0) {
-            print(self.appDelegate.subjectList[n-1].subject!)
-            print(self.appDelegate.subjectList[n-1].contents!)
-        }
+    }
+    
+    @IBAction func LikeClicked(_ sender: UIButton) {
+        if sender.tag == 0 {
+           sender.setImage(UIImage(systemName: "heart"), for: .normal)
+           sender.tag = 1
+       }
+       else{
+           sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+           sender.tag = 0
+       }
     }
 }
 
@@ -36,19 +40,20 @@ extension SubjectVC: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.appDelegate.subjectList.count
+        return self.appDelegate.roomList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath) as! SubjectCell
         
-        let item = self.appDelegate.subjectList[indexPath.item]
+        let item = self.appDelegate.roomList[indexPath.item]
         
-        print(item.subject!)
-        print(item.contents!)
+        let formatter = DateFormatter()
+        cell.roomTitle?.text = item.title!
+        cell.information?.text = item.subject! + " | " + item.professor! + " 교수님 | " + formatter.string(from: item.dueDate!)
+        cell.member?.text = "(" + String(item.numberOfPart!) + "/" + String(item.numberOfMax!) + ")"
         
-        cell.subject?.text = item.subject!
-        cell.contents?.text = item.contents!
+        LikeClicked(cell.LikeButton)
         
         return cell
     }

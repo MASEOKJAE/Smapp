@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE3E278E644C008AC901 /* Categories.storyboard */; };
 		1F04AE41278E689E008AC901 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE40278E689E008AC901 /* Categories.swift */; };
-		1F04AE43278E95CB008AC901 /* CategoriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */; };
-		1F04AE45278E97B7008AC901 /* CategoriesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE44278E97B7008AC901 /* CategoriesListVC.swift */; };
+		1F04AE43278E95CB008AC901 /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE42278E95CB008AC901 /* CategoriesCell.swift */; };
+		1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE44278E97B7008AC901 /* CategoriesVC.swift */; };
 		1F04AE4B278EBF9D008AC901 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE4A278EBF9D008AC901 /* Subject.storyboard */; };
 		1F3600BB27900F9100EC8019 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600BA27900F9100EC8019 /* MyPage.storyboard */; };
 		1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */; };
@@ -25,7 +25,6 @@
 		664A73042791484600A82E7C /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73032791484600A82E7C /* SubjectVC.swift */; };
 		664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73052791488500A82E7C /* SubjectFormVC.swift */; };
 		664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7307279148AF00A82E7C /* SubjectCell.swift */; };
-		664A730A279148CE00A82E7C /* SubjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7309279148CE00A82E7C /* SubjectData.swift */; };
 		66C94C46279544FC00644BDA /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C45279544FC00644BDA /* RoomData.swift */; };
 		66C94C48279545B100644BDA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C47279545B100644BDA /* UserData.swift */; };
 		87228B8B694A7DC5F14C3410 /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DB37636C9A0C1B72FCD0EE /* Pods_Smapp.framework */; };
@@ -35,9 +34,6 @@
 		F49A000027840CF500DAC7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49AFFFE27840CF500DAC7AA /* Main.storyboard */; };
 		F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49A000127840CFC00DAC7AA /* Assets.xcassets */; };
 		F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */; };
-		F49A001027840CFD00DAC7AA /* SmappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A000F27840CFD00DAC7AA /* SmappTests.swift */; };
-		F49A001A27840CFD00DAC7AA /* SmappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A001927840CFD00DAC7AA /* SmappUITests.swift */; };
-		F49A001C27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */; };
 		F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFF827840CF500DAC7AA /* AppDelegate.swift */; };
 		F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */; };
 		F49AFFFD27840CF500DAC7AA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFFC27840CF500DAC7AA /* LoginVC.swift */; };
@@ -64,8 +60,8 @@
 		17BDCB94FE902FDE3B08B747 /* Pods_SmappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F04AE3E278E644C008AC901 /* Categories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
 		1F04AE40278E689E008AC901 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListCell.swift; sourceTree = "<group>"; };
-		1F04AE44278E97B7008AC901 /* CategoriesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListVC.swift; sourceTree = "<group>"; };
+		1F04AE42278E95CB008AC901 /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
+		1F04AE44278E97B7008AC901 /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		1F04AE4A278EBF9D008AC901 /* Subject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Subject.storyboard; sourceTree = "<group>"; };
 		1F3600BA27900F9100EC8019 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
@@ -80,7 +76,6 @@
 		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
 		664A7307279148AF00A82E7C /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
-		664A7309279148CE00A82E7C /* SubjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectData.swift; sourceTree = "<group>"; };
 		66C94C45279544FC00644BDA /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
 		66C94C47279545B100644BDA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		86B825E544529305BB563ABF /* Pods-Smapp-SmappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.release.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,10 +91,7 @@
 		F49A000427840CFC00DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F49A000627840CFC00DAC7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F49A000B27840CFD00DAC7AA /* SmappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F49A000F27840CFD00DAC7AA /* SmappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmappTests.swift; sourceTree = "<group>"; };
 		F49A001527840CFD00DAC7AA /* SmappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F49A001927840CFD00DAC7AA /* SmappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmappUITests.swift; sourceTree = "<group>"; };
-		F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmappUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F49AFFF527840CF500DAC7AA /* Smapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49AFFF827840CF500DAC7AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,8 +145,8 @@
 			children = (
 				1F04AE3E278E644C008AC901 /* Categories.storyboard */,
 				1F04AE40278E689E008AC901 /* Categories.swift */,
-				1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */,
-				1F04AE44278E97B7008AC901 /* CategoriesListVC.swift */,
+				1F04AE42278E95CB008AC901 /* CategoriesCell.swift */,
+				1F04AE44278E97B7008AC901 /* CategoriesVC.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -205,7 +197,6 @@
 			children = (
 				1F04AE4A278EBF9D008AC901 /* Subject.storyboard */,
 				664A7307279148AF00A82E7C /* SubjectCell.swift */,
-				664A7309279148CE00A82E7C /* SubjectData.swift */,
 				664A73052791488500A82E7C /* SubjectFormVC.swift */,
 				664A73032791484600A82E7C /* SubjectVC.swift */,
 			);
@@ -231,29 +222,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F49A000E27840CFD00DAC7AA /* SmappTests */ = {
-			isa = PBXGroup;
-			children = (
-				F49A000F27840CFD00DAC7AA /* SmappTests.swift */,
-			);
-			path = SmappTests;
-			sourceTree = "<group>";
-		};
-		F49A001827840CFD00DAC7AA /* SmappUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F49A001927840CFD00DAC7AA /* SmappUITests.swift */,
-				F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */,
-			);
-			path = SmappUITests;
-			sourceTree = "<group>";
-		};
 		F49AFFEC27840CF500DAC7AA = {
 			isa = PBXGroup;
 			children = (
 				F49AFFF727840CF500DAC7AA /* Smapp */,
-				F49A000E27840CFD00DAC7AA /* SmappTests */,
-				F49A001827840CFD00DAC7AA /* SmappUITests */,
 				F49AFFF627840CF500DAC7AA /* Products */,
 				5F7617752D724FA944AEB081 /* Pods */,
 				E70FE7D9593D689538D41C58 /* Frameworks */,
@@ -535,7 +507,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F49A001027840CFD00DAC7AA /* SmappTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,8 +514,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F49A001C27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift in Sources */,
-				F49A001A27840CFD00DAC7AA /* SmappUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,19 +523,18 @@
 			files = (
 				F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */,
 				664A73042791484600A82E7C /* SubjectVC.swift in Sources */,
-				1F04AE43278E95CB008AC901 /* CategoriesListCell.swift in Sources */,
+				1F04AE43278E95CB008AC901 /* CategoriesCell.swift in Sources */,
 				66C94C48279545B100644BDA /* UserData.swift in Sources */,
 				1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */,
 				1F3600C027900FA800EC8019 /* MyPageTableCell.swift in Sources */,
 				F49AFFFD27840CF500DAC7AA /* LoginVC.swift in Sources */,
 				664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */,
-				664A730A279148CE00A82E7C /* SubjectData.swift in Sources */,
 				1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */,
 				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
 				1F04AE41278E689E008AC901 /* Categories.swift in Sources */,
 				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
 				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
-				1F04AE45278E97B7008AC901 /* CategoriesListVC.swift in Sources */,
+				1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */,
 				1F3600C327900FB000EC8019 /* MyPageLikedTableVC.swift in Sources */,
 				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
 				1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */,
