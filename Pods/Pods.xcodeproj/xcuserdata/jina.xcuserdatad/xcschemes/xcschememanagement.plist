@@ -7,173 +7,97 @@
 		<key>AppAuth.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>10</integer>
-=======
-			<integer>15</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>Firebase.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>1</integer>
-=======
-			<integer>17</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>FirebaseAnalytics.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>4</integer>
-=======
-			<integer>9</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>FirebaseAuth.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>16</integer>
-=======
-			<integer>0</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>FirebaseCore.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>8</integer>
-=======
-			<integer>1</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>FirebaseCoreDiagnostics.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>6</integer>
-=======
-			<integer>13</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>FirebaseInstallations.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>18</integer>
-=======
-			<integer>11</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>GTMAppAuth.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>17</integer>
-=======
-			<integer>12</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>GTMSessionFetcher.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>13</integer>
-=======
-			<integer>18</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>GoogleAppMeasurement.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>9</integer>
-=======
-			<integer>10</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>GoogleDataTransport.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>12</integer>
-=======
-			<integer>8</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>GoogleSignIn-GoogleSignIn.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>11</integer>
-=======
-			<integer>2</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>GoogleSignIn.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>14</integer>
-=======
-			<integer>6</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>GoogleUtilities.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>5</integer>
-=======
-			<integer>3</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>Pods-Smapp-SmappUITests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>7</integer>
-=======
-			<integer>5</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>Pods-Smapp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>15</integer>
-=======
-			<integer>4</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>Pods-SmappTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>2</integer>
-=======
-			<integer>7</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>PromisesObjC.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>0</integer>
-=======
-			<integer>14</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 		<key>nanopb.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>3</integer>
-=======
-			<integer>16</integer>
->>>>>>> a08448b998849cf504dc462cf5aef328d7a00ba0
 		</dict>
 	</dict>
 </dict>
