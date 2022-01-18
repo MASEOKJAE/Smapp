@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6te-f6-5Os">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -11,7 +11,7 @@
         <!--마이페이지-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MyPage" title="마이페이지" id="Y6W-OH-hqX" customClass="MyPageVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPage" title="마이페이지" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="MyPageVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="height" constant="500" id="yMn-P6-UOJ"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="E4J-bB-xBg" kind="embed" id="xiu-kP-opd"/>
+                                    <segue destination="E4J-bB-xBg" kind="embed" id="h97-gq-QOM"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-11-Gxm">
@@ -88,7 +88,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VGm-wv-EIE" secondAttribute="trailing" constant="20" id="ztF-Go-4ZK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마이페이지" image="person.fill" catalog="system" selectedImage="person.fill" id="8RC-hk-ttt"/>
+                    <navigationItem key="navigationItem" title="마이페이지" id="yNC-GZ-pa9"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.76923076923077" y="64.691943127962077"/>
+            <point key="canvasLocation" x="1060" y="64.691943127962077"/>
         </scene>
         <!--My Page Part TableVC-->
         <scene sceneID="Znc-SZ-AQA">
@@ -173,10 +173,13 @@
                         <viewLayoutGuide key="safeArea" id="JLk-E9-GeM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="hVU-BY-tGY" id="z6R-Gw-axN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpt-4C-ehf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-538.46153846153845" y="561.61137440758296"/>
+            <point key="canvasLocation" x="-257" y="754"/>
         </scene>
         <!--ChatRoom-->
         <scene sceneID="6hQ-ZN-35w">
@@ -186,7 +189,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v88-gu-ajf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="539"/>
+            <point key="canvasLocation" x="255" y="754"/>
         </scene>
         <!--My Page Liked TableVC-->
         <scene sceneID="SAB-lK-Cq4">
@@ -242,7 +245,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICf-cg-1oi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1167.6923076923076" y="590.75829383886253"/>
+            <point key="canvasLocation" x="728" y="859"/>
+        </scene>
+        <!--마이페이지-->
+        <scene sceneID="akb-qD-7sc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6te-f6-5Os" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="person.fill" catalog="system" selectedImage="person.fill" id="8RC-hk-ttt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NyT-Kp-lqw">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="SQL-BA-zKd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJi-Z0-pNk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.76923076923077" y="64.691943127962077"/>
         </scene>
     </scenes>
     <resources>

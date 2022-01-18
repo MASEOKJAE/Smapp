@@ -10,9 +10,9 @@ import UIKit
 
 class MyPageVC: UIViewController{
     
-    
     @IBOutlet weak var partStudy: UIView!
     @IBOutlet weak var likeStudy: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
