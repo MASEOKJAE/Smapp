@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: UIViewController {
+class LoginVC: UIViewController {
 
     @IBOutlet var AppTitle: UILabel!
     @IBOutlet var AppSubTitle: UILabel!

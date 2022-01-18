@@ -10,8 +10,7 @@
 		1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE3E278E644C008AC901 /* Categories.storyboard */; };
 		1F04AE41278E689E008AC901 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE40278E689E008AC901 /* Categories.swift */; };
 		1F04AE43278E95CB008AC901 /* CategoriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */; };
-		1F04AE45278E97B7008AC901 /* CategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */; };
-		1F04AE47278EA765008AC901 /* CategoriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */; };
+		1F04AE45278E97B7008AC901 /* CategoriesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE44278E97B7008AC901 /* CategoriesListVC.swift */; };
 		1F04AE4B278EBF9D008AC901 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE4A278EBF9D008AC901 /* Subject.storyboard */; };
 		1F3600BB27900F9100EC8019 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600BA27900F9100EC8019 /* MyPage.storyboard */; };
 		1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */; };
@@ -32,7 +31,7 @@
 		87228B8B694A7DC5F14C3410 /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DB37636C9A0C1B72FCD0EE /* Pods_Smapp.framework */; };
 		BC51E104EADF266EEFC3D3E6 /* Pods_SmappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BDCB94FE902FDE3B08B747 /* Pods_SmappTests.framework */; };
 		F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EE92795360600D3CE86 /* RoomEnterVC.swift */; };
-		F4765EEC2795362A00D3CE86 /* RoomEnterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */; };
+		F4765EEC2795362A00D3CE86 /* RoomEnter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EEB2795362A00D3CE86 /* RoomEnter.storyboard */; };
 		F49A000027840CF500DAC7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49AFFFE27840CF500DAC7AA /* Main.storyboard */; };
 		F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49A000127840CFC00DAC7AA /* Assets.xcassets */; };
 		F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */; };
@@ -41,7 +40,7 @@
 		F49A001C27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */; };
 		F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFF827840CF500DAC7AA /* AppDelegate.swift */; };
 		F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */; };
-		F49AFFFD27840CF500DAC7AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFFC27840CF500DAC7AA /* LoginViewController.swift */; };
+		F49AFFFD27840CF500DAC7AA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFFC27840CF500DAC7AA /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +65,7 @@
 		1F04AE3E278E644C008AC901 /* Categories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
 		1F04AE40278E689E008AC901 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListCell.swift; sourceTree = "<group>"; };
-		1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListViewController.swift; sourceTree = "<group>"; };
-		1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDetailViewController.swift; sourceTree = "<group>"; };
+		1F04AE44278E97B7008AC901 /* CategoriesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListVC.swift; sourceTree = "<group>"; };
 		1F04AE4A278EBF9D008AC901 /* Subject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Subject.storyboard; sourceTree = "<group>"; };
 		1F3600BA27900F9100EC8019 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
@@ -93,7 +91,7 @@
 		DEE9F9F8B206B6BF51054784 /* Pods_Smapp_SmappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smapp_SmappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C2E4684FC4081FC4618599 /* Pods-Smapp-SmappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F4765EE92795360600D3CE86 /* RoomEnterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomEnterVC.swift; sourceTree = "<group>"; };
-		F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomEnterStoryboard.storyboard; sourceTree = "<group>"; };
+		F4765EEB2795362A00D3CE86 /* RoomEnter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomEnter.storyboard; sourceTree = "<group>"; };
 		F49A000127840CFC00DAC7AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F49A000427840CFC00DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F49A000627840CFC00DAC7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,7 +103,7 @@
 		F49AFFF527840CF500DAC7AA /* Smapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49AFFF827840CF500DAC7AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F49AFFFC27840CF500DAC7AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F49AFFFC27840CF500DAC7AA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F49AFFFF27840CF500DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,9 +153,8 @@
 			children = (
 				1F04AE3E278E644C008AC901 /* Categories.storyboard */,
 				1F04AE40278E689E008AC901 /* Categories.swift */,
-				1F04AE46278EA765008AC901 /* CategoriesDetailViewController.swift */,
 				1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */,
-				1F04AE44278E97B7008AC901 /* CategoriesListViewController.swift */,
+				1F04AE44278E97B7008AC901 /* CategoriesListVC.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -177,7 +174,7 @@
 				F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */,
 				F49AFFFE27840CF500DAC7AA /* Main.storyboard */,
 				1F3600C427900FBC00EC8019 /* Register.storyboard */,
-				F49AFFFC27840CF500DAC7AA /* LoginViewController.swift */,
+				F49AFFFC27840CF500DAC7AA /* LoginVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -185,8 +182,8 @@
 		66C94C41279543B900644BDA /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				1F3600C227900FB000EC8019 /* MyPageLikedTableVC.swift */,
 				1F3600BA27900F9100EC8019 /* MyPage.storyboard */,
+				1F3600C227900FB000EC8019 /* MyPageLikedTableVC.swift */,
 				1F3600BD27900FA700EC8019 /* MyPageTableCell.swift */,
 				1F3600C527900FBD00EC8019 /* MyPageVC.swift */,
 				1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */,
@@ -197,7 +194,7 @@
 		66C94C42279543FD00644BDA /* RoomEnter */ = {
 			isa = PBXGroup;
 			children = (
-				F4765EEB2795362A00D3CE86 /* RoomEnterStoryboard.storyboard */,
+				F4765EEB2795362A00D3CE86 /* RoomEnter.storyboard */,
 				F4765EE92795360600D3CE86 /* RoomEnterVC.swift */,
 			);
 			path = RoomEnter;
@@ -278,6 +275,7 @@
 			children = (
 				66C94C44279544E900644BDA /* Data */,
 				F49AFFF827840CF500DAC7AA /* AppDelegate.swift */,
+				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
 				F49A000127840CFC00DAC7AA /* Assets.xcassets */,
 				66C94C3D279540E200644BDA /* Category */,
 				66C94C3E2795426200644BDA /* ChatRoom */,
@@ -286,7 +284,6 @@
 				66C94C3F2795429600644BDA /* Main */,
 				66C94C41279543B900644BDA /* MyPage */,
 				66C94C42279543FD00644BDA /* RoomEnter */,
-				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
 				66C94C432795441A00644BDA /* Subject */,
 			);
 			path = Smapp;
@@ -424,7 +421,7 @@
 				1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */,
 				1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */,
 				F49A000027840CF500DAC7AA /* Main.storyboard in Resources */,
-				F4765EEC2795362A00D3CE86 /* RoomEnterStoryboard.storyboard in Resources */,
+				F4765EEC2795362A00D3CE86 /* RoomEnter.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,7 +558,7 @@
 				66C94C48279545B100644BDA /* UserData.swift in Sources */,
 				1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */,
 				1F3600C027900FA800EC8019 /* MyPageTableCell.swift in Sources */,
-				F49AFFFD27840CF500DAC7AA /* LoginViewController.swift in Sources */,
+				F49AFFFD27840CF500DAC7AA /* LoginVC.swift in Sources */,
 				664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */,
 				664A730A279148CE00A82E7C /* SubjectData.swift in Sources */,
 				1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */,
@@ -569,9 +566,8 @@
 				1F04AE41278E689E008AC901 /* Categories.swift in Sources */,
 				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
 				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
-				1F04AE45278E97B7008AC901 /* CategoriesListViewController.swift in Sources */,
+				1F04AE45278E97B7008AC901 /* CategoriesListVC.swift in Sources */,
 				1F3600C327900FB000EC8019 /* MyPageLikedTableVC.swift in Sources */,
-				1F04AE47278EA765008AC901 /* CategoriesDetailViewController.swift in Sources */,
 				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
 				1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */,
 			);

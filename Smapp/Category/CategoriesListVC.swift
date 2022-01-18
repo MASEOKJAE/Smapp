@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoriesListViewController: UITableViewController {
+class CategoriesListVC: UITableViewController {
     @IBOutlet weak var subjectView: UITableView!
     //var listOfLikeMajor: [String] = []
     var listOfLikeMajor: [Int] = []
@@ -21,7 +21,7 @@ class CategoriesListViewController: UITableViewController {
 }
 
 
-extension CategoriesListViewController/*: UITableViewDataSource*/ {
+extension CategoriesListVC/*: UITableViewDataSource*/ {
     static let categoriesListCellIdentifier = "CategoriesListCell"
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

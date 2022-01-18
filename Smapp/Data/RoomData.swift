@@ -10,8 +10,9 @@ import UIKit
 
 class RoomData {
     var roomId : Int?               // 번호
-    var subject : String?           // 과목명
     var major : String?             // 전공
+    var subject : String?           // 과목명
+    var professor : String?         // 교수님
     var title : String?             // 방 제목
     var contents : String?          // 내용(설명)
     var numberOfPart : Int?         // 참가중인 인원 수

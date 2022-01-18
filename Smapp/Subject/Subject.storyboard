@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="-42.028985507246382" y="2.6785714285714284"/>
         </scene>
-        <!--RoomEnterStoryboard-->
+        <!--RoomEnter-->
         <scene sceneID="ZaN-aB-UNA">
             <objects>
-                <viewControllerPlaceholder storyboardName="RoomEnterStoryboard" id="G8S-ed-qji" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="RoomEnter" id="G8S-ed-qji" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="H9y-qS-6r1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufm-t6-c2s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
