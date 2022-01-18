@@ -275,6 +275,7 @@
 			children = (
 				66C94C44279544E900644BDA /* Data */,
 				F49AFFF827840CF500DAC7AA /* AppDelegate.swift */,
+				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
 				F49A000127840CFC00DAC7AA /* Assets.xcassets */,
 				66C94C3D279540E200644BDA /* Category */,
 				66C94C3E2795426200644BDA /* ChatRoom */,
@@ -283,7 +284,6 @@
 				66C94C3F2795429600644BDA /* Main */,
 				66C94C41279543B900644BDA /* MyPage */,
 				66C94C42279543FD00644BDA /* RoomEnter */,
-				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
 				66C94C432795441A00644BDA /* Subject */,
 			);
 			path = Smapp;
