@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE3E278E644C008AC901 /* Categories.storyboard */; };
 		1F04AE41278E689E008AC901 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE40278E689E008AC901 /* Categories.swift */; };
-		1F04AE43278E95CB008AC901 /* CategoriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */; };
-		1F04AE45278E97B7008AC901 /* CategoriesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE44278E97B7008AC901 /* CategoriesListVC.swift */; };
+		1F04AE43278E95CB008AC901 /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE42278E95CB008AC901 /* CategoriesCell.swift */; };
+		1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE44278E97B7008AC901 /* CategoriesVC.swift */; };
 		1F04AE4B278EBF9D008AC901 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE4A278EBF9D008AC901 /* Subject.storyboard */; };
 		1F3600BB27900F9100EC8019 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600BA27900F9100EC8019 /* MyPage.storyboard */; };
 		1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */; };
@@ -63,8 +63,8 @@
 		17BDCB94FE902FDE3B08B747 /* Pods_SmappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F04AE3E278E644C008AC901 /* Categories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
 		1F04AE40278E689E008AC901 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListCell.swift; sourceTree = "<group>"; };
-		1F04AE44278E97B7008AC901 /* CategoriesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListVC.swift; sourceTree = "<group>"; };
+		1F04AE42278E95CB008AC901 /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
+		1F04AE44278E97B7008AC901 /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		1F04AE4A278EBF9D008AC901 /* Subject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Subject.storyboard; sourceTree = "<group>"; };
 		1F3600BA27900F9100EC8019 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 			children = (
 				1F04AE3E278E644C008AC901 /* Categories.storyboard */,
 				1F04AE40278E689E008AC901 /* Categories.swift */,
-				1F04AE42278E95CB008AC901 /* CategoriesListCell.swift */,
-				1F04AE44278E97B7008AC901 /* CategoriesListVC.swift */,
+				1F04AE42278E95CB008AC901 /* CategoriesCell.swift */,
+				1F04AE44278E97B7008AC901 /* CategoriesVC.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -551,7 +551,7 @@
 			files = (
 				F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */,
 				664A73042791484600A82E7C /* SubjectVC.swift in Sources */,
-				1F04AE43278E95CB008AC901 /* CategoriesListCell.swift in Sources */,
+				1F04AE43278E95CB008AC901 /* CategoriesCell.swift in Sources */,
 				66C94C48279545B100644BDA /* UserData.swift in Sources */,
 				1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */,
 				1F3600C027900FA800EC8019 /* MyPageTableCell.swift in Sources */,
@@ -562,7 +562,7 @@
 				1F04AE41278E689E008AC901 /* Categories.swift in Sources */,
 				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
 				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
-				1F04AE45278E97B7008AC901 /* CategoriesListVC.swift in Sources */,
+				1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */,
 				1F3600C327900FB000EC8019 /* MyPageLikedTableVC.swift in Sources */,
 				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
 				1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */,
