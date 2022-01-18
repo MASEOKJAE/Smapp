@@ -82,6 +82,7 @@
                                             <outlet property="information" destination="6yC-G6-Gfl" id="YOf-qY-yya"/>
                                             <outlet property="member" destination="CfI-2B-q53" id="YfK-hC-Pe9"/>
                                             <outlet property="roomTitle" destination="xf9-pc-YNL" id="IS0-h2-UZ7"/>
+                                            <segue destination="G8S-ed-qji" kind="show" id="3W4-gx-BTS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -102,22 +103,20 @@
                                     <segue destination="mJe-Ki-z6E" kind="show" id="Awr-lg-dNO"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="안녕하세요 스맵님," textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vek-gQ-oPZ">
-                                <rect key="frame" x="20" y="114" width="374" height="52"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="전체 스터디 방" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Js-XKb">
+                                <rect key="frame" x="37" y="240" width="130" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="최근 스터디방" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t0C-GV-Mhe">
-                                <rect key="frame" x="20" y="227" width="374" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="안녕하세요 스맵님," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvI-GH-1pS">
+                                <rect key="frame" x="37" y="125" width="221" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -264,9 +263,6 @@
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
