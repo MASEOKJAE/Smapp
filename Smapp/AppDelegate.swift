@@ -10,7 +10,6 @@ import Firebase
 import GoogleSignIn
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var subjectList = [SubjectData]()
     var roomList = [RoomData]()
     var userList = [UserData]()
     

@@ -23,11 +23,11 @@ class SubjectVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView.reloadData()
         
-        let n = self.appDelegate.subjectList.count
+        let n = self.appDelegate.roomList.count
         print(n)
         if(n > 0) {
-            print(self.appDelegate.subjectList[n-1].subject!)
-            print(self.appDelegate.subjectList[n-1].contents!)
+            print(self.appDelegate.roomList[n-1].subject!)
+            print(self.appDelegate.roomList[n-1].contents!)
         }
     }
 }
@@ -36,13 +36,13 @@ extension SubjectVC: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.appDelegate.subjectList.count
+        return self.appDelegate.roomList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath) as! SubjectCell
         
-        let item = self.appDelegate.subjectList[indexPath.item]
+        let item = self.appDelegate.roomList[indexPath.item]
         
         print(item.subject!)
         print(item.contents!)

@@ -10,12 +10,15 @@
         <!--카테고리-->
         <scene sceneID="EPH-5d-YeX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RKq-Mb-4Cd" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="RKq-Mb-4Cd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="카테고리" image="square.grid.2x2.fill" catalog="system" selectedImage="square.grid.2x2.fill" id="72e-n6-2Tp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MtR-os-FRG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -26,24 +29,17 @@
             </objects>
             <point key="canvasLocation" x="-140.57971014492756" y="79.6875"/>
         </scene>
-        <!--카테고리-->
+        <!--전공-->
         <scene sceneID="xA2-dQ-M2D">
             <objects>
-                <tableViewController id="wyh-TW-E5f" customClass="CategoriesListVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="wyh-TW-E5f" customClass="CategoriesListVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CategoriesListViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3fh-Nm-ILc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="sHk-1n-s6f">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="전공" id="cfT-xU-4eL"/>
-                            </items>
-                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CategoriesListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CategoriesListCell" rowHeight="99" id="k6N-5g-waI" customClass="CategoriesListCell" customModule="Smapp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.5" width="414" height="99"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k6N-5g-waI" id="2Yk-6b-TjI">
                                     <rect key="frame" x="0.0" y="0.0" width="385.5" height="99"/>
@@ -112,7 +108,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="카테고리" image="square.grid.2x2.fill" catalog="system" selectedImage="square.grid.2x2.fill" id="f4W-bX-4Cp"/>
-                    <navigationItem key="navigationItem" id="cn7-ZO-ji5"/>
+                    <navigationItem key="navigationItem" title="전공" id="tpj-jZ-OTc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="subjectView" destination="3fh-Nm-ILc" id="7V1-Pu-e7M"/>
