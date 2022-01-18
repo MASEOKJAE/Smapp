@@ -29,7 +29,7 @@
         <!--카테고리-->
         <scene sceneID="xA2-dQ-M2D">
             <objects>
-                <tableViewController id="wyh-TW-E5f" customClass="CategoriesListViewController" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="wyh-TW-E5f" customClass="CategoriesListVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CategoriesListViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3fh-Nm-ILc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
                             <outlet property="delegate" destination="wyh-TW-E5f" id="pvP-T8-ek9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="카테고리" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="f4W-bX-4Cp"/>
+                    <tabBarItem key="tabBarItem" title="카테고리" image="square.grid.2x2.fill" catalog="system" selectedImage="square.grid.2x2.fill" id="f4W-bX-4Cp"/>
                     <navigationItem key="navigationItem" id="cn7-ZO-ji5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -133,7 +133,6 @@
     </scenes>
     <resources>
         <image name="Back" width="39" height="39"/>
-        <image name="books.vertical.fill" catalog="system" width="128" height="109"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <systemColor name="secondaryLabelColor">
