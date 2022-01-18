@@ -34,9 +34,6 @@
 		F49A000027840CF500DAC7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49AFFFE27840CF500DAC7AA /* Main.storyboard */; };
 		F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49A000127840CFC00DAC7AA /* Assets.xcassets */; };
 		F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */; };
-		F49A001027840CFD00DAC7AA /* SmappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A000F27840CFD00DAC7AA /* SmappTests.swift */; };
-		F49A001A27840CFD00DAC7AA /* SmappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A001927840CFD00DAC7AA /* SmappUITests.swift */; };
-		F49A001C27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */; };
 		F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFF827840CF500DAC7AA /* AppDelegate.swift */; };
 		F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */; };
 		F49AFFFD27840CF500DAC7AA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AFFFC27840CF500DAC7AA /* LoginVC.swift */; };
@@ -94,10 +91,7 @@
 		F49A000427840CFC00DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F49A000627840CFC00DAC7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F49A000B27840CFD00DAC7AA /* SmappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F49A000F27840CFD00DAC7AA /* SmappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmappTests.swift; sourceTree = "<group>"; };
 		F49A001527840CFD00DAC7AA /* SmappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F49A001927840CFD00DAC7AA /* SmappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmappUITests.swift; sourceTree = "<group>"; };
-		F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmappUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F49AFFF527840CF500DAC7AA /* Smapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49AFFF827840CF500DAC7AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,29 +222,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F49A000E27840CFD00DAC7AA /* SmappTests */ = {
-			isa = PBXGroup;
-			children = (
-				F49A000F27840CFD00DAC7AA /* SmappTests.swift */,
-			);
-			path = SmappTests;
-			sourceTree = "<group>";
-		};
-		F49A001827840CFD00DAC7AA /* SmappUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F49A001927840CFD00DAC7AA /* SmappUITests.swift */,
-				F49A001B27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift */,
-			);
-			path = SmappUITests;
-			sourceTree = "<group>";
-		};
 		F49AFFEC27840CF500DAC7AA = {
 			isa = PBXGroup;
 			children = (
 				F49AFFF727840CF500DAC7AA /* Smapp */,
-				F49A000E27840CFD00DAC7AA /* SmappTests */,
-				F49A001827840CFD00DAC7AA /* SmappUITests */,
 				F49AFFF627840CF500DAC7AA /* Products */,
 				5F7617752D724FA944AEB081 /* Pods */,
 				E70FE7D9593D689538D41C58 /* Frameworks */,
@@ -532,7 +507,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F49A001027840CFD00DAC7AA /* SmappTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,8 +514,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F49A001C27840CFD00DAC7AA /* SmappUITestsLaunchTests.swift in Sources */,
-				F49A001A27840CFD00DAC7AA /* SmappUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
