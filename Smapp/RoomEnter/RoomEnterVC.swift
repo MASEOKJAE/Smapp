@@ -9,6 +9,8 @@ import UIKit
 
 class RoomEnterVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
+    // 원하는 배경 설정
+    
     func openLibrary(){
       picker.sourceType = .photoLibrary
       present(picker, animated: false, completion: nil)
@@ -73,5 +75,39 @@ class RoomEnterVC: UIViewController, UIImagePickerControllerDelegate & UINavigat
             LikeButton.tag = 0
         }
     }
+    // 스터디 방 공유 기능
+    func showToast(message : String, font: UIFont) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations:
+        {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    } // Toast Message 구현을 위한 함수
     
+    @IBOutlet weak var ShareButton: UIButton!
+    
+    @IBAction func ClickShare(_ sender: UIButton) {
+        let shareText: String = "스터디방 공유"
+        var shareObject = [Any]()
+        
+        shareObject.append(shareText)
+        
+        let activityViewController = UIActivityViewController(activityItems : shareObject, applicationActivities: nil)
+        
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 }
