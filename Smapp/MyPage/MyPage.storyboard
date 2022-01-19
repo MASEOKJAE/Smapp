@@ -46,15 +46,6 @@
                                     <action selector="switchViews:" destination="Y6W-OH-hqX" eventType="valueChanged" id="ZnA-6S-Gi6"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGm-wv-EIE">
-                                <rect key="frame" x="20" y="380" width="350" height="500"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="yMn-P6-UOJ"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="E4J-bB-xBg" kind="embed" id="h97-gq-QOM"/>
-                                </connections>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-11-Gxm">
                                 <rect key="frame" x="20" y="380" width="350" height="500"/>
                                 <constraints>
@@ -62,6 +53,15 @@
                                 </constraints>
                                 <connections>
                                     <segue destination="9kV-ih-jS7" kind="embed" id="TLZ-PQ-Sbk"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGm-wv-EIE">
+                                <rect key="frame" x="20" y="380" width="350" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="yMn-P6-UOJ"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="E4J-bB-xBg" kind="embed" id="h97-gq-QOM"/>
                                 </connections>
                             </containerView>
                         </subviews>
