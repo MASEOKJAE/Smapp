@@ -49,8 +49,9 @@ extension SubjectVC: UICollectionViewDataSource {
         let item = self.appDelegate.roomList[indexPath.item]
         
         let formatter = DateFormatter()
+        formatter.dateFormat = "yy.MM.dd"
         cell.roomTitle?.text = item.title!
-        cell.information?.text = item.subject! + " | " + item.professor! + " 교수님 | " + formatter.string(from: item.dueDate!)
+        cell.information?.text = item.subject! + " | " + item.professor! + " | ~" + formatter.string(from: item.dueDate!)
         cell.member?.text = "(" + String(item.numberOfPart!) + "/" + String(item.numberOfMax!) + ")"
         
         LikeClicked(cell.LikeButton)

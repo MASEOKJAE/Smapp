@@ -51,5 +51,30 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     override func viewDidLoad() {
         self.contents.delegate = self
+        
+        createDatePickerView()
     }
+    
+    let datePicker = UIDatePicker()
+    func createDatePickerView() {
+            let toolbar = UIToolbar()
+            toolbar.sizeToFit()
+            
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+            toolbar.setItems([doneButton], animated: true)
+            datePicker.preferredDatePickerStyle = .wheels
+            datePicker.datePickerMode = .date
+            
+            dueDate.inputAccessoryView = toolbar
+            dueDate.inputView = datePicker
+        }
+        
+        @objc func donePressed() {
+            let formatter = DateFormatter()
+            formatter.timeStyle = .none
+            formatter.dateFormat = "yyyy-MM-dd"
+            
+            dueDate.text = formatter.string(from: datePicker.date)
+            self.view.endEditing(true)
+        }
 }
