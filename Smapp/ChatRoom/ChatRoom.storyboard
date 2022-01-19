@@ -6,6 +6,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,52 +32,54 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="JmI-bm-Hbl"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1v-uS-Pzv">
-                                <rect key="frame" x="0.0" y="713" width="43" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="Bri-9C-2RN"/>
-                                    <constraint firstAttribute="width" constant="43" id="qV1-FP-xOh"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="" imagePadding="0.0">
-                                    <imageReference key="image" image="square.grid.2x2.fill" catalog="system" symbolScale="default"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17" scale="medium"/>
-                                </buttonConfiguration>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2c-Hw-vgZ">
                                 <rect key="frame" x="347" y="713" width="43" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="43" id="Ldn-oR-5gY"/>
                                     <constraint firstAttribute="height" constant="42" id="SZD-Wm-LVi"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <color key="tintColor" red="0.70179122689999995" green="0.80400818590000001" blue="0.9568846822" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="" imagePadding="0.0">
-                                    <imageReference key="image" image="paperplane.fill" catalog="system" symbolScale="default"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17" scale="medium"/>
+                                    <imageReference key="image" image="paperplane.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17" scale="large"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="tapSendButtonWith_sender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tV2-fZ-5yn"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVz-6g-bjK">
+                                <rect key="frame" x="0.0" y="713" width="43" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="g6Z-kg-WUa"/>
+                                    <constraint firstAttribute="width" constant="43" id="g75-US-9A8"/>
+                                </constraints>
+                                <color key="tintColor" red="0.70179122689999995" green="0.80400818590000001" blue="0.9568846822" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <menu key="menu" id="TeF-MM-fsI">
+                                    <children>
+                                        <command title="Item 1" id="474-aG-t4u"/>
+                                        <command title="Item 2" id="k6i-b6-SjP"/>
+                                    </children>
+                                </menu>
+                                <state key="normal">
+                                    <imageReference key="image" image="ellipsis.circle.fill" catalog="system" symbolScale="large"/>
+                                </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="d2c-Hw-vgZ" secondAttribute="bottom" constant="55" id="1ko-RY-JT7"/>
-                            <constraint firstItem="m1v-uS-Pzv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="BKP-X0-nCF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nVz-6g-bjK" secondAttribute="bottom" constant="55" id="5bW-Bd-FVt"/>
                             <constraint firstItem="d2c-Hw-vgZ" firstAttribute="leading" secondItem="Fal-gN-QJ0" secondAttribute="trailing" constant="8" symbolic="YES" id="Er8-5f-03g"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="m1v-uS-Pzv" secondAttribute="bottom" constant="55" id="Lto-Qw-4dF"/>
                             <constraint firstItem="d2c-Hw-vgZ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Pvk-ou-13q"/>
-                            <constraint firstItem="Fal-gN-QJ0" firstAttribute="leading" secondItem="m1v-uS-Pzv" secondAttribute="trailing" constant="1" id="RTP-bp-fRQ"/>
-                            <constraint firstItem="Fal-gN-QJ0" firstAttribute="leading" secondItem="m1v-uS-Pzv" secondAttribute="trailing" constant="1" id="Y1u-Jq-KIa"/>
+                            <constraint firstItem="nVz-6g-bjK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jKx-Hm-fRK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Fal-gN-QJ0" secondAttribute="bottom" constant="55" id="zF8-r2-fdi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chatText" destination="Fal-gN-QJ0" id="I7A-Bv-iTf"/>
-                        <outlet property="menuButton" destination="m1v-uS-Pzv" id="yNJ-EC-cS6"/>
+                        <outlet property="menuButton" destination="nVz-6g-bjK" id="MPX-qQ-ujc"/>
                         <outlet property="sendButton" destination="d2c-Hw-vgZ" id="ET1-es-UQj"/>
                     </connections>
                 </viewController>
@@ -86,16 +89,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
-        <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
