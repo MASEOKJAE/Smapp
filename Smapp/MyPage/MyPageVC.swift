@@ -19,7 +19,6 @@ class MyPageVC: UIViewController{
     }
     
     @IBAction func switchViews(_ sender: UISegmentedControl) {
-        
         if sender.selectedSegmentIndex == 0 {
             partStudy.alpha = 1
             likeStudy.alpha = 0
@@ -28,6 +27,7 @@ class MyPageVC: UIViewController{
             likeStudy.alpha = 1
         }
     }
+    
     
     
     @IBAction func signOut(sender: Any) {
