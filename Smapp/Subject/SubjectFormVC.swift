@@ -30,6 +30,7 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         
         let data = RoomData()
         
+        data.roomId = appDelegate.roomList.count
         data.title = self.roomTitle.text
         data.contents = self.contents.text
         data.subject = self.subject.text
