@@ -104,6 +104,8 @@
                     <connections>
                         <outlet property="likeStudy" destination="9W4-11-Gxm" id="GMD-8F-Sfb"/>
                         <outlet property="partStudy" destination="VGm-wv-EIE" id="YmX-dO-v9C"/>
+                        <outlet property="userEmail" destination="OyE-oS-84C" id="hiW-wd-1EQ"/>
+                        <outlet property="userName" destination="Ak5-Qd-TiW" id="Pjr-yp-hhc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
