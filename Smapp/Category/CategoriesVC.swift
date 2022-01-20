@@ -31,7 +31,7 @@ extension CategoriesVC: UICollectionViewDataSource {
         
         let item = Categories.majors[indexPath.item]
         
-        print(Categories.majors)
+        //print(Categories.majors)
         
         cell.majorLabel?.text = item.major
         
