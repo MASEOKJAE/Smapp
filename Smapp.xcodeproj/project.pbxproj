@@ -30,6 +30,8 @@
 		BC51E104EADF266EEFC3D3E6 /* Pods_SmappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BDCB94FE902FDE3B08B747 /* Pods_SmappTests.framework */; };
 		F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EE92795360600D3CE86 /* RoomEnterVC.swift */; };
 		F4765EEC2795362A00D3CE86 /* RoomEnter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EEB2795362A00D3CE86 /* RoomEnter.storyboard */; };
+		F4765EFD2799517000D3CE86 /* RoomFix.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EFC2799516F00D3CE86 /* RoomFix.storyboard */; };
+		F4765EFF2799518200D3CE86 /* RoomFixVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EFE2799518200D3CE86 /* RoomFixVC.swift */; };
 		F49A000027840CF500DAC7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49AFFFE27840CF500DAC7AA /* Main.storyboard */; };
 		F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49A000127840CFC00DAC7AA /* Assets.xcassets */; };
 		F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */; };
@@ -85,6 +87,8 @@
 		E0C2E4684FC4081FC4618599 /* Pods-Smapp-SmappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F4765EE92795360600D3CE86 /* RoomEnterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomEnterVC.swift; sourceTree = "<group>"; };
 		F4765EEB2795362A00D3CE86 /* RoomEnter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomEnter.storyboard; sourceTree = "<group>"; };
+		F4765EFC2799516F00D3CE86 /* RoomFix.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomFix.storyboard; sourceTree = "<group>"; };
+		F4765EFE2799518200D3CE86 /* RoomFixVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFixVC.swift; sourceTree = "<group>"; };
 		F49A000127840CFC00DAC7AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F49A000427840CFC00DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F49A000627840CFC00DAC7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,6 +223,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F4765EF7279950F400D3CE86 /* RoomFix */ = {
+			isa = PBXGroup;
+			children = (
+				F4765EFC2799516F00D3CE86 /* RoomFix.storyboard */,
+				F4765EFE2799518200D3CE86 /* RoomFixVC.swift */,
+			);
+			path = RoomFix;
+			sourceTree = "<group>";
+		};
 		F49AFFEC27840CF500DAC7AA = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +263,7 @@
 				66C94C3E2795426200644BDA /* ChatRoom */,
 				6618945827841530009C6730 /* GoogleService-Info.plist */,
 				F49A000627840CFC00DAC7AA /* Info.plist */,
+				F4765EF7279950F400D3CE86 /* RoomFix */,
 				66C94C3F2795429600644BDA /* Main */,
 				66C94C41279543B900644BDA /* MyPage */,
 				66C94C42279543FD00644BDA /* RoomEnter */,
@@ -388,6 +402,7 @@
 				6618945927841531009C6730 /* GoogleService-Info.plist in Resources */,
 				F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */,
 				1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */,
+				F4765EFD2799517000D3CE86 /* RoomFix.storyboard in Resources */,
 				1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */,
 				F49A000027840CF500DAC7AA /* Main.storyboard in Resources */,
 				F4765EEC2795362A00D3CE86 /* RoomEnter.storyboard in Resources */,
@@ -531,6 +546,7 @@
 				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
 				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
 				1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */,
+				F4765EFF2799518200D3CE86 /* RoomFixVC.swift in Sources */,
 				1F3600C327900FB000EC8019 /* MyPageLikedTableVC.swift in Sources */,
 				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
 				1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */,
