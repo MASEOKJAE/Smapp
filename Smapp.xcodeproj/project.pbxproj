@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE3E278E644C008AC901 /* Categories.storyboard */; };
-		1F04AE41278E689E008AC901 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE40278E689E008AC901 /* Categories.swift */; };
 		1F04AE43278E95CB008AC901 /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE42278E95CB008AC901 /* CategoriesCell.swift */; };
 		1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04AE44278E97B7008AC901 /* CategoriesVC.swift */; };
 		1F04AE4B278EBF9D008AC901 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F04AE4A278EBF9D008AC901 /* Subject.storyboard */; };
@@ -59,7 +58,6 @@
 /* Begin PBXFileReference section */
 		17BDCB94FE902FDE3B08B747 /* Pods_SmappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F04AE3E278E644C008AC901 /* Categories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
-		1F04AE40278E689E008AC901 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		1F04AE42278E95CB008AC901 /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
 		1F04AE44278E97B7008AC901 /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		1F04AE4A278EBF9D008AC901 /* Subject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Subject.storyboard; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				1F04AE3E278E644C008AC901 /* Categories.storyboard */,
-				1F04AE40278E689E008AC901 /* Categories.swift */,
 				1F04AE42278E95CB008AC901 /* CategoriesCell.swift */,
 				1F04AE44278E97B7008AC901 /* CategoriesVC.swift */,
 			);
@@ -531,7 +528,6 @@
 				664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */,
 				1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */,
 				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
-				1F04AE41278E689E008AC901 /* Categories.swift in Sources */,
 				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
 				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
 				1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */,
