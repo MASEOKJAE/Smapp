@@ -22,11 +22,7 @@
 		<key>FirebaseAuth.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>18</integer>
-=======
-			<integer>19</integer>
->>>>>>> jina
 		</dict>
 		<key>FirebaseCore.xcscheme_^#shared#^_</key>
 		<dict>
@@ -41,11 +37,7 @@
 		<key>FirebaseInstallations.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>16</integer>
-=======
-			<integer>17</integer>
->>>>>>> jina
 		</dict>
 		<key>GTMAppAuth.xcscheme_^#shared#^_</key>
 		<dict>
@@ -65,11 +57,7 @@
 		<key>GoogleDataTransport.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>13</integer>
-=======
-			<integer>14</integer>
->>>>>>> jina
 		</dict>
 		<key>GoogleSignIn-GoogleSignIn.xcscheme_^#shared#^_</key>
 		<dict>
@@ -79,7 +67,7 @@
 		<key>GoogleSignIn.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>14</integer>
 		</dict>
 		<key>GoogleUtilities.xcscheme_^#shared#^_</key>
 		<dict>
@@ -99,20 +87,12 @@
 		<key>Pods-SmappTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>15</integer>
-=======
-			<integer>16</integer>
->>>>>>> jina
 		</dict>
 		<key>PromisesObjC.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>17</integer>
-=======
-			<integer>18</integer>
->>>>>>> jina
 		</dict>
 		<key>nanopb.xcscheme_^#shared#^_</key>
 		<dict>
