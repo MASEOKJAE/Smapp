@@ -17,7 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+            if error != nil || user == nil {
+                // Show the app's signed-out state.
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(LoginViewController)
+            } else {
+                // Show the app's signed-in state.
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+            }
+        }
         return true
     }
     
@@ -29,9 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           if handled {
             return true
           }
-
           // Handle other custom URL types.
-
           // If not handled by this app, return false.
           return false
     }

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import GoogleSignIn
 
 class MyPageVC: UIViewController{
     
@@ -27,7 +27,16 @@ class MyPageVC: UIViewController{
             partStudy.alpha = 0
             likeStudy.alpha = 1
         }
+    }
+    
+    
+    @IBAction func signOut(sender: Any) {
+        //signout instance
+        GIDSignIn.sharedInstance.signOut()
         
-        
+        //로그인 뷰로 이동
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(LoginViewController)
     }
 }
