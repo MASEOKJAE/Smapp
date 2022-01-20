@@ -109,5 +109,15 @@ class RoomEnterVC: UIViewController, UIImagePickerControllerDelegate & UINavigat
         activityViewController.popoverPresentationController?.sourceView = self.view
         
         self.present(activityViewController, animated: true, completion: nil)
+        
+        activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
+            if completed { self.showToast(message: "복사 완료", font: .systemFont(ofSize: 12.0))
+            }
+            else { self.showToast(message: "복사 취소", font: .systemFont(ofSize: 12.0))
+            }
+            if let shareError = error {
+                self.showToast(message: "\(shareError.localizedDescription)", font: .systemFont(ofSize: 12.0))
+            }
+        }
     }
 }
