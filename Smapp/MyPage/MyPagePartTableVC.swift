@@ -20,7 +20,6 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         initRefresh()
-        
     }
     
     func initRefresh() {
