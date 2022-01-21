@@ -30,10 +30,15 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.addSubview(refresh)
     }
     
+    
     @objc
     func updateUI(refresh: UIRefreshControl) {
         refresh.endRefreshing()
         tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     

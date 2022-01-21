@@ -32,7 +32,10 @@ extension CategoriesVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCell", for: indexPath) as! CategoriesCell
         
+        
+        //print(Categories.majors)
         let item = appDelegate.majorList[indexPath.item]
+
         
         cell.majorLabel?.text = item
         cell.layer.masksToBounds = true

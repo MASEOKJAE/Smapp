@@ -13,7 +13,16 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var chatText: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var cameraMenu: UIButton!
+    @IBOutlet weak var albumMenu: UIButton!
+    @IBOutlet weak var fileMenu: UIButton!
+    
+    @IBOutlet weak var chatRoomTitle: UILabel!
+    @IBOutlet weak var chatSubtitle: UILabel!
+    
     let imagePicker = UIImagePickerController()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func openLibrary(){
       imagePicker.sourceType = .photoLibrary
@@ -39,12 +48,16 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         imagePicker.delegate = self
         chatText.delegate = self
         
-        // 세부 메뉴 설정
-        let cameraMenu = UIAction(title: "카메라", image: UIImage(systemName: "camera.fill"), handler: { _ in self.openCamera() })
-        let albumMenu = UIAction(title: "앨범", image: UIImage(systemName: "photo.fill"), handler: { _ in self.openLibrary() })
-        let fileMenu = UIAction(title: "파일", image: UIImage(systemName: "paperclip"), handler: { _ in self.openFile() })
+        let item = self.appDelegate.roomList[0]
+        self.chatRoomTitle.text = item.title
+        self.chatSubtitle.text = String(item.subject!) + "-" + String(item.professor!)
         
-        menuButton.menu = UIMenu(title: "메뉴", identifier: nil, options: .displayInline, children: [fileMenu, albumMenu, cameraMenu])
+        // 세부 메뉴 설정
+//        let cameraMenu = UIAction(title: "카메라", image: UIImage(systemName: "camera.fill"), handler: { _ in self.openCamera() })
+//        let albumMenu = UIAction(title: "앨범", image: UIImage(systemName: "photo.fill"), handler: { _ in self.openLibrary() })
+//        let fileMenu = UIAction(title: "파일", image: UIImage(systemName: "paperclip"), handler: { _ in self.openFile() })
+        
+//        menuButton.menu = UIMenu(title: "메뉴", identifier: nil, options: .displayInline, children: [fileMenu, albumMenu, cameraMenu])
         
         // 채팅 텍스트 박스 꾸미기
         chatText.layer.borderWidth = 0.5
@@ -74,11 +87,32 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         self.view.frame.origin.y = 0
     }
     
+    // 메뉴 버튼 누르면 세부 메뉴 뜨기
+    @IBAction func tapMenuButton(_ sender: Any) {
+        if self.menuView.isHidden == true {
+            self.menuView.isHidden = false
+        }
+        else {
+            self.menuView.isHidden = true
+        }
+    }
+    
+    @IBAction func tapCameraButton(_ sender: Any) {
+        self.openCamera()
+    }
+    
+    @IBAction func tapAlbumButton(_ sender: Any) {
+        self.openLibrary()
+    }
+    
+    @IBAction func tapFileButton(_ sender: Any) {
+        self.openFile()
+    }
+    
     // 전송 버튼 누르면 키보드 내려가기
-    @IBAction func tapSendButton(_sender: Any) {
+    @IBAction func tapSendButton(_ sender: Any) {
         chatText.resignFirstResponder()
     }
-
 }
 
 extension ChatRoomVC: UIImagePickerControllerDelegate & UINavigationControllerDelegate {

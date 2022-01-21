@@ -10,10 +10,16 @@ import Firebase
 import GoogleSignIn
 
 class LoginVC: UIViewController {
-
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet var AppTitle: UILabel!
     @IBOutlet var AppSubTitle: UILabel!
     @IBOutlet var GoogleLogin: UIButton!
+    
+    var emailAddress: String?
+    var familyName: String?
+    var profilePicUrl: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,6 @@ class LoginVC: UIViewController {
 
     @IBAction func TapGoogleLogin(_ sender: Any) {
         let signInConfig = GIDConfiguration.init(clientID: "784619439338-5521ne6gp5nq2p57pjm3vaphh04g1ncq.apps.googleusercontent.com")
-        
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
             guard error == nil else { return }
 
@@ -36,6 +41,23 @@ class LoginVC: UIViewController {
             Auth.auth().signIn(with: credential) {_,_ in
                 // token을 넘겨주면, 성공했는지 안했는지에 대한 result값과 error값을 넘겨줌
                 
+                
+                //valid email이 아닌경우 로그인뷰에서 이동하지 못하도록 return함, 이동하는 코드는 이 코드 밑에...
+                if self.forceLogout((GIDSignIn.sharedInstance.currentUser?.profile!.email)!) == false { return }
+                
+                
+                //로그인 성공하면 user 정보 appDelegate에 append
+                var temp = UserData()
+                temp.userId = self.appDelegate.userList.count
+                temp.studentId = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+                temp.email = GIDSignIn.sharedInstance.currentUser?.profile!.email
+                
+                self.appDelegate.userList.append(temp)
+                
+                print("\n\n\n\n")
+                print(self.appDelegate.userList[self.appDelegate.userList.count - 1].email!)
+                print("\n\n\n\n")
+                
                 //메인 탭바로 이동
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
@@ -43,21 +65,61 @@ class LoginVC: UIViewController {
                 // This is to get the SceneDelegate object from your view controller
                 // then call the change root view controller function to change to main tab bar
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
-                
-                //사용자 정보 가져오기
                 GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
                     guard error == nil else { return }
                     guard let user = user else { return }
-
-                    let emailAddress = user.profile?.email
-
-                    let fullName = user.profile?.name
-                    let givenName = user.profile?.givenName
-                    let familyName = user.profile?.familyName
-
-                    let profilePicUrl = user.profile?.imageURL(withDimension: 320)
                 }
             }
         }
+    }
+    
+    
+    //"handong.edu" 검사
+    func isValidEmail(_ testStr:String) -> Bool {
+        return true
+        /*
+        if testStr.contains("handong") {
+            return true
+        } else {
+            return false
+        }
+         */
+    }
+    
+    
+    //강제 로그아웃
+    func forceLogout(_ sender: String) -> Bool{
+        if isValidEmail(sender) == false {
+            //signout instance
+            GIDSignIn.sharedInstance.signOut()
+            
+            //로그인 에러 팝업
+            self.showToast(message: "한동 메일이 아닙니다", font: .systemFont(ofSize: 15.0))
+            
+            return false
+        }
+        return true
+    }
+    
+    
+    //toast 메세지
+    func showToast(message : String, font: UIFont) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 60))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations:
+        {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }

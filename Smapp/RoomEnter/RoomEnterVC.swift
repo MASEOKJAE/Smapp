@@ -9,6 +9,27 @@ import UIKit
 
 class RoomEnterVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
+    // 스터디룸 내용 수정 페이지에 전달
+    @IBOutlet weak var RoomTitle: UILabel!
+    @IBOutlet weak var ClassTitle: UILabel!
+    @IBOutlet weak var ProfessorName: UILabel!
+    @IBOutlet weak var StudyExplain: UILabel!
+    
+    var TitleOrigin:String? // 수정된 방제목을 받아오기 위한 변수
+    var ClassOrigin:String?
+    var ProfessorOrigin:String?
+    var ExplainOrigin:String?
+    
+    @IBAction func FixBtnClick(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "RoomFix", bundle: nil)
+        let EnterController  = storyboard.instantiateViewController(identifier: "RoomFix") as! RoomFixVC
+                    EnterController.TitleText = RoomTitle.text // 방 제목 전달
+                    EnterController.ClassText = ClassTitle.text // 방 강의명 전달
+                    EnterController.ProfessorText = ProfessorName.text // 방 교수 전달
+                    EnterController.ExplainText = StudyExplain.text // 방 스터디 설명 전달
+                    present(EnterController, animated: true, completion: nil)
+    }
+    
     // 원하는 배경 설정
     
     func openLibrary(){
@@ -25,6 +46,20 @@ class RoomEnterVC: UIViewController, UIImagePickerControllerDelegate & UINavigat
         super.viewDidLoad()
         
         picker.delegate = self
+        
+        // 수정된 내용들을 가져옴
+        if TitleOrigin != nil {
+            RoomTitle.text = TitleOrigin
+        }
+        if ClassOrigin != nil {
+            ClassTitle.text = ClassOrigin
+        }
+        if ProfessorOrigin != nil {
+            ProfessorName.text = ProfessorOrigin
+        }
+        if ExplainOrigin != nil {
+            StudyExplain.text = ExplainOrigin
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
