@@ -46,6 +46,7 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         
         data.isOnce = false
         data.isClosed = false
+        data.listOfPartUser = [Int]()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.roomList.append(data)

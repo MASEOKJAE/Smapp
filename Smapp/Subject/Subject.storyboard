@@ -151,6 +151,15 @@
                                     <action selector="search:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KjD-Ee-Bq1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-YV-WIx">
+                                <rect key="frame" x="278" y="111" width="116" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="DB Test"/>
+                                <connections>
+                                    <segue destination="m06-Pv-2Xm" kind="show" id="iiu-wc-EEg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -325,6 +334,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPc-Rm-7V5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="727.536231884058" y="2.6785714285714284"/>
+        </scene>
+        <!--DB Test 페이지-->
+        <scene sceneID="43D-8f-T72">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="m06-Pv-2Xm" customClass="DBTestVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tAf-Lh-CV2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYS-Il-EYA">
+                                <rect key="frame" x="107" y="110" width="200" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="데이터 넣기">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="Push:" destination="m06-Pv-2Xm" eventType="touchUpInside" id="Mh8-99-VL5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATR-AT-vah">
+                                <rect key="frame" x="107" y="398" width="200" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="데이터 가져오기">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="Pull:" destination="m06-Pv-2Xm" eventType="touchUpInside" id="5yy-cn-YsU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="or0-Eo-AT3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="DB Test 페이지" id="3r2-Vt-Zwr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D7x-Ze-i5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1462.3188405797102" y="-220.3125"/>
         </scene>
     </scenes>
     <resources>

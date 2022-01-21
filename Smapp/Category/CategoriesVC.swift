@@ -10,6 +10,7 @@ import UIKit
 class CategoriesVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var doneButton: UIButton!
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
