@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class DBTestVC: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
