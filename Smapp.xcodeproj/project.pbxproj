@@ -19,6 +19,9 @@
 		1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600C427900FBC00EC8019 /* Register.storyboard */; };
 		1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C527900FBD00EC8019 /* MyPageVC.swift */; };
 		1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */; };
+		3CBB50C7279A8BD000C11CF9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */; };
+		3CBB50C9279A8DD600C11CF9 /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */; };
+		3CBB50CB279A8F5800C11CF9 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */; };
 		41139F3F799CB2AB16F76B69 /* Pods_Smapp_SmappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE9F9F8B206B6BF51054784 /* Pods_Smapp_SmappUITests.framework */; };
 		6618945927841531009C6730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6618945827841530009C6730 /* GoogleService-Info.plist */; };
 		664A73042791484600A82E7C /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73032791484600A82E7C /* SubjectVC.swift */; };
@@ -73,6 +76,9 @@
 		1F3600C527900FBD00EC8019 /* MyPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPagePartTableVC.swift; sourceTree = "<group>"; };
 		32C367027C9B73BE98BA5FE7 /* Pods-Smapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.debug.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.debug.xcconfig"; sourceTree = "<group>"; };
+		3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
+		3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		6618945827841530009C6730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
@@ -178,9 +184,12 @@
 			isa = PBXGroup;
 			children = (
 				1F3600BA27900F9100EC8019 /* MyPage.storyboard */,
+				3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */,
 				1F3600C227900FB000EC8019 /* MyPageLikedTableVC.swift */,
 				1F3600BD27900FA700EC8019 /* MyPageTableCell.swift */,
 				1F3600C527900FBD00EC8019 /* MyPageVC.swift */,
+				3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */,
+				3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */,
 				1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */,
 			);
 			path = MyPage;
@@ -409,6 +418,7 @@
 				1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */,
 				F49A000027840CF500DAC7AA /* Main.storyboard in Resources */,
 				F4765EEC2795362A00D3CE86 /* RoomEnter.storyboard in Resources */,
+				3CBB50CB279A8F5800C11CF9 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +547,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */,
+				3CBB50C9279A8DD600C11CF9 /* SettingTableCell.swift in Sources */,
+				3CBB50C7279A8BD000C11CF9 /* SettingVC.swift in Sources */,
 				664A73042791484600A82E7C /* SubjectVC.swift in Sources */,
 				1F04AE43278E95CB008AC901 /* CategoriesCell.swift in Sources */,
 				66C94C48279545B100644BDA /* UserData.swift in Sources */,

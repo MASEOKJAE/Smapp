@@ -18,6 +18,7 @@ class MyPageTableCell: UITableViewCell {
     @IBOutlet weak var likedRoomTitle: UILabel!
     @IBOutlet weak var LikedRoomParticipants: UILabel!
     
+    @IBOutlet weak var subject_prof: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

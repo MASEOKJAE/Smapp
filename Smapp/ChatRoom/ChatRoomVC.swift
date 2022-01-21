@@ -21,6 +21,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var chatRoomTitle: UILabel!
     @IBOutlet weak var chatSubtitle: UILabel!
     
+    var roomIndex: Int?
+    
     let imagePicker = UIImagePickerController()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -43,21 +45,22 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         }
     }
     
+    func receiveRoomIndex(selectIndex: Int) {
+        roomIndex = selectIndex
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         chatText.delegate = self
         
-        let item = self.appDelegate.roomList[0]
+        
+        let item = self.appDelegate.roomList[roomIndex!]
         self.chatRoomTitle.text = item.title
         self.chatSubtitle.text = String(item.subject!) + "-" + String(item.professor!)
         
-        // 세부 메뉴 설정
-//        let cameraMenu = UIAction(title: "카메라", image: UIImage(systemName: "camera.fill"), handler: { _ in self.openCamera() })
-//        let albumMenu = UIAction(title: "앨범", image: UIImage(systemName: "photo.fill"), handler: { _ in self.openLibrary() })
-//        let fileMenu = UIAction(title: "파일", image: UIImage(systemName: "paperclip"), handler: { _ in self.openFile() })
         
-//        menuButton.menu = UIMenu(title: "메뉴", identifier: nil, options: .displayInline, children: [fileMenu, albumMenu, cameraMenu])
         
         // 채팅 텍스트 박스 꾸미기
         chatText.layer.borderWidth = 0.5
@@ -110,7 +113,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     }
     
     // 전송 버튼 누르면 키보드 내려가기
-    @IBAction func tapSendButton(_ sender: Any) {
+    @IBAction func tapSendButton(_sender: Any) {
         chatText.resignFirstResponder()
     }
 }

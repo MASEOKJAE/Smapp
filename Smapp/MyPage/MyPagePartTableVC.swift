@@ -25,11 +25,10 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     func initRefresh() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
-        refresh.attributedTitle = NSAttributedString(string: "새로고침")
+        //refresh.attributedTitle = NSAttributedString(string: "새로고침")
         
         tableView.addSubview(refresh)
     }
-    
     
     @objc
     func updateUI(refresh: UIRefreshControl) {
@@ -41,10 +40,6 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         self.tableView.reloadData()
     }
     
-    
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return arr.count
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.appDelegate.roomList.count
@@ -63,8 +58,16 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         cell.chatsContent.text = chattingContent[indexPath.row]
         
         return cell
-
-//        return UITableViewCell()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MyPageToChat" {
+            let vc = segue.destination as? ChatRoomVC
+            let selectedIndex = tableView.indexPathForSelectedRow
+            vc?.roomIndex = Int((selectedIndex?.row)!)
+        }
+    }
+    
+    
 }
 
