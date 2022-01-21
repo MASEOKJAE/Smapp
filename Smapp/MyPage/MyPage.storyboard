@@ -72,6 +72,16 @@
                                     <action selector="signOutWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0os-9c-0AL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMK-XE-NrK">
+                                <rect key="frame" x="308" y="108" width="46" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="ZmN-sc-ifu" kind="show" id="u8O-22-JG5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -104,6 +114,7 @@
                     <connections>
                         <outlet property="likeStudy" destination="9W4-11-Gxm" id="GMD-8F-Sfb"/>
                         <outlet property="partStudy" destination="VGm-wv-EIE" id="YmX-dO-v9C"/>
+                        <outlet property="settingButton" destination="gMK-XE-NrK" id="emT-lS-Qta"/>
                         <outlet property="userEmail" destination="OyE-oS-84C" id="hiW-wd-1EQ"/>
                         <outlet property="userName" destination="Ak5-Qd-TiW" id="Pjr-yp-hhc"/>
                     </connections>
@@ -111,6 +122,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1060" y="64.691943127962077"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="sCf-3L-uc7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="ZmN-sc-ifu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="65W-gy-Lrg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fH7-n0-juf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1738" y="-14"/>
         </scene>
         <!--My Page Part TableVC-->
         <scene sceneID="Znc-SZ-AQA">
@@ -291,6 +312,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="n.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

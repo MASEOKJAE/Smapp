@@ -16,7 +16,8 @@ class MyPageVC: UIViewController{
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
     
-
+    @IBOutlet weak var settingButton: UIButton!
+    
     //구글 로그인에서 가져온 정보들
     override func viewDidLoad() {
         super.viewDidLoad()

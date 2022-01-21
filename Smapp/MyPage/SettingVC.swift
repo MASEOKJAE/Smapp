@@ -1,0 +1,69 @@
+//
+//  SettingVC.swift
+//  Smapp
+//
+//  Created by 최진아 on 2022/01/21.
+//
+
+import UIKit
+import GoogleSignIn
+
+private var cellID = "Cell"
+class SettingVC: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    let myPageMenu = ["공지사항", "전공 수정", "알림 설정", "피드백", "로그아웃"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+
+extension SettingVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.myPageMenu.count
+    }
+    
+    func signOut() {
+        //signout instance
+        GIDSignIn.sharedInstance.signOut()
+        
+        //로그인 뷰로 이동
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(LoginViewController)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: "notice", sender: nil)
+        case 1:
+            performSegue(withIdentifier: "reselectMajor", sender: nil)
+        case 2:
+            performSegue(withIdentifier: "setAlarm", sender: nil)
+        case 3:
+            performSegue(withIdentifier: "feedBack", sender: nil)
+        case 4:
+            self.signOut()
+        default:
+            return
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableCell", for: indexPath) as? SettingTableCell else {
+             return UITableViewCell()
+         }
+        cell.menus.text = myPageMenu[indexPath.row]
+        cell.accessoryType = .disclosureIndicator
+        
+        return cell
+    }
+    
+}
+
