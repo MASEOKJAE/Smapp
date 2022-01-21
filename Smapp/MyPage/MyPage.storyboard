@@ -64,14 +64,6 @@
                                     <segue destination="E4J-bB-xBg" kind="embed" id="h97-gq-QOM"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="km5-Xg-arA">
-                                <rect key="frame" x="290" y="168" width="80" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
-                                <connections>
-                                    <action selector="signOutWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0os-9c-0AL"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMK-XE-NrK">
                                 <rect key="frame" x="308" y="108" width="46" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,12 +81,10 @@
                             <constraint firstItem="9W4-11-Gxm" firstAttribute="top" secondItem="gy2-Oj-eR2" secondAttribute="bottom" constant="20" id="0ea-ra-i7c"/>
                             <constraint firstItem="VGm-wv-EIE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="5F9-WZ-dAp"/>
                             <constraint firstItem="OyE-oS-84C" firstAttribute="top" secondItem="KvK-Tn-gVj" secondAttribute="bottom" constant="30" id="9y9-BS-Cwa"/>
-                            <constraint firstItem="km5-Xg-arA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="CuC-i3-pTC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OyE-oS-84C" secondAttribute="trailing" constant="50" id="Dpj-BI-hDe"/>
                             <constraint firstItem="VGm-wv-EIE" firstAttribute="top" secondItem="gy2-Oj-eR2" secondAttribute="bottom" constant="20" id="EKF-LH-MNq"/>
                             <constraint firstItem="Ak5-Qd-TiW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="FeG-nV-iU1"/>
                             <constraint firstItem="gy2-Oj-eR2" firstAttribute="top" secondItem="OyE-oS-84C" secondAttribute="bottom" constant="20" id="KOo-po-fST"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="km5-Xg-arA" secondAttribute="trailing" constant="20" id="Lo4-RK-Iev"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9W4-11-Gxm" secondAttribute="trailing" constant="20" id="QDt-OR-sQ0"/>
                             <constraint firstItem="gy2-Oj-eR2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ZXa-vJ-ABq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KvK-Tn-gVj" secondAttribute="trailing" constant="10" id="cfR-P2-WtE"/>
