@@ -27,7 +27,7 @@
 		664A73042791484600A82E7C /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73032791484600A82E7C /* SubjectVC.swift */; };
 		664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73052791488500A82E7C /* SubjectFormVC.swift */; };
 		664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7307279148AF00A82E7C /* SubjectCell.swift */; };
-		66A0F45C279A89CC00AFCFD6 /* DBTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0F45B279A89CC00AFCFD6 /* DBTestVC.swift */; };
+		66A0F460279C005D00AFCFD6 /* DB_TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */; };
 		66C94C46279544FC00644BDA /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C45279544FC00644BDA /* RoomData.swift */; };
 		66C94C48279545B100644BDA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C47279545B100644BDA /* UserData.swift */; };
 		87228B8B694A7DC5F14C3410 /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DB37636C9A0C1B72FCD0EE /* Pods_Smapp.framework */; };
@@ -83,7 +83,7 @@
 		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
 		664A7307279148AF00A82E7C /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
-		66A0F45B279A89CC00AFCFD6 /* DBTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTestVC.swift; sourceTree = "<group>"; };
+		66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_TestVC.swift; sourceTree = "<group>"; };
 		66C94C45279544FC00644BDA /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
 		66C94C47279545B100644BDA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		86B825E544529305BB563ABF /* Pods-Smapp-SmappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.release.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 				664A7307279148AF00A82E7C /* SubjectCell.swift */,
 				664A73052791488500A82E7C /* SubjectFormVC.swift */,
 				664A73032791484600A82E7C /* SubjectVC.swift */,
-				66A0F45B279A89CC00AFCFD6 /* DBTestVC.swift */,
+				66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */,
 			);
 			path = Subject;
 			sourceTree = "<group>";
@@ -556,12 +556,12 @@
 				1F3600C027900FA800EC8019 /* MyPageTableCell.swift in Sources */,
 				F49AFFFD27840CF500DAC7AA /* LoginVC.swift in Sources */,
 				664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */,
-				66A0F45C279A89CC00AFCFD6 /* DBTestVC.swift in Sources */,
 				1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */,
 				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
 				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
 				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
 				1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */,
+				66A0F460279C005D00AFCFD6 /* DB_TestVC.swift in Sources */,
 				F4765EFF2799518200D3CE86 /* RoomFixVC.swift in Sources */,
 				1F3600C327900FB000EC8019 /* MyPageLikedTableVC.swift in Sources */,
 				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
