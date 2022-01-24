@@ -60,7 +60,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="D4T-rl-gHl" secondAttribute="bottom" constant="100" id="o1w-dg-Hly"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sWj-rI-heM"/>
+                    <navigationItem key="navigationItem" title="설정" id="sWj-rI-heM"/>
                     <connections>
                         <outlet property="tableView" destination="D4T-rl-gHl" id="Qmd-1F-4Ur"/>
                         <segue destination="QU2-rW-4JE" kind="show" identifier="notice" id="d3P-RK-Elx"/>

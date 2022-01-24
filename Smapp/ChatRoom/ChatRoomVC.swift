@@ -55,7 +55,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         imagePicker.delegate = self
         chatText.delegate = self
         
-        
+        // 일단 마이페이지에서 데이터 받음 -> 고쳐야함
         let item = self.appDelegate.roomList[roomIndex!]
         self.chatRoomTitle.text = item.title
         self.chatSubtitle.text = String(item.subject!) + "-" + String(item.professor!)

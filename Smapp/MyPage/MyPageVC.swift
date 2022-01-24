@@ -18,6 +18,12 @@ class MyPageVC: UIViewController{
     
     @IBOutlet weak var settingButton: UIButton!
     
+
+    @IBAction func tapSettingButton(_ sender: Any) {
+        performSegue(withIdentifier: "MyPagetoSetting", sender: nil)
+    }
+    
+    
     //구글 로그인에서 가져온 정보들
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +43,4 @@ class MyPageVC: UIViewController{
         }
     }
     
-    
-    
-    @IBAction func signOut(sender: Any) {
-        //signout instance
-        GIDSignIn.sharedInstance.signOut()
-        
-        //로그인 뷰로 이동
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(LoginViewController)
-    }
 }
