@@ -144,7 +144,6 @@
 			children = (
 				1F3600C427900FBC00EC8019 /* Register.storyboard */,
 				3C4FB5AD279E728C00488EC5 /* RegisterVC.swift */,
-				66C94C3D279540E200644BDA /* Category */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -285,6 +284,7 @@
 				66C94C3E2795426200644BDA /* ChatRoom */,
 				6618945827841530009C6730 /* GoogleService-Info.plist */,
 				F49A000627840CFC00DAC7AA /* Info.plist */,
+				66C94C3D279540E200644BDA /* Category */,
 				3C4FB5AF279E745F00488EC5 /* Register */,
 				F4765EF7279950F400D3CE86 /* RoomFix */,
 				66C94C3F2795429600644BDA /* Main */,
