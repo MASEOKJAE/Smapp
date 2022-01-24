@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="m17-4U-O8w">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="TMm-Sc-7NS">
+            <objects>
+                <navigationController id="m17-4U-O8w" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lcy-Xo-EDl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="XIf-RF-T29"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pok-Zd-clY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-821" y="-346"/>
+        </scene>
         <!--홈-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -165,6 +181,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="홈" image="house.fill" catalog="system" id="ezu-k3-nrV"/>
+                    <navigationItem key="navigationItem" id="2Xo-6D-ZZ0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="JXZ-WU-bh2" id="s4s-9B-gng"/>
@@ -174,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42.028985507246382" y="2.6785714285714284"/>
+            <point key="canvasLocation" x="-42" y="-23"/>
         </scene>
         <!--RoomEnter-->
         <scene sceneID="ZaN-aB-UNA">
@@ -195,7 +212,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="400" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uuv-kl-YOo">
-                                <rect key="frame" x="27" y="104" width="360" height="511.5"/>
+                                <rect key="frame" x="27" y="148" width="360" height="511.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lie-iE-Fbz">
                                         <rect key="frame" x="0.0" y="0.0" width="360" height="20.5"/>
@@ -319,7 +336,7 @@
                             <constraint firstItem="uuv-kl-YOo" firstAttribute="leading" secondItem="TuL-oV-5DM" secondAttribute="leading" constant="27" id="mku-cC-FYc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="스터디룸 등록" id="97L-ce-47x"/>
+                    <navigationItem key="navigationItem" title="스터디룸 등록" leftItemsSupplementBackButton="YES" id="97L-ce-47x"/>
                     <connections>
                         <outlet property="contents" destination="TSX-cg-gY4" id="5F4-Ty-ZL4"/>
                         <outlet property="dueDate" destination="ghr-MR-Srs" id="u2d-3D-5Mg"/>

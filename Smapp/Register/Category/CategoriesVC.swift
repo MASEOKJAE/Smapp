@@ -13,6 +13,12 @@ class CategoriesVC: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    @IBAction func doneButtonAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +26,7 @@ class CategoriesVC: UIViewController {
         
         doneButton.layer.masksToBounds = true
         doneButton.layer.cornerRadius = 5
+        
     }
 }
 

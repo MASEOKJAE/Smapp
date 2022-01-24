@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +26,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZoD-PN-D0Y">
-                                <rect key="frame" x="135" y="161" width="121" height="91"/>
+                                <rect key="frame" x="135" y="117" width="121" height="91"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="121" id="BKT-ly-7uj"/>
                                     <constraint firstAttribute="height" constant="91" id="CDT-OI-3JJ"/>
@@ -83,7 +82,7 @@
         <!--약관 동의-->
         <scene sceneID="kif-0m-8FC">
             <objects>
-                <viewController title="약관 동의" id="0w4-Nr-CIo" customClass="RegisterVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="약관 동의" modalPresentationStyle="fullScreen" id="0w4-Nr-CIo" customClass="RegisterVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1d8-im-R2x">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +112,7 @@
                                 </state>
                                 <state key="selected" title="동의하기"/>
                                 <connections>
-                                    <segue destination="GkT-Mr-lSc" kind="show" id="iXL-fj-fks"/>
+                                    <segue destination="lIq-q6-5JT" kind="show" id="wXh-iF-LkK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83S-H9-VbO">
@@ -228,12 +227,21 @@
             </objects>
             <point key="canvasLocation" x="961.53846153846155" y="76.777251184834114"/>
         </scene>
+        <!--Categories-->
+        <scene sceneID="CXi-6S-hBA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Categories" id="lIq-q6-5JT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vmb-4F-CGC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dW6-7L-q3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1969" y="127"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="z5B-Zy-uhA">
             <objects>
-                <navigationController id="rmg-Kz-3Ek" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="rmg-Kz-3Ek" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Dw-Tj-0ao">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -243,100 +251,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RpW-hv-KaW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-589" y="92"/>
-        </scene>
-        <!--CategoriesVC-->
-        <scene sceneID="PhQ-F8-JTS">
-            <objects>
-                <viewController storyboardIdentifier="Categories" id="GkT-Mr-lSc" customClass="CategoriesVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bEH-hw-2Qu">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="categoriesView" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tf8-az-GcI">
-                                <rect key="frame" x="0.0" y="193" width="414" height="532"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="0.0" id="J7z-oo-iMj">
-                                    <size key="itemSize" width="160" height="60"/>
-                                    <size key="estimatedItemSize" width="160" height="60"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoriesCell" id="DTz-SF-cNw" customClass="CategoriesCell" customModule="Smapp" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="0.0" width="160" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="icP-5j-eUa">
-                                            <rect key="frame" x="0.0" y="0.0" width="160" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="전공" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWO-hH-8de">
-                                                    <rect key="frame" x="0.0" y="18" width="160" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.87516886000000005" green="0.9160811901" blue="0.97255855800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <size key="customSize" width="160" height="60"/>
-                                        <connections>
-                                            <outlet property="majorLabel" destination="XWO-hH-8de" id="Wsl-uN-WEf"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2s-5H-deI">
-                                <rect key="frame" x="95" y="729.66666666666663" width="200" height="41.333333333333371"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="kob-1e-vrF"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="선택 완료">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="d:" destination="bA1-XR-bly" eventType="touchUpInside" id="dej-jG-she"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqe-oA-WnH">
-                                <rect key="frame" x="20" y="133" width="334" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">(앱에 접속할 시 자동으로 해당 전공 스터디를 보실 수 있으며,
-마이페이지를 통해 언제든 변경 가능합니다.)</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="스터디가 필요한 전공 하나를 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrB-mf-wcq">
-                                <rect key="frame" x="20" y="101" width="330" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="gfS-b9-neC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="a2s-5H-deI" firstAttribute="centerX" secondItem="bEH-hw-2Qu" secondAttribute="centerX" id="KWI-jY-mBX"/>
-                            <constraint firstItem="gfS-b9-neC" firstAttribute="bottom" secondItem="a2s-5H-deI" secondAttribute="bottom" constant="39" id="Q25-82-yBn"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="JhL-yv-Yhv"/>
-                    <connections>
-                        <outlet property="collectionView" destination="Tf8-az-GcI" id="Tvw-ax-ojO"/>
-                        <outlet property="doneButton" destination="a2s-5H-deI" id="91V-a3-z5O"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f4i-jb-cw7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="bA1-XR-bly" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1675" y="77"/>
         </scene>
     </scenes>
     <resources>

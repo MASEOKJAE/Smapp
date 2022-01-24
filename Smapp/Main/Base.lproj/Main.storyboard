@@ -53,7 +53,7 @@
                                     <color key="baseBackgroundColor" red="0.56470588239999997" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="bqV-lT-CKC" kind="show" identifier="MainTabBarController" id="vJI-Vr-ByH"/>
+                                    <segue destination="bqV-lT-CKC" kind="show" id="iqO-D1-DNu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -73,13 +73,14 @@
                             <constraint firstItem="KCT-e0-bB1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="146" id="zqb-4m-Upr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bD2-Fm-QjT"/>
                     <connections>
                         <outlet property="GoogleLogin" destination="3a3-9E-CGH" id="KEh-3o-8KZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="81.696428571428569"/>
+            <point key="canvasLocation" x="-25" y="80"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ved-Hh-U3O">
@@ -98,7 +99,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNN-uy-gaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="21"/>
+            <point key="canvasLocation" x="762" y="153"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="Dog-L5-4SA">
@@ -108,18 +109,18 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPp-Rb-Isn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1400" y="-44"/>
+            <point key="canvasLocation" x="1767" y="66"/>
         </scene>
         <!--Subject-->
         <scene sceneID="fcD-o9-1UM">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Categories" storyboardName="Subject" id="ujs-Zq-kAB" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Subject" storyboardName="Subject" id="ujs-Zq-kAB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fXU-xW-Q0h"/>
                     <navigationItem key="navigationItem" id="KBg-vC-YDo"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHO-2m-w7n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398" y="155"/>
+            <point key="canvasLocation" x="1801" y="-125"/>
         </scene>
     </scenes>
     <resources>
