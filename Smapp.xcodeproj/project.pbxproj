@@ -19,6 +19,7 @@
 		1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600C427900FBC00EC8019 /* Register.storyboard */; };
 		1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C527900FBD00EC8019 /* MyPageVC.swift */; };
 		1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */; };
+		3C4FB5AE279E728C00488EC5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB5AD279E728C00488EC5 /* RegisterVC.swift */; };
 		3CBB50C7279A8BD000C11CF9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */; };
 		3CBB50C9279A8DD600C11CF9 /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */; };
 		3CBB50CB279A8F5800C11CF9 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */; };
@@ -27,7 +28,7 @@
 		664A73042791484600A82E7C /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73032791484600A82E7C /* SubjectVC.swift */; };
 		664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73052791488500A82E7C /* SubjectFormVC.swift */; };
 		664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7307279148AF00A82E7C /* SubjectCell.swift */; };
-		66A0F45C279A89CC00AFCFD6 /* DBTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0F45B279A89CC00AFCFD6 /* DBTestVC.swift */; };
+		66A0F460279C005D00AFCFD6 /* DB_TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */; };
 		66C94C46279544FC00644BDA /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C45279544FC00644BDA /* RoomData.swift */; };
 		66C94C48279545B100644BDA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C47279545B100644BDA /* UserData.swift */; };
 		87228B8B694A7DC5F14C3410 /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DB37636C9A0C1B72FCD0EE /* Pods_Smapp.framework */; };
@@ -76,6 +77,7 @@
 		1F3600C527900FBD00EC8019 /* MyPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPagePartTableVC.swift; sourceTree = "<group>"; };
 		32C367027C9B73BE98BA5FE7 /* Pods-Smapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.debug.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.debug.xcconfig"; sourceTree = "<group>"; };
+		3C4FB5AD279E728C00488EC5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
 		3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
 		664A7307279148AF00A82E7C /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
-		66A0F45B279A89CC00AFCFD6 /* DBTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTestVC.swift; sourceTree = "<group>"; };
+		66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_TestVC.swift; sourceTree = "<group>"; };
 		66C94C45279544FC00644BDA /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
 		66C94C47279545B100644BDA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		86B825E544529305BB563ABF /* Pods-Smapp-SmappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp-SmappUITests.release.xcconfig"; path = "Target Support Files/Pods-Smapp-SmappUITests/Pods-Smapp-SmappUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +139,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C4FB5AF279E745F00488EC5 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				1F3600C427900FBC00EC8019 /* Register.storyboard */,
+				3C4FB5AD279E728C00488EC5 /* RegisterVC.swift */,
+				66C94C3D279540E200644BDA /* Category */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		5F7617752D724FA944AEB081 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +186,6 @@
 			children = (
 				F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */,
 				F49AFFFE27840CF500DAC7AA /* Main.storyboard */,
-				1F3600C427900FBC00EC8019 /* Register.storyboard */,
 				F49AFFFC27840CF500DAC7AA /* LoginVC.swift */,
 			);
 			path = Main;
@@ -211,7 +222,7 @@
 				664A7307279148AF00A82E7C /* SubjectCell.swift */,
 				664A73052791488500A82E7C /* SubjectFormVC.swift */,
 				664A73032791484600A82E7C /* SubjectVC.swift */,
-				66A0F45B279A89CC00AFCFD6 /* DBTestVC.swift */,
+				66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */,
 			);
 			path = Subject;
 			sourceTree = "<group>";
@@ -271,10 +282,10 @@
 				F49AFFF827840CF500DAC7AA /* AppDelegate.swift */,
 				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
 				F49A000127840CFC00DAC7AA /* Assets.xcassets */,
-				66C94C3D279540E200644BDA /* Category */,
 				66C94C3E2795426200644BDA /* ChatRoom */,
 				6618945827841530009C6730 /* GoogleService-Info.plist */,
 				F49A000627840CFC00DAC7AA /* Info.plist */,
+				3C4FB5AF279E745F00488EC5 /* Register */,
 				F4765EF7279950F400D3CE86 /* RoomFix */,
 				66C94C3F2795429600644BDA /* Main */,
 				66C94C41279543B900644BDA /* MyPage */,
@@ -556,14 +567,15 @@
 				1F3600C027900FA800EC8019 /* MyPageTableCell.swift in Sources */,
 				F49AFFFD27840CF500DAC7AA /* LoginVC.swift in Sources */,
 				664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */,
-				66A0F45C279A89CC00AFCFD6 /* DBTestVC.swift in Sources */,
 				1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */,
 				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
 				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
 				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
 				1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */,
+				66A0F460279C005D00AFCFD6 /* DB_TestVC.swift in Sources */,
 				F4765EFF2799518200D3CE86 /* RoomFixVC.swift in Sources */,
 				1F3600C327900FB000EC8019 /* MyPageLikedTableVC.swift in Sources */,
+				3C4FB5AE279E728C00488EC5 /* RegisterVC.swift in Sources */,
 				F49AFFFB27840CF500DAC7AA /* SceneDelegate.swift in Sources */,
 				1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */,
 			);

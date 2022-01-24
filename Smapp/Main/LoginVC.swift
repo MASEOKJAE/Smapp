@@ -59,8 +59,8 @@ class LoginVC: UIViewController {
                 print("\n\n\n\n")
                 
                 //메인 탭바로 이동
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                let storyboard = UIStoryboard(name: "Register", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "RegisterName")
                 
                 // This is to get the SceneDelegate object from your view controller
                 // then call the change root view controller function to change to main tab bar

@@ -92,12 +92,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     
     // 메뉴 버튼 누르면 세부 메뉴 뜨기
     @IBAction func tapMenuButton(_ sender: Any) {
-        if self.menuView.isHidden == true {
-            self.menuView.isHidden = false
-        }
-        else {
-            self.menuView.isHidden = true
-        }
+        self.menuView.isHidden.toggle()
     }
     
     @IBAction func tapCameraButton(_ sender: Any) {

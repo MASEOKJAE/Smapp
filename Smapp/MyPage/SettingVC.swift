@@ -26,13 +26,23 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func signOut() {
-        //signout instance
-        GIDSignIn.sharedInstance.signOut()
+        // 경고창
+        let alert = UIAlertController(title: "로그아웃", message: "로그아웃 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
         
-        //로그인 뷰로 이동
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(LoginViewController)
+        let ok = UIAlertAction(title: "확인", style: .destructive) { (action) in
+            //signout instance
+            GIDSignIn.sharedInstance.signOut()
+            
+            //로그인 뷰로 이동
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(LoginViewController)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .default, handler: nil)
+        
+        alert.addAction(cancle)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
     
     
