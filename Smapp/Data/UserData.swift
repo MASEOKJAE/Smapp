@@ -13,7 +13,7 @@ class UserData {
     var email : String?                 // 이메일
     var studentId : Int?                // 학번
     var name : String?                  // 이름
-    var likeMajor : Int?                // 관심있는 전공
+    var likeMajor : String?             // 관심있는 전공
     var listOfPartRoom : [Int]?         // 참가중인 방
     var listOfLikeRoom : [Int]?         // 관심있는 방
 }
