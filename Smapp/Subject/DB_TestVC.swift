@@ -12,7 +12,7 @@ import FirebaseDatabase
 class DB_TestVC: UIViewController {
     var ref: DatabaseReference!
     
-    var childCount = 0
+    var childCount: Int = 0
     
     @IBAction func clearData(_ sender: Any) {
         let userListRef = ref.child("userList_test")
@@ -27,15 +27,21 @@ class DB_TestVC: UIViewController {
         let userListRef = ref.child("userList_test")
         
         userListRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            self.childCount = Int(snapshot.childrenCount)
+            let values = snapshot.value
+            let dic = values as! [String: [String:Any]]
+            for index in dic {
+                if (self.childCount <= (index.value["userId"] as! Int)){
+                    self.childCount = (index.value["userId"] as! Int + 1)
+                }
+            }
         })
         
         let inputData = [
-            "userId" : childCount,
+            "userId" : self.childCount,
             "email" : "cra.smapp@gmail.com",
-            "studentId" : 22100001 + childCount,
-            "name" : "스맵\(childCount)",
-            "likeMajor" : 0,
+            "studentId" : 22100001 + self.childCount,
+            "name" : "스맵\(self.childCount)",
+            "likeMajor" : "글로벌리더십학부",
             "listOfPartRoom" : [],
             "listOfLikeRoom" : []
         ] as [String : Any]
@@ -60,7 +66,13 @@ class DB_TestVC: UIViewController {
         let userListRef = ref.child("userList_test")
         
         userListRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            self.childCount = Int(snapshot.childrenCount)
+            let values = snapshot.value
+            let dic = values as! [String: [String:Any]]
+            for index in dic {
+                if (self.childCount <= (index.value["userId"] as! Int)){
+                    self.childCount = (index.value["userId"] as! Int + 1)
+                }
+            }
         })
         
         let inputData = [
@@ -68,7 +80,7 @@ class DB_TestVC: UIViewController {
             "email" : "cra.smapp@gmail.com",
             "studentId" : 22100001 + childCount,
             "name" : "스맵\(childCount)",
-            "likeMajor" : 0,
+            "likeMajor" : "글로벌리더십학부",
             "listOfPartRoom" : [],
             "listOfLikeRoom" : []
         ] as [String : Any]
@@ -88,7 +100,7 @@ class DB_TestVC: UIViewController {
             let email = value?["email"] as? String ?? "Error!"
             let studentId = value?["studentId"] as? Int ?? -1
             let name = value?["name"] as? String ?? "Error!"
-            let likeMajor = value?["likeMajor"] as? Int ?? -1
+            let likeMajor = value?["likeMajor"] as? String ?? "Error!"
             let listOfPartRoom = value?["listOfPartRoom"] as? NSArray ?? []
             let listOfLikeRoom = value?["listOfLikeRoom"] as? NSArray ?? []
             
@@ -96,7 +108,7 @@ class DB_TestVC: UIViewController {
             print("email : " + email)
             print("studentId : \(studentId)")
             print("name : " + name)
-            print("likeMajor : \(likeMajor)")
+            print("likeMajor : " + likeMajor)
         })
         
         self.showToast(message: "읽기(print) 완료", font: .systemFont(ofSize: 12.0))
