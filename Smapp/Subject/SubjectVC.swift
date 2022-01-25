@@ -6,20 +6,20 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class SubjectVC: UIViewController {
+    var ref: DatabaseReference!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var nowMajor: UITextField!
     @IBOutlet weak var dropdown: UIPickerView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    @IBOutlet weak var makeRoom: UIButton!
+    @IBOutlet var searchBar: UIView!
     
     var willDisplayData = [RoomData]()
-    
-    @IBAction func search(_ sender: Any) {
-        viewWillAppear(true)
-    }
     
     @IBAction func LikeClicked(_ sender: UIButton) {
         if sender.tag == 0 {
@@ -34,25 +34,40 @@ class SubjectVC: UIViewController {
     
     func updateData() {
         willDisplayData.removeAll()
-        for item in self.appDelegate.roomList {
-            if nowMajor.text! == item.major {
-                willDisplayData.append(item)
+        
+        let roomListRef = ref.child("roomList")
+        
+        roomListRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            let values = snapshot.value!
+            let dic = values as? [[String: Any]] ?? []
+            for item in dic {
+                if (self.nowMajor.text! == item["major"] as! String) {
+                    self.willDisplayData.append(RoomData(dic: item))
+                    print(self.willDisplayData.count)
+                }
             }
-        }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
     }
     
     override func viewDidLoad() {
+        ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
         super.viewDidLoad()
         
         collectionView.dataSource = self
         //collectionView.delegate = self
         
-        updateData()
+        makeRoom.layer.masksToBounds = true
+        makeRoom.layer.cornerRadius = 40
+        
+        self.view.bringSubviewToFront(dropdown)
+        self.view.bringSubviewToFront(makeRoom)
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.collectionView.reloadData()
-        
         updateData()
     }
 }
@@ -69,9 +84,10 @@ extension SubjectVC: UICollectionViewDataSource {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yy.MM.dd"
+        
         cell.roomTitle?.text = item.title!
-        cell.information?.text = item.subject! + " | " + item.professor! + "교수님 | ~" + formatter.string(from: item.dueDate!)
-        cell.member?.text = "(" + String(item.numberOfPart!) + "/" + String(item.numberOfMax!) + ")"
+        cell.information?.text = item.subject! + " | " + item.professor! + " | " + (item.isOnce! ? "~" : "") + formatter.string(from: formatter.date(from: item.dueDate!)!) + " | " + (item.isOnce! ? "정기" : "일시")
+        cell.member?.text = "(" + String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!) + ")"
         
         LikeClicked(cell.LikeButton)
         
@@ -99,6 +115,8 @@ extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDe
 
         self.nowMajor.text = self.appDelegate.majorList[row]
         self.dropdown.isHidden = true
+        
+        viewWillAppear(true)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -53,7 +53,7 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         let item = self.appDelegate.roomList[indexPath.item]
         
         cell.roomTitle.text = item.title
-        cell.participants.text = String(item.numberOfPart!) + "/" + String(item.numberOfMax!)
+        //cell.participants.text = String(item.listOfPartUser?.count!) + "/" + String(item.numberOfMax!)
         cell.chatsName.text = chattingName[indexPath.row]
         cell.chatsContent.text = chattingContent[indexPath.row]
         

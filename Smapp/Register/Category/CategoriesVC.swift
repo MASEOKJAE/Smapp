@@ -40,14 +40,19 @@ extension CategoriesVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCell", for: indexPath) as! CategoriesCell
         
-        
-        //print(Categories.majors)
         let item = appDelegate.majorList[indexPath.item]
-
         
         cell.majorLabel?.text = item
-        cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 10
+        cell.contentView.layer.masksToBounds = true
+        cell.contentView.layer.cornerRadius = 10
+        cell.contentView.layer.borderWidth = 1
+        cell.contentView.layer.borderColor = UIColor.lightGray.cgColor
+        
+        cell.layer.masksToBounds = false;
+        cell.layer.shadowRadius = 2
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 10, height: 10)
+        
         
         return cell
     }

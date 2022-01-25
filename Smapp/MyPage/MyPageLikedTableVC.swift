@@ -47,7 +47,7 @@ class MyPageLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDe
         let item = self.appDelegate.roomList[indexPath.item]
         
         cell.likedRoomTitle.text = item.title
-        cell.LikedRoomParticipants.text = String(item.numberOfPart!) + "/" + String(item.numberOfMax!)
+        //cell.LikedRoomParticipants.text = String(item.numberOfPart!) + "/" + String(item.numberOfMax!)
          cell.subject_prof.text = String(item.subject!) + "-" + String(item.professor!)
         
          return cell

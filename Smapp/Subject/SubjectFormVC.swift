@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import GoogleSignIn
+import Firebase
+import FirebaseDatabase
 
 class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+    var ref: DatabaseReference!
+    var childCount: Int = 0
+    let datePicker = UIDatePicker()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var roomTitle: UITextField!
     @IBOutlet weak var contents: UITextField!
     @IBOutlet weak var subject: UITextField!
@@ -17,51 +25,67 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var numberOfMax: UITextField!
     @IBOutlet weak var maxDropdown: UIPickerView!
     @IBOutlet weak var dueDate: UITextField!
+    @IBOutlet weak var isOnce: UISegmentedControl!
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    func childCountUpdate() {
+        let roomListRef = ref.child("roomList")
+        
+        roomListRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            let values = snapshot.value!
+            let dic = values as? [[String: Any]] ?? []
+            for index in dic {
+                if (self.childCount <= (index["roomId"] as! Int)){
+                    self.childCount = (index["roomId"] as! Int + 1)
+                }
+            }
+        })
+    }
     
     @IBAction func save(_ sender: Any) {
         guard self.subject.text?.isEmpty == false else {
-            let alert = UIAlertController(title: nil, message: "내용을 입력해주세요", preferredStyle: .alert)
+            let alert = UIAlertController(title: nil, message: "과목을 입력해주세요", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
             return
         }
         
-        let data = RoomData()
-        
-        data.roomId = appDelegate.roomList.count
-        data.title = self.roomTitle.text
-        data.contents = self.contents.text
-        data.subject = self.subject.text
-        data.professor = self.professor.text
-        data.major = self.major.text
-        data.numberOfPart = 1
-        data.numberOfMax = Int(self.numberOfMax.text!)
-        data.openDate = Date()
+        let roomListRef = ref.child("roomList")
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        data.dueDate = formatter.date(from: self.dueDate.text!)
         
-        data.isOnce = false
-        data.isClosed = false
-        data.listOfPartUser = [Int]()
+        let inputData = [
+            "roomId" : self.childCount,
+            "title" : self.roomTitle.text!,
+            "contents" : self.contents.text!,
+            "subject" : self.subject.text!,
+            "professor" : self.professor.text!,
+            "major" : self.major.text!,
+            "numberOfMax" : Int(self.numberOfMax.text!)!,
+            "openDate" : formatter.string(from: Date()),
+            "dueDate" : self.dueDate.text!,
+            "isOnce" : isOnce.selectedSegmentIndex == 0 ? true : false,
+            "isClosed" : false,
+            "listOfPartUser" : [Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)]
+        ] as [String : Any]
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.roomList.append(data)
+        roomListRef.child(String(childCount)).setValue(inputData)
         
         _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
+        ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        childCountUpdate()
+        
         self.contents.delegate = self
         
         createDatePicker()
     }
-    
-    let datePicker = UIDatePicker()
-    
+}
+
+extension SubjectFormVC {
     func createDatePicker() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()

@@ -12,9 +12,8 @@
         <!--카테고리-->
         <scene sceneID="EPH-5d-YeX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="El1-8w-DBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="RKq-Mb-4Cd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="카테고리" image="tabBarItem:72e-n6-2Tp:image" catalog="system" selectedImage="tabBarItem:72e-n6-2Tp:image" id="72e-n6-2Tp"/>
+                    <tabBarItem key="tabBarItem" title="카테고리" image="tabBarItem:72e-n6-2Tp:image" selectedImage="tabBarItem:72e-n6-2Tp:image" id="72e-n6-2Tp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MtR-os-FRG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -28,6 +27,7 @@
                         <segue destination="x7c-ql-ASv" kind="relationship" relationship="rootViewController" id="wF0-Y6-YlR"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="El1-8w-DBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-140.57971014492756" y="79.6875"/>
         </scene>
@@ -66,8 +66,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.87516886000000005" green="0.9160811901" blue="0.97255855800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="160" height="60"/>
                                         <connections>
                                             <outlet property="majorLabel" destination="qbI-Sq-n6p" id="lUg-OW-AFq"/>
@@ -126,7 +128,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tabBarItem:72e-n6-2Tp:image" catalog="system" width="128" height="114">
+        <image name="tabBarItem:72e-n6-2Tp:image" width="128" height="114">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
 S2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBELDBscIRkmKywzNjlDS0xQU1UkbnVsbNcNDg8QERITFBUW
