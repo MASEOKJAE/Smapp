@@ -35,7 +35,7 @@ class RegisterVC: UIViewController {
     func userName() {
         let refUser = ref.child("userList")
         
-        refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(["name": nameTextField.text!])
+        //refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(["name": nameTextField.text!])
     }
     
     override func viewDidLoad() {
