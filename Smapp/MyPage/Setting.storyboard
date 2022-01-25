@@ -12,11 +12,11 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="Setting" title="설정" id="Y6W-OH-hqX" customClass="SettingVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5EZ-qb-Rvc">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D4T-rl-gHl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D4T-rl-gHl">
                                 <rect key="frame" x="0.0" y="148" width="414" height="614"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -64,9 +64,10 @@
                     <connections>
                         <outlet property="tableView" destination="D4T-rl-gHl" id="Qmd-1F-4Ur"/>
                         <segue destination="QU2-rW-4JE" kind="show" identifier="notice" id="d3P-RK-Elx"/>
-                        <segue destination="uEs-2E-1nf" kind="show" identifier="setAlarm" id="JMg-LL-cbg"/>
                         <segue destination="vVy-Ra-Xnp" kind="show" identifier="feedBack" id="LJL-zu-xqV"/>
                         <segue destination="gaZ-DA-szm" kind="presentation" identifier="reselectMajor" modalPresentationStyle="pageSheet" id="wJX-Ug-jRY"/>
+                        <segue destination="uEs-2E-1nf" kind="show" identifier="setAlarm" id="dXG-ck-0p4"/>
+                        <segue destination="2ey-Qr-fQ9" kind="show" identifier="peopleview" id="PxI-ym-qcj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -127,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="1140" y="7"/>
         </scene>
-        <!--전공 수정-->
+        <!--알림 설정-->
         <scene sceneID="zpz-7v-FsE">
             <objects>
-                <viewController title="전공 수정" id="uEs-2E-1nf" sceneMemberID="viewController">
+                <viewController title="알림 설정" id="uEs-2E-1nf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MKB-88-jZk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,6 +167,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ffa-X3-hFM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1018.840579710145" y="468.75"/>
+        </scene>
+        <!--PeopleView-->
+        <scene sceneID="icb-S3-SDA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PeopleView" id="2ey-Qr-fQ9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="obw-fl-u3Z"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vT9-r1-tef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282" y="580"/>
         </scene>
         <!--피드백-->
         <scene sceneID="qhD-eS-3iA">
