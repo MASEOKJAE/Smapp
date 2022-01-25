@@ -36,12 +36,6 @@ class RegisterVC: UIViewController {
         let refUser = ref.child("userList")
         
         refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(["name": nameTextField.text!])
-        
-        //마이페이지 이름 바꾸기 위해 UserData에 업데이트
-        var temp = UserData()
-        temp.name = nameTextField.text!
-        
-        self.appDelegate.userList.append(temp)
     }
     
     override func viewDidLoad() {
