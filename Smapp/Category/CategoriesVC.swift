@@ -26,7 +26,6 @@ class CategoriesVC: UIViewController {
         
         doneButton.layer.masksToBounds = true
         doneButton.layer.cornerRadius = 5
-        
     }
 }
 

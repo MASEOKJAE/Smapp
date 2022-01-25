@@ -7,8 +7,14 @@
 
 import UIKit
 import GoogleSignIn
+import Firebase
+import FirebaseDatabase
 
 class MyPageVC: UIViewController{
+    
+    var ref: DatabaseReference!
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var partStudy: UIView!
     @IBOutlet weak var likeStudy: UIView!
@@ -19,16 +25,23 @@ class MyPageVC: UIViewController{
     @IBOutlet weak var settingButton: UIButton!
     
 
-    @IBAction func tapSettingButton(_ sender: Any) {
-        performSegue(withIdentifier: "MyPagetoSetting", sender: nil)
-    }
     
     
     //구글 로그인에서 가져온 정보들
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userName.text = GIDSignIn.sharedInstance.currentUser?.profile!.familyName
+        self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        let refUser = ref.child("userList")
+        
+        refUser.child(String(GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8) ?? "Error!")).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            let name = value?["name"] as? String ?? "Error!"
+            
+            self.userName.text = name
+        })
+        
         userEmail.text = GIDSignIn.sharedInstance.currentUser?.profile!.email
     }
     

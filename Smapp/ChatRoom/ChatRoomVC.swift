@@ -7,6 +7,8 @@
 
 import UIKit
 import MobileCoreServices
+import Firebase
+import FirebaseDatabase
 
 class ChatRoomVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var menuButton: UIButton!
@@ -21,10 +23,12 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var chatRoomTitle: UILabel!
     @IBOutlet weak var chatSubtitle: UILabel!
     
+    
     var roomIndex: Int?
     
     let imagePicker = UIImagePickerController()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     func openLibrary(){
       imagePicker.sourceType = .photoLibrary
@@ -111,6 +115,10 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     @IBAction func tapSendButton(_sender: Any) {
         chatText.resignFirstResponder()
     }
+    
+    
+    
+    
 }
 
 extension ChatRoomVC: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -129,3 +137,4 @@ extension ChatRoomVC: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
     }
 }
+
