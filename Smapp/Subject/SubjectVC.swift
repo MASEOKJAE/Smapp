@@ -23,16 +23,6 @@ class SubjectVC: UIViewController {
     var willDisplayData = [RoomData]()
     
     
-    @IBOutlet weak var logOutBtn: UIButton!
-    
-    @IBAction func LogOut(_ sender: UIButton) {
-        GIDSignIn.sharedInstance.signOut()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginViewController)
-    }
-    
-    
     @IBAction func LikeClicked(_ sender: UIButton) {
         if sender.tag == 0 {
            sender.setImage(UIImage(systemName: "heart"), for: .normal)

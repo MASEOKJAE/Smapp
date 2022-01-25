@@ -54,13 +54,13 @@ class LoginVC: UIViewController {
                 //로그인 성공하면 user 정보 appDelegate에 append
                 var temp = UserData()
                 temp.userId = self.appDelegate.userList.count
-                //temp.studentId = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+                temp.studentId = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
                 temp.email = GIDSignIn.sharedInstance.currentUser?.profile!.email
                 
                 self.appDelegate.userList.append(temp)
                 
                 print("\n\n\n\n")
-                //print(self.appDelegate.userList[self.appDelegate.userList.count - 1].email!)
+                print(self.appDelegate.userList[self.appDelegate.userList.count - 1].email!)
                 print("\n\n\n\n")
                 
                 
@@ -69,11 +69,11 @@ class LoginVC: UIViewController {
 
                 let userInputData = [
                     "email": GIDSignIn.sharedInstance.currentUser?.profile!.email,
-                    "studentId": "1",//Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)!,
+                    "studentId": Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)!,
                     "name": "",
                 ] as [String : Any]
                 
-                //refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).setValue(userInputData)
+                refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).setValue(userInputData)
                 
                 self.showToast(message: "로그인 완료", font: .systemFont(ofSize: 15.0))
                 
@@ -96,13 +96,11 @@ class LoginVC: UIViewController {
     
     //"handong.edu" 검사
     func isValidEmail(_ testStr:String) -> Bool {
-        return true/*
         if testStr.contains("handong") {
             return true
         } else {
             return false
         }
-                    */
     }
     
     
