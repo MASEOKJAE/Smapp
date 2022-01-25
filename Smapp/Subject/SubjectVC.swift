@@ -59,6 +59,17 @@ class SubjectVC: UIViewController {
         
         super.viewDidLoad()
         
+        let userListRef = ref.child("userList")
+        
+        userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            
+            self.nowMajor.text = value?["likeMajor"] as? String ?? "Error"
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
+        
         collectionView.dataSource = self
         //collectionView.delegate = self
         

@@ -60,10 +60,10 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         chatText.delegate = self
         
         // 일단 마이페이지에서 데이터 받음 -> 고쳐야함
-        let item = self.appDelegate.roomList[roomIndex!]
-        self.chatRoomTitle.text = item.title
-        self.chatSubtitle.text = String(item.subject!) + "-" + String(item.professor!)
-        
+//        let item = self.appDelegate.roomList[roomIndex!]
+//        self.chatRoomTitle.text = item.title
+//        self.chatSubtitle.text = String(item.subject!) + "-" + String(item.professor!)
+//
         
         
         // 채팅 텍스트 박스 꾸미기
