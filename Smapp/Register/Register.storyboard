@@ -51,6 +51,7 @@
                                     <color key="baseBackgroundColor" red="0.56470588239999997" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="nameClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BvG-YO-ghY"/>
                                     <segue destination="0w4-Nr-CIo" kind="show" id="z1y-vR-5qh"/>
                                 </connections>
                             </button>
@@ -72,6 +73,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dbl-qd-Ipt"/>
                     <connections>
+                        <outlet property="nameSelect" destination="vh7-ph-Rep" id="LGP-0d-3mW"/>
                         <outlet property="nameTextField" destination="udq-Uv-W4p" id="3ur-WN-8fB"/>
                     </connections>
                 </viewController>

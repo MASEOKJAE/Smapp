@@ -10,6 +10,8 @@ import GoogleSignIn
 
 class MyPageVC: UIViewController{
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var partStudy: UIView!
     @IBOutlet weak var likeStudy: UIView!
     
@@ -28,7 +30,7 @@ class MyPageVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userName.text = GIDSignIn.sharedInstance.currentUser?.profile!.familyName
+        userName.text = (self.appDelegate.userList[self.appDelegate.userList.count - 1].name!)
         userEmail.text = GIDSignIn.sharedInstance.currentUser?.profile!.email
     }
     

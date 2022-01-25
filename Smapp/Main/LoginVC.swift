@@ -8,8 +8,12 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FirebaseDatabase
 
 class LoginVC: UIViewController {
+    
+    //DB 정보 전달
+    var ref: DatabaseReference!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -25,6 +29,7 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
     }
 
     @IBAction func TapGoogleLogin(_ sender: Any) {
@@ -38,7 +43,7 @@ class LoginVC: UIViewController {
             
             // 파베 인증정보 등록
             //로그인 성공하면
-            Auth.auth().signIn(with: credential) {_,_ in
+            Auth.auth().signIn(with: credential) { [self]_,_ in
                 // token을 넘겨주면, 성공했는지 안했는지에 대한 result값과 error값을 넘겨줌
                 
                 
@@ -57,6 +62,21 @@ class LoginVC: UIViewController {
                 print("\n\n\n\n")
                 print(self.appDelegate.userList[self.appDelegate.userList.count - 1].email!)
                 print("\n\n\n\n")
+                
+                
+                //firebase realtime database 연동
+                let refUser = ref.child("userList")
+
+                let userInputData = [
+                    "email": GIDSignIn.sharedInstance.currentUser?.profile!.email,
+                    "studentId": Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)!,
+                    "name": "",
+                ] as [String : Any]
+                
+                refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).setValue(userInputData)
+                
+                self.showToast(message: "로그인 완료", font: .systemFont(ofSize: 15.0))
+                
                 
                 //메인 탭바로 이동
                 let storyboard = UIStoryboard(name: "Register", bundle: nil)
@@ -100,8 +120,10 @@ class LoginVC: UIViewController {
         }
         return true
     }
+}
     
-    
+
+extension LoginVC {
     //toast 메세지
     func showToast(message : String, font: UIFont) {
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 60))
