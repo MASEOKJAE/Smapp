@@ -8,24 +8,21 @@
 import UIKit
 import GoogleSignIn
 
-private var cellID = "Cell"
 class SettingVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    let myPageMenu = ["공지사항", "전공 수정", "알림 설정", "개발자에게 피드백", "로그아웃", "회원목록"]
+
+    @IBOutlet weak var logoutButton: UIButton!
+    let myPageMenu = ["공지사항", "전공 수정", "알림 설정", "개발자에게 피드백", "회원목록(테스트)"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-}
 
-extension SettingVC: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.myPageMenu.count
+        self.logoutButton.layer.borderWidth = 0.5
+        self.logoutButton.layer.borderColor = UIColor.gray.cgColor
     }
     
-    func signOut() {
+    @IBAction func signOut(_ sender: Any) {
         // 경고창
         let alert = UIAlertController(title: "로그아웃", message: "로그아웃 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
         
@@ -44,7 +41,12 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
     }
-    
+}
+
+extension SettingVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.myPageMenu.count
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -58,14 +60,11 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
         case 3:
             performSegue(withIdentifier: "feedBack", sender: nil)
         case 4:
-            self.signOut()
-        case 5:
             performSegue(withIdentifier: "peopleview", sender: nil)
         default:
             return
         }
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableCell", for: indexPath) as? SettingTableCell else {

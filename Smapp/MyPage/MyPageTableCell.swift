@@ -11,6 +11,7 @@ class MyPageTableCell: UITableViewCell {
     
     @IBOutlet weak var roomTitle: UILabel!
     @IBOutlet weak var participants: UILabel!
+    @IBOutlet weak var roomImage: UIImageView!
     
     @IBOutlet weak var chatsName: UILabel!
     @IBOutlet weak var chatsContent: UILabel!
@@ -18,6 +19,7 @@ class MyPageTableCell: UITableViewCell {
     @IBOutlet weak var likedRoomTitle: UILabel!
     @IBOutlet weak var LikedRoomParticipants: UILabel!
     
+    @IBOutlet weak var likedRoomImage: UIImageView!
     @IBOutlet weak var subject_prof: UILabel!
     
     override func awakeFromNib() {

@@ -19,6 +19,7 @@ class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
     }
     
     func snapshotfunc() {
@@ -27,7 +28,7 @@ class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         userListRef.observe(DataEventType.value) { (snapshot) in
             self.array.removeAll()
-            
+
             for child in snapshot.children {
                 let fchild = child as! DataSnapshot
                 let userModel = UserModel()
@@ -35,17 +36,16 @@ class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 self.array.append(userModel)
                 print("usermodel: ", userModel)
             }
-            
+
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
-        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return self.array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
