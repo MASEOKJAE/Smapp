@@ -21,9 +21,6 @@ class MyPageVC: UIViewController{
     @IBOutlet weak var settingButton: UIButton!
     
 
-    @IBAction func tapSettingButton(_ sender: Any) {
-        performSegue(withIdentifier: "MyPagetoSetting", sender: nil)
-    }
     
     
     //구글 로그인에서 가져온 정보들

@@ -18,5 +18,7 @@ class CategoriesCell: UICollectionViewCell {
             }
         }
     }
+
+    
     @IBOutlet weak var majorLabel: UILabel!
 }

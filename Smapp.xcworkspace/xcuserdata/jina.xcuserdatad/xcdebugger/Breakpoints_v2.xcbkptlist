@@ -17,5 +17,114 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "17846BE6-EACA-4011-A3AF-6AD3E896E96E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Smapp/MyPage/MyPageVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD9024B9-CC19-4310-84ED-7AB432A03C0A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Smapp/MyPage/SettingVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "CD9024B9-CC19-4310-84ED-7AB432A03C0A - 31360c75a7382b2f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Smapp.SettingVC.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Smapp.SettingVC"
+                  moduleName = "Smapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jina/Desktop/Senior/CraProject/Smapp/Smapp/MyPage/SettingVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  uuid = "CD9024B9-CC19-4310-84ED-7AB432A03C0A - 3d8648b177f274c2"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Smapp.SettingVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Smapp.SettingVC"
+                  moduleName = "Smapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jina/Desktop/Senior/CraProject/Smapp/Smapp/MyPage/SettingVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "141">
+               </Location>
+               <Location
+                  uuid = "CD9024B9-CC19-4310-84ED-7AB432A03C0A - d8bcd293f19b852a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Smapp.SettingVC.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Smapp.SettingVC&gt;"
+                  moduleName = "Smapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jina/Desktop/Senior/CraProject/Smapp/Smapp/MyPage/SettingVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  uuid = "CD9024B9-CC19-4310-84ED-7AB432A03C0A - ba3139876b5648f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Smapp.SettingVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Smapp.SettingVC&gt;"
+                  moduleName = "Smapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jina/Desktop/Senior/CraProject/Smapp/Smapp/MyPage/SettingVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "98">
+               </Location>
+               <Location
+                  uuid = "CD9024B9-CC19-4310-84ED-7AB432A03C0A - 57da9a213a9a714c"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Smapp.SettingVC.__deallocating_deinit"
+                  moduleName = "Smapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jina/Desktop/Senior/CraProject/Smapp/Smapp/MyPage/SettingVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
