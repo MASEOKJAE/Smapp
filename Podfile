@@ -11,14 +11,6 @@ target 'Smapp' do
   pod 'GoogleSignIn'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-
-  target 'SmappTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'SmappUITests' do
-    # Pods for testing
-  end
+  pod 'ObjectMapper'
 
 end
