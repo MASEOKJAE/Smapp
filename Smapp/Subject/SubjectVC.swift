@@ -45,7 +45,6 @@ class SubjectVC: UIViewController {
             for item in dic {
                 if (self.nowMajor.text! == item["major"] as! String) {
                     self.willDisplayData.append(RoomData(dic: item))
-                    print(self.willDisplayData.count)
                 }
             }
             DispatchQueue.main.async {
@@ -66,7 +65,7 @@ class SubjectVC: UIViewController {
             
             self.nowMajor.text = value?["likeMajor"] as? String ?? "Error"
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                self.viewWillAppear(true)
             }
         })
         
@@ -99,7 +98,7 @@ extension SubjectVC: UICollectionViewDataSource {
         formatter.dateFormat = "yy.MM.dd"
         
         cell.roomTitle?.text = item.title!
-        cell.information?.text = item.subject! + " | " + item.professor! + " | " + (item.isOnce! ? "~" : "") + formatter.string(from: formatter.date(from: item.dueDate!)!) + " | " + (item.isOnce! ? "정기" : "일시")
+        cell.information?.text = item.subject! + " | " + item.professor! + " | " + (item.isOnce! ? "" : "~") + formatter.string(from: formatter.date(from: item.dueDate!)!) + " | " + (item.isOnce! ? "번개" : "정기")
         cell.member?.text = "(" + String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!) + ")"
         
         LikeClicked(cell.LikeButton)
