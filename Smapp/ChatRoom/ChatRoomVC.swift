@@ -130,23 +130,13 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     
     // 상대의 정보 가져오기
     func getDestinationInfo() {
-        let refUsers = ref.child("users")
-//        refUsers.child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
-        refUsers.child(self.destinationUid!).observe(DataEventType.value, with:  { (snapshot) in
-//            for child in datasnapshot.children {
-//                let fchild = child as! DataSnapshot
-//                self.userModel = UserModel()
-//                self.userModel?.setValuesForKeys(fchild.value as! [String : Any])
-//            }
-//            let values = datasnapshot.value
-//            guard let dic = values as? [String: Any] else { return }
-//            self.userModel = UserModel()
-//            self.userModel?.setValuesForKeys(dic)
-            
-            
-            
+        let refUsers = ref.child("userList")
+        refUsers.child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+//        refUsers.child(self.destinationUid!).observe(DataEventType.value, with:  { (datasnapshot) in
+            self.userModel = UserModel()
+            self.userModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
             self.getMessageList()
-        } )
+        })
     }
     
     //메세지 가져오기
