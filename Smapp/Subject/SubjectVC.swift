@@ -41,10 +41,11 @@ class SubjectVC: UIViewController {
         
         roomListRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             let values = snapshot.value!
-            let dic = values as? [[String: Any]] ?? []
+            let dic = values as? [Any] ?? []
             for item in dic {
-                if (self.nowMajor.text! == item["major"] as! String) {
-                    self.willDisplayData.append(RoomData(dic: item))
+                let i = item as? Dictionary<String, Any> ?? [:]
+                if (self.nowMajor.text! == i["major"] as? String) {
+                    self.willDisplayData.append(RoomData(dic: i))
                 }
             }
             DispatchQueue.main.async {
