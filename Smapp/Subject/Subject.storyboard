@@ -87,7 +87,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                                     <connections>
-                                                        <action selector="LikeClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Hb1-ul-MPw"/>
+                                                        <action selector="LikeClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VYj-aW-FEp"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
