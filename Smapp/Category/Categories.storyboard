@@ -12,7 +12,7 @@
         <!--카테고리-->
         <scene sceneID="EPH-5d-YeX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="RKq-Mb-4Cd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CategoriesNav" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="RKq-Mb-4Cd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="카테고리" image="tabBarItem:72e-n6-2Tp:image" selectedImage="tabBarItem:72e-n6-2Tp:image" id="72e-n6-2Tp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MtR-os-FRG">

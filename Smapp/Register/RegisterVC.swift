@@ -23,8 +23,9 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var registerThree: UIButton!
     @IBOutlet weak var registerFour: UIButton!
     
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var termsBtn: UIButton!
     
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameSelect: UIButton!
     
     @IBAction func nameClicked(_ sender: UIButton) {
@@ -81,5 +82,21 @@ class RegisterVC: UIViewController {
     }
     @IBAction func registerFourAction(_ sender: Any) {
         self.registerFour.isSelected.toggle()
+    }
+    
+    @IBAction func termsClicked(_ sender: Any) {
+        if (registerOne.isSelected == true) && (registerTwo.isSelected == true) && (registerThree.isSelected == true) {
+            //필수 3가지 체크된 경우 -> 카테고리 탭바로 이동
+            let storyboard = UIStoryboard(name: "Categories", bundle: nil)
+            let NavigationController = storyboard.instantiateViewController(identifier: "CategoriesNav")
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(NavigationController)
+        }
+        else {
+            //경고
+            let alert = UIAlertController(title: nil, message: "모든 필수 약관에 동의 바람.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        }
     }
 }

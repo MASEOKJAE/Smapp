@@ -114,7 +114,7 @@
                                 </state>
                                 <state key="selected" title="동의하기"/>
                                 <connections>
-                                    <segue destination="lIq-q6-5JT" kind="show" id="wXh-iF-LkK"/>
+                                    <action selector="termsClicked:" destination="0w4-Nr-CIo" eventType="touchUpInside" id="Azz-Ua-Dxr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83S-H9-VbO">
@@ -223,21 +223,12 @@
                         <outlet property="registerOne" destination="wXn-8g-jgU" id="ak0-km-AiS"/>
                         <outlet property="registerThree" destination="SCg-Gq-KCj" id="vxP-iC-TXd"/>
                         <outlet property="registerTwo" destination="UBT-bh-y9O" id="lrk-2J-54D"/>
+                        <outlet property="termsBtn" destination="Hsa-M3-4zR" id="R6O-1v-gdM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSn-aU-wzp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="961.53846153846155" y="76.777251184834114"/>
-        </scene>
-        <!--Categories-->
-        <scene sceneID="CXi-6S-hBA">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Categories" id="lIq-q6-5JT" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="vmb-4F-CGC"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dW6-7L-q3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1969" y="127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z5B-Zy-uhA">
