@@ -31,8 +31,19 @@ class SubjectVC: UIViewController {
        else{
            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
            sender.tag = 0
+           
+           if let indexPath = collectionView?.indexPathsForSelectedItems?.first,
+           let cell = collectionView?.cellForItem(at: indexPath) as? SubjectCell,
+           let likeData = cell.roomTitle.text {
+               //DB
+               let refLike = ref.child("userList")
+
+               refLike.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(["listOfLikeRoom": cell.roomTitle.text!])
+           }
+           
        }
     }
+    
     
     func updateData() {
         willDisplayData.removeAll()
@@ -90,6 +101,7 @@ extension SubjectVC: UICollectionViewDataSource {
         return self.willDisplayData.count
     }
 
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath) as! SubjectCell
         
@@ -102,7 +114,12 @@ extension SubjectVC: UICollectionViewDataSource {
         cell.information?.text = item.subject! + " | " + item.professor! + " | " + (item.isOnce! ? "" : "~") + formatter.string(from: formatter.date(from: item.dueDate!)!) + " | " + (item.isOnce! ? "번개" : "정기")
         cell.member?.text = "(" + String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!) + ")"
         
-        LikeClicked(cell.LikeButton)
+        return cell
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath as IndexPath) as! SubjectCell
         
         return cell
     }
