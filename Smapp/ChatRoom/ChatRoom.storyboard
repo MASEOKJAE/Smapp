@@ -156,7 +156,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lYl-a1-1HR" customClass="MyMessageCell" customModule="Smapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" id="lYl-a1-1HR" customClass="MyMessageCell" customModule="Smapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="358" height="43.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lYl-a1-1HR" id="fBT-Ig-35x">
@@ -188,7 +188,7 @@
                                             <outlet property="label_message" destination="5Tc-Xh-L54" id="reZ-zF-QVn"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="d8r-Ju-XTP" customClass="DestinationMessageCell" customModule="Smapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DestinationMessageCell" id="d8r-Ju-XTP" customClass="DestinationMessageCell" customModule="Smapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="87.999998092651367" width="358" height="43.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d8r-Ju-XTP" id="KlM-CS-77k">
@@ -230,6 +230,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="lFX-AV-1p4"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="NIy-LV-uVm"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -257,6 +261,7 @@
                         <outlet property="menuButton" destination="iSv-HN-eAe" id="vVM-fT-sF1"/>
                         <outlet property="menuView" destination="ze6-Ex-bLp" id="Nep-6Y-RKL"/>
                         <outlet property="sendButton" destination="d2c-Hw-vgZ" id="ET1-es-UQj"/>
+                        <outlet property="tableView" destination="g0U-hj-Uv7" id="uQR-7c-wZs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -270,7 +275,7 @@
         <image name="message_blue" width="12" height="8"/>
         <image name="message_gray" width="12" height="8"/>
         <image name="paperclip" catalog="system" width="121" height="128"/>
-        <image name="paperplane.fill" catalog="system" width="32" height="32"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="97"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

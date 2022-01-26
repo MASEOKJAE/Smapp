@@ -19,10 +19,10 @@
 		1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600C427900FBC00EC8019 /* Register.storyboard */; };
 		1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C527900FBD00EC8019 /* MyPageVC.swift */; };
 		1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */; };
+		3C3339D927A03CD600FD9221 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3339D827A03CD600FD9221 /* ChatModel.swift */; };
 		3C4FB5AE279E728C00488EC5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB5AD279E728C00488EC5 /* RegisterVC.swift */; };
 		3C4FB5B7279F8E8F00488EC5 /* MyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB5B6279F8E8F00488EC5 /* MyMessageCell.swift */; };
 		3C4FB5BB279F8EBF00488EC5 /* DestinationMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB5BA279F8EBF00488EC5 /* DestinationMessageCell.swift */; };
-		3C4FB5BD279F917200488EC5 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB5BC279F917200488EC5 /* ChatData.swift */; };
 		3C4FB5BF279F922100488EC5 /* PeopleView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4FB5BE279F922100488EC5 /* PeopleView.storyboard */; };
 		3C4FB5C1279F923F00488EC5 /* PeopleViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB5C0279F923F00488EC5 /* PeopleViewVC.swift */; };
 		3C85E768279F987300D2595A /* PeopleViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E767279F987300D2595A /* PeopleViewTableCell.swift */; };
@@ -81,10 +81,10 @@
 		1F3600C427900FBC00EC8019 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		1F3600C527900FBD00EC8019 /* MyPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPagePartTableVC.swift; sourceTree = "<group>"; };
+		3C3339D827A03CD600FD9221 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		3C4FB5AD279E728C00488EC5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		3C4FB5B6279F8E8F00488EC5 /* MyMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageCell.swift; sourceTree = "<group>"; };
 		3C4FB5BA279F8EBF00488EC5 /* DestinationMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationMessageCell.swift; sourceTree = "<group>"; };
-		3C4FB5BC279F917200488EC5 /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
 		3C4FB5BE279F922100488EC5 /* PeopleView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PeopleView.storyboard; sourceTree = "<group>"; };
 		3C4FB5C0279F923F00488EC5 /* PeopleViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewVC.swift; sourceTree = "<group>"; };
 		3C85E767279F987300D2595A /* PeopleViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewTableCell.swift; sourceTree = "<group>"; };
@@ -242,10 +242,10 @@
 		66C94C44279544E900644BDA /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3C4FB5BC279F917200488EC5 /* ChatData.swift */,
 				66C94C45279544FC00644BDA /* RoomData.swift */,
 				66C94C47279545B100644BDA /* UserData.swift */,
 				3C85E769279F99DE00D2595A /* UserModel.swift */,
+				3C3339D827A03CD600FD9221 /* ChatModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -502,12 +502,12 @@
 				F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */,
 				3CBB50C9279A8DD600C11CF9 /* SettingTableCell.swift in Sources */,
 				3CBB50C7279A8BD000C11CF9 /* SettingVC.swift in Sources */,
-				3C4FB5BD279F917200488EC5 /* ChatData.swift in Sources */,
 				664A73042791484600A82E7C /* SubjectVC.swift in Sources */,
 				1F04AE43278E95CB008AC901 /* CategoriesCell.swift in Sources */,
 				66C94C48279545B100644BDA /* UserData.swift in Sources */,
 				3C4FB5BB279F8EBF00488EC5 /* DestinationMessageCell.swift in Sources */,
 				1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */,
+				3C3339D927A03CD600FD9221 /* ChatModel.swift in Sources */,
 				3C4FB5C1279F923F00488EC5 /* PeopleViewVC.swift in Sources */,
 				1F3600C027900FA800EC8019 /* MyPageTableCell.swift in Sources */,
 				F49AFFFD27840CF500DAC7AA /* LoginVC.swift in Sources */,

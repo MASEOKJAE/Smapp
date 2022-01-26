@@ -20,27 +20,22 @@ class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-    }
-    
-    func snapshotfunc() {
-        let userListRef = ref.child("userList")
-    
-        
-        userListRef.observe(DataEventType.value) { (snapshot) in
-            self.array.removeAll()
+        let refUser = ref.child("userList")
+           refUser.observe(DataEventType.value, with:  { (snapshot) in
+               self.array.removeAll()
 
-            for child in snapshot.children {
-                let fchild = child as! DataSnapshot
-                let userModel = UserModel()
-                userModel.setValuesForKeys(fchild.value as! [String : Any])
-                self.array.append(userModel)
-                print("usermodel: ", userModel)
-            }
+               for child in snapshot.children {
+                   let fchild = child as! DataSnapshot
+                   let userModel = UserModel()
+                   userModel.setValuesForKeys(fchild.value as! [String : Any])
+                   
+                   self.array.append(userModel)
+               }
 
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+               DispatchQueue.main.async {
+                   self.tableView.reloadData()
+               }
+           })
     }
     
     
@@ -59,5 +54,12 @@ class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         return cell
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "peopleToChat" {
+                let vc = segue.destination as? ChatRoomVC
+                let selectedIndex = tableView.indexPathForSelectedRow
+                vc?.destinationUid = self.array[Int((selectedIndex?.row)!)].studentId?.stringValue
+            }
+        }
     
 }

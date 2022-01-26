@@ -11,6 +11,14 @@ import Firebase
 import FirebaseDatabase
 
 class ChatRoomVC: UIViewController, UITextViewDelegate {
+    @IBOutlet weak var tableView: UITableView!
+    
+    var uid: String?
+    var chatRoomUid: String?
+    public var destinationUid: String?   // 나중에 내가 채팅할 대상의 uid
+    var comments : [ChatModel.Comment] = []
+    var ref: DatabaseReference!
+    
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var chatText: UITextView!
     @IBOutlet weak var sendButton: UIButton!
@@ -29,6 +37,88 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     let imagePicker = UIImagePickerController()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imagePicker.delegate = self
+        chatText.delegate = self
+        
+        self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+                
+        uid = Auth.auth().currentUser?.uid
+        checkChatRoom()
+        
+        // 일단 마이페이지에서 데이터 받음 -> 고쳐야함
+//        let item = self.appDelegate.roomList[roomIndex!]
+//        self.chatRoomTitle.text = item.title
+//        self.chatSubtitle.text = String(item.subject!) + "-" + String(item.professor!)
+//
+        
+        
+        // 채팅 텍스트 박스 꾸미기
+        chatText.layer.borderWidth = 0.5
+        chatText.layer.borderColor = UIColor.gray.cgColor
+        chatText.layer.cornerRadius = 10
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    //방 생성
+    func createRoom() {
+        let createRoomInfo : Dictionary<String, Any> = [ "users": [
+                uid!: true,
+                destinationUid!: true
+            ]
+        ]
+        let refChatrooms = ref.child("chatrooms")
+        if(chatRoomUid == nil) {
+            self.sendButton.isEnabled = false
+            refChatrooms.childByAutoId().setValue(createRoomInfo, withCompletionBlock: {(err, ref) in
+                if(err == nil) {
+                    self.checkChatRoom()
+                }
+            })
+        } else {
+            let value: Dictionary<String, Any> = [
+                "uid": uid!,
+                "message":chatText.text!
+            ]
+            refChatrooms.child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
+        }
+
+    }
+    
+    // 방 중복 확인
+    func checkChatRoom() {
+        let refChatrooms = ref.child("chatrooms")
+        refChatrooms.queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
+            for item in datasnapshot.children.allObjects as! [DataSnapshot]{
+                
+                if let chatRoomdic = item.value as? [String:AnyObject] {
+                    let chatModel = ChatModel(JSON: chatRoomdic)
+                    if(chatModel?.users[self.destinationUid!] == true){
+                        self.chatRoomUid = item.key
+                        self.sendButton.isEnabled = true
+                        self.getMessageList()
+                    }
+                }
+                
+            }
+        })
+    }
+    
+    func getMessageList() {
+        let refChatrooms = ref.child("chatrooms")
+        refChatrooms.child(self.chatRoomUid!).child("comments").observe(DataEventType.value, with: { (datasnapshot) in
+            self.comments.removeAll()
+            for item in datasnapshot.children.allObjects as! [DataSnapshot] {
+                let comment = ChatModel.Comment(JSON: item.value as! [String:AnyObject])
+                self.comments.append(comment!)
+            }
+            self.tableView.reloadData()
+            
+        })
+    }
     
     func openLibrary(){
       imagePicker.sourceType = .photoLibrary
@@ -48,32 +138,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
             present(fileMenu, animated: true, completion: nil)
         }
     }
-    
-    func receiveRoomIndex(selectIndex: Int) {
-        roomIndex = selectIndex
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        imagePicker.delegate = self
-        chatText.delegate = self
-        
-        // 일단 마이페이지에서 데이터 받음 -> 고쳐야함
-//        let item = self.appDelegate.roomList[roomIndex!]
-//        self.chatRoomTitle.text = item.title
-//        self.chatSubtitle.text = String(item.subject!) + "-" + String(item.professor!)
-//
-        
-        
-        // 채팅 텍스트 박스 꾸미기
-        chatText.layer.borderWidth = 0.5
-        chatText.layer.borderColor = UIColor.gray.cgColor
-        chatText.layer.cornerRadius = 10
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+
     
     @objc
     func keyboardWillShow(_ sender: Notification) {
@@ -113,13 +178,27 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     
     // 전송 버튼 누르면 키보드 내려가기
     @IBAction func tapSendButton(_sender: Any) {
+        createRoom()
         chatText.resignFirstResponder()
     }
     
-    
-    
-    
 }
+
+extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
+             return UITableViewCell()
+         }
+        cell.label_message.text = self.comments[indexPath.row].message
+        
+        return cell
+    }
+}
+
+
 
 extension ChatRoomVC: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
