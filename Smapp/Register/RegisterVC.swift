@@ -28,7 +28,23 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var nameSelect: UIButton!
     
     @IBAction func nameClicked(_ sender: UIButton) {
-        userName()
+        //경고창
+        let alert = UIAlertController(title: "이름설정", message: "\(nameTextField.text!) 맞음?", preferredStyle: UIAlertController.Style.alert)
+        
+        let ok = UIAlertAction(title: "확인", style: .destructive) { (action) in
+            //username 으로 설정
+            self.userName()
+            //홈 뷰로 이동
+            let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let TermsViewController = storyboard.instantiateViewController(identifier: "Terms")
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TermsViewController)
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
+        
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
     
     //이름 받고 FBDB에 업데이트

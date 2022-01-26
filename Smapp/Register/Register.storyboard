@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="40" id="Q54-Nm-TCT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZoD-PN-D0Y">
                                 <rect key="frame" x="135" y="117" width="121" height="91"/>
@@ -84,7 +84,7 @@
         <!--약관 동의-->
         <scene sceneID="kif-0m-8FC">
             <objects>
-                <viewController title="약관 동의" modalPresentationStyle="fullScreen" id="0w4-Nr-CIo" customClass="RegisterVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Terms" title="약관 동의" modalPresentationStyle="fullScreen" id="0w4-Nr-CIo" customClass="RegisterVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1d8-im-R2x">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
