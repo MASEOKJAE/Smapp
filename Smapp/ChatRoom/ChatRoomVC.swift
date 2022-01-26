@@ -9,6 +9,7 @@ import UIKit
 import MobileCoreServices
 import Firebase
 import FirebaseDatabase
+import GoogleSignIn
 
 class ChatRoomVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -17,6 +18,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     var chatRoomUid: String?
     public var destinationUid: String?   // 나중에 내가 채팅할 대상의 uid
     var comments : [ChatModel.Comment] = []
+    var userModel: UserModel?
     var ref: DatabaseReference!
     
     @IBOutlet weak var menuButton: UIButton!
@@ -30,7 +32,9 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var chatRoomTitle: UILabel!
     @IBOutlet weak var chatSubtitle: UILabel!
+
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     var roomIndex: Int?
     
@@ -44,7 +48,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
                 
-        uid = Auth.auth().currentUser?.uid
+        uid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+        
         checkChatRoom()
         
         // 일단 마이페이지에서 데이터 받음 -> 고쳐야함
@@ -59,8 +64,20 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         chatText.layer.borderColor = UIColor.gray.cgColor
         chatText.layer.cornerRadius = 10
         
+        self.tabBarController?.tabBar.isHidden = true
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     //방 생성
@@ -71,6 +88,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
             ]
         ]
         let refChatrooms = ref.child("chatrooms")
+        
         if(chatRoomUid == nil) {
             self.sendButton.isEnabled = false
             refChatrooms.childByAutoId().setValue(createRoomInfo, withCompletionBlock: {(err, ref) in
@@ -83,7 +101,10 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
                 "uid": uid!,
                 "message":chatText.text!
             ]
-            refChatrooms.child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
+            // 메세지 보내면 텍스트필드 초기화
+            refChatrooms.child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {(err, ref) in
+                    self.chatText.text = ""
+            })
         }
 
     }
@@ -99,7 +120,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
                     if(chatModel?.users[self.destinationUid!] == true){
                         self.chatRoomUid = item.key
                         self.sendButton.isEnabled = true
-                        self.getMessageList()
+                        self.getDestinationInfo()
                     }
                 }
                 
@@ -107,6 +128,28 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         })
     }
     
+    // 상대의 정보 가져오기
+    func getDestinationInfo() {
+        let refUsers = ref.child("users")
+//        refUsers.child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+        refUsers.child(self.destinationUid!).observe(DataEventType.value, with:  { (snapshot) in
+//            for child in datasnapshot.children {
+//                let fchild = child as! DataSnapshot
+//                self.userModel = UserModel()
+//                self.userModel?.setValuesForKeys(fchild.value as! [String : Any])
+//            }
+//            let values = datasnapshot.value
+//            guard let dic = values as? [String: Any] else { return }
+//            self.userModel = UserModel()
+//            self.userModel?.setValuesForKeys(dic)
+            
+            
+            
+            self.getMessageList()
+        } )
+    }
+    
+    //메세지 가져오기
     func getMessageList() {
         let refChatrooms = ref.child("chatrooms")
         refChatrooms.child(self.chatRoomUid!).child("comments").observe(DataEventType.value, with: { (datasnapshot) in
@@ -117,7 +160,18 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
             }
             self.tableView.reloadData()
             
+            let count = self.comments.count - 1
+            if self.comments.count > 0 {
+                self.tableView.scrollToRow(at: IndexPath(item:count, section:0), at: UITableView.ScrollPosition.bottom, animated: true)
+            }
+            
         })
+    }
+    
+    // 화면 누르면 키보드 내려감
+    @objc
+    func dissmissKeyboard() {
+        self.view.endEditing(true)
     }
     
     func openLibrary(){
@@ -141,23 +195,28 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
 
     
     @objc
-    func keyboardWillShow(_ sender: Notification) {
-        // 텍스트 입력 시 키보드 올라갈 때 화면도 맞춰 올라가게끔
-        let userInfo:NSDictionary = sender.userInfo! as NSDictionary
-                let keyboardFrame:NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
-                let keyboardRectangle = keyboardFrame.cgRectValue
-                let keyboardHeight = keyboardRectangle.height
-                //keyHeight = keyboardHeight
-
-                //self.view.frame.size.height -= keyboardHeight
-            self.view.frame.origin.y -= keyboardHeight
+    func keyboardWillShow(notification: Notification) {
+        if let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            self.bottomConstraint.constant = keyboardSize.height
+        }
+        
+        UIView.animate(withDuration: 0, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: {
+            (complete) in
+            let count = self.comments.count - 1
+            if self.comments.count > 0 {
+                self.tableView.scrollToRow(at: IndexPath(item:count, section:0), at: UITableView.ScrollPosition.bottom, animated: true)
+            }
+        })
     }
-
+    
     @objc
-    func keyboardWillHide(_ sender: Notification) {
-        // 키보드 내려가면 화면 원상복귀
-        self.view.frame.origin.y = 0
+    func keyboardWillHide(notification: Notification) {
+        self.bottomConstraint.constant = 20
+        self.view.layoutIfNeeded()
     }
+    
     
     // 메뉴 버튼 누르면 세부 메뉴 뜨기
     @IBAction func tapMenuButton(_ sender: Any) {
@@ -176,10 +235,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         self.openFile()
     }
     
-    // 전송 버튼 누르면 키보드 내려가기
     @IBAction func tapSendButton(_sender: Any) {
         createRoom()
-        chatText.resignFirstResponder()
     }
     
 }
@@ -189,12 +246,32 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
         return comments.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
-             return UITableViewCell()
-         }
-        cell.label_message.text = self.comments[indexPath.row].message
         
-        return cell
+        if(self.comments[indexPath.row].uid == uid) {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
+                 return UITableViewCell()
+             }
+            cell.label_message.text = self.comments[indexPath.row].message
+            cell.label_message.numberOfLines = 0
+            return cell
+            
+        }else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as? DestinationMessageCell else {
+                 return UITableViewCell()
+             }
+            cell.label_name.text = self.userModel?.name
+            print("name -----------------> ")
+            print(self.userModel?.name)
+            cell.label_message.text = self.comments[indexPath.row].message
+            cell.label_message.numberOfLines = 0
+            
+            return cell
+        }
+
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 

@@ -13,5 +13,6 @@ class UserModel: NSObject {
     var name : String?                  // 이름
     var likeMajor: String?              // 관심있는 전공
     var studentId: NSNumber?            // 학번
+    var listOfPartRoom : [NSNumber]?    // 참가중인 방
 }
 

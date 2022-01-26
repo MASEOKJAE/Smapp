@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import GoogleSignIn
 
 class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -23,11 +24,18 @@ class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let refUser = ref.child("userList")
            refUser.observe(DataEventType.value, with:  { (snapshot) in
                self.array.removeAll()
-
+               
+               let myUid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+               
                for child in snapshot.children {
                    let fchild = child as! DataSnapshot
                    let userModel = UserModel()
                    userModel.setValuesForKeys(fchild.value as! [String : Any])
+                   
+                   // 내 목록은 안보이게
+                   if(userModel.studentId?.stringValue == myUid) {
+                       continue
+                   }
                    
                    self.array.append(userModel)
                }
