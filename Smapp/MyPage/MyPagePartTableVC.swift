@@ -77,14 +77,6 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         return cell
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "MyPageToChat" {
-//            let vc = segue.destination as? ChatRoomVC
-//            let selectedIndex = tableView.indexPathForSelectedRow
-//            vc?.roomIndex = Int((selectedIndex?.row)!)
-//        }
-//    }
-    
     
 }
 
