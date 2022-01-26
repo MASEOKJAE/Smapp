@@ -18,10 +18,11 @@ class CategoriesVC: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    
     @IBAction func doneButtonAction(_ sender: Any) {
         let collectionView = self.collectionView
         //경고창
-        guard collectionView?.indexPathsForSelectedItems != nil else {
+        if collectionView?.indexPathsForSelectedItems == [] {
             let alert = UIAlertController(title: nil, message: "전공을 선택해 주세요.", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -43,6 +44,7 @@ class CategoriesVC: UIViewController {
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +54,7 @@ class CategoriesVC: UIViewController {
         doneButton.layer.cornerRadius = 5
     }
 }
+
 
 extension CategoriesVC: UICollectionViewDataSource {
 
@@ -85,7 +88,7 @@ extension CategoriesVC: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCell", for: indexPath as IndexPath) as! CategoriesCell
         
-        cell.majorLabel.text = appDelegate.majorList[indexPath.item]
+        cell.majorLabel.text = self.appDelegate.majorList[indexPath.item]
         
         return cell
     }
