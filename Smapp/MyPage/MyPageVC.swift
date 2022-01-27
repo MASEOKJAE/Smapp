@@ -23,25 +23,22 @@ class MyPageVC: UIViewController{
     @IBOutlet weak var userEmail: UILabel!
     
     @IBOutlet weak var settingButton: UIButton!
-    
 
-    
-    
-    //구글 로그인에서 가져온 정보들
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
-        let refUser = ref.child("userList")
+        let userListRef = ref.child("userList")
         
-        refUser.child(String(GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8) ?? "Error!")).getData(completion: {error, snapshot in
+        userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
             let name = value?["name"] as? String ?? "Error!"
             
-            self.userName.text = name
+            self.userName.text! = name
         })
-        
+                          
         userEmail.text = GIDSignIn.sharedInstance.currentUser?.profile!.email
     }
     
