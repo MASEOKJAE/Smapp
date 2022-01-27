@@ -10,7 +10,7 @@ import UIKit
 class DestinationMessageCell: UITableViewCell {
     @IBOutlet weak var label_message: UILabel!
     @IBOutlet weak var label_name: UILabel!
-    
+    @IBOutlet weak var label_time: UILabel!
     
     
 }

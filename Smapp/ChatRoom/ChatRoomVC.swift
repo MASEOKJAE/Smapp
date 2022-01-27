@@ -48,7 +48,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
                 
-        uid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+        uid =  String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
         
         checkChatRoom()
         
@@ -243,6 +243,9 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
              }
             cell.label_message.text = self.comments[indexPath.row].message
             cell.label_message.numberOfLines = 0
+            if let time = self.comments[indexPath.row].timestamp {
+                cell.label_time.text = time.todaytime
+            }
             return cell
             
         }else {
@@ -250,10 +253,11 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
                  return UITableViewCell()
              }
             cell.label_name.text = self.userModel?.name
-            print("name -----------------> ")
-            print(self.userModel?.name)
             cell.label_message.text = self.comments[indexPath.row].message
             cell.label_message.numberOfLines = 0
+            if let time = self.comments[indexPath.row].timestamp {
+                cell.label_time.text = time.todaytime
+            }
             
             return cell
         }
@@ -281,6 +285,17 @@ extension ChatRoomVC: UIImagePickerControllerDelegate & UINavigationControllerDe
 
 extension ChatRoomVC: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+    }
+}
+
+extension Int{
+    var todaytime: String{
+        let dateformatter = DateFormatter()
+        dateformatter.locale = Locale(identifier: "ko_KR")
+        dateformatter.dateFormat = "HH:mm"
+        let date = Date(timeIntervalSince1970: Double(self)/1000)
+        return dateformatter.string(from: date)
+        
     }
 }
 
