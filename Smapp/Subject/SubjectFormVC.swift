@@ -42,14 +42,15 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     }
     
     @IBAction func save(_ sender: Any) {
-        guard self.subject.text?.isEmpty == false else {
-            let alert = UIAlertController(title: nil, message: "과목을 입력해주세요", preferredStyle: .alert)
+        guard (self.roomTitle.text?.isEmpty == false && self.contents.text?.isEmpty == false && self.subject.text?.isEmpty == false && self.professor.text?.isEmpty == false && self.numberOfMax.text?.isEmpty == false && self.dueDate.text?.isEmpty == false) else {
+            let alert = UIAlertController(title: nil, message: "모든 내용을 입력해주세요", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
             return
         }
         
         let roomListRef = ref.child("roomList")
+//        let userListRef = ref.child("userList")
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -77,9 +78,21 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     override func viewDidLoad() {
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
+        let userListRef = ref.child("userList")
+        
+        userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            
+            self.major.text = value?["likeMajor"] as? String ?? "Error"
+        })
+        
         childCountUpdate()
         
         self.contents.delegate = self
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        dueDate.placeholder = formatter.string(from: Date())
         
         createDatePicker()
     }

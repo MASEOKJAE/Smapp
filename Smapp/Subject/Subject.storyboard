@@ -33,15 +33,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0f-YQ-imk">
-                                <rect key="frame" x="0.0" y="369" width="414" height="44"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPS-eP-m0f">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="275"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색하고 싶은 단어를 입력하세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HXR-Yc-c3W">
+                                        <rect key="frame" x="37" y="214" width="287" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cx4-2G-bCF">
+                                        <rect key="frame" x="339" y="182" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="searchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Fno-yL-RNn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1844702959" green="0.17959278819999999" blue="0.20784717799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="최근 스터디 방" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Js-XKb">
+                                <rect key="frame" x="30" y="302" width="130" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="하트를 눌러 관심있는 스터디로 저장하세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qs2-NJ-QGg">
+                                <rect key="frame" x="30" y="329" width="254" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="스터디 그룹 찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvI-GH-1pS">
+                                <rect key="frame" x="37" y="102" width="195" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="관심있는 스터디에 참여해보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlO-3N-DD9">
+                                <rect key="frame" x="37" y="137" width="228" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 전공 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRi-hg-ZQ1">
+                                <rect key="frame" x="37" y="173" width="84" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="전산전자공학부" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u5t-xv-Ewf">
+                                <rect key="frame" x="142" y="168" width="182" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="uZh-HN-hBK"/>
+                                </connections>
+                            </textField>
+                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXX-V3-QkO">
+                                <rect key="frame" x="142" y="201" width="182" height="111"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="스터디방 참여하기" id="yFV-qh-GWw"/>
-                                </items>
-                            </navigationBar>
+                                <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="MXH-B9-Y7R"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="I9M-Nd-XMW"/>
+                                </connections>
+                            </pickerView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JXZ-WU-bh2">
-                                <rect key="frame" x="0.0" y="349" width="414" height="402"/>
+                                <rect key="frame" x="0.0" y="363" width="414" height="388"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="P6Y-Md-soJ">
@@ -103,59 +172,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="최근 스터디 방" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Js-XKb">
-                                <rect key="frame" x="30" y="291" width="130" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="하트를 눌러 관심있는 스터디로 저장하세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qs2-NJ-QGg">
-                                <rect key="frame" x="30" y="318" width="254" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="스터디 그룹 찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvI-GH-1pS">
-                                <rect key="frame" x="37" y="109" width="195" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="관심있는 스터디에 참여해보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlO-3N-DD9">
-                                <rect key="frame" x="37" y="144" width="228" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 전공 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRi-hg-ZQ1">
-                                <rect key="frame" x="37" y="180" width="84" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="전산전자공학부" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u5t-xv-Ewf">
-                                <rect key="frame" x="142" y="175" width="252" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="uZh-HN-hBK"/>
-                                </connections>
-                            </textField>
-                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXX-V3-QkO">
-                                <rect key="frame" x="142" y="208" width="252" height="111"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="MXH-B9-Y7R"/>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="I9M-Nd-XMW"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-YV-WIx">
                                 <rect key="frame" x="278" y="750" width="116" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -167,11 +183,6 @@
                                     <segue destination="elW-qs-uTh" kind="show" id="lCV-AE-gRu"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5c-Po-PUk">
-                                <rect key="frame" x="20" y="222" width="374" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9El-OM-rXg">
                                 <rect key="frame" x="167" y="750" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -197,7 +208,8 @@
                         <outlet property="dropdown" destination="WXX-V3-QkO" id="AOS-h0-hxf"/>
                         <outlet property="makeRoom" destination="9El-OM-rXg" id="Wgx-uW-akR"/>
                         <outlet property="nowMajor" destination="u5t-xv-Ewf" id="iqy-dt-4ue"/>
-                        <outlet property="searchBar" destination="5EZ-qb-Rvc" id="DPI-4D-mgH"/>
+                        <outlet property="search" destination="Cx4-2G-bCF" id="X97-Yt-5dl"/>
+                        <outlet property="searchBar" destination="HXR-Yc-c3W" id="6VV-hh-iH7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -231,7 +243,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="테스트" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="c99-so-VLL">
+                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="방 제목" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="c99-so-VLL">
                                         <rect key="frame" x="0.0" y="30.5" width="360" height="34"/>
                                         <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -243,7 +255,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="테스트중입니다 ㅎㅎ" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TSX-cg-gY4">
+                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="내용(설명)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TSX-cg-gY4">
                                         <rect key="frame" x="0.0" y="105" width="360" height="34"/>
                                         <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -255,7 +267,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="앱프로그래밍" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Dk7-Qo-crB">
+                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="과목명" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Dk7-Qo-crB">
                                         <rect key="frame" x="0.0" y="179.5" width="360" height="34"/>
                                         <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -267,7 +279,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="김성빈" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0hw-vC-5lh">
+                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CRA" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0hw-vC-5lh">
                                         <rect key="frame" x="0.0" y="254" width="360" height="34"/>
                                         <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -279,7 +291,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="글로벌리더십학부" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D60-Tj-yh8">
+                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="글로벌리더십학부" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D60-Tj-yh8">
                                         <rect key="frame" x="0.0" y="328.5" width="360" height="34"/>
                                         <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -294,7 +306,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="4" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wOt-qD-YGo">
+                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="4" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wOt-qD-YGo">
                                         <rect key="frame" x="0.0" y="403" width="360" height="34"/>
                                         <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -309,7 +321,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2022-01-19" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ghr-MR-Srs">
+                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="360" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ghr-MR-Srs">
                                         <rect key="frame" x="0.0" y="477.5" width="360" height="34"/>
                                         <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -519,6 +531,7 @@
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -18,10 +18,14 @@ class SubjectVC: UIViewController {
     @IBOutlet weak var dropdown: UIPickerView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var makeRoom: UIButton!
-    @IBOutlet var searchBar: UIView!
+    @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var search: UIButton!
     
     var willDisplayData = [RoomData]()
     
+    @IBAction func searchButton(_ sender: Any) {
+        viewWillAppear(true)
+    }
     
     @IBAction func LikeClicked(_ sender: UIButton) {
         if sender.tag == 0 {
@@ -44,7 +48,6 @@ class SubjectVC: UIViewController {
        }
     }
     
-    
     func updateData() {
         willDisplayData.removeAll()
         
@@ -56,7 +59,9 @@ class SubjectVC: UIViewController {
             for item in dic {
                 let i = item as? Dictionary<String, Any> ?? [:]
                 if (self.nowMajor.text! == i["major"] as? String) {
-                    self.willDisplayData.append(RoomData(dic: i))
+                    if(self.searchBar.text! == "" || (i["subject"] as! String).contains(self.searchBar.text!) || (i["title"] as! String).contains(self.searchBar.text!) || (i["contents"] as! String).contains(self.searchBar.text!) || (i["professor"] as! String).contains(self.searchBar.text!)) {
+                        self.willDisplayData.append(RoomData(dic: i))
+                    }
                 }
             }
             DispatchQueue.main.async {
@@ -84,6 +89,9 @@ class SubjectVC: UIViewController {
         collectionView.dataSource = self
         //collectionView.delegate = self
         
+        search.layer.masksToBounds = true
+        search.layer.cornerRadius = 10
+        
         makeRoom.layer.masksToBounds = true
         makeRoom.layer.cornerRadius = 40
         
@@ -101,7 +109,6 @@ extension SubjectVC: UICollectionViewDataSource {
         return self.willDisplayData.count
     }
 
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath) as! SubjectCell
         
@@ -145,8 +152,6 @@ extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDe
 
         self.nowMajor.text = self.appDelegate.majorList[row]
         self.dropdown.isHidden = true
-        
-        viewWillAppear(true)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
