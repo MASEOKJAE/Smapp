@@ -142,10 +142,10 @@ extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDe
         return self.appDelegate.majorList.count
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
 
         self.view.endEditing(true)
-        return self.appDelegate.majorList[row]
+        return NSAttributedString(string: self.appDelegate.majorList[row], attributes: [.font:UIFont(name: "System", size: 20)])
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
