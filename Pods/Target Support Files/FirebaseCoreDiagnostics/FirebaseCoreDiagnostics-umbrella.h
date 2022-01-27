@@ -10,11 +10,6 @@
 #endif
 #endif
 
-#import "FIRCoreDiagnostics 2.h"
-#import "FIRCoreDiagnostics 3.h"
-#import "FIRCoreDiagnostics 4.h"
-#import "FIRCoreDiagnostics 5.h"
-#import "FIRCoreDiagnostics 6.h"
 #import "FIRCoreDiagnostics.h"
 
 FOUNDATION_EXPORT double FirebaseCoreDiagnosticsVersionNumber;
