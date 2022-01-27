@@ -12,5 +12,6 @@ target 'Smapp' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'ObjectMapper'
+  pod 'Firebase/Messaging'
 
 end

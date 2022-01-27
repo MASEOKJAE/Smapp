@@ -1,6 +1,0 @@
-framework module Pods_Smapp_SmappUITests {
-  umbrella header "Pods-Smapp-SmappUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
