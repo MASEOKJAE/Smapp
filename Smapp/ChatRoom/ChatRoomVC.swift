@@ -154,7 +154,6 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
             if self.comments.count > 0 {
                 self.tableView.scrollToRow(at: IndexPath(item:count, section:0), at: UITableView.ScrollPosition.bottom, animated: true)
             }
-            
         })
     }
     
