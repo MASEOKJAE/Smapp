@@ -101,7 +101,7 @@
                                 </connections>
                             </textField>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXX-V3-QkO">
-                                <rect key="frame" x="142" y="201" width="182" height="111"/>
+                                <rect key="frame" x="142" y="201" width="182" height="224"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>

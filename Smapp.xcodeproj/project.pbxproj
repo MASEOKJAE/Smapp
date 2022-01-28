@@ -37,7 +37,7 @@
 		66A0F460279C005D00AFCFD6 /* DB_TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */; };
 		66C94C46279544FC00644BDA /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C45279544FC00644BDA /* RoomData.swift */; };
 		66C94C48279545B100644BDA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C47279545B100644BDA /* UserData.swift */; };
-		745E1E4D27B12742FF1C2AE1 /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2B7C41F4928BEA57CF2823 /* Pods_Smapp.framework */; };
+		A60D8E91208DE0DF9EF5040D /* Pods_Smapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA271A052C7A07F90874899 /* Pods_Smapp.framework */; };
 		F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EE92795360600D3CE86 /* RoomEnterVC.swift */; };
 		F4765EEC2795362A00D3CE86 /* RoomEnter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EEB2795362A00D3CE86 /* RoomEnter.storyboard */; };
 		F4765EFD2799517000D3CE86 /* RoomFix.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EFC2799516F00D3CE86 /* RoomFix.storyboard */; };
@@ -68,7 +68,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C9282AD8F737CDD115D26CE /* Pods-Smapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.release.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.release.xcconfig"; sourceTree = "<group>"; };
 		1F04AE3E278E644C008AC901 /* Categories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
 		1F04AE42278E95CB008AC901 /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
 		1F04AE44278E97B7008AC901 /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
 		3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		5CA271A052C7A07F90874899 /* Pods_Smapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6618945827841530009C6730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 		66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_TestVC.swift; sourceTree = "<group>"; };
 		66C94C45279544FC00644BDA /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
 		66C94C47279545B100644BDA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		CD2B7C41F4928BEA57CF2823 /* Pods_Smapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3500561509CD96CFCBE2219 /* Pods-Smapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.debug.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.debug.xcconfig"; sourceTree = "<group>"; };
+		C76738BFEA6EF8F348F45365 /* Pods-Smapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.debug.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.debug.xcconfig"; sourceTree = "<group>"; };
+		D31F4CBA33E7568F3355C34C /* Pods-Smapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.release.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.release.xcconfig"; sourceTree = "<group>"; };
 		F4765EE92795360600D3CE86 /* RoomEnterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomEnterVC.swift; sourceTree = "<group>"; };
 		F4765EEB2795362A00D3CE86 /* RoomEnter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomEnter.storyboard; sourceTree = "<group>"; };
 		F4765EFC2799516F00D3CE86 /* RoomFix.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomFix.storyboard; sourceTree = "<group>"; };
@@ -136,17 +136,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				745E1E4D27B12742FF1C2AE1 /* Pods_Smapp.framework in Frameworks */,
+				A60D8E91208DE0DF9EF5040D /* Pods_Smapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11EF3AB366E59E5D170C668C /* Frameworks */ = {
+		0219BC0FFE3F6B0B68341D6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CD2B7C41F4928BEA57CF2823 /* Pods_Smapp.framework */,
+				5CA271A052C7A07F90874899 /* Pods_Smapp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,8 +163,8 @@
 		5F7617752D724FA944AEB081 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D3500561509CD96CFCBE2219 /* Pods-Smapp.debug.xcconfig */,
-				0C9282AD8F737CDD115D26CE /* Pods-Smapp.release.xcconfig */,
+				C76738BFEA6EF8F348F45365 /* Pods-Smapp.debug.xcconfig */,
+				D31F4CBA33E7568F3355C34C /* Pods-Smapp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 				F49AFFF727840CF500DAC7AA /* Smapp */,
 				F49AFFF627840CF500DAC7AA /* Products */,
 				5F7617752D724FA944AEB081 /* Pods */,
-				11EF3AB366E59E5D170C668C /* Frameworks */,
+				0219BC0FFE3F6B0B68341D6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -343,11 +343,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F49A001F27840CFD00DAC7AA /* Build configuration list for PBXNativeTarget "Smapp" */;
 			buildPhases = (
-				69D597D28A4093C620F0C52B /* [CP] Check Pods Manifest.lock */,
+				2DE077DCD9A3FC7DE62A4045 /* [CP] Check Pods Manifest.lock */,
 				F49AFFF127840CF500DAC7AA /* Sources */,
 				F49AFFF227840CF500DAC7AA /* Frameworks */,
 				F49AFFF327840CF500DAC7AA /* Resources */,
-				AE32E8641D3F35DEE987CC72 /* [CP] Embed Pods Frameworks */,
+				054C0EC1208167B46E53B43B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -439,7 +439,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		69D597D28A4093C620F0C52B /* [CP] Check Pods Manifest.lock */ = {
+		054C0EC1208167B46E53B43B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smapp/Pods-Smapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smapp/Pods-Smapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Smapp/Pods-Smapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DE077DCD9A3FC7DE62A4045 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -459,23 +476,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AE32E8641D3F35DEE987CC72 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Smapp/Pods-Smapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Smapp/Pods-Smapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Smapp/Pods-Smapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -682,12 +682,13 @@
 		};
 		F49A002027840CFD00DAC7AA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3500561509CD96CFCBE2219 /* Pods-Smapp.debug.xcconfig */;
+			baseConfigurationReference = C76738BFEA6EF8F348F45365 /* Pods-Smapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VETGYUW95Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Smapp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -710,12 +711,13 @@
 		};
 		F49A002127840CFD00DAC7AA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C9282AD8F737CDD115D26CE /* Pods-Smapp.release.xcconfig */;
+			baseConfigurationReference = D31F4CBA33E7568F3355C34C /* Pods-Smapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VETGYUW95Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Smapp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
