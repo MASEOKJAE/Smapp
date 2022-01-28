@@ -30,7 +30,7 @@
 		3CBB50C7279A8BD000C11CF9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */; };
 		3CBB50C9279A8DD600C11CF9 /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */; };
 		3CBB50CB279A8F5800C11CF9 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */; };
-		6618945927841531009C6730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6618945827841530009C6730 /* GoogleService-Info.plist */; };
+		66477E4027A3DB76001C444F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66477E3F27A3DB76001C444F /* GoogleService-Info.plist */; };
 		664A73042791484600A82E7C /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73032791484600A82E7C /* SubjectVC.swift */; };
 		664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73052791488500A82E7C /* SubjectFormVC.swift */; };
 		664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7307279148AF00A82E7C /* SubjectCell.swift */; };
@@ -92,7 +92,8 @@
 		3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
 		3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		5CA271A052C7A07F90874899 /* Pods_Smapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6618945827841530009C6730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		66477E3B27A3D17A001C444F /* Smapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Smapp.entitlements; sourceTree = "<group>"; };
+		66477E3F27A3DB76001C444F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Smapp/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
 		664A7307279148AF00A82E7C /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
@@ -282,12 +283,13 @@
 		F49AFFF727840CF500DAC7AA /* Smapp */ = {
 			isa = PBXGroup;
 			children = (
+				66477E3B27A3D17A001C444F /* Smapp.entitlements */,
 				66C94C44279544E900644BDA /* Data */,
 				F49AFFF827840CF500DAC7AA /* AppDelegate.swift */,
 				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
 				F49A000127840CFC00DAC7AA /* Assets.xcassets */,
 				66C94C3E2795426200644BDA /* ChatRoom */,
-				6618945827841530009C6730 /* GoogleService-Info.plist */,
+				66477E3F27A3DB76001C444F /* GoogleService-Info.plist */,
 				F49A000627840CFC00DAC7AA /* Info.plist */,
 				66C94C3D279540E200644BDA /* Category */,
 				3C4FB5AF279E745F00488EC5 /* Register */,
@@ -420,11 +422,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66477E4027A3DB76001C444F /* GoogleService-Info.plist in Resources */,
 				1F3600BB27900F9100EC8019 /* MyPage.storyboard in Resources */,
 				F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */,
 				1F3600C127900FA800EC8019 /* ChatRoom.storyboard in Resources */,
 				1F04AE4B278EBF9D008AC901 /* Subject.storyboard in Resources */,
-				6618945927841531009C6730 /* GoogleService-Info.plist in Resources */,
 				3C4FB5BF279F922100488EC5 /* PeopleView.storyboard in Resources */,
 				F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */,
 				1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */,
@@ -686,10 +688,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Smapp/Smapp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VETGYUW95Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Smapp/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하려면 \"Smapp\"이 카메라 액세스를 허용할 수 있도록 설정하세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -700,7 +706,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sj.Smapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cra.Smapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -714,10 +720,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Smapp/Smapp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VETGYUW95Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Smapp/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하려면 \"Smapp\"이 카메라 액세스를 허용할 수 있도록 설정하세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -728,7 +738,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sj.Smapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cra.Smapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

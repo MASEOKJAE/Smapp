@@ -8,9 +8,10 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var roomList = [RoomData]()
     var userList = [UserData]()
     var majorList = ["글로벌리더십학부", "전산전자공학부", "콘텐츠융합디자인학부", "경영경제학부", "공간환경시스템공학부", "국제어문학부", "기계제어공학부", "법학부", "상담심리사회복지학부", "생명과학부", "창의융합교육원", "커뮤니케이션학부", "AI융합교육원", "ICT창업학부"]
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
             if error != nil || user == nil {
                 // Show the app's signed-out state.
@@ -31,6 +33,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
             }
         }
+        
+        if #available(iOS 10.0, *) {
+          // For iOS 10 display notification (sent via APNS)
+          UNUserNotificationCenter.current().delegate = self
+
+          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+          UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { _, _ in }
+          )
+        } else {
+          let settings: UIUserNotificationSettings =
+            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+          application.registerUserNotificationSettings(settings)
+        }
+
+        application.registerForRemoteNotifications()
         return true
     }
     

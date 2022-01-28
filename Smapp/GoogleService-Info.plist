@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>784619439338-5521ne6gp5nq2p57pjm3vaphh04g1ncq.apps.googleusercontent.com</string>
+	<string>784619439338-i0o50ou4p5p05ksd3qf68dihthbf78sr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.784619439338-5521ne6gp5nq2p57pjm3vaphh04g1ncq</string>
+	<string>com.googleusercontent.apps.784619439338-i0o50ou4p5p05ksd3qf68dihthbf78sr</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAFsaEvTxKoWlyVaXsQKEUF58RuNchD9N8</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.sj.Smapp</string>
+	<string>com.cra.Smapp</string>
 	<key>PROJECT_ID</key>
 	<string>smapp-69029</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:784619439338:ios:afca050998fd89edf00393</string>
+	<string>1:784619439338:ios:0d2ce6213ca2eea2f00393</string>
+	<key>DATABASE_URL</key>
+	<string>https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app</string>
 </dict>
 </plist>
