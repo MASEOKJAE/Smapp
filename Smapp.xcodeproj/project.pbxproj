@@ -30,10 +30,10 @@
 		3CBB50C7279A8BD000C11CF9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */; };
 		3CBB50C9279A8DD600C11CF9 /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */; };
 		3CBB50CB279A8F5800C11CF9 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */; };
-		66477E4027A3DB76001C444F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66477E3F27A3DB76001C444F /* GoogleService-Info.plist */; };
 		664A73042791484600A82E7C /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73032791484600A82E7C /* SubjectVC.swift */; };
 		664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73052791488500A82E7C /* SubjectFormVC.swift */; };
 		664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7307279148AF00A82E7C /* SubjectCell.swift */; };
+		667B57D027A3DC68001A8826 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 667B57CF27A3DC68001A8826 /* GoogleService-Info.plist */; };
 		66A0F460279C005D00AFCFD6 /* DB_TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */; };
 		66C94C46279544FC00644BDA /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C45279544FC00644BDA /* RoomData.swift */; };
 		66C94C48279545B100644BDA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C47279545B100644BDA /* UserData.swift */; };
@@ -93,10 +93,10 @@
 		3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		5CA271A052C7A07F90874899 /* Pods_Smapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66477E3B27A3D17A001C444F /* Smapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Smapp.entitlements; sourceTree = "<group>"; };
-		66477E3F27A3DB76001C444F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Smapp/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
 		664A7307279148AF00A82E7C /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
+		667B57CF27A3DC68001A8826 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_TestVC.swift; sourceTree = "<group>"; };
 		66C94C45279544FC00644BDA /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
 		66C94C47279545B100644BDA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -283,20 +283,20 @@
 		F49AFFF727840CF500DAC7AA /* Smapp */ = {
 			isa = PBXGroup;
 			children = (
-				66477E3B27A3D17A001C444F /* Smapp.entitlements */,
-				66C94C44279544E900644BDA /* Data */,
 				F49AFFF827840CF500DAC7AA /* AppDelegate.swift */,
 				F49AFFFA27840CF500DAC7AA /* SceneDelegate.swift */,
 				F49A000127840CFC00DAC7AA /* Assets.xcassets */,
-				66C94C3E2795426200644BDA /* ChatRoom */,
-				66477E3F27A3DB76001C444F /* GoogleService-Info.plist */,
-				F49A000627840CFC00DAC7AA /* Info.plist */,
 				66C94C3D279540E200644BDA /* Category */,
-				3C4FB5AF279E745F00488EC5 /* Register */,
-				F4765EF7279950F400D3CE86 /* RoomFix */,
+				66C94C3E2795426200644BDA /* ChatRoom */,
+				66C94C44279544E900644BDA /* Data */,
+				667B57CF27A3DC68001A8826 /* GoogleService-Info.plist */,
+				F49A000627840CFC00DAC7AA /* Info.plist */,
 				66C94C3F2795429600644BDA /* Main */,
 				66C94C41279543B900644BDA /* MyPage */,
+				3C4FB5AF279E745F00488EC5 /* Register */,
 				66C94C42279543FD00644BDA /* RoomEnter */,
+				F4765EF7279950F400D3CE86 /* RoomFix */,
+				66477E3B27A3D17A001C444F /* Smapp.entitlements */,
 				66C94C432795441A00644BDA /* Subject */,
 			);
 			path = Smapp;
@@ -422,7 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66477E4027A3DB76001C444F /* GoogleService-Info.plist in Resources */,
+				667B57D027A3DC68001A8826 /* GoogleService-Info.plist in Resources */,
 				1F3600BB27900F9100EC8019 /* MyPage.storyboard in Resources */,
 				F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */,
 				1F3600C127900FA800EC8019 /* ChatRoom.storyboard in Resources */,
