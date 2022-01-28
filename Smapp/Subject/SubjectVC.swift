@@ -81,9 +81,6 @@ class SubjectVC: UIViewController {
             let value = snapshot.value as? NSDictionary
             
             self.nowMajor.text = value?["likeMajor"] as? String ?? "Error"
-            DispatchQueue.main.async {
-                self.viewWillAppear(true)
-            }
         })
         
         collectionView.dataSource = self
@@ -124,7 +121,6 @@ extension SubjectVC: UICollectionViewDataSource {
         return cell
     }
     
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath as IndexPath) as! SubjectCell
         
@@ -142,10 +138,10 @@ extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDe
         return self.appDelegate.majorList.count
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 
         self.view.endEditing(true)
-        return NSAttributedString(string: self.appDelegate.majorList[row], attributes: [.font:UIFont(name: "System", size: 20)])
+        return self.appDelegate.majorList[row]
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
