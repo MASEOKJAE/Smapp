@@ -20,6 +20,11 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     var comments : [ChatModel.Comment] = []
     var userModel: UserModel?
     var ref: DatabaseReference!
+    var refChatrooms: DatabaseReference?
+    var refUsers: DatabaseReference?
+    var refComments: DatabaseReference?
+    var observe: UInt?
+    var numOfPartUsers: Int?
     
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var chatText: UITextView!
@@ -78,6 +83,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
         self.tabBarController?.tabBar.isHidden = false
+        refComments?.removeObserver(withHandle: observe!)
     }
     
     //방 생성
@@ -87,11 +93,11 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
                 destinationUid!: true
             ]
         ]
-        let refChatrooms = ref.child("chatrooms")
+        refChatrooms = ref.child("chatrooms")
         
         if(chatRoomUid == nil) {
             self.sendButton.isEnabled = false
-            refChatrooms.childByAutoId().setValue(createRoomInfo, withCompletionBlock: {(err, ref) in
+            refChatrooms?.childByAutoId().setValue(createRoomInfo, withCompletionBlock: {(err, ref) in
                 if(err == nil) {
                     self.checkChatRoom()
                 }
@@ -103,7 +109,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
                 "timestamp": ServerValue.timestamp()
             ]
             // 메세지 보내면 텍스트필드 초기화
-            refChatrooms.child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {(err, ref) in
+            refChatrooms?.child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {(err, ref) in
                     self.chatText.text = ""
             })
         }
@@ -112,8 +118,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     
     // 방 중복 확인
     func checkChatRoom() {
-        let refChatrooms = ref.child("chatrooms")
-        refChatrooms.queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
+        refChatrooms = ref.child("chatrooms")
+        refChatrooms?.queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
                 
                 if let chatRoomdic = item.value as? [String:AnyObject] {
@@ -131,8 +137,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     
     // 상대의 정보 가져오기
     func getDestinationInfo() {
-        let refUsers = ref.child("userList")
-        refUsers.child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+        refUsers = ref.child("userList")
+        refUsers?.child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
 //        refUsers.child(self.destinationUid!).observe(DataEventType.value, with:  { (datasnapshot) in
             self.userModel = UserModel()
             self.userModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
@@ -142,20 +148,68 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     
     //메세지 가져오기
     func getMessageList() {
-        let refChatrooms = ref.child("chatrooms")
-        refChatrooms.child(self.chatRoomUid!).child("comments").observe(DataEventType.value, with: { (datasnapshot) in
+        refComments = ref.child("chatrooms").child(self.chatRoomUid!).child("comments")
+        observe = refComments?.observe(DataEventType.value, with: { (datasnapshot) in
             self.comments.removeAll()
+            var readUserDic : Dictionary<String, AnyObject> = [:]
             for item in datasnapshot.children.allObjects as! [DataSnapshot] {
+                let key = item.key as String
                 let comment = ChatModel.Comment(JSON: item.value as! [String:AnyObject])
+                let comment_forReadUsers = ChatModel.Comment(JSON: item.value as! [String:AnyObject])
+                comment_forReadUsers?.readUsers[self.uid!] = true
+                readUserDic[key] = comment_forReadUsers?.toJSON() as! NSDictionary
                 self.comments.append(comment!)
             }
-            self.tableView.reloadData()
-            
-            let count = self.comments.count - 1
-            if self.comments.count > 0 {
-                self.tableView.scrollToRow(at: IndexPath(item:count, section:0), at: UITableView.ScrollPosition.bottom, animated: true)
+            let nsDic = readUserDic as NSDictionary
+            if(!(self.comments.last?.readUsers.keys.contains(self.uid!))!) { // 내 uid가 없으면 서버에 보고
+                datasnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: {(err, ref) in
+                    self.tableView.reloadData()
+                     
+                     let count = self.comments.count - 1
+                     if self.comments.count > 0 {
+                         self.tableView.scrollToRow(at: IndexPath(item:count, section:0), at: UITableView.ScrollPosition.bottom, animated: true)
+                    }
+                })
+            } else {    // 있으면 그냥 메세지만 출력
+                self.tableView.reloadData()
+                 
+                 let count = self.comments.count - 1
+                 if self.comments.count > 0 {
+                     self.tableView.scrollToRow(at: IndexPath(item:count, section:0), at: UITableView.ScrollPosition.bottom, animated: true)
+                }
             }
         })
+    }
+    
+    // 읽은 인원수 확인
+    func setReadCount(label: UILabel?, position: Int?) {
+        let readCount = self.comments[position!].readUsers.count
+        if(numOfPartUsers == nil) { // 인원 수 모르면 처음에 한 번 가져오기
+            refChatrooms = ref.child("chatrooms")
+            refChatrooms?.child(chatRoomUid!).child("users").observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
+                let dic = datasnapshot.value as! [String: Any]
+                
+                self.numOfPartUsers = dic.count
+                // 읽지 않은 인원 수 세기
+                let noReadCount = self.numOfPartUsers! - readCount
+                if(noReadCount > 0) {   // 만약 읽지 않은 인원이 있다면
+                    label?.isHidden = false
+                    label?.text = String(noReadCount)
+                } else {    // 다 읽었다면
+                    label?.isHidden = true
+                }
+            })
+        } else {
+            // 인원 수 알면 연산만 하기
+            let noReadCount = numOfPartUsers! - readCount
+            if(noReadCount > 0) {   // 만약 읽지 않은 인원이 있다면
+                label?.isHidden = false
+                label?.text = String(noReadCount)
+            } else {    // 다 읽었다면
+                label?.isHidden = true
+            }
+        }
+        
     }
     
     // 화면 누르면 키보드 내려감
@@ -236,8 +290,7 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
         return comments.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if(self.comments[indexPath.row].uid == uid) {
+        if(self.comments[indexPath.row].uid == uid) {   // 내가 보내는 메세지
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
                  return UITableViewCell()
              }
@@ -246,9 +299,11 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
             if let time = self.comments[indexPath.row].timestamp {
                 cell.label_time.text = time.todaytime
             }
+            self.setReadCount(label: cell.label_readUsers, position: indexPath.row)
+            
             return cell
             
-        }else {
+        }else {     // 상대방이 보내는 메세지
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as? DestinationMessageCell else {
                  return UITableViewCell()
              }
@@ -258,6 +313,7 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
             if let time = self.comments[indexPath.row].timestamp {
                 cell.label_time.text = time.todaytime
             }
+            self.setReadCount(label: cell.label_readUsers, position: indexPath.row)
             
             return cell
         }

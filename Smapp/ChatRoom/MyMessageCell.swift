@@ -10,6 +10,5 @@ import UIKit
 class MyMessageCell: UITableViewCell {
     @IBOutlet weak var label_message: UILabel!
     @IBOutlet weak var label_time: UILabel!
-    
-    
+    @IBOutlet weak var label_readUsers: UILabel!
 }
