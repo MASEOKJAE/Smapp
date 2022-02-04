@@ -161,6 +161,9 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
                 self.comments.append(comment!)
             }
             let nsDic = readUserDic as NSDictionary
+            if(self.comments.last?.readUsers.keys == nil) {     // 처음 메세지 시작할 때
+                return
+            }
             if(!(self.comments.last?.readUsers.keys.contains(self.uid!))!) { // 내 uid가 없으면 서버에 보고
                 datasnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: {(err, ref) in
                     self.tableView.reloadData()
