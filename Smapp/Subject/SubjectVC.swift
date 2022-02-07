@@ -27,12 +27,12 @@ class SubjectVC: UIViewController {
         viewWillAppear(true)
     }
     
-    @IBAction func LikeClicked(_ sender: UIButton) {
+//    @IBAction func LikeClicked(_ sender: UIButton, _ id: Int) {
 //        //read data
 //        let refUser = ref.child("userList")
 //
 //        //room indexPath.row
-//        let roominfo = String(EnterIndex!)
+//        let roominfo = String(id)
 //
 //        refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
 //            let value = snapshot.value as? NSDictionary
@@ -42,21 +42,13 @@ class SubjectVC: UIViewController {
 //
 //            //Likebutton 작동
 //            if likeRooms.contains(roominfo) {
-//                self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-//
-//                //likeRooms array에서 방 제거
-//                likeRooms.remove(roominfo)
+//                sender.setImage(UIImage(systemName: "heart"), for: .normal)
 //            } else {
-//                self.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//
-//                //likeRooms array에서 방 추가
-//                likeRooms.add(roominfo)
+//                sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
 //            }
-//
-//            //update data
-//            refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).child("listOfLikeRoom").setValue(likeRooms)
 //        })
-    }
+//    }
+    
     
     func updateData() {
         willDisplayData.removeAll()
@@ -79,6 +71,7 @@ class SubjectVC: UIViewController {
             }
         })
     }
+    
     
     override func viewDidLoad() {
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
@@ -106,10 +99,12 @@ class SubjectVC: UIViewController {
         self.view.bringSubviewToFront(makeRoom)
     }
 
+    
     override func viewWillAppear(_ animated: Bool) {
         updateData()
     }
 }
+
 
 extension SubjectVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -129,14 +124,35 @@ extension SubjectVC: UICollectionViewDataSource {
         cell.information?.text = item.subject! + " | " + item.professor! + " | " + (item.isOnce! ? "" : "~") + formatter.string(from: formatter.date(from: item.dueDate!)!) + " | " + (item.isOnce! ? "번개" : "정기")
         cell.member?.text = "(" + String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!) + ")"
         
+        print("\n\n\n\n\n나와줘어어어어-----\(cell.roomId)----\n\n\n\n\n")
+
+        
+    
+        ref.child("userList").child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
+
+            if likeRooms.contains(cell.roomId!) {
+                cell.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            } else {
+//                print("\n\n\n\n\n나와줘어어어어-----\(cell.roomId)----\n\n\n\n\n")
+                cell.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            }
+        })
+        
         return cell
     }
+    
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath as IndexPath) as! SubjectCell
         
+        //함수 호출
+        //LikeClicked(cell.LikeButton, cell.roomId!)
+        
         return cell
     }
+    
     
     // 각 Cell의 방 정보 인덱스를 RoomEnter로 전달
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -151,6 +167,7 @@ extension SubjectVC: UICollectionViewDataSource {
             }
         }
 }
+
 
 extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int{
