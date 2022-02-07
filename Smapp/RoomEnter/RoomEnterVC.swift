@@ -85,7 +85,7 @@ class RoomEnterVC: UIViewController {
         let subinfo = String(EnterIndex!)
         let roomListRef = ref.child("roomList").child(subinfo)
         
-        roomListRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        roomListRef.observeSingleEvent(of: .value, with: { [self] (snapshot) in
             for child in snapshot.children {
                 let title = child as! DataSnapshot
                 let titlekey = title.key
@@ -109,8 +109,9 @@ class RoomEnterVC: UIViewController {
                     self.RoomMajor.text = titlevalue as? String
                 } else if titlekey == "openDate" {
                     self.OpenDate.text = titlevalue as? String
+                    print("OpenDate 좀 나와봐 --> \(self.OpenDate.text)")
                 } else if titlekey == "numberOfMax" {
-                    self.MaxNum.text = titlevalue as? String
+                    self.MaxNum.text = "\(titlevalue)"
                 }
             }
         })
