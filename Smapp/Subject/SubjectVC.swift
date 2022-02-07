@@ -114,6 +114,7 @@ extension SubjectVC: UICollectionViewDataSource {
         let formatter = DateFormatter()
         formatter.dateFormat = "yy.MM.dd"
         
+        cell.roomId = item.roomId
         cell.roomTitle?.text = item.title!
         cell.information?.text = item.subject! + " | " + item.professor! + " | " + (item.isOnce! ? "" : "~") + formatter.string(from: formatter.date(from: item.dueDate!)!) + " | " + (item.isOnce! ? "번개" : "정기")
         cell.member?.text = "(" + String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!) + ")"
@@ -126,6 +127,19 @@ extension SubjectVC: UICollectionViewDataSource {
         
         return cell
     }
+    
+    // 각 Cell의 방 정보 인덱스를 RoomEnter로 전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+            if segue.identifier == "RoomEnter" {
+                let vc = segue.destination as? RoomEnterVC
+                let cell = sender as! SubjectCell
+                let indexPath = collectionView.indexPath(for: cell)
+                let selectedData = indexPath?.row
+                // vc?.SaveOrder = Int(selectedData!) // DB에 저장된 내용 순서대로 데이터를 가져 옴
+                vc?.EnterIndex = cell.roomId // 클릭한 룸 아이디 데이터를 가져 옴
+            }
+        }
 }
 
 extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {

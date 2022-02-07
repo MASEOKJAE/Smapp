@@ -6,95 +6,150 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-class RoomEnterVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+class RoomEnterVC: UIViewController {
     
     // 스터디룸 내용 수정 페이지에 전달
     @IBOutlet weak var RoomTitle: UILabel!
-    @IBOutlet weak var ClassTitle: UILabel!
+    @IBOutlet weak var SubjectTitle: UILabel!
     @IBOutlet weak var ProfessorName: UILabel!
-    @IBOutlet weak var StudyExplain: UILabel!
+    @IBOutlet weak var StudyContents: UILabel!
+    @IBOutlet weak var RoomMajor: UILabel!
+    @IBOutlet weak var OpenDate: UILabel!
+    @IBOutlet weak var MaxNum: UILabel!
+    
     
     var TitleOrigin:String? // 수정된 방제목을 받아오기 위한 변수
     var ClassOrigin:String?
     var ProfessorOrigin:String?
-    var ExplainOrigin:String?
+    var ContentsOrigin:String?
+    
+    var EnterIndex:Int? // 입장하기 데이터를 전달받기 위한 변수
+    // var SaveOrder:Int? // DB에 저장된 순서대로 값을 받아 옴
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var ref: DatabaseReference!
+    var willDisplayData = [RoomData]()
     
     @IBAction func FixBtnClick(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "RoomFix", bundle: nil)
         let EnterController  = storyboard.instantiateViewController(identifier: "RoomFix") as! RoomFixVC
                     EnterController.TitleText = RoomTitle.text // 방 제목 전달
-                    EnterController.ClassText = ClassTitle.text // 방 강의명 전달
+                    EnterController.ClassText = SubjectTitle.text // 방 강의명 전달
                     EnterController.ProfessorText = ProfessorName.text // 방 교수 전달
-                    EnterController.ExplainText = StudyExplain.text // 방 스터디 설명 전달
+                    EnterController.ExplainText = StudyContents.text // 방 스터디 설명 전달
                     present(EnterController, animated: true, completion: nil)
     }
     
     // 원하는 배경 설정
     
-    func openLibrary(){
-      picker.sourceType = .photoLibrary
-      present(picker, animated: false, completion: nil)
-    }
-    func openCamera(){
-      picker.sourceType = .camera
-      present(picker, animated: false, completion: nil)
-    }
-    let picker = UIImagePickerController()
+//    func openLibrary(){
+//      picker.sourceType = .photoLibrary
+//      present(picker, animated: false, completion: nil)
+//    }
+//    func openCamera(){
+//      picker.sourceType = .camera
+//      present(picker, animated: false, completion: nil)
+//    }
+//    let picker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        picker.delegate = self
+        self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+//        picker.delegate = self
+        
+              
+        updateLabel()
         
         // 수정된 내용들을 가져옴
         if TitleOrigin != nil {
             RoomTitle.text = TitleOrigin
         }
         if ClassOrigin != nil {
-            ClassTitle.text = ClassOrigin
+            SubjectTitle.text = ClassOrigin
         }
         if ProfessorOrigin != nil {
             ProfessorName.text = ProfessorOrigin
         }
-        if ExplainOrigin != nil {
-            StudyExplain.text = ExplainOrigin
+        if ContentsOrigin != nil {
+            StudyContents.text = ContentsOrigin
         }
     }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-                    ImageView.image = image
-                    print(info)
-                }
 
-                dismiss(animated: true, completion: nil)
+    
+    // 선택한 cell에 해당하는 정보 DB에서 받아오는 작업
+    func updateLabel(){
+        let subinfo = String(EnterIndex!)
+        let roomListRef = ref.child("roomList").child(subinfo)
+        
+        roomListRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let title = child as! DataSnapshot
+                let titlekey = title.key
+                let titlevalue = title.value!
+                
+                print("\n=\n=\n=\n=\n=\n=\n=\n=")
+                print("titlekey --> \(titlekey)")
+                print("titlevalue --> \(titlevalue)")
+                print("\n=\n=\n=\n=\n=\n=\n=\n=")
+                
+                
+                if titlekey == "title" {
+                    self.RoomTitle.text = titlevalue as? String
+                } else if titlekey == "subject" {
+                    self.SubjectTitle.text = titlevalue as? String
+                } else if titlekey == "professor" {
+                    self.ProfessorName.text = titlevalue as? String
+                } else if titlekey == "contents" {
+                    self.StudyContents.text = titlevalue as? String
+                } else if titlekey == "major" {
+                    self.RoomMajor.text = titlevalue as? String
+                } else if titlekey == "openDate" {
+                    self.OpenDate.text = titlevalue as? String
+                } else if titlekey == "numberOfMax" {
+                    self.MaxNum.text = titlevalue as? String
+                }
+            }
+        })
+
     }
+    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+//                    ImageView.image = image
+//                    print(info)
+//                }
+//
+//                dismiss(animated: true, completion: nil)
+//    }
     
    
     @IBOutlet var ImageView: UIImageView!
-    
-    
-    @IBAction func AddImage(_ sender: UIButton) {
-        let alert = UIAlertController(title: "사진 추가", message: "원하는 배경 설정", preferredStyle: UIAlertController.Style.alert)
-        
-        let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in self.openLibrary()
-        }
-        
-        let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
-        self.openCamera()
-        }
-        
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
 
-        alert.addAction(library)
-        
-        alert.addAction(camera)
-        
-        alert.addAction(cancel)
 
-        present(alert, animated: true, completion: nil)
-    }
+//    @IBAction func AddImage(_ sender: UIButton) {
+//        let alert = UIAlertController(title: "사진 추가", message: "원하는 배경 설정", preferredStyle: UIAlertController.Style.alert)
+//
+//        let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in self.openLibrary()
+//        }
+//
+//        let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
+//        self.openCamera()
+//        }
+//
+//        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+//
+//        alert.addAction(library)
+//
+//        alert.addAction(camera)
+//
+//        alert.addAction(cancel)
+//
+//        present(alert, animated: true, completion: nil)
+//    }
     
     @IBOutlet weak var LikeButton: UIButton!
     
