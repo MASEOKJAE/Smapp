@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 import FirebaseDatabase
 
 class RoomEnterVC: UIViewController {
@@ -59,6 +60,17 @@ class RoomEnterVC: UIViewController {
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
+        //db읽고 방 listOfLikeRooms에 존재여부
+        ref.child("userList").child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
+            
+            //likebutton 초기 설정
+            if likeRooms.contains(String(self.EnterIndex!)){
+                self.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            } else { self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal) }
+        })
+        
 //        picker.delegate = self
         
               
@@ -110,7 +122,7 @@ class RoomEnterVC: UIViewController {
                 } else if titlekey == "openDate" {
                     self.OpenDate.text = titlevalue as? String
                 } else if titlekey == "numberOfMax" {
-                    self.MaxNum.text = titlevalue as? String
+                    self.MaxNum.text = "\(titlevalue)"
                 }
             }
         })
@@ -154,17 +166,38 @@ class RoomEnterVC: UIViewController {
     @IBOutlet weak var LikeButton: UIButton!
     
     
-    
     @IBAction func LikeButtonClick(_ sender: UIButton) {
-         if LikeButton.tag == 0 {
-            LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            LikeButton.tag = 1
-        }
-        else{
-            LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            LikeButton.tag = 0
-        }
+        //read data
+        let refUser = ref.child("userList")
+        
+        //room indexPath.row
+        let roominfo = String(EnterIndex!)
+        
+        refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
+            
+            print("\n\n\n\n", likeRooms, "\n\n\n\n")
+            
+            //Likebutton 작동
+            if likeRooms.contains(roominfo) {
+                self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                
+                //likeRooms array에서 방 제거
+                likeRooms.remove(roominfo)
+            } else {
+                self.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                
+                //likeRooms array에서 방 추가
+                likeRooms.add(roominfo)
+            }
+            
+            //update data
+            refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).child("listOfLikeRoom").setValue(likeRooms)
+        })
     }
+    
+    
     // 스터디 방 공유 기능
     func showToast(message : String, font: UIFont) {
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))

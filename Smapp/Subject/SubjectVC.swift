@@ -28,24 +28,34 @@ class SubjectVC: UIViewController {
     }
     
     @IBAction func LikeClicked(_ sender: UIButton) {
-        if sender.tag == 0 {
-           sender.setImage(UIImage(systemName: "heart"), for: .normal)
-           sender.tag = 1
-       }
-       else{
-           sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-           sender.tag = 0
-           
-           if let indexPath = collectionView?.indexPathsForSelectedItems?.first,
-           let cell = collectionView?.cellForItem(at: indexPath) as? SubjectCell,
-           let likeData = cell.roomTitle.text {
-               //DB
-               let refLike = ref.child("userList")
-
-               refLike.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(["listOfLikeRoom": cell.roomTitle.text!])
-           }
-           
-       }
+//        //read data
+//        let refUser = ref.child("userList")
+//
+//        //room indexPath.row
+//        let roominfo = String(EnterIndex!)
+//
+//        refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+//            let value = snapshot.value as? NSDictionary
+//            let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
+//
+//            print("\n\n\n\n", likeRooms, "\n\n\n\n")
+//
+//            //Likebutton 작동
+//            if likeRooms.contains(roominfo) {
+//                self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+//
+//                //likeRooms array에서 방 제거
+//                likeRooms.remove(roominfo)
+//            } else {
+//                self.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//
+//                //likeRooms array에서 방 추가
+//                likeRooms.add(roominfo)
+//            }
+//
+//            //update data
+//            refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).child("listOfLikeRoom").setValue(likeRooms)
+//        })
     }
     
     func updateData() {
