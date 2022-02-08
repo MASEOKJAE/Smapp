@@ -4,13 +4,12 @@
 //
 //  Created by 이예준 on 2022/01/14.
 //
-
 import UIKit
 import GoogleSignIn
 import Firebase
 import FirebaseDatabase
 
-class SubjectVC: UIViewController {
+class SubjectVC: UIViewController, UICollectionViewDelegate {
     var ref: DatabaseReference!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -75,6 +74,9 @@ class SubjectVC: UIViewController {
         
         super.viewDidLoad()
         
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
         let userListRef = ref.child("userList")
         
         userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
@@ -101,7 +103,7 @@ class SubjectVC: UIViewController {
     }
 }
 
-extension SubjectVC: UICollectionViewDataSource {
+extension SubjectVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.willDisplayData.count
     }
@@ -114,6 +116,7 @@ extension SubjectVC: UICollectionViewDataSource {
         let formatter = DateFormatter()
         formatter.dateFormat = "yy.MM.dd"
         
+        cell.roomId = item.roomId
         cell.roomTitle?.text = item.title!
         cell.information?.text = item.subject! + " | " + item.professor! + " | " + (item.isOnce! ? "" : "~") + formatter.string(from: formatter.date(from: item.dueDate!)!) + " | " + (item.isOnce! ? "번개" : "정기")
         cell.member?.text = "(" + String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!) + ")"
@@ -126,6 +129,19 @@ extension SubjectVC: UICollectionViewDataSource {
         
         return cell
     }
+    
+    // 각 Cell의 방 정보 인덱스를 RoomEnter로 전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+            if segue.identifier == "RoomEnter" {
+                let vc = segue.destination as? RoomEnterVC
+                let cell = sender as! SubjectCell
+                let indexPath = collectionView.indexPath(for: cell)
+                let selectedData = indexPath?.row
+                // vc?.SaveOrder = Int(selectedData!) // DB에 저장된 내용 순서대로 데이터를 가져 옴
+                vc?.EnterIndex = cell.roomId // 클릭한 룸 아이디 데이터를 가져 옴
+            }
+        }
 }
 
 extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {

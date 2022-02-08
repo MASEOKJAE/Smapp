@@ -158,10 +158,14 @@
                                             <outlet property="information" destination="6yC-G6-Gfl" id="YOf-qY-yya"/>
                                             <outlet property="member" destination="CfI-2B-q53" id="YfK-hC-Pe9"/>
                                             <outlet property="roomTitle" destination="xf9-pc-YNL" id="IS0-h2-UZ7"/>
-                                            <segue destination="G8S-ed-qji" kind="show" id="3W4-gx-BTS"/>
+                                            <segue destination="G8S-ed-qji" kind="show" identifier="RoomEnter" id="3W4-gx-BTS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="b9N-cg-j2R"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="UAI-nX-kMF"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-YV-WIx">
                                 <rect key="frame" x="278" y="750" width="116" height="50"/>

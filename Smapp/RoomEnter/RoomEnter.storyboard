@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nn1-uf-XK2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vrl-XA-6h3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -88,7 +88,8 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="PSc-fu-Yc1" kind="show" id="td6-6q-cjF"/>
+                                    <action selector="ClickRoomEnter:" destination="vrl-XA-6h3" eventType="touchUpInside" id="k0P-u8-G51"/>
+                                    <segue destination="PSc-fu-Yc1" kind="show" identifier="roomEnterToChat" id="td6-6q-cjF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22-1 앱 프로그래밍 나대영 교수님 수업 같이 공부할 사람 구합니다. 아무나 대환영 :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyi-xw-Yod">
@@ -177,13 +178,14 @@
                     <navigationItem key="navigationItem" id="898-EX-6go"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="ClassTitle" destination="fNa-do-sfq" id="rne-Qg-Gsv"/>
                         <outlet property="ImageView" destination="i6s-vd-qyT" id="mhN-6G-ItM"/>
                         <outlet property="LikeButton" destination="5wN-Cj-IQy" id="pCN-yq-8TA"/>
                         <outlet property="ProfessorName" destination="Mp2-7c-j5D" id="Psq-tZ-Xco"/>
+                        <outlet property="RoomEnterButton" destination="8x0-A5-OSx" id="gQS-AZ-afx"/>
                         <outlet property="RoomTitle" destination="hfC-lx-8Te" id="mxT-Pu-DIb"/>
                         <outlet property="ShareButton" destination="veH-sk-cyg" id="jo0-RY-hMe"/>
-                        <outlet property="StudyExplain" destination="lyi-xw-Yod" id="bDZ-Ya-zU5"/>
+                        <outlet property="StudyContents" destination="lyi-xw-Yod" id="G6c-H5-dUy"/>
+                        <outlet property="SubjectTitle" destination="fNa-do-sfq" id="Crn-gR-dXN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbE-n1-zPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -199,22 +201,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0XQ-NP-18A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1225" y="-246"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="63a-bI-rHq">
-            <objects>
-                <navigationController id="nn1-uf-XK2" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vNt-fg-Y7y">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="vrl-XA-6h3" kind="relationship" relationship="rootViewController" id="J0J-b9-VPo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2qc-xg-TuD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-172" y="-54"/>
         </scene>
     </scenes>
     <resources>

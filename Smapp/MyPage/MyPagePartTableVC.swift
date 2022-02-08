@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import GoogleSignIn
 
 class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -17,26 +18,32 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     let chattingContent = ["오늘 2시에 괜찮으신가요?","네 이따가 봅시다!", "안녕하세요", "이거는 그 문제 같은데요..? 블라블라 블라블라", "소라에서 볼까요?", "넵", "거의 다 도착했습니다!", "오늘 2시에 괜찮으신가요?","네 이따가 봅시다!", "안녕하세요", "이거는 그 문제 같은데요..? 블라블라 블라블라", "소라에서 볼까요?", "넵", "거의 다 도착했습니다!", "오늘 2시에 괜찮으신가요?","네 이따가 봅시다!", "안녕하세요", "이거는 그 문제 같은데요..? 블라블라 블라블라", "소라에서 볼까요?", "넵", "거의 다 도착했습니다!"]
 
     var ref: DatabaseReference!
-    var array: [RoomData] = []
+    var roomArray: [RoomData] = []
+    var listOfPartRoomId: [Int?] = []
+    var count: Int! = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initRefresh()
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        fetchListOfPartRoom()
         let refRoom = ref.child("roomList")
-           refRoom.observe(DataEventType.value, with:  { (snapshot) in
-               self.array.removeAll()
+            refRoom.observe(DataEventType.value, with:  { (snapshot) in
+                self.roomArray.removeAll()
 
-               for item in snapshot.children.allObjects as! [DataSnapshot] {
-                   let roomList = RoomData(dic: item.value as! [String:Any])
-                   self.array.append(roomList)
-               }
+                for item in snapshot.children.allObjects as! [DataSnapshot] {
+                    let roomList = RoomData(dic: item.value as! [String:Any])
+                    if self.listOfPartRoomId.contains(roomList.roomId) {    // 유저가 참여하는 방만 가져오기
+                        self.roomArray.append(roomList)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
 
-               DispatchQueue.main.async {
-                   self.tableView.reloadData()
-               }
-           })
     }
     
     func initRefresh() {
@@ -45,6 +52,16 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         //refresh.attributedTitle = NSAttributedString(string: "새로고침")
         
         tableView.addSubview(refresh)
+    }
+    
+    // 유저가 참여하는 방 번호 가져오기
+    func fetchListOfPartRoom() {
+        let myUid: Int! = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+        let userListRef = ref.child("userList")
+        userListRef.child(String(myUid)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            self.listOfPartRoomId = value?["listOfPartRoom"] as? Array ?? []
+        })
     }
     
     @objc
@@ -60,7 +77,7 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return self.appDelegate.roomList.count
-        return self.array.count
+        return self.roomArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,8 +86,8 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
          }
         
 
-        cell.roomTitle.text = self.array[indexPath.row].title
-//        cell.participants.text = String(item.listOfPartUser?.count!) + "/" + String(item.numberOfMax!)
+        cell.roomTitle.text = self.roomArray[indexPath.row].title
+        cell.participants.text = String(self.roomArray[indexPath.row].listOfPartUser?.count ?? -1) + "/" + String(self.roomArray[indexPath.row].numberOfMax!)
         cell.chatsName.text = chattingName[indexPath.row]
         cell.chatsContent.text = chattingContent[indexPath.row]
         

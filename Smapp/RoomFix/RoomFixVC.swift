@@ -4,10 +4,9 @@
 //
 //  Created by 마석재 on 2022/01/20.
 //
-
 import UIKit
 
-class RoomFixVC: UIViewController {
+class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var TitleFix: UITextField!
     @IBOutlet weak var ClassFix: UITextField!
@@ -25,13 +24,60 @@ class RoomFixVC: UIViewController {
                     FixController.TitleOrigin = TitleFix.text // 수정된 방 제목 전달
                     FixController.ClassOrigin = ClassFix.text // 수정된 강의명 전달
                     FixController.ProfessorOrigin = ProfessorFix.text // 수정된 방 교수 전달
-        FixController.ExplainOrigin = ExplainFix.text // 수정된 방 스터디 설명 전달
+        FixController.ContentsOrigin = ExplainFix.text // 수정된 방 스터디 설명 전달
                     present(FixController, animated: true, completion: nil)
         
     }
     
+    // 원하는 배경 설정
+    
+    func openLibrary(){
+      picker.sourceType = .photoLibrary
+      present(picker, animated: false, completion: nil)
+    }
+    func openCamera(){
+      picker.sourceType = .camera
+      present(picker, animated: false, completion: nil)
+    }
+    let picker = UIImagePickerController()
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+                    FixImageView.image = image
+                    print(info)
+                }
+
+                dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBOutlet var FixImageView: UIImageView!
+    
+    @IBAction func FixAddImage(_ sender: UIButton) {
+         let alert = UIAlertController(title: "사진 추가", message: "원하는 배경 설정", preferredStyle: UIAlertController.Style.alert)
+        
+        let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in self.openLibrary()
+        }
+        
+        let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
+        self.openCamera()
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+
+        alert.addAction(library)
+        
+        alert.addAction(camera)
+        
+        alert.addAction(cancel)
+
+        present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        picker.delegate = self
         
         // 기존 내용들을 가져옴
         if TitleText != nil {
