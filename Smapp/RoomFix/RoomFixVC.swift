@@ -41,12 +41,12 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         ]
         refRoom.child("\(RoomIdFix!)").updateChildValues(fixData)
         
-        let storyboard = UIStoryboard(name: "Subject", bundle: nil)
-        let NavigationController = storyboard.instantiateViewController(identifier: "Nav")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let MainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
         
         // This is to get the SceneDelegate object from your view controller
         // then call the change root view controller function to change to main tab bar
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(NavigationController)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(MainTabBarController)
     }
     
     
