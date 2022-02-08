@@ -84,6 +84,15 @@ class SubjectVC: UIViewController {
 }
 
 
+extension UIImageView {
+  func setImageColor(color: UIColor) {
+    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+    self.image = templateImage
+    self.tintColor = color
+  }
+}
+
+
 extension SubjectVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.willDisplayData.count
@@ -107,10 +116,10 @@ extension SubjectVC: UICollectionViewDataSource {
             let value = snapshot.value as? NSDictionary
             let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
                         
-            if likeRooms.contains(String(cell.roomId!)) == true {
+            if likeRooms.contains(String(cell.roomId!)) {
                 cell.LikeImage.image = UIImage(named: "heart.fill")
             } else {
-                cell.LikeImage.image = UIImage(systemName: "heart")
+                cell.LikeImage.image = UIImage(named: "heart")
             }
         })
         

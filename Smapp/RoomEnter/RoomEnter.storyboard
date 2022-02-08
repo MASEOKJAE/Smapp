@@ -195,12 +195,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fTj-5J-KTe">
-                                <rect key="frame" x="339" y="123" width="45.5" height="31"/>
+                                <rect key="frame" x="348.5" y="123" width="36" height="25"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button" image="like_off">
                                     <attributedString key="attributedTitle"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="heart">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="strokeColor" systemColor="labelColor"/>
@@ -298,7 +298,7 @@
     <resources>
         <image name="BasicView" width="448" height="482"/>
         <image name="Share" width="15" height="16"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart" width="12" height="11"/>
         <image name="like_off" width="64" height="64"/>
         <image name="logo" width="83" height="71"/>
         <systemColor name="labelColor">

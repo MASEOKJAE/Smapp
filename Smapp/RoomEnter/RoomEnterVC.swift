@@ -67,8 +67,8 @@ class RoomEnterVC: UIViewController {
             
             //likebutton 초기 설정
             if likeRooms.contains(String(self.EnterIndex!)){
-                self.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            } else { self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal) }
+                self.LikeButton.setImage(UIImage(named: "heart.fill"), for: .normal)
+            } else { self.LikeButton.setImage(UIImage(named: "heart"), for: .normal) }
         })
         
 //        picker.delegate = self
@@ -173,12 +173,12 @@ class RoomEnterVC: UIViewController {
                         
             //Likebutton 작동
             if likeRooms.contains(roominfo) {
-                self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                self.LikeButton.setImage(UIImage(named: "heart"), for: .normal)
                 
                 //likeRooms array에서 방 제거
                 likeRooms.remove(roominfo)
             } else {
-                self.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                self.LikeButton.setImage(UIImage(named: "heart.fill"), for: .normal)
                 
                 //likeRooms array에서 방 추가
                 likeRooms.add(roominfo)
