@@ -11,7 +11,9 @@
         <!--RoomEnter-->
         <scene sceneID="xTW-qG-3nT">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="RoomEnter" storyboardName="RoomEnter" id="J9C-f2-4Tj" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="RoomEnter" storyboardName="RoomEnter" id="J9C-f2-4Tj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1ok-vk-DSk"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRk-jF-v6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1188" y="-54"/>
@@ -80,9 +82,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="FixCompleted:" destination="m26-ag-2xU" eventType="touchUpInside" id="tbE-0E-UtZ"/>
-                                    <segue destination="J9C-f2-4Tj" kind="popoverPresentation" popoverAnchorView="AaA-0m-Yke" id="5sr-ne-qKQ">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2EP-9H-HlK">

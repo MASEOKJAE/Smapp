@@ -29,23 +29,31 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var nameSelect: UIButton!
     
     @IBAction func nameClicked(_ sender: UIButton) {
-        //경고창
-        let alert = UIAlertController(title: "이름설정", message: "\(nameTextField.text!) 맞음?", preferredStyle: UIAlertController.Style.alert)
-        
-        let ok = UIAlertAction(title: "확인", style: .destructive) { (action) in
-            //username 으로 설정
-            self.userName()
-            //홈 뷰로 이동
-            let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            let TermsViewController = storyboard.instantiateViewController(identifier: "Terms")
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TermsViewController)
+        if nameTextField.text != "" {
+            //경고창
+            let alert = UIAlertController(title: "이름설정", message: "\(nameTextField.text!) 맞음?", preferredStyle: UIAlertController.Style.alert)
+            
+            let ok = UIAlertAction(title: "확인", style: .destructive) { (action) in
+                //username 으로 설정
+                self.userName()
+                //홈 뷰로 이동
+                let storyboard = UIStoryboard(name: "Register", bundle: nil)
+                let TermsViewController = storyboard.instantiateViewController(identifier: "Terms")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TermsViewController)
+            }
+            
+            let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
+            
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
+        } else {
+            let warning = UIAlertController(title: "이름설정", message: "이름을 입력하시오.", preferredStyle: UIAlertController.Style.alert)
+            let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
+            
+            warning.addAction(yes)
+            present(warning, animated: true, completion: nil)
         }
-        
-        let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
-        
-        alert.addAction(cancel)
-        alert.addAction(ok)
-        present(alert, animated: true, completion: nil)
     }
     
     //이름 받고 FBDB에 업데이트
@@ -59,6 +67,10 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     //약관 동의 체크 박스
