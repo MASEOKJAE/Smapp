@@ -4,7 +4,6 @@
 //
 //  Created by 마석재 on 2022/01/20.
 //
-
 import UIKit
 import FirebaseDatabase
 
@@ -66,7 +65,6 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
 
                 dismiss(animated: true, completion: nil)
     }
-    
     
     @IBOutlet var FixImageView: UIImageView!
     

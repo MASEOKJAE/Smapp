@@ -4,7 +4,6 @@
 //
 //  Created by 마석재 on 2022/01/17.
 //
-
 import UIKit
 import GoogleSignIn
 import FirebaseDatabase
@@ -16,10 +15,13 @@ class RoomEnterVC: UIViewController {
     @IBOutlet weak var SubjectTitle: UILabel!
     @IBOutlet weak var ProfessorName: UILabel!
     @IBOutlet weak var StudyContents: UILabel!
+
     @IBOutlet weak var RoomMajor: UILabel!
     @IBOutlet weak var OpenDate: UILabel!
     @IBOutlet weak var MaxNum: UILabel!
     
+    @IBOutlet weak var RoomEnterButton: UIButton!
+
     
     var TitleOrigin:String? // 수정된 방제목을 받아오기 위한 변수
     var ClassOrigin:String?
@@ -32,6 +34,9 @@ class RoomEnterVC: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var ref: DatabaseReference!
     var willDisplayData = [RoomData]()
+
+    var array: [UserModel] = []
+
     
     @IBAction func FixBtnClick(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "RoomFix", bundle: nil)
@@ -41,6 +46,7 @@ class RoomEnterVC: UIViewController {
                     EnterController.ProfessorText = ProfessorName.text // 방 교수 전달
                     EnterController.ContentsText = StudyContents.text // 방 스터디 설명 전달
                     EnterController.RoomIdFix = EnterIndex
+
                     present(EnterController, animated: true, completion: nil)
     }
     
@@ -55,6 +61,7 @@ class RoomEnterVC: UIViewController {
 //      present(picker, animated: false, completion: nil)
 //    }
 //    let picker = UIImagePickerController()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +81,7 @@ class RoomEnterVC: UIViewController {
         
 //        picker.delegate = self
         
+
               
         updateLabel()
         
@@ -87,10 +95,12 @@ class RoomEnterVC: UIViewController {
         if ProfessorOrigin != nil {
             ProfessorName.text = ProfessorOrigin
         }
+
         if ContentsOrigin != nil {
             StudyContents.text = ContentsOrigin
         }
     }
+    
 
     
     // 선택한 cell에 해당하는 정보 DB에서 받아오는 작업
@@ -104,15 +114,7 @@ class RoomEnterVC: UIViewController {
                 let titlekey = title.key
                 let titlevalue = title.value!
                 
-//<<<<<<< HEAD
-//=======
-//                print("\n=\n=\n=\n=\n=\n=\n=\n=")
-//                print("titlekey --> \(titlekey)")
-//                print("titlevalue --> \(titlevalue)")
-//                print("\n=\n=\n=\n=\n=\n=\n=\n=")
-                
-                
-//>>>>>>> SJ
+
                 if titlekey == "title" {
                     self.RoomTitle.text = titlevalue as? String
                 } else if titlekey == "subject" {
@@ -167,6 +169,59 @@ class RoomEnterVC: UIViewController {
 //
 //        present(alert, animated: true, completion: nil)
 //    }
+        
+    
+    
+    // 스터디룸 입장하기 버튼 누르면 입장하는 유저, 방 정보 DB에 추가
+    @IBAction func ClickRoomEnter(_ sender: Any) {
+        let myUid: Int! = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+        // roomList의 listOfPartUser에 유저 추가
+        let roomListRef = ref.child("roomList")
+        roomListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            var listOfPartUser = value?["listOfPartUser"] as? NSMutableArray ?? []
+        
+            listOfPartUser.add(myUid)
+            
+           roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").setValue(listOfPartUser)
+        })
+        
+        
+        // userList의 listOfPartRoom에 입장하는 방 번호 추가
+        let userListRef = ref.child("userList")
+        userListRef.child(String(myUid)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            var listOfPartRoom = value?["listOfPartRoom"] as? NSMutableArray ?? []
+            
+            listOfPartRoom.add(self.EnterIndex!)
+            
+           userListRef.child(String(myUid)).child("listOfPartRoom").setValue(listOfPartRoom)
+        })
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+                if segue.identifier == "roomEnterToChat" {
+                    let vc = segue.destination as? ChatRoomVC
+                    vc?.roomId = self.EnterIndex
+                }
+            }
+    
+
+    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+//                    ImageView.image = image
+//                    print(info)
+//                }
+//
+//                dismiss(animated: true, completion: nil)
+//    }
+    
+   
+
+
     
     @IBOutlet weak var LikeButton: UIButton!
     

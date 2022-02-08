@@ -4,7 +4,6 @@
 //
 //  Created by 이예준 on 2022/01/14.
 //
-
 import UIKit
 import GoogleSignIn
 import Firebase
@@ -55,6 +54,7 @@ class SubjectVC: UIViewController {
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
         super.viewDidLoad()
+        
         
         let userListRef = ref.child("userList")
         
@@ -127,24 +127,25 @@ extension SubjectVC: UICollectionViewDataSource {
     }
     
     
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath as IndexPath) as! SubjectCell
         
         return cell
     }
     
-    
     // 각 Cell의 방 정보 인덱스를 RoomEnter로 전달
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "RoomEnter" {
-            let vc = segue.destination as? RoomEnterVC
-            let cell = sender as! SubjectCell
-            let indexPath = collectionView.indexPath(for: cell)
-            let selectedData = indexPath?.row
-            // vc?.SaveOrder = Int(selectedData!) // DB에 저장된 내용 순서대로 데이터를 가져 옴
-            vc?.EnterIndex = cell.roomId // 클릭한 룸 아이디 데이터를 가져 옴
+
+            if segue.identifier == "RoomEnter" {
+                let vc = segue.destination as? RoomEnterVC
+                let cell = sender as! SubjectCell
+                let indexPath = collectionView.indexPath(for: cell)
+                let selectedData = indexPath?.row
+                // vc?.SaveOrder = Int(selectedData!) // DB에 저장된 내용 순서대로 데이터를 가져 옴
+                vc?.EnterIndex = cell.roomId // 클릭한 룸 아이디 데이터를 가져 옴
+            }
         }
-    }
 }
 
 
@@ -178,3 +179,4 @@ extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDe
         }
     }
 }
+

@@ -62,6 +62,8 @@ class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         return cell
     }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "peopleToChat" {
                 let vc = segue.destination as? ChatRoomVC

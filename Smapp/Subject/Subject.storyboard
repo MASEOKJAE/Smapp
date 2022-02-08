@@ -156,6 +156,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="b9N-cg-j2R"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="UAI-nX-kMF"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-YV-WIx">
                                 <rect key="frame" x="278" y="750" width="116" height="50"/>
