@@ -59,11 +59,6 @@ class LoginVC: UIViewController {
                 
                 self.appDelegate.userList.append(temp)
                 
-                print("\n\n\n\n")
-                print(self.appDelegate.userList[self.appDelegate.userList.count - 1].email!)
-                print("\n\n\n\n")
-                
-                
                 //firebase realtime database 연동
                 let refUser = ref.child("userList")
 
@@ -71,6 +66,7 @@ class LoginVC: UIViewController {
                     "email": GIDSignIn.sharedInstance.currentUser?.profile!.email,
                     "studentId": Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)!,
                     "name": "",
+                    "token": Messaging.messaging().fcmToken!
                 ] as [String : Any]
                 
                 refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).setValue(userInputData)
