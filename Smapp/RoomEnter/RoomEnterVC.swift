@@ -36,9 +36,10 @@ class RoomEnterVC: UIViewController {
         let storyboard = UIStoryboard(name: "RoomFix", bundle: nil)
         let EnterController  = storyboard.instantiateViewController(identifier: "RoomFix") as! RoomFixVC
                     EnterController.TitleText = RoomTitle.text // 방 제목 전달
-                    EnterController.ClassText = SubjectTitle.text // 방 강의명 전달
+                    EnterController.SunjectText = SubjectTitle.text // 방 강의명 전달
                     EnterController.ProfessorText = ProfessorName.text // 방 교수 전달
-                    EnterController.ExplainText = StudyContents.text // 방 스터디 설명 전달
+                    EnterController.ContentsText = StudyContents.text // 방 스터디 설명 전달
+                    EnterController.RoomIdFix = EnterIndex
                     present(EnterController, animated: true, completion: nil)
     }
     
@@ -91,10 +92,10 @@ class RoomEnterVC: UIViewController {
                 let titlekey = title.key
                 let titlevalue = title.value!
                 
-                print("\n=\n=\n=\n=\n=\n=\n=\n=")
-                print("titlekey --> \(titlekey)")
-                print("titlevalue --> \(titlevalue)")
-                print("\n=\n=\n=\n=\n=\n=\n=\n=")
+//                print("\n=\n=\n=\n=\n=\n=\n=\n=")
+//                print("titlekey --> \(titlekey)")
+//                print("titlevalue --> \(titlevalue)")
+//                print("\n=\n=\n=\n=\n=\n=\n=\n=")
                 
                 
                 if titlekey == "title" {

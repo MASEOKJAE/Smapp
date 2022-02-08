@@ -11,7 +11,7 @@
         <!--RoomEnter-->
         <scene sceneID="xTW-qG-3nT">
             <objects>
-                <viewControllerPlaceholder storyboardName="RoomEnter" id="J9C-f2-4Tj" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="RoomEnter" storyboardName="RoomEnter" id="J9C-f2-4Tj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRk-jF-v6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1188" y="-54"/>
@@ -79,7 +79,8 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="J9C-f2-4Tj" kind="popoverPresentation" popoverAnchorView="AaA-0m-Yke" id="1ho-Pi-d1V">
+                                    <action selector="FixCompleted:" destination="m26-ag-2xU" eventType="touchUpInside" id="tbE-0E-UtZ"/>
+                                    <segue destination="J9C-f2-4Tj" kind="popoverPresentation" popoverAnchorView="AaA-0m-Yke" id="5sr-ne-qKQ">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -157,10 +158,11 @@
                     <navigationItem key="navigationItem" id="OZ5-VD-kxR"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="ClassFix" destination="i6b-5K-kHE" id="4TO-os-DLl"/>
-                        <outlet property="ExplainFix" destination="XOR-ZC-Ufk" id="uAF-Td-kfn"/>
+                        <outlet property="ContentsFix" destination="XOR-ZC-Ufk" id="uAF-Td-kfn"/>
+                        <outlet property="FixCompleted" destination="AaA-0m-Yke" id="qm1-xK-zWW"/>
                         <outlet property="FixImageView" destination="xQU-N7-OD0" id="uwI-O3-RRq"/>
                         <outlet property="ProfessorFix" destination="Vw3-5n-QuQ" id="qvm-4a-RGV"/>
+                        <outlet property="SubjectFix" destination="i6b-5K-kHE" id="4TO-os-DLl"/>
                         <outlet property="TitleFix" destination="XdG-vF-Gg3" id="3uN-UV-LCt"/>
                     </connections>
                 </viewController>
