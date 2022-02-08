@@ -84,11 +84,12 @@ class RoomEnterVC: UIViewController {
         roomListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
             var listOfPartUser = value?["listOfPartUser"] as? NSMutableArray ?? []
-            
+        
             listOfPartUser.add(myUid)
             
            roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").setValue(listOfPartUser)
         })
+        
         
         // userList의 listOfPartRoom에 입장하는 방 번호 추가
         let userListRef = ref.child("userList")
@@ -100,8 +101,6 @@ class RoomEnterVC: UIViewController {
             
            userListRef.child(String(myUid)).child("listOfPartRoom").setValue(listOfPartRoom)
         })
-        
-        
         
     }
     

@@ -72,6 +72,18 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         
         roomListRef.child(String(childCount)).setValue(inputData)
         
+        
+        // userList의 listOfPartRoom에 입장하는 방 번호 추가
+        let userListRef = ref.child("userList")
+        userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            var listOfPartRoom = value?["listOfPartRoom"] as? NSMutableArray ?? []
+            
+            listOfPartRoom.add(self.childCount)
+            
+           userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).child("listOfPartRoom").setValue(listOfPartRoom)
+        })
+        
         _ = self.navigationController?.popViewController(animated: true)
     }
     
