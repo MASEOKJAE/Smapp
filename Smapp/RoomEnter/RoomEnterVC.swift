@@ -37,7 +37,7 @@ class RoomEnterVC: UIViewController {
         let storyboard = UIStoryboard(name: "RoomFix", bundle: nil)
         let EnterController  = storyboard.instantiateViewController(identifier: "RoomFix") as! RoomFixVC
                     EnterController.TitleText = RoomTitle.text // 방 제목 전달
-                    EnterController.SunjectText = SubjectTitle.text // 방 강의명 전달
+                    EnterController.SubjectText = SubjectTitle.text // 방 강의명 전달
                     EnterController.ProfessorText = ProfessorName.text // 방 교수 전달
                     EnterController.ContentsText = StudyContents.text // 방 스터디 설명 전달
                     EnterController.RoomIdFix = EnterIndex
@@ -96,8 +96,8 @@ class RoomEnterVC: UIViewController {
     
     // 선택한 cell에 해당하는 정보 DB에서 받아오는 작업
     func updateLabel(){
-        let subinfo = String(EnterIndex!)
-        let roomListRef = ref.child("roomList").child(subinfo)
+        let subinfo = EnterIndex!
+        let roomListRef = ref.child("roomList").child("\(subinfo)")
         
         roomListRef.observeSingleEvent(of: .value, with: { [self] (snapshot) in
             for child in snapshot.children {
@@ -126,7 +126,6 @@ class RoomEnterVC: UIViewController {
                     self.RoomMajor.text = titlevalue as? String
                 } else if titlekey == "openDate" {
                     self.OpenDate.text = titlevalue as? String
-                    print("OpenDate 좀 나와봐 --> \(self.OpenDate.text)")
                 } else if titlekey == "numberOfMax" {
                     self.MaxNum.text = "\(titlevalue)"
                 }

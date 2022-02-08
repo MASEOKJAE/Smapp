@@ -16,7 +16,7 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     @IBOutlet weak var ContentsFix: UITextField!
     
     var TitleText:String? // 기존 방제목을 받아오기 위한 변수
-    var SunjectText:String?
+    var SubjectText:String?
     var ProfessorText:String?
     var ContentsText:String?
     var OpenDateFix:String?
@@ -41,6 +41,13 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
             "contents": ContentsFix.text!,
         ]
         refRoom.child("\(RoomIdFix!)").updateChildValues(fixData)
+        
+        let storyboard = UIStoryboard(name: "Subject", bundle: nil)
+        let NavigationController = storyboard.instantiateViewController(identifier: "Nav")
+        
+        // This is to get the SceneDelegate object from your view controller
+        // then call the change root view controller function to change to main tab bar
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(NavigationController)
     }
     
     
@@ -108,8 +115,8 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         if TitleText != nil {
             TitleFix.text = TitleText
         }
-        if SunjectText != nil {
-            SubjectFix.text = SunjectText
+        if SubjectText != nil {
+            SubjectFix.text = SubjectText
         }
         if ProfessorText != nil {
             ProfessorFix.text = ProfessorText
