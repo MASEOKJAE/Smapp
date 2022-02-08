@@ -41,8 +41,8 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
             "contents": ContentsFix.text!,
         ]
         refRoom.child("\(RoomIdFix!)").updateChildValues(fixData)
-        
     }
+    
     
     @IBOutlet var FixCompleted: UIButton!
     

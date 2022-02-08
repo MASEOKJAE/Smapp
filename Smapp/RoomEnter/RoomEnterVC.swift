@@ -104,15 +104,15 @@ class RoomEnterVC: UIViewController {
                 let titlekey = title.key
                 let titlevalue = title.value!
                 
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 //                print("\n=\n=\n=\n=\n=\n=\n=\n=")
 //                print("titlekey --> \(titlekey)")
 //                print("titlevalue --> \(titlevalue)")
 //                print("\n=\n=\n=\n=\n=\n=\n=\n=")
                 
                 
->>>>>>> SJ
+//>>>>>>> SJ
                 if titlekey == "title" {
                     self.RoomTitle.text = titlevalue as? String
                 } else if titlekey == "subject" {
