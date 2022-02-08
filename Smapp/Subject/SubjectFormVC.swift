@@ -32,10 +32,12 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         
         roomListRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             let values = snapshot.value!
-            let dic = values as? [[String: Any]] ?? []
+            let dic = values as? [Any] ?? []
             for index in dic {
-                if (self.childCount <= (index["roomId"] as! Int)){
-                    self.childCount = (index["roomId"] as! Int + 1)
+                if let idx = index as? [String: Any] {
+                    if (self.childCount <= (idx["roomId"] as! Int)){
+                        self.childCount = (idx["roomId"] as! Int + 1)
+                    }
                 }
             }
         })
@@ -86,8 +88,6 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
             self.major.text = value?["likeMajor"] as? String ?? "Error"
         })
         
-        childCountUpdate()
-        
         self.contents.delegate = self
         
         let formatter = DateFormatter()
@@ -95,6 +95,10 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         dueDate.placeholder = formatter.string(from: Date())
         
         createDatePicker()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        childCountUpdate()
     }
 }
 
