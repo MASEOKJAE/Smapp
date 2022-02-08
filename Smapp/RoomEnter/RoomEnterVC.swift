@@ -170,9 +170,7 @@ class RoomEnterVC: UIViewController {
         refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
             let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
-            
-            print("\n\n\n\n", likeRooms, "\n\n\n\n")
-            
+                        
             //Likebutton 작동
             if likeRooms.contains(roominfo) {
                 self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)

@@ -27,28 +27,6 @@ class SubjectVC: UIViewController {
         viewWillAppear(true)
     }
     
-//    @IBAction func LikeClicked(_ sender: UIButton, _ id: Int) {
-//        //read data
-//        let refUser = ref.child("userList")
-//
-//        //room indexPath.row
-//        let roominfo = String(id)
-//
-//        refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
-//            let value = snapshot.value as? NSDictionary
-//            let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
-//
-//            print("\n\n\n\n", likeRooms, "\n\n\n\n")
-//
-//            //Likebutton 작동
-//            if likeRooms.contains(roominfo) {
-//                sender.setImage(UIImage(systemName: "heart"), for: .normal)
-//            } else {
-//                sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//            }
-//        })
-//    }
-    
     
     func updateData() {
         willDisplayData.removeAll()
@@ -123,20 +101,16 @@ extension SubjectVC: UICollectionViewDataSource {
         cell.roomTitle?.text = item.title!
         cell.information?.text = item.subject! + " | " + item.professor! + " | " + (item.isOnce! ? "" : "~") + formatter.string(from: formatter.date(from: item.dueDate!)!) + " | " + (item.isOnce! ? "번개" : "정기")
         cell.member?.text = "(" + String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!) + ")"
-        
-        print("\n\n\n\n\n나와줘어어어어-----\(cell.roomId)----\n\n\n\n\n")
-
-        
     
+        //db읽고 listOfLikeRoom에 포함되어있으면 하트 채워주기
         ref.child("userList").child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
             let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
-
-            if likeRooms.contains(cell.roomId!) {
-                cell.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                        
+            if likeRooms.contains(String(cell.roomId!)) == true {
+                cell.LikeImage.image = UIImage(named: "heart.fill")
             } else {
-//                print("\n\n\n\n\n나와줘어어어어-----\(cell.roomId)----\n\n\n\n\n")
-                cell.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                cell.LikeImage.image = UIImage(systemName: "heart")
             }
         })
         
@@ -147,25 +121,21 @@ extension SubjectVC: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath as IndexPath) as! SubjectCell
         
-        //함수 호출
-        //LikeClicked(cell.LikeButton, cell.roomId!)
-        
         return cell
     }
     
     
     // 각 Cell의 방 정보 인덱스를 RoomEnter로 전달
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-            if segue.identifier == "RoomEnter" {
-                let vc = segue.destination as? RoomEnterVC
-                let cell = sender as! SubjectCell
-                let indexPath = collectionView.indexPath(for: cell)
-                let selectedData = indexPath?.row
-                // vc?.SaveOrder = Int(selectedData!) // DB에 저장된 내용 순서대로 데이터를 가져 옴
-                vc?.EnterIndex = cell.roomId // 클릭한 룸 아이디 데이터를 가져 옴
-            }
+        if segue.identifier == "RoomEnter" {
+            let vc = segue.destination as? RoomEnterVC
+            let cell = sender as! SubjectCell
+            let indexPath = collectionView.indexPath(for: cell)
+            let selectedData = indexPath?.row
+            // vc?.SaveOrder = Int(selectedData!) // DB에 저장된 내용 순서대로 데이터를 가져 옴
+            vc?.EnterIndex = cell.roomId // 클릭한 룸 아이디 데이터를 가져 옴
         }
+    }
 }
 
 

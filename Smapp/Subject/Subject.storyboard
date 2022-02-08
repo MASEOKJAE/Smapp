@@ -140,21 +140,15 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzW-gh-XKh">
-                                                    <rect key="frame" x="277" y="13" width="42" height="31"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2FT-ZN-0yS">
+                                                    <rect key="frame" x="256" y="47" width="14" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" red="0.94901960784313721" green="0.43529411764705883" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
-                                                    <connections>
-                                                        <action selector="LikeClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VYj-aW-FEp"/>
-                                                    </connections>
-                                                </button>
+                                                </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725556139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <outlet property="LikeButton" destination="MzW-gh-XKh" id="dj0-c7-yIN"/>
+                                            <outlet property="LikeImage" destination="2FT-ZN-0yS" id="cq0-ZH-19z"/>
                                             <outlet property="information" destination="6yC-G6-Gfl" id="YOf-qY-yya"/>
                                             <outlet property="member" destination="CfI-2B-q53" id="YfK-hC-Pe9"/>
                                             <outlet property="roomTitle" destination="xf9-pc-YNL" id="IS0-h2-UZ7"/>
@@ -529,7 +523,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
