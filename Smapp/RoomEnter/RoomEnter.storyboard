@@ -103,6 +103,7 @@
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="FixBtnClick:" destination="WYB-MB-YfM" eventType="touchUpInside" id="vjn-HL-GBw"/>
                                     <segue destination="6mp-PY-Pdm" kind="popoverPresentation" popoverAnchorView="1gI-xb-BcL" id="B4g-14-qUk">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>

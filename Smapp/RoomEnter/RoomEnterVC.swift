@@ -37,9 +37,10 @@ class RoomEnterVC: UIViewController {
         let storyboard = UIStoryboard(name: "RoomFix", bundle: nil)
         let EnterController  = storyboard.instantiateViewController(identifier: "RoomFix") as! RoomFixVC
                     EnterController.TitleText = RoomTitle.text // 방 제목 전달
-                    EnterController.ClassText = SubjectTitle.text // 방 강의명 전달
+                    EnterController.SunjectText = SubjectTitle.text // 방 강의명 전달
                     EnterController.ProfessorText = ProfessorName.text // 방 교수 전달
-                    EnterController.ExplainText = StudyContents.text // 방 스터디 설명 전달
+                    EnterController.ContentsText = StudyContents.text // 방 스터디 설명 전달
+                    EnterController.RoomIdFix = EnterIndex
                     present(EnterController, animated: true, completion: nil)
     }
     
@@ -67,8 +68,8 @@ class RoomEnterVC: UIViewController {
             
             //likebutton 초기 설정
             if likeRooms.contains(String(self.EnterIndex!)){
-                self.LikeButton.setImage(UIImage(named: "heart.fill"), for: .normal)
-            } else { self.LikeButton.setImage(UIImage(named: "heart"), for: .normal) }
+                self.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            } else { self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal) }
         })
         
 //        picker.delegate = self
@@ -97,12 +98,21 @@ class RoomEnterVC: UIViewController {
         let subinfo = String(EnterIndex!)
         let roomListRef = ref.child("roomList").child(subinfo)
         
-        roomListRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        roomListRef.observeSingleEvent(of: .value, with: { [self] (snapshot) in
             for child in snapshot.children {
                 let title = child as! DataSnapshot
                 let titlekey = title.key
                 let titlevalue = title.value!
                 
+<<<<<<< HEAD
+=======
+//                print("\n=\n=\n=\n=\n=\n=\n=\n=")
+//                print("titlekey --> \(titlekey)")
+//                print("titlevalue --> \(titlevalue)")
+//                print("\n=\n=\n=\n=\n=\n=\n=\n=")
+                
+                
+>>>>>>> SJ
                 if titlekey == "title" {
                     self.RoomTitle.text = titlevalue as? String
                 } else if titlekey == "subject" {
@@ -115,6 +125,7 @@ class RoomEnterVC: UIViewController {
                     self.RoomMajor.text = titlevalue as? String
                 } else if titlekey == "openDate" {
                     self.OpenDate.text = titlevalue as? String
+                    print("OpenDate 좀 나와봐 --> \(self.OpenDate.text)")
                 } else if titlekey == "numberOfMax" {
                     self.MaxNum.text = "\(titlevalue)"
                 }
@@ -173,12 +184,12 @@ class RoomEnterVC: UIViewController {
                         
             //Likebutton 작동
             if likeRooms.contains(roominfo) {
-                self.LikeButton.setImage(UIImage(named: "heart"), for: .normal)
+                self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal)
                 
                 //likeRooms array에서 방 제거
                 likeRooms.remove(roominfo)
             } else {
-                self.LikeButton.setImage(UIImage(named: "heart.fill"), for: .normal)
+                self.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 
                 //likeRooms array에서 방 추가
                 likeRooms.add(roominfo)

@@ -6,29 +6,45 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var TitleFix: UITextField!
-    @IBOutlet weak var ClassFix: UITextField!
+    @IBOutlet weak var SubjectFix: UITextField!
     @IBOutlet weak var ProfessorFix: UITextField!
-    @IBOutlet weak var ExplainFix: UITextField!
+    @IBOutlet weak var ContentsFix: UITextField!
     
     var TitleText:String? // 기존 방제목을 받아오기 위한 변수
-    var ClassText:String?
+    var SunjectText:String?
     var ProfessorText:String?
-    var ExplainText:String?
+    var ContentsText:String?
+    var OpenDateFix:String?
+    var DueDateFix:String?
+    var MajorFix:String?
+    
+    var IsClosedFix:Bool?
+    var IsOnceFix:Bool?
+    
+    var RoomIdFix: Int? // 고치려는 roomId가 담겨 있음
+    var NumberOfMaxFix:Int = 0
+    var ListOfPartUserFix:[Int] = []
+    
+    var ref: DatabaseReference!
     
     @IBAction func FixCompleted(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "RoomEnter", bundle: nil)
-        let FixController = storyboard.instantiateViewController(identifier: "RoomEnter") as! RoomEnterVC
-                    FixController.TitleOrigin = TitleFix.text // 수정된 방 제목 전달
-                    FixController.ClassOrigin = ClassFix.text // 수정된 강의명 전달
-                    FixController.ProfessorOrigin = ProfessorFix.text // 수정된 방 교수 전달
-        FixController.ContentsOrigin = ExplainFix.text // 수정된 방 스터디 설명 전달
-                    present(FixController, animated: true, completion: nil)
+        let refRoom = ref.child("roomList")
+        let fixData = [
+            "title": TitleFix.text!,
+            "subject": SubjectFix.text!,
+            "professor": ProfessorFix.text!,
+            "contents": ContentsFix.text!,
+        ]
+        refRoom.child("\(RoomIdFix!)").updateChildValues(fixData)
         
     }
+    
+    @IBOutlet var FixCompleted: UIButton!
     
     // 원하는 배경 설정
     
@@ -78,20 +94,22 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
         picker.delegate = self
         
         // 기존 내용들을 가져옴
         if TitleText != nil {
             TitleFix.text = TitleText
         }
-        if ClassText != nil {
-            ClassFix.text = ClassText
+        if SunjectText != nil {
+            SubjectFix.text = SunjectText
         }
         if ProfessorText != nil {
             ProfessorFix.text = ProfessorText
         }
-        if ExplainText != nil {
-            ExplainFix.text = ExplainText
+        if ContentsText != nil {
+            ContentsFix.text = ContentsText
         }
         
     }
