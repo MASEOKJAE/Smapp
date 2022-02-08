@@ -75,6 +75,8 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         roomListRef.child(String(childCount)).setValue(inputData)
         
         _ = self.navigationController?.popViewController(animated: true)
+        
+        print("\n\n\n\n\n\(childCount)\n\n\n\n\n\n\n")
     }
     
     override func viewDidLoad() {

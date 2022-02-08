@@ -27,26 +27,6 @@ class SubjectVC: UIViewController {
         viewWillAppear(true)
     }
     
-    @IBAction func LikeClicked(_ sender: UIButton) {
-        if sender.tag == 0 {
-           sender.setImage(UIImage(systemName: "heart"), for: .normal)
-           sender.tag = 1
-       }
-       else{
-           sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-           sender.tag = 0
-           
-           if let indexPath = collectionView?.indexPathsForSelectedItems?.first,
-           let cell = collectionView?.cellForItem(at: indexPath) as? SubjectCell,
-           let likeData = cell.roomTitle.text {
-               //DB
-               let refLike = ref.child("userList")
-
-               refLike.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(["listOfLikeRoom": cell.roomTitle.text!])
-           }
-           
-       }
-    }
     
     func updateData() {
         willDisplayData.removeAll()
@@ -69,6 +49,7 @@ class SubjectVC: UIViewController {
             }
         })
     }
+    
     
     override func viewDidLoad() {
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
@@ -96,10 +77,21 @@ class SubjectVC: UIViewController {
         self.view.bringSubviewToFront(makeRoom)
     }
 
+    
     override func viewWillAppear(_ animated: Bool) {
         updateData()
     }
 }
+
+
+extension UIImageView {
+  func setImageColor(color: UIColor) {
+    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+    self.image = templateImage
+    self.tintColor = color
+  }
+}
+
 
 extension SubjectVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -114,19 +106,47 @@ extension SubjectVC: UICollectionViewDataSource {
         let formatter = DateFormatter()
         formatter.dateFormat = "yy.MM.dd"
         
+        cell.roomId = item.roomId
         cell.roomTitle?.text = item.title!
         cell.information?.text = item.subject! + " | " + item.professor! + " | " + (item.isOnce! ? "" : "~") + formatter.string(from: formatter.date(from: item.dueDate!)!) + " | " + (item.isOnce! ? "번개" : "정기")
         cell.member?.text = "(" + String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!) + ")"
+    
+        //db읽고 listOfLikeRoom에 포함되어있으면 하트 채워주기
+        ref.child("userList").child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
+                        
+            if likeRooms.contains(String(cell.roomId!)) {
+                cell.LikeImage.image = UIImage(named: "heart.fill")
+            } else {
+                cell.LikeImage.image = UIImage(named: "heart")
+            }
+        })
         
         return cell
     }
+    
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath as IndexPath) as! SubjectCell
         
         return cell
     }
+    
+    
+    // 각 Cell의 방 정보 인덱스를 RoomEnter로 전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RoomEnter" {
+            let vc = segue.destination as? RoomEnterVC
+            let cell = sender as! SubjectCell
+            let indexPath = collectionView.indexPath(for: cell)
+            let selectedData = indexPath?.row
+            // vc?.SaveOrder = Int(selectedData!) // DB에 저장된 내용 순서대로 데이터를 가져 옴
+            vc?.EnterIndex = cell.roomId // 클릭한 룸 아이디 데이터를 가져 옴
+        }
+    }
 }
+
 
 extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int{
