@@ -79,6 +79,12 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         print("\n\n\n\n\n\(childCount)\n\n\n\n\n\n\n")
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
     override func viewDidLoad() {
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
