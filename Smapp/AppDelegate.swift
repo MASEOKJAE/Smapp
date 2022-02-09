@@ -11,7 +11,7 @@ import GoogleSignIn
 import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var roomList = [RoomData]()
     var userList = [UserData]()
     var majorList = ["글로벌리더십학부", "전산전자공학부", "콘텐츠융합디자인학부", "경영경제학부", "공간환경시스템공학부", "국제어문학부", "기계제어공학부", "법학부", "상담심리사회복지학부", "생명과학부", "창의융합교육원", "커뮤니케이션학부", "AI융합교육원", "ICT창업학부"]
@@ -33,22 +33,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
             }
         }
-        
-        if #available(iOS 10.0, *) {
-          // For iOS 10 display notification (sent via APNS)
-          UNUserNotificationCenter.current().delegate = self
-
-          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-          UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: { _, _ in }
-          )
-        } else {
-          let settings: UIUserNotificationSettings =
-            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-          application.registerUserNotificationSettings(settings)
+        Messaging.messaging().delegate = self
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            }
+            else if let token = token {
+                print("FCM registration token: \(token)")
+            }
         }
+        
+        UNUserNotificationCenter.current().delegate = self
 
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization( options: authOptions, completionHandler: {_, _ in })
+        }
+        else {
+            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
         application.registerForRemoteNotifications()
         return true
     }
@@ -84,3 +90,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
 }
 
+
+extension AppDelegate : MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("파이어베이스 토큰: \(fcmToken)")
+    }
+}
+
+extension AppDelegate : UNUserNotificationCenterDelegate {
+
+    // 푸시알림이 수신되었을 때 수행되는 메소드
+    func userNotificationCenter(_ center: UNUserNotificationCenter,willPresent notification: UNNotification,withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("메시지 수신")
+        completionHandler([.alert, .badge, .sound])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,didReceive response: UNNotificationResponse,withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        completionHandler()
+    }
+}

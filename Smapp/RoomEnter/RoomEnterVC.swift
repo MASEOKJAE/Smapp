@@ -42,7 +42,7 @@ class RoomEnterVC: UIViewController {
         let storyboard = UIStoryboard(name: "RoomFix", bundle: nil)
         let EnterController  = storyboard.instantiateViewController(identifier: "RoomFix") as! RoomFixVC
                     EnterController.TitleText = RoomTitle.text // 방 제목 전달
-                    EnterController.SunjectText = SubjectTitle.text // 방 강의명 전달
+                    EnterController.SubjectText = SubjectTitle.text // 방 강의명 전달
                     EnterController.ProfessorText = ProfessorName.text // 방 교수 전달
                     EnterController.ContentsText = StudyContents.text // 방 스터디 설명 전달
                     EnterController.RoomIdFix = EnterIndex
@@ -62,7 +62,7 @@ class RoomEnterVC: UIViewController {
 //    }
 //    let picker = UIImagePickerController()
 
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,7 +74,7 @@ class RoomEnterVC: UIViewController {
             let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
             
             //likebutton 초기 설정
-            if likeRooms.contains(String(self.EnterIndex!)){
+            if likeRooms.contains(self.EnterIndex!){
                 self.LikeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             } else { self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal) }
         })
@@ -105,8 +105,8 @@ class RoomEnterVC: UIViewController {
     
     // 선택한 cell에 해당하는 정보 DB에서 받아오는 작업
     func updateLabel(){
-        let subinfo = String(EnterIndex!)
-        let roomListRef = ref.child("roomList").child(subinfo)
+        let subinfo = EnterIndex!
+        let roomListRef = ref.child("roomList").child("\(subinfo)")
         
         roomListRef.observeSingleEvent(of: .value, with: { [self] (snapshot) in
             for child in snapshot.children {
@@ -127,7 +127,6 @@ class RoomEnterVC: UIViewController {
                     self.RoomMajor.text = titlevalue as? String
                 } else if titlekey == "openDate" {
                     self.OpenDate.text = titlevalue as? String
-                    print("OpenDate 좀 나와봐 --> \(self.OpenDate.text)")
                 } else if titlekey == "numberOfMax" {
                     self.MaxNum.text = "\(titlevalue)"
                 }
@@ -231,8 +230,8 @@ class RoomEnterVC: UIViewController {
         let refUser = ref.child("userList")
         
         //room indexPath.row
-        let roominfo = String(EnterIndex!)
-        
+        let roominfo = EnterIndex!
+    
         refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
             let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
@@ -277,24 +276,31 @@ class RoomEnterVC: UIViewController {
         })
     } // Toast Message 구현을 위한 함수
     
+    
     @IBOutlet weak var ShareButton: UIButton!
     
     @IBAction func ClickShare(_ sender: UIButton) {
-        let shareText: String = "스터디방 공유"
+        //url 여는 방법
+//        if let url = URL(string: "https://www.hackingwithswift.com") {
+//            UIApplication.shared.open(url)
+//        }
+        let shareText: String = "뿅!"
         var shareObject = [Any]()
-        
+
         shareObject.append(shareText)
-        
+
         let activityViewController = UIActivityViewController(activityItems : shareObject, applicationActivities: nil)
-        
+
         activityViewController.popoverPresentationController?.sourceView = self.view
-        
+
         self.present(activityViewController, animated: true, completion: nil)
-        
+
         activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
-            if completed { self.showToast(message: "복사 완료", font: .systemFont(ofSize: 12.0))
+            if completed {
+                self.showToast(message: "복사 완료", font: .systemFont(ofSize: 12.0))
             }
-            else { self.showToast(message: "복사 취소", font: .systemFont(ofSize: 12.0))
+            else {
+                self.showToast(message: "복사 취소", font: .systemFont(ofSize: 12.0))
             }
             if let shareError = error {
                 self.showToast(message: "\(shareError.localizedDescription)", font: .systemFont(ofSize: 12.0))

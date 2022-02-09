@@ -13,11 +13,12 @@ import FirebaseDatabase
 class MyPageVC: UIViewController{
     
     var ref: DatabaseReference!
-    
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+        
     @IBOutlet weak var partStudy: UIView!
     @IBOutlet weak var likeStudy: UIView!
+    
+    
+    
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
@@ -45,11 +46,15 @@ class MyPageVC: UIViewController{
     
     @IBAction func switchViews(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            partStudy.alpha = 1
-            likeStudy.alpha = 0
+//            partStudy.alpha = 1
+//            likeStudy.alpha = 0
+            partStudy.isHidden = false
+            likeStudy.isHidden = true
         } else {
-            partStudy.alpha = 0
-            likeStudy.alpha = 1
+//            partStudy.alpha = 0
+//            likeStudy.alpha = 1
+            partStudy.isHidden = true
+            likeStudy.isHidden = false
         }
     }
     

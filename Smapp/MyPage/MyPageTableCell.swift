@@ -30,4 +30,9 @@ class MyPageTableCell: UITableViewCell {
                 print("selected")
             }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.accessoryType = .none
+    }
 }
