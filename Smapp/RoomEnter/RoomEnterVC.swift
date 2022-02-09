@@ -284,7 +284,7 @@ class RoomEnterVC: UIViewController {
 //        if let url = URL(string: "https://www.hackingwithswift.com") {
 //            UIApplication.shared.open(url)
 //        }
-        let shareText: String = "뿅!"
+        let shareText: String = "스터디룸 제목: \(RoomTitle.text!)"
         var shareObject = [Any]()
 
         shareObject.append(shareText)
