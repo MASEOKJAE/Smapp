@@ -50,41 +50,38 @@ class LoginVC: UIViewController {
                 //valid email이 아닌경우 로그인뷰에서 이동하지 못하도록 return함, 이동하는 코드는 이 코드 밑에...
                 if self.forceLogout((GIDSignIn.sharedInstance.currentUser?.profile!.email)!) == false { return }
                 
-                
-                //로그인 성공하면 user 정보 appDelegate에 append
-                var temp = UserData()
-                temp.userId = self.appDelegate.userList.count
-                temp.studentId = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
-                temp.email = GIDSignIn.sharedInstance.currentUser?.profile!.email
-                
-                self.appDelegate.userList.append(temp)
-                
                 //firebase realtime database 연동
                 let refUser = ref.child("userList")
 
                 let userInputData = [
                     "email": GIDSignIn.sharedInstance.currentUser?.profile!.email,
                     "studentId": Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)!,
-                    "name": "",
                     "token": Messaging.messaging().fcmToken!
                 ] as [String : Any]
                 
-                refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).setValue(userInputData)
+                refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(userInputData)
                 
-                self.showToast(message: "로그인 완료", font: .systemFont(ofSize: 15.0))
+                //self.showToast(message: "로그인 완료", font: .systemFont(ofSize: 15.0))
                 
-                
-                //메인 탭바로 이동
-                let storyboard = UIStoryboard(name: "Register", bundle: nil)
-                let mainTabBarController = storyboard.instantiateViewController(identifier: "RegisterName")
-                
-                // This is to get the SceneDelegate object from your view controller
-                // then call the change root view controller function to change to main tab bar
-                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
-                GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-                    guard error == nil else { return }
-                    guard let user = user else { return }
-                }
+                refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).child("name").getData(completion: {error, snapshot in
+                    let value = snapshot.value as? String
+                    print("\n\n\n\n\(String(describing: value))\n\n\n\n")
+                    //로그인한 유저의 이메일이 db에 존재하면
+                    if value != nil {
+                        
+                        //SubjectVC 페이지로 이동
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let MainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                        
+                        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(MainTabBarController)
+                    } else {
+                        //RegisterVC 페이지로 이동
+                        let storyboard = UIStoryboard(name: "Register", bundle: nil)
+                        let RegisterVC = storyboard.instantiateViewController(identifier: "RegisterName")
+                        
+                        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(RegisterVC)
+                    }
+                })
             }
         }
     }

@@ -280,10 +280,6 @@ class RoomEnterVC: UIViewController {
     @IBOutlet weak var ShareButton: UIButton!
     
     @IBAction func ClickShare(_ sender: UIButton) {
-        //url 여는 방법
-//        if let url = URL(string: "https://www.hackingwithswift.com") {
-//            UIApplication.shared.open(url)
-//        }
         let shareText: String = "스터디룸 제목: \(RoomTitle.text!)"
         var shareObject = [Any]()
 
