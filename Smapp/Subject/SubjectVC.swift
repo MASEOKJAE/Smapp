@@ -116,7 +116,7 @@ extension SubjectVC: UICollectionViewDataSource {
             let value = snapshot.value as? NSDictionary
             let likeRooms = value?["listOfLikeRoom"] as? NSMutableArray ?? []
                         
-            if likeRooms.contains(String(cell.roomId!)) {
+            if likeRooms.contains(cell.roomId!) {
                 cell.LikeImage.image = UIImage(named: "heart.fill")
             } else {
                 cell.LikeImage.image = UIImage(named: "heart")
