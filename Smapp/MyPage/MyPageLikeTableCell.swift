@@ -1,21 +1,18 @@
 //
-//  CustomTableCell.swift
+//  MyPageLikeTableCell.swift
 //  Smapp
 //
-//  Created by 최진아 on 2022/01/11.
+//  Created by 최진아 on 2022/02/08.
 //
 
 import UIKit
 
-class MyPageTableCell: UITableViewCell {
+class MyPageLikeTableCell: UITableViewCell {
+    @IBOutlet weak var likedRoomTitle: UILabel!
+    @IBOutlet weak var LikedRoomParticipants: UILabel!
     
-    @IBOutlet weak var roomTitle: UILabel!
-    @IBOutlet weak var participants: UILabel!
-    @IBOutlet weak var roomImage: UIImageView!
-    
-    @IBOutlet weak var chatsName: UILabel!
-    @IBOutlet weak var chatsContent: UILabel!
-    
+    @IBOutlet weak var likedRoomImage: UIImageView!
+    @IBOutlet weak var subject_prof: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,4 +27,5 @@ class MyPageTableCell: UITableViewCell {
                 print("selected")
             }
     }
+
 }

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseDatabase
 import GoogleSignIn
 
@@ -20,7 +19,6 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     var ref: DatabaseReference!
     var roomArray: [RoomData] = []
     var listOfPartRoomId: [Int?] = []
-    var count: Int! = 0
     
     
     override func viewDidLoad() {
@@ -81,13 +79,14 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as? MyPageTableCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableCell", for: indexPath) as? MyPageTableCell else {
              return UITableViewCell()
          }
         
-
-        cell.roomTitle.text = self.roomArray[indexPath.row].title
-        cell.participants.text = String(self.roomArray[indexPath.row].listOfPartUser?.count ?? -1) + "/" + String(self.roomArray[indexPath.row].numberOfMax!)
+        let item = self.roomArray[indexPath.row]
+        
+        cell.roomTitle.text = item.title
+        cell.participants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
         cell.chatsName.text = chattingName[indexPath.row]
         cell.chatsContent.text = chattingContent[indexPath.row]
         

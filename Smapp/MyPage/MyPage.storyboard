@@ -182,7 +182,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableCell" rowHeight="79" id="i36-xa-tnT" customClass="MyPageTableCell" customModule="Smapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPageTableCell" rowHeight="79" id="i36-xa-tnT" customClass="MyPageTableCell" customModule="Smapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i36-xa-tnT" id="daW-br-H1L">
@@ -322,7 +322,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableCell" rowHeight="79" id="t55-az-DGf" customClass="MyPageTableCell" customModule="Smapp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPageLikeTableCell" rowHeight="79" id="t55-az-DGf" customClass="MyPageLikeTableCell" customModule="Smapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t55-az-DGf" id="fgi-q4-sWY">
@@ -385,14 +385,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="LikedRoomParticipants" destination="eQR-Xj-4hN" id="zXE-tS-dmo"/>
-                                            <outlet property="chatsName" destination="OL1-4I-7c6" id="3jL-BS-cKj"/>
-                                            <outlet property="likedRoomImage" destination="rd7-LJ-Roo" id="otl-4G-ygU"/>
-                                            <outlet property="likedRoomTitle" destination="9I8-4z-WXD" id="TV3-8d-Q4j"/>
-                                            <outlet property="participants" destination="eQR-Xj-4hN" id="V4G-GZ-pn1"/>
-                                            <outlet property="roomImage" destination="rd7-LJ-Roo" id="GMO-ce-jRw"/>
-                                            <outlet property="roomTitle" destination="9I8-4z-WXD" id="ByC-wO-Wmj"/>
-                                            <outlet property="subject_prof" destination="OL1-4I-7c6" id="4nU-OE-ba7"/>
+                                            <outlet property="LikedRoomParticipants" destination="eQR-Xj-4hN" id="FJH-RC-pW1"/>
+                                            <outlet property="likedRoomImage" destination="rd7-LJ-Roo" id="6Kx-tj-xgx"/>
+                                            <outlet property="likedRoomTitle" destination="9I8-4z-WXD" id="ow0-qW-Jta"/>
+                                            <outlet property="subject_prof" destination="OL1-4I-7c6" id="DU9-Pz-Kzb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

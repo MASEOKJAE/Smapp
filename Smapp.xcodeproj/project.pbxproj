@@ -27,6 +27,7 @@
 		3C4FB5C1279F923F00488EC5 /* PeopleViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB5C0279F923F00488EC5 /* PeopleViewVC.swift */; };
 		3C85E768279F987300D2595A /* PeopleViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E767279F987300D2595A /* PeopleViewTableCell.swift */; };
 		3C85E76A279F99DE00D2595A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E769279F99DE00D2595A /* UserModel.swift */; };
+		3CB6030227B25FB8004AB9BD /* MyPageLikeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB6030127B25FB6004AB9BD /* MyPageLikeTableCell.swift */; };
 		3CBB50C7279A8BD000C11CF9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */; };
 		3CBB50C9279A8DD600C11CF9 /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */; };
 		3CBB50CB279A8F5800C11CF9 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */; };
@@ -88,6 +89,7 @@
 		3C4FB5C0279F923F00488EC5 /* PeopleViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewVC.swift; sourceTree = "<group>"; };
 		3C85E767279F987300D2595A /* PeopleViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewTableCell.swift; sourceTree = "<group>"; };
 		3C85E769279F99DE00D2595A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		3CB6030127B25FB6004AB9BD /* MyPageLikeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageLikeTableCell.swift; sourceTree = "<group>"; };
 		3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
 		3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				3CBB50CA279A8F5800C11CF9 /* Setting.storyboard */,
 				1F3600C227900FB000EC8019 /* MyPageLikedTableVC.swift */,
 				1F3600BD27900FA700EC8019 /* MyPageTableCell.swift */,
+				3CB6030127B25FB6004AB9BD /* MyPageLikeTableCell.swift */,
 				1F3600C527900FBD00EC8019 /* MyPageVC.swift */,
 				3CBB50C6279A8BCF00C11CF9 /* SettingVC.swift */,
 				3CBB50C8279A8DD600C11CF9 /* SettingTableCell.swift */,
@@ -509,6 +512,7 @@
 				66C94C48279545B100644BDA /* UserData.swift in Sources */,
 				3C4FB5BB279F8EBF00488EC5 /* DestinationMessageCell.swift in Sources */,
 				1F3600BF27900FA800EC8019 /* ChatRoomVC.swift in Sources */,
+				3CB6030227B25FB8004AB9BD /* MyPageLikeTableCell.swift in Sources */,
 				3C3339D927A03CD600FD9221 /* ChatModel.swift in Sources */,
 				3C4FB5C1279F923F00488EC5 /* PeopleViewVC.swift in Sources */,
 				1F3600C027900FA800EC8019 /* MyPageTableCell.swift in Sources */,
