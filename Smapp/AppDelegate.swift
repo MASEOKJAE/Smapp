@@ -13,6 +13,8 @@ import Alamofire
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var ref: DatabaseReference!
+    
     var roomList = [RoomData]()
     var userList = [UserData]()
     var majorList = ["글로벌리더십학부", "전산전자공학부", "콘텐츠융합디자인학부", "경영경제학부", "공간환경시스템공학부", "국제어문학부", "기계제어공학부", "법학부", "상담심리사회복지학부", "생명과학부", "창의융합교육원", "커뮤니케이션학부", "AI융합교육원", "ICT창업학부"]
@@ -28,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(LoginViewController)
             } else {
+                self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+                
+                let refUser = self.ref.child("userList")
+                
+                refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(["token": Messaging.messaging().fcmToken!])
+                
                 // Show the app's signed-in state.
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")

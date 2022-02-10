@@ -180,8 +180,11 @@ class RoomEnterVC: UIViewController {
         let roomListRef = ref.child("roomList")
         
         roomListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
+            print("##### \(snapshot)")
             let value = snapshot.value as? NSDictionary
+            print("###### \(value)")
             let partUsers = value?["listOfPartUser"] as? NSMutableArray ?? []
+            print("###### \(partUsers)")
             //var count = value?["listOfPartUser"] as? NS
 //            let count = partUsers.count
 //            print("--------count: \(count)-----------")

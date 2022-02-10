@@ -135,12 +135,30 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
             "timestamp": ServerValue.timestamp()
         ]
         
+        self.refUsers = ref.child("userList")
+        
+        self.refUsers?.child(self.uid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+            self.myModel = UserModel()
+            self.myModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
+        })
+        
+        for key in self.users!.keys {
+            if(key != self.uid) {
+                self.refUsers?.child(String(key)).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+                    self.userModel = UserModel()
+                    self.userModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
+                    self.sendFcm(dest: (self.userModel?.token)!, name: (self.myModel?.name)!, text: self.chatText.text)
+                })
+            }
+        }
+        
         let chatListRef = ref.child("chatroomTest")
         
         // 메세지 보내면 텍스트필드 초기화
         chatListRef.child(String(self.roomId!)).child("comments").childByAutoId().setValue(value) { (err, ref) in
             self.chatText.text = ""
         }
+        
     }
 
     
@@ -310,24 +328,24 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
 //            }
 //        }
 //
-//    }
-//
-//    func sendFcm(name: String, text: String) {
-//        let url = "https://fcm.googleapis.com/fcm/send"
-//        let header : HTTPHeaders = [
-//            "Authorization" : "key=AAAAtq72hOo:APA91bG1AslRorFChyJchou_TCLtwDnTprBdmaf8FiUwbrG7udFAaKjT5wJjDMT2djLVP5LyutHygb0v7tMwodCIyudirFASBM8qZ7BPkaOUJ7h_o1lAtRZu9YwCiCvhDDGZl9vuGyO4"
-//        ]
-//
-//        let notificationModel = NotificationModel()
-//        notificationModel.to = userModel?.token
-//        notificationModel.notification.title = name
-//        notificationModel.notification.body = text
-//
-//        let params = notificationModel.toJSON()
-//
-//        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
-//
-//        }
+    }
+
+    func sendFcm(dest: String, name: String, text: String) {
+        let url = "https://fcm.googleapis.com/fcm/send"
+        let header : HTTPHeaders = [
+            "Authorization" : "key=AAAAtq72hOo:APA91bG1AslRorFChyJchou_TCLtwDnTprBdmaf8FiUwbrG7udFAaKjT5wJjDMT2djLVP5LyutHygb0v7tMwodCIyudirFASBM8qZ7BPkaOUJ7h_o1lAtRZu9YwCiCvhDDGZl9vuGyO4"
+        ]
+
+        let notificationModel = NotificationModel()
+        notificationModel.to = dest
+        notificationModel.notification.title = name
+        notificationModel.notification.body = text
+
+        let params = notificationModel.toJSON()
+
+        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+
+        }
 
     }
     
