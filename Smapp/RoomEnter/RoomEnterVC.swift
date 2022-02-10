@@ -68,6 +68,7 @@ class RoomEnterVC: UIViewController {
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
+        
         //db읽고 방 listOfLikeRooms에 존재여부
         ref.child("userList").child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
@@ -171,41 +172,59 @@ class RoomEnterVC: UIViewController {
         
     
     
-    // 스터디룸 입장하기 버튼 누르면 입장하는 유저, 방 정보 DB에 추가
+    // 스터디룸 입장하기 버튼 누르면 입장하는 유저, 방 정보 DB에 추가 + chatroom에 user 추가
     @IBAction func ClickRoomEnter(_ sender: Any) {
         let myUid: Int! = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
-        // roomList의 listOfPartUser에 유저 추가
+        
+        // roomList의 listOfPartUser에 유저 추가 (중복 허용 x)
         let roomListRef = ref.child("roomList")
+        
         roomListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
-            var listOfPartUser = value?["listOfPartUser"] as? NSMutableArray ?? []
-        
-            listOfPartUser.add(myUid)
+            let listOfPartUser = value?["listOfPartUser"] as? NSMutableArray ?? []
             
+            if listOfPartUser.contains(Int(myUid)) {
+                return
+            } else {
+                listOfPartUser.add(Int(myUid))
+            }
+
            roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").setValue(listOfPartUser)
         })
         
-        
-        // userList의 listOfPartRoom에 입장하는 방 번호 추가
+        // userList의 listOfPartRoom에 입장하는 방 번호 추가 (중복 허용 x)
         let userListRef = ref.child("userList")
         userListRef.child(String(myUid)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
-            var listOfPartRoom = value?["listOfPartRoom"] as? NSMutableArray ?? []
+            let listOfPartRoom = value?["listOfPartRoom"] as? NSMutableArray ?? []
             
-            listOfPartRoom.add(self.EnterIndex!)
-            
+            if listOfPartRoom.contains(self.EnterIndex!) {
+                return
+            } else {
+                listOfPartRoom.add(self.EnterIndex!)
+            }
+        
            userListRef.child(String(myUid)).child("listOfPartRoom").setValue(listOfPartRoom)
         })
         
+        // chatroom 에 참여하는 user 추가
+        let chatListRef = ref.child("chatroomTest")
+        chatListRef.child(String(self.EnterIndex!)).child("users").updateChildValues([String(myUid):true])
+        
+        _ = self.navigationController?.popViewController(animated: true)
+        
+       
+
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-                if segue.identifier == "roomEnterToChat" {
-                    let vc = segue.destination as? ChatRoomVC
-                    vc?.roomId = self.EnterIndex
-                }
-            }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//                if segue.identifier == "roomEnterToChat" {
+//                    let vc = segue.destination as? ChatRoomVC
+//                    vc?.roomId = self.EnterIndex
+//                }
+//            }
     
 
     

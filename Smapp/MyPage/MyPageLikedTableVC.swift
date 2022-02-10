@@ -26,6 +26,7 @@ class MyPageLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDe
         fetchListOfLikeRoomId()
         //fetchListOfLikeRooms()
         
+        
 
     }
     

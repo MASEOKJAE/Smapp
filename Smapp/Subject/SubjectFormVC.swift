@@ -15,6 +15,8 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     var childCount: Int = 0
     let datePicker = UIDatePicker()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var users = Dictionary<String, Bool>()
+    let myUid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
     
     @IBOutlet weak var roomTitle: UITextField!
     @IBOutlet weak var contents: UITextField!
@@ -86,9 +88,14 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
            userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).child("listOfPartRoom").setValue(listOfPartRoom)
         })
         
+        // chatroom DB 생성
+        users[myUid] = true
+        let chatListRef = ref.child("chatroomTest")
+        chatListRef.child(String(self.childCount)).child("users").setValue(users)
+        
         _ = self.navigationController?.popViewController(animated: true)
         
-        print("\n\n\n\n\n\(childCount)\n\n\n\n\n\n\n")
+        print("\n\n\n\n\nchildcount: \(childCount)\n\n\n\n\n\n\n")
     }
     
     

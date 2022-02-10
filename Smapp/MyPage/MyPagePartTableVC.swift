@@ -20,15 +20,19 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     var ref: DatabaseReference!
     var roomArray: [RoomData] = []
     var listOfPartRoomId: [Int?] = []
+    var EnterIndex: Int?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initRefresh()
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchListOfPartRoomId()
-        fetchListOfPartRooms()
+        updateData()
     }
     
     func initRefresh() {
@@ -49,8 +53,7 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         })
     }
     
-    // 유저가 참여하는 방들만 가져오기
-    func fetchListOfPartRooms() {
+    func updateData() {
         let refRoom = ref.child("roomList")
         refRoom.observe(DataEventType.value, with:  { (snapshot) in
             self.roomArray.removeAll()
@@ -67,14 +70,12 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         })
     }
     
+
+    
     @objc
     func updateUI(refresh: UIRefreshControl) {
         refresh.endRefreshing()
-        tableView.reloadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        updateData()
     }
     
     
@@ -89,7 +90,8 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
          }
         
         let item = self.roomArray[indexPath.row]
-
+        
+        cell.roomId = item.roomId
         cell.roomTitle.text = item.title
         print("------*_*_*_*_*-*----parttitle: \(item.title)----------------------")
         cell.participants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
@@ -99,16 +101,23 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         return cell
         
 //        let item = self.appDelegate.roomList[indexPath.row]
-//        
+//
 //        cell.roomTitle.text = item.title
 //        print("------*_*_*_*_*-*----parttitle: \(item.title)----------------------")
 //        cell.participants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
 //        cell.chatsName.text = chattingName[indexPath.row]
 //        cell.chatsContent.text = chattingContent[indexPath.row]
-//        
+//
 //        return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MyPagePartToChat" {
+            let vc = segue.destination as? ChatRoomVC
+            let cell = sender as! MyPageTableCell
+            vc?.roomId = cell.roomId // 클릭한 룸 아이디 데이터를 가져 옴
+        }
+    }
     
 }
 

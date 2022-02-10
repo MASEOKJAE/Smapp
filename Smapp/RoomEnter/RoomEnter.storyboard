@@ -8,16 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ChatRoom-->
-        <scene sceneID="2zC-sJ-LKC">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ChatRoom" id="48L-Bp-GVe" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Bbc-2w-Aac"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1qc-As-4c0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1233" y="123"/>
-        </scene>
         <!--Room EnterVC-->
         <scene sceneID="fjn-I0-EBp">
             <objects>
@@ -49,7 +39,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="ClickRoomEnter:" destination="WYB-MB-YfM" eventType="touchUpInside" id="bE9-h0-HIc"/>
-                                    <segue destination="48L-Bp-GVe" kind="show" identifier="roomEnterToChat" id="RaT-19-InB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱 프로그래밍 중간고사 준비 같이 하실 분 ~" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sss-ql-rur">

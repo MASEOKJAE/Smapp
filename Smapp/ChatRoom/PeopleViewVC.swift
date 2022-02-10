@@ -64,12 +64,12 @@ class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "peopleToChat" {
-                let vc = segue.destination as? ChatRoomVC
-                let selectedIndex = tableView.indexPathForSelectedRow
-                vc?.destinationUid = self.array[Int((selectedIndex?.row)!)].studentId?.stringValue
-            }
-        }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "peopleToChat" {
+//                let vc = segue.destination as? ChatRoomVC
+//                let selectedIndex = tableView.indexPathForSelectedRow
+//                vc?.destinationUid = self.array[Int((selectedIndex?.row)!)].studentId?.stringValue
+//            }
+//        }
     
 }

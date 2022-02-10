@@ -17,9 +17,6 @@ class MyPageVC: UIViewController{
     @IBOutlet weak var partStudy: UIView!
     @IBOutlet weak var likeStudy: UIView!
     
-    
-    
-    
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
     

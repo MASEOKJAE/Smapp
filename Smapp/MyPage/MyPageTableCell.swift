@@ -8,7 +8,7 @@
 import UIKit
 
 class MyPageTableCell: UITableViewCell {
-    
+    var roomId: Int?
     @IBOutlet weak var roomTitle: UILabel!
     @IBOutlet weak var participants: UILabel!
     @IBOutlet weak var roomImage: UIImageView!
