@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import UserNotifications
+import Alamofire
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

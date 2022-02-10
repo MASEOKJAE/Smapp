@@ -34,6 +34,7 @@
 		664A73042791484600A82E7C /* SubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73032791484600A82E7C /* SubjectVC.swift */; };
 		664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A73052791488500A82E7C /* SubjectFormVC.swift */; };
 		664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A7307279148AF00A82E7C /* SubjectCell.swift */; };
+		665D082927B395BD00A46547 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665D082827B395BD00A46547 /* NotificationModel.swift */; };
 		667B57D027A3DC68001A8826 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 667B57CF27A3DC68001A8826 /* GoogleService-Info.plist */; };
 		66A0F460279C005D00AFCFD6 /* DB_TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */; };
 		66C94C46279544FC00644BDA /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C45279544FC00644BDA /* RoomData.swift */; };
@@ -98,6 +99,7 @@
 		664A73032791484600A82E7C /* SubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectVC.swift; sourceTree = "<group>"; };
 		664A73052791488500A82E7C /* SubjectFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectFormVC.swift; sourceTree = "<group>"; };
 		664A7307279148AF00A82E7C /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
+		665D082827B395BD00A46547 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		667B57CF27A3DC68001A8826 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_TestVC.swift; sourceTree = "<group>"; };
 		66C94C45279544FC00644BDA /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				66C94C47279545B100644BDA /* UserData.swift */,
 				3C85E769279F99DE00D2595A /* UserModel.swift */,
 				3C3339D827A03CD600FD9221 /* ChatModel.swift */,
+				665D082827B395BD00A46547 /* NotificationModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				F49AFFFD27840CF500DAC7AA /* LoginVC.swift in Sources */,
 				664A73062791488500A82E7C /* SubjectFormVC.swift in Sources */,
 				3C4FB5B7279F8E8F00488EC5 /* MyMessageCell.swift in Sources */,
+				665D082927B395BD00A46547 /* NotificationModel.swift in Sources */,
 				1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */,
 				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
 				3C85E76A279F99DE00D2595A /* UserModel.swift in Sources */,

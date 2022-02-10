@@ -22,12 +22,11 @@ class MyPageLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         initRefresh()
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchListOfLikeRoomId()
-        //fetchListOfLikeRooms()
-        
-        
-
+        updateData()
     }
     
     func initRefresh() {
@@ -48,8 +47,8 @@ class MyPageLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDe
         })
     }
     
-    // 유저가 관심있는 방들만 가져오기
-    func fetchListOfLikeRooms() {
+
+    func updateData() {
         let refRoom = ref.child("roomList")
         refRoom.observe(DataEventType.value, with:  { (snapshot) in
             self.likeRoomArray.removeAll()
@@ -59,7 +58,6 @@ class MyPageLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDe
                 if self.listOfLikeRoomId.contains(roomList.roomId) {    // 유저가 관심있는 방만 가져오기
                     self.likeRoomArray.append(roomList)
                 }
-                print("-------likeroomarray: \(self.likeRoomArray)------------------")
             }
             
                 DispatchQueue.main.async {
@@ -71,17 +69,12 @@ class MyPageLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDe
     @objc
     func updateUI(refresh: UIRefreshControl) {
         refresh.endRefreshing()
-        tableView.reloadData()
+        updateData()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
-    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.likeRoomArray.count
-        return self.appDelegate.roomList.count
+        return self.likeRoomArray.count
+//        return self.appDelegate.roomList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,22 +82,21 @@ class MyPageLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDe
              return UITableViewCell()
          }
         
-//        let item = self.likeRoomArray[indexPath.row]
-//
-//        cell.likedRoomTitle.text = item.title
-//        print("------*_*_*_*_*-*----liketitle: \(item.title)----------------------")
-//        cell.LikedRoomParticipants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
-//         cell.subject_prof.text = String(item.subject!) + "-" + String(item.professor!)
-//
-//         return cell
-//
-        let item = self.appDelegate.roomList[indexPath.row]
+        let item = self.likeRoomArray[indexPath.row]
 
         cell.likedRoomTitle.text = item.title
-        //cell.LikedRoomParticipants.text = String(item.numberOfPart!) + "/" + String(item.numberOfMax!)
-        cell.subject_prof.text = String(item.subject!) + "-" + String(item.professor!)
+        cell.LikedRoomParticipants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
+         cell.subject_prof.text = String(item.subject!) + "-" + String(item.professor!)
 
-        return cell
+         return cell
+
+//        let item = self.appDelegate.roomList[indexPath.row]
+//
+//        cell.likedRoomTitle.text = item.title
+//        //cell.LikedRoomParticipants.text = String(item.numberOfPart!) + "/" + String(item.numberOfMax!)
+//        cell.subject_prof.text = String(item.subject!) + "-" + String(item.professor!)
+//
+//        return cell
 
     }
     

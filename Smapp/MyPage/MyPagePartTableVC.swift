@@ -93,7 +93,6 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         
         cell.roomId = item.roomId
         cell.roomTitle.text = item.title
-        print("------*_*_*_*_*-*----parttitle: \(item.title)----------------------")
         cell.participants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
         cell.chatsName.text = chattingName[indexPath.row]
         cell.chatsContent.text = chattingContent[indexPath.row]

@@ -31,7 +31,7 @@ class RegisterVC: UIViewController {
     @IBAction func nameClicked(_ sender: UIButton) {
         if nameTextField.text != "" {
             //경고창
-            let alert = UIAlertController(title: "이름설정", message: "\(nameTextField.text!) 맞음?", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "이름 변경이 불가능합니다.", message: "계속 진행하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             
             let ok = UIAlertAction(title: "확인", style: .destructive) { (action) in
                 //username 으로 설정

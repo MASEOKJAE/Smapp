@@ -181,15 +181,23 @@ class RoomEnterVC: UIViewController {
         
         roomListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
-            let listOfPartUser = value?["listOfPartUser"] as? NSMutableArray ?? []
+            let partUsers = value?["listOfPartUser"] as? NSMutableArray ?? []
+            //var count = value?["listOfPartUser"] as? NS
+//            let count = partUsers.count
+//            print("--------count: \(count)-----------")
             
-            if listOfPartUser.contains(Int(myUid)) {
+            if partUsers.contains(myUid) {
                 return
             } else {
-                listOfPartUser.add(Int(myUid))
+                print("-------list Of Part User: \(partUsers)--------=-------")
+                partUsers.add(myUid)
+                print("---------After list of part user: \(partUsers)----------------")
             }
 
-           roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").setValue(listOfPartUser)
+           roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").setValue(partUsers)
+            
+//            roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").updateChildValues([String(count): Int(myUid)])
+            
         })
         
         // userList의 listOfPartRoom에 입장하는 방 번호 추가 (중복 허용 x)
@@ -201,7 +209,9 @@ class RoomEnterVC: UIViewController {
             if listOfPartRoom.contains(self.EnterIndex!) {
                 return
             } else {
+                print("-------list Of part room: \(listOfPartRoom)--------=-------")
                 listOfPartRoom.add(self.EnterIndex!)
+                print("---------After list of part room: \(listOfPartRoom)----------------")
             }
         
            userListRef.child(String(myUid)).child("listOfPartRoom").setValue(listOfPartRoom)
@@ -299,11 +309,7 @@ class RoomEnterVC: UIViewController {
     @IBOutlet weak var ShareButton: UIButton!
     
     @IBAction func ClickShare(_ sender: UIButton) {
-        //url 여는 방법
-//        if let url = URL(string: "https://www.hackingwithswift.com") {
-//            UIApplication.shared.open(url)
-//        }
-        let shareText: String = "뿅!"
+        let shareText: String = "스터디룸 제목: \(RoomTitle.text!)"
         var shareObject = [Any]()
 
         shareObject.append(shareText)
