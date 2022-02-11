@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="categoriesView" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U87-nQ-v8d">
-                                <rect key="frame" x="0.0" y="228.5" width="414" height="529.5"/>
+                                <rect key="frame" x="0.0" y="248.5" width="414" height="489.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="fkK-xc-RFR">
                                     <size key="itemSize" width="150" height="60"/>
@@ -59,7 +59,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" text="전공" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbI-Sq-n6p">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -106,7 +106,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2X-Hw-Z5D">
-                                <rect key="frame" x="30" y="165" width="334" height="33.5"/>
+                                <rect key="frame" x="30" y="165" width="354" height="33.5"/>
                                 <string key="text">(앱에 접속할 시 자동으로 해당 전공 스터디를 보실 수 있으며,
 마이페이지를 통해 언제든 변경 가능합니다.)</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -118,7 +118,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="U87-nQ-v8d" firstAttribute="leading" secondItem="oNz-T5-DjL" secondAttribute="leading" id="1lb-5q-jAB"/>
-                            <constraint firstItem="mR6-y9-huT" firstAttribute="top" secondItem="U87-nQ-v8d" secondAttribute="bottom" constant="10" id="2zn-dY-TK4"/>
+                            <constraint firstItem="hvx-VQ-1eu" firstAttribute="trailing" secondItem="a2X-Hw-Z5D" secondAttribute="trailing" constant="30" id="2g4-Im-eeR"/>
+                            <constraint firstItem="mR6-y9-huT" firstAttribute="top" secondItem="U87-nQ-v8d" secondAttribute="bottom" constant="30" id="2zn-dY-TK4"/>
                             <constraint firstItem="uNh-Bf-GCt" firstAttribute="leading" secondItem="hvx-VQ-1eu" secondAttribute="leading" constant="30" id="47V-TG-3oo"/>
                             <constraint firstItem="a2X-Hw-Z5D" firstAttribute="leading" secondItem="uNh-Bf-GCt" secondAttribute="leading" id="5aG-KM-SyD"/>
                             <constraint firstItem="a2X-Hw-Z5D" firstAttribute="top" secondItem="4SH-xs-JSF" secondAttribute="bottom" constant="5" id="98Q-rR-HNn"/>
@@ -130,7 +131,7 @@
                             <constraint firstItem="mR6-y9-huT" firstAttribute="centerX" secondItem="oNz-T5-DjL" secondAttribute="centerX" id="hhA-9W-7yp"/>
                             <constraint firstItem="mR6-y9-huT" firstAttribute="leading" secondItem="hvx-VQ-1eu" secondAttribute="leading" constant="30" id="u8T-4U-RW6"/>
                             <constraint firstItem="4SH-xs-JSF" firstAttribute="top" secondItem="uNh-Bf-GCt" secondAttribute="bottom" id="xYq-ps-Dqi"/>
-                            <constraint firstItem="U87-nQ-v8d" firstAttribute="top" secondItem="a2X-Hw-Z5D" secondAttribute="bottom" constant="30" id="y3D-qr-FOQ"/>
+                            <constraint firstItem="U87-nQ-v8d" firstAttribute="top" secondItem="a2X-Hw-Z5D" secondAttribute="bottom" constant="50" id="y3D-qr-FOQ"/>
                             <constraint firstItem="hvx-VQ-1eu" firstAttribute="trailing" secondItem="mR6-y9-huT" secondAttribute="trailing" constant="30" id="ycL-de-yA0"/>
                         </constraints>
                     </view>

@@ -62,17 +62,15 @@ class CategoriesVC: UIViewController {
         doneButton.layer.cornerRadius = 5
         
         //constraints
-//        doneButton.center.x = screenWidth/2
-//        doneButton.center.y = screenHeight-150
-//
-//        titleLabel.leftAnchor = 20
-//        titleLabel.center.y = 100
-//
-//        secondLabel.center.x = screenWidth/2
-//        secondLabel.center.y = titleLabel.center.y + 50
-//
-//        textLabel.center.x = screenWidth/2
-//        textLabel.center.y = secondLabel.center.y + 50
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.2
+        
+        textLabel.adjustsFontSizeToFitWidth = true
+        textLabel.minimumScaleFactor = 0.2
+        textLabel.numberOfLines = 0
+        
+        secondLabel.adjustsFontSizeToFitWidth = true
+        secondLabel.minimumScaleFactor = 0.2
         
         //cell constraints
         if let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {

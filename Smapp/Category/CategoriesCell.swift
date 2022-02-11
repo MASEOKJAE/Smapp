@@ -34,5 +34,6 @@ class CategoriesCell: UICollectionViewCell {
         majorLabel.adjustsFontSizeToFitWidth = true
         majorLabel.textAlignment = .center
         majorLabel.sizeToFit()
+        majorLabel.minimumScaleFactor = 0.2
     }
 }

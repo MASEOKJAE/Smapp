@@ -27,6 +27,34 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var dueDate: UITextField!
     @IBOutlet weak var isOnce: UISegmentedControl!
     
+    //labels
+    @IBOutlet weak var roomTitleLabel: UILabel!
+    
+    override func viewDidLoad() {
+        //uiconstraints
+        roomTitleLabel.adjustsFontSizeToFitWidth  = true
+        roomTitleLabel.minimumScaleFactor = 1.0
+        
+        ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        let userListRef = ref.child("userList")
+        
+        userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            
+            self.major.text = value?["likeMajor"] as? String ?? "Error"
+        })
+        
+        self.contents.delegate = self
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        dueDate.placeholder = formatter.string(from: Date())
+        
+        createDatePicker()
+    }
+    
+    
     func childCountUpdate() {
         let roomListRef = ref.child("roomList")
         
@@ -96,26 +124,6 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    
-    override func viewDidLoad() {
-        ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-        
-        let userListRef = ref.child("userList")
-        
-        userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
-            let value = snapshot.value as? NSDictionary
-            
-            self.major.text = value?["likeMajor"] as? String ?? "Error"
-        })
-        
-        self.contents.delegate = self
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        dueDate.placeholder = formatter.string(from: Date())
-        
-        createDatePicker()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         childCountUpdate()
