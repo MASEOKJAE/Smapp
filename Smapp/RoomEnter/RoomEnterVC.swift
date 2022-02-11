@@ -182,9 +182,6 @@ class RoomEnterVC: UIViewController {
         roomListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
             let partUsers = value?["listOfPartUser"] as? NSMutableArray ?? []
-            //var count = value?["listOfPartUser"] as? NS
-//            let count = partUsers.count
-//            print("--------count: \(count)-----------")
             
             if partUsers.contains(myUid) {
                 return
@@ -195,8 +192,7 @@ class RoomEnterVC: UIViewController {
             }
 
            roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").setValue(partUsers)
-            
-//            roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").updateChildValues([String(count): Int(myUid)])
+
             
         })
         
@@ -222,10 +218,7 @@ class RoomEnterVC: UIViewController {
         chatListRef.child(String(self.EnterIndex!)).child("users").updateChildValues([String(myUid):true])
         
         _ = self.navigationController?.popViewController(animated: true)
-        
-       
-
-        
+    
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

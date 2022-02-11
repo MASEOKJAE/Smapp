@@ -29,8 +29,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     var prof: String?
     var subject: String?
     var users: [String: AnyObject]?
-    
-    @IBOutlet weak var roomOutButton: UIButton!
+    var enterMessages: String?
+
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var chatText: UITextView!
     @IBOutlet weak var sendButton: UIButton!
@@ -68,6 +68,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         })
         
         updateRoomInfo()
+                    
+        
 
 //        checkChatRoom()
 ////        updateRoomInfo()
@@ -86,6 +88,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
     // 방 정보 가져와서 띄우기
@@ -360,7 +364,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     @objc
     func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            self.bottomConstraint.constant = keyboardSize.height
+            self.bottomConstraint.constant = keyboardSize.height - 20
         }
         
         UIView.animate(withDuration: 0, animations: {
@@ -376,7 +380,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     
     @objc
     func keyboardWillHide(notification: Notification) {
-        self.bottomConstraint.constant = 20
+        self.bottomConstraint.constant = 10
         self.view.layoutIfNeeded()
     }
     
@@ -402,60 +406,70 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         //createRoom()
     }
     
-    @IBAction func tapOutButton(_ sender: Any) {
-        let myUid: Int! = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
-        // 경고창
-        let alert = UIAlertController(title: "방 나가기", message: "방을 나가겠습니까?", preferredStyle: UIAlertController.Style.alert)
-        
-        let ok = UIAlertAction(title: "확인", style: .destructive) { (action) in
-            // 유저 정보, 방 정보, 채팅 정보 각각 지우기
-            // roomList의 listOfPartUser에 유저 삭제
-            let roomListRef = self.ref.child("roomList")
-            roomListRef.child(String(self.roomId!)).getData(completion: {error, snapshot in
-                let value = snapshot.value as? NSDictionary
-                let listOfPartUser = value?["listOfPartUser"] as? NSMutableArray ?? []
-                
-                if listOfPartUser.contains(Int(myUid)) {
-                    listOfPartUser.remove(Int(myUid))
-                }
-
-               roomListRef.child(String(self.roomId!)).child("listOfPartUser").setValue(listOfPartUser)
-            })
-
-            
-            // userList의 listOfPartRoom에 입장하는 방 번호 삭제
-            let userListRef = self.ref.child("userList")
-            userListRef.child(String(myUid)).getData(completion: {error, snapshot in
-                let value = snapshot.value as? NSDictionary
-                let listOfPartRoom = value?["listOfPartRoom"] as? NSMutableArray ?? []
-                
-                if listOfPartRoom.contains(self.roomId!) {
-                    listOfPartRoom.remove(self.roomId)
-                }
-               userListRef.child(String(myUid)).child("listOfPartRoom").setValue(listOfPartRoom)
-            })
-            
-            // chatroom 에 참여하는 user 삭제
-            let chatListRef = self.ref.child("chatroomTest")
-            chatListRef.child(String(self.roomId!)).child("users").getData(completion: {error, snapshot in
-                let value = snapshot.value as? NSDictionary
-                let usersList = value?["listOfPartRoom"] as? NSMutableArray ?? []
-                
-                if usersList.contains(Int(myUid)) {
-                    usersList.remove(Int(myUid))
-                }
-                chatListRef.child(String(self.roomId!)).child("users").setValue(usersList)
-            })
-            
-            _ = self.navigationController?.popViewController(animated: true)
-        }
-        let cancle = UIAlertAction(title: "취소", style: .default, handler: nil)
-        
-        alert.addAction(cancle)
-        alert.addAction(ok)
-        present(alert, animated: true, completion: nil)
-    }
-    
+    // 방 나가기 버튼
+//    @IBAction func tapOutButton(_ sender: Any) {
+//        let myUid: Int! = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+//        // 경고창
+//        let alert = UIAlertController(title: "방 나가기", message: "방을 나가겠습니까?", preferredStyle: UIAlertController.Style.alert)
+//
+//        let ok = UIAlertAction(title: "확인", style: .destructive) { (action) in
+//            let roomListRef = self.ref.child("roomList")
+//            let userListRef = self.ref.child("userList")
+//            let chatListRef = self.ref.child("chatroomTest")
+//
+//            // 만약 인원이 1명있는 방이라면 방 폭파 + 채팅 모두 삭제
+//            // 아니라면 해당 유저 정보, 방 정보, 채팅 정보 각각 지우기
+//            // roomList의 listOfPartUser에 유저 삭제
+//            roomListRef.child(String(self.roomId!)).getData(completion: {error, snapshot in
+//                let value = snapshot.value as? NSDictionary
+//                let listOfPartUser = value?["listOfPartUser"] as? NSMutableArray ?? []
+//
+//                if(listOfPartUser.count == 1) {
+//                    roomListRef.child(String(self.roomId!)).removeValue()
+//                } else {
+//                    if listOfPartUser.contains(Int(myUid)) {
+//                        listOfPartUser.remove(Int(myUid))
+//                    }
+//                   roomListRef.child(String(self.roomId!)).child("listOfPartUser").setValue(listOfPartUser)
+//                }
+//            })
+//
+//
+//            // userList의 listOfPartRoom에 입장하는 방 번호 삭제
+//            userListRef.child(String(myUid)).getData(completion: {error, snapshot in
+//                let value = snapshot.value as? NSDictionary
+//                let listOfPartRoom = value?["listOfPartRoom"] as? NSMutableArray ?? []
+//
+//                if listOfPartRoom.contains(self.roomId!) {
+//                    listOfPartRoom.remove(self.roomId)
+//                }
+//               userListRef.child(String(myUid)).child("listOfPartRoom").setValue(listOfPartRoom)
+//            })
+//
+//            // chatroom 에 참여하는 user 삭제
+//            chatListRef.child(String(self.roomId!)).child("users").getData(completion: {error, snapshot in
+//                let value = snapshot.value as? NSDictionary
+//                let usersList = value?["listOfPartRoom"] as? NSMutableArray ?? []
+//
+//                if(usersList.count == 1) {
+//                    chatListRef.child(String(self.roomId!)).removeValue()
+//                } else {
+//                    if usersList.contains(Int(myUid)) {
+//                        usersList.remove(Int(myUid))
+//                    }
+//                    chatListRef.child(String(self.roomId!)).child("users").setValue(usersList)
+//                }
+//            })
+//
+//            _ = self.navigationController?.popViewController(animated: true)
+//        }
+//        let cancle = UIAlertAction(title: "취소", style: .default, handler: nil)
+//
+//        alert.addAction(cancle)
+//        alert.addAction(ok)
+//        present(alert, animated: true, completion: nil)
+//    }
+//
 }
 
 extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
@@ -463,6 +477,13 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
         return comments.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EnterAlarmCell", for: indexPath) as? EnterAlarmCell else {
+             return UITableViewCell()
+         }
+        if let username = self.enterMessages {
+            cell.enterMessage.text = username + "님이 들어왔습니다."
+        }
+        
         if(self.comments[indexPath.row].uid == uid) {   // 내가 보내는 메세지
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
                  return UITableViewCell()
