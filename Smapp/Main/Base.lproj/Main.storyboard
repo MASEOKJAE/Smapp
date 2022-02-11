@@ -17,15 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3a3-9E-CGH">
-                                <rect key="frame" x="24" y="765" width="366" height="49"/>
+                                <rect key="frame" x="30" y="768" width="354" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="366" id="dFo-Ie-DAl"/>
-                                    <constraint firstAttribute="height" constant="49" id="yhD-T7-m6r"/>
+                                    <constraint firstAttribute="height" constant="44" id="7HX-MW-HyZ"/>
+                                    <constraint firstAttribute="width" secondItem="3a3-9E-CGH" secondAttribute="height" multiplier="177:22" id="VJN-pN-XgI"/>
                                 </constraints>
                                 <color key="tintColor" red="0.56470588239999997" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="구글 계정으로 로그인">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                                <buttonConfiguration key="configuration" style="filled" title="구글 로그인">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.56470588239999997" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
@@ -33,49 +33,30 @@
                                     <action selector="TapGoogleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6lr-Xe-sVp"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="KCT-e0-bB1">
-                                <rect key="frame" x="146" y="189" width="121" height="91"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="KCT-e0-bB1">
+                                <rect key="frame" x="147" y="144" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="121" id="D65-5Q-1ht"/>
-                                    <constraint firstAttribute="height" constant="91" id="KRf-PX-5Ov"/>
+                                    <constraint firstAttribute="height" constant="120" id="DIi-ig-wYw"/>
+                                    <constraint firstAttribute="width" constant="120" id="JX8-xT-emi"/>
+                                    <constraint firstAttribute="width" secondItem="KCT-e0-bB1" secondAttribute="height" multiplier="1:1" id="JsM-Ad-EgF"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rW-MP-5GH">
-                                <rect key="frame" x="24" y="680" width="366" height="62"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="366" id="MdC-Bd-6iM"/>
-                                    <constraint firstAttribute="height" constant="62" id="aSX-an-MZM"/>
-                                </constraints>
-                                <color key="tintColor" red="0.56470588239999997" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Skip!">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
-                                    <color key="baseBackgroundColor" red="0.56470588239999997" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="bqV-lT-CKC" kind="show" id="iqO-D1-DNu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3a3-9E-CGH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="04Z-aU-q2r"/>
-                            <constraint firstItem="3a3-9E-CGH" firstAttribute="top" secondItem="5rW-MP-5GH" secondAttribute="bottom" constant="23" id="38e-K9-5zb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3a3-9E-CGH" secondAttribute="trailing" constant="24" id="586-xQ-sRz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5rW-MP-5GH" secondAttribute="trailing" constant="24" id="6mG-89-lhD"/>
-                            <constraint firstItem="5rW-MP-5GH" firstAttribute="top" secondItem="KCT-e0-bB1" secondAttribute="bottom" constant="400" id="Dur-TV-Dqn"/>
-                            <constraint firstItem="KCT-e0-bB1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="145" id="IKv-fh-Wfi"/>
-                            <constraint firstItem="5rW-MP-5GH" firstAttribute="top" secondItem="KCT-e0-bB1" secondAttribute="bottom" constant="400" id="L5y-9E-tkz"/>
-                            <constraint firstItem="5rW-MP-5GH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Rat-dg-jpy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3a3-9E-CGH" secondAttribute="bottom" constant="48" id="kSZ-Ol-DY2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KCT-e0-bB1" secondAttribute="trailing" constant="146" id="qec-dy-ndN"/>
-                            <constraint firstItem="KCT-e0-bB1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="146" id="zqb-4m-Upr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3a3-9E-CGH" secondAttribute="bottom" constant="50" id="1MY-jP-moF"/>
+                            <constraint firstItem="3a3-9E-CGH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7lE-hh-Weq"/>
+                            <constraint firstItem="3a3-9E-CGH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="BGx-Pq-kVs"/>
+                            <constraint firstItem="KCT-e0-bB1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="EZg-uf-Gdw"/>
+                            <constraint firstItem="KCT-e0-bB1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JA9-9V-utO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3a3-9E-CGH" secondAttribute="trailing" constant="30" id="aHK-mp-1xf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bD2-Fm-QjT"/>
                     <connections>
                         <outlet property="GoogleLogin" destination="3a3-9E-CGH" id="KEh-3o-8KZ"/>
+                        <outlet property="logoImage" destination="KCT-e0-bB1" id="aNs-Dm-2To"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

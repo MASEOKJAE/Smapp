@@ -25,8 +25,15 @@ class RegisterVC: UIViewController {
     
     @IBOutlet weak var termsBtn: UIButton!
     
+    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var enterNameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameSelect: UIButton!
+    
+    //uiconstraints
+    let screenWidth = UIScreen.main.fixedCoordinateSpace.bounds.width
+    let screenHeight = UIScreen.main.fixedCoordinateSpace.bounds.height
+    
     
     @IBAction func nameClicked(_ sender: UIButton) {
         if nameTextField.text != "" {
@@ -67,6 +74,16 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        //constraints
+//        enterNameLabel.center.x = screenWidth/2
+//        enterNameLabel.center.y = (screenHeight/2)-50
+//        
+//        nameTextField.center.x = screenWidth/2
+//        nameTextField.center.y = screenHeight/2
+//        
+//        nameSelect.center.x = screenWidth/2
+//        nameSelect.center.y = screenHeight-100
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

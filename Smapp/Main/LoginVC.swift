@@ -19,17 +19,30 @@ class LoginVC: UIViewController {
     
     @IBOutlet var AppTitle: UILabel!
     @IBOutlet var AppSubTitle: UILabel!
+    @IBOutlet var logoImage: UIImageView!
     @IBOutlet var GoogleLogin: UIButton!
     
     var emailAddress: String?
     var familyName: String?
     var profilePicUrl: URL?
     
+    //uiconstraints
+    let screenWidth = UIScreen.main.fixedCoordinateSpace.bounds.width
+    let screenHeight = UIScreen.main.fixedCoordinateSpace.bounds.height
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        //constraints
+        logoImage.center.x = screenWidth/2
+        logoImage.center.y = screenHeight*(1/3)
+        
+        GoogleLogin.center.x = screenWidth/2
+        GoogleLogin.center.y = screenHeight - 100
     }
 
     @IBAction func TapGoogleLogin(_ sender: Any) {
