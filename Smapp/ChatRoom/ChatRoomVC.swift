@@ -18,8 +18,10 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     var uid: String?
     var roomId: Int?    //  방 id
     var comments : [ChatModel.Comment] = []
-    var myModel: UserModel?
-    var userModel: UserModel?
+//    var myModel: UserModel?
+    var myModelName : String?
+//    var userModel: UserModel?
+    var userModelToken : String?
     var ref: DatabaseReference!
     var refChatrooms: DatabaseReference?
     var refUsers: DatabaseReference?
@@ -136,18 +138,18 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         ]
         
         self.refUsers = ref.child("userList")
-        
+
         self.refUsers?.child(self.uid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
-            self.myModel = UserModel()
-            self.myModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
+            self.myModelName = (datasnapshot.value as! [String : Any])["name"] as? String
         })
-        
+
         for key in self.users!.keys {
             if(key != self.uid) {
                 self.refUsers?.child(String(key)).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
-                    self.userModel = UserModel()
-                    self.userModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
-                    self.sendFcm(dest: (self.userModel?.token)!, name: (self.myModel?.name)!, text: self.chatText.text)
+                    self.userModelToken = (datasnapshot.value as! [String : Any])["token"] as? String
+                    if((datasnapshot.value as! [String : Any])["notification"] as? Int == 1) {
+                        self.sendFcm(dest: self.userModelToken!, name: (self.myModelName)!, text: self.chatText.text)
+                    }
                 })
             }
         }
