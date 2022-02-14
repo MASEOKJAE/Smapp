@@ -50,6 +50,8 @@ class LoginVC: UIViewController {
                 //valid email이 아닌경우 로그인뷰에서 이동하지 못하도록 return함, 이동하는 코드는 이 코드 밑에...
                 if self.forceLogout((GIDSignIn.sharedInstance.currentUser?.profile!.email)!) == false { return }
                 
+                self.appDelegate.uid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+                
                 //firebase realtime database 연동
                 let refUser = ref.child("userList")
 
@@ -57,7 +59,8 @@ class LoginVC: UIViewController {
                     "email": GIDSignIn.sharedInstance.currentUser?.profile!.email,
                     "studentId": Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)!,
                     "token": Messaging.messaging().fcmToken!,
-                    "notification": 1
+                    "notification": 1,
+                    "isBackground": 0
                 ] as [String : Any]
                 
                 refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(userInputData)

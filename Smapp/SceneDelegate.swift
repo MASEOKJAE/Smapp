@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     var window: UIWindow?
    
@@ -42,12 +45,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        self.appDelegate.changeCode(code: 0)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        self.appDelegate.changeCode(code: 1)
     }
 
 
