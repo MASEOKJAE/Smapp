@@ -9,7 +9,4 @@ import UIKit
 
 class EnterAlarmCell: UITableViewCell {
     @IBOutlet weak var enterMessage: UILabel!
-    
-    
-    
 }

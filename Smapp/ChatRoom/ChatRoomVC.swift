@@ -29,7 +29,6 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     var prof: String?
     var subject: String?
     var users: [String: AnyObject]?
-    var enterMessages: String?
 
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var chatText: UITextView!
@@ -68,13 +67,6 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         })
         
         updateRoomInfo()
-                    
-        
-
-//        checkChatRoom()
-////        updateRoomInfo()
-
-        
         getMessageList()
         
         // 채팅 텍스트 박스 꾸미기
@@ -139,12 +131,30 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
             "timestamp": ServerValue.timestamp()
         ]
         
+        self.refUsers = ref.child("userList")
+        
+        self.refUsers?.child(self.uid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+            self.myModel = UserModel()
+            self.myModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
+        })
+        
+        for key in self.users!.keys {
+            if(key != self.uid) {
+                self.refUsers?.child(String(key)).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+                    self.userModel = UserModel()
+                    self.userModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
+                    self.sendFcm(dest: (self.userModel?.token)!, name: (self.myModel?.name)!, text: self.chatText.text)
+                })
+            }
+        }
+        
         let chatListRef = ref.child("chatroomTest")
         
         // 메세지 보내면 텍스트필드 초기화
         chatListRef.child(String(self.roomId!)).child("comments").childByAutoId().setValue(value) { (err, ref) in
             self.chatText.text = ""
         }
+        
     }
 
     
@@ -169,89 +179,6 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
                 return
             }
     
-//    //방 생성
-//    func createRoom() {
-//        let createRoomInfo : Dictionary<String, Any> = [ "users": [
-//                uid!: true,
-//                destinationUid!: true
-//            ]
-//        ]
-//        refChatrooms = ref.child("chatrooms")
-//
-//        if(chatRoomUid == nil) {
-//            self.sendButton.isEnabled = false
-//            refChatrooms?.childByAutoId().setValue(createRoomInfo, withCompletionBlock: {(err, ref) in
-//                if(err == nil) {
-//                    self.checkChatRoom()
-//                }
-//            })
-//        } else {
-//            let value: Dictionary<String, Any> = [
-//                "uid": uid!,
-//                "message":chatText.text!,
-//                "timestamp": ServerValue.timestamp()
-//            ]
-//            // 메세지 보내면 텍스트필드 초기화
-//            refChatrooms?.child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {(err, ref) in
-//                    self.sendFcm(name: (self.myModel?.name)!, text: self.chatText.text)
-//                    self.chatText.text = ""
-//            })
-//        }
-//
-//    }
-//
-//    // 방 중복 확인
-//    func checkChatRoom() {
-//        refChatrooms = ref.child("chatrooms")
-//        refChatrooms?.queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
-//            for item in datasnapshot.children.allObjects as! [DataSnapshot]{
-//
-//                if let chatRoomdic = item.value as? [String:AnyObject] {
-//                    let chatModel = ChatModel(JSON: chatRoomdic)
-//                    if(chatModel?.users[self.destinationUid!] == true){
-//                        self.chatRoomUid = item.key
-//                        self.sendButton.isEnabled = true
-//                        self.getDestinationInfo()
-//                    }
-//                }
-//
-//            }
-//        })
-//    }
-//
-//    // 상대의 정보 가져오기
-//    func getDestinationInfo() {
-//        refUsers = ref.child("userList")
-//        refUsers?.child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
-//            self.userModel = UserModel()
-//            self.userModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
-//            self.getMessageList()
-//        })
-//
-//        refUsers?.child(uid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
-//            self.myModel = UserModel()
-//            self.myModel?.setValuesForKeys(datasnapshot.value as! [String : Any])
-//        })
-//    }
-//
-//    // 메세지 가져오기
-//    func getMessageList() {
-//        refComments = ref.child("chatrooms").child(self.chatRoomUid!).child("comments")
-//        observe = refComments?.observe(DataEventType.value, with: { (datasnapshot) in
-//            self.comments.removeAll()
-//            var readUserDic : Dictionary<String, AnyObject> = [:]
-//            for item in datasnapshot.children.allObjects as! [DataSnapshot] {
-//                let key = item.key as String
-//                let comment = ChatModel.Comment(JSON: item.value as! [String:AnyObject])
-//                let comment_forReadUsers = ChatModel.Comment(JSON: item.value as! [String:AnyObject])
-//                comment_forReadUsers?.readUsers[self.uid!] = true
-//                readUserDic[key] = comment_forReadUsers?.toJSON() as! NSDictionary
-//                self.comments.append(comment!)
-//            }
-//            let nsDic = readUserDic as NSDictionary
-//            if(self.comments.last?.readUsers.keys == nil) {     // 처음 메세지 시작할 때
-//                return
-//            }
             
             if(!(self.comments.last?.readUsers.keys.contains(self.uid!))!) { // 내 uid가 없으면 서버에 보고
                 datasnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: {(err, ref) in
@@ -285,17 +212,6 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
                 // 읽지 않은 인원 수 세기
                 let noReadCount = self.numOfPartUsers! - readCount
                 if(noReadCount > 0) {   // 만 약 읽지 않은 인원이 있다면
-
-//        if(numOfPartUsers == nil) { // 인원 수 모르면 처음에 한 번 가져오기
-//            refChatrooms = ref.child("chatrooms")
-//            refChatrooms?.child(chatRoomUid!).child("users").observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
-//                let dic = datasnapshot.value as! [String: Any]
-//
-//                self.numOfPartUsers = dic.count
-//                // 읽지 않은 인원 수 세기
-//                let noReadCount = self.numOfPartUsers! - readCount
-//                if(noReadCount > 0) {   // 만약 읽지 않은 인원이 있다면
-
                     label?.isHidden = false
                     label?.text = String(noReadCount)
                 } else {    // 다 읽었다면
@@ -303,35 +219,25 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
                 }
             })
 
-//        } else {
-//            // 인원 수 알면 연산만 하기
-//            let noReadCount = numOfPartUsers! - readCount
-//            if(noReadCount > 0) {   // 만약 읽지 않은 인원이 있다면
-//                label?.isHidden = false
-//                label?.text = String(noReadCount)
-//            } else {    // 다 읽었다면
-//                label?.isHidden = true
-//            }
-//        }
 //
-//    }
-//
-//    func sendFcm(name: String, text: String) {
-//        let url = "https://fcm.googleapis.com/fcm/send"
-//        let header : HTTPHeaders = [
-//            "Authorization" : "key=AAAAtq72hOo:APA91bG1AslRorFChyJchou_TCLtwDnTprBdmaf8FiUwbrG7udFAaKjT5wJjDMT2djLVP5LyutHygb0v7tMwodCIyudirFASBM8qZ7BPkaOUJ7h_o1lAtRZu9YwCiCvhDDGZl9vuGyO4"
-//        ]
-//
-//        let notificationModel = NotificationModel()
-//        notificationModel.to = userModel?.token
-//        notificationModel.notification.title = name
-//        notificationModel.notification.body = text
-//
-//        let params = notificationModel.toJSON()
-//
-//        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
-//
-//        }
+    }
+
+    func sendFcm(dest: String, name: String, text: String) {
+        let url = "https://fcm.googleapis.com/fcm/send"
+        let header : HTTPHeaders = [
+            "Authorization" : "key=AAAAtq72hOo:APA91bG1AslRorFChyJchou_TCLtwDnTprBdmaf8FiUwbrG7udFAaKjT5wJjDMT2djLVP5LyutHygb0v7tMwodCIyudirFASBM8qZ7BPkaOUJ7h_o1lAtRZu9YwCiCvhDDGZl9vuGyO4"
+        ]
+
+        let notificationModel = NotificationModel()
+        notificationModel.to = dest
+        notificationModel.notification.title = name
+        notificationModel.notification.body = text
+
+        let params = notificationModel.toJSON()
+
+        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+
+        }
 
     }
     
@@ -477,40 +383,44 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
         return comments.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EnterAlarmCell", for: indexPath) as? EnterAlarmCell else {
-             return UITableViewCell()
-         }
-        if let username = self.enterMessages {
-            cell.enterMessage.text = username + "님이 들어왔습니다."
-        }
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EnterAlarmCell", for: indexPath) as? EnterAlarmCell else {
+//             return UITableViewCell()
+//         }
+//        print("-----------------appDelegate.enterName: \(appDelegate.enterName)---------------")
+//        if let username = appDelegate.enterName {
+//            cell.enterMessage.text = username + "님이 들어왔습니다."
+//            print("-------------In username-------------")
+//            appDelegate.enterName = nil
+//            return cell
+//        }
         
         if(self.comments[indexPath.row].uid == uid) {   // 내가 보내는 메세지
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
+            guard let mycell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
                  return UITableViewCell()
              }
-            cell.label_message.text = self.comments[indexPath.row].message
-            cell.label_message.numberOfLines = 0
+            mycell.label_message.text = self.comments[indexPath.row].message
+            mycell.label_message.numberOfLines = 0
             if let time = self.comments[indexPath.row].timestamp {
-                cell.label_time.text = time.todaytime
+                mycell.label_time.text = time.todaytime
             }
-            self.setReadCount(label: cell.label_readUsers, position: indexPath.row)
+            self.setReadCount(label: mycell.label_readUsers, position: indexPath.row)
             
-            return cell
+            return mycell
             
         }else {     // 상대방이 보내는 메세지
             let destinationUser = self.users![self.comments[indexPath.row].uid!]
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as? DestinationMessageCell else {
+            guard let decell = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as? DestinationMessageCell else {
                  return UITableViewCell()
              }
-            cell.label_name.text = destinationUser!["name"] as! String
-            cell.label_message.text = self.comments[indexPath.row].message
-            cell.label_message.numberOfLines = 0
+            decell.label_name.text = destinationUser!["name"] as! String
+            decell.label_message.text = self.comments[indexPath.row].message
+            decell.label_message.numberOfLines = 0
             if let time = self.comments[indexPath.row].timestamp {
-                cell.label_time.text = time.todaytime
+                decell.label_time.text = time.todaytime
             }
-            self.setReadCount(label: cell.label_readUsers, position: indexPath.row)
+            self.setReadCount(label: decell.label_readUsers, position: indexPath.row)
             
-            return cell
+            return decell
         }
 
     }

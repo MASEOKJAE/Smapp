@@ -65,7 +65,6 @@ class LoginVC: UIViewController {
                 
                 refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).child("name").getData(completion: {error, snapshot in
                     let value = snapshot.value as? String
-                    print("\n\n\n\n\(String(describing: value))\n\n\n\n")
                     //로그인한 유저의 이메일이 db에 존재하면
                     if value != nil {
                         

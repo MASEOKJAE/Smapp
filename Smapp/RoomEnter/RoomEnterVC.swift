@@ -180,7 +180,9 @@ class RoomEnterVC: UIViewController {
         let roomListRef = ref.child("roomList")
         
         roomListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
+            print("##### \(snapshot)")
             let value = snapshot.value as? NSDictionary
+            print("###### \(value)")
             let partUsers = value?["listOfPartUser"] as? NSMutableArray ?? []
             
             if partUsers.contains(myUid) {
@@ -201,6 +203,7 @@ class RoomEnterVC: UIViewController {
         userListRef.child(String(myUid)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
             let listOfPartRoom = value?["listOfPartRoom"] as? NSMutableArray ?? []
+            self.appDelegate.enterName = value?["name"] as? String
             
             if listOfPartRoom.contains(self.EnterIndex!) {
                 return
@@ -216,6 +219,7 @@ class RoomEnterVC: UIViewController {
         // chatroom 에 참여하는 user 추가
         let chatListRef = ref.child("chatroomTest")
         chatListRef.child(String(self.EnterIndex!)).child("users").updateChildValues([String(myUid):true])
+        
         
         _ = self.navigationController?.popViewController(animated: true)
     
