@@ -26,6 +26,26 @@ class SubjectVC: UIViewController {
         viewWillAppear(true)
     }
     
+    //날짜 계산해서 db 업데이트
+    func calcDate(_ from: Date, _ to: String, _ id: Int) {
+        let roomRef = ref.child("roomList")
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        
+        let toDate = formatter.date(from: to)
+        
+        let type = Calendar(identifier: .gregorian)
+        let dateDif = type.numberOfDaysBetween(from, and: toDate!)
+        
+        if dateDif <= 0 {
+            //false -> true
+            let fixData = [
+                "isClosed": true,
+            ]
+            roomRef.child("\(id)").updateChildValues(fixData)
+        }
+    }
     
     func updateData() {
         willDisplayData.removeAll()
@@ -39,7 +59,16 @@ class SubjectVC: UIViewController {
                 let i = item as? Dictionary<String, Any> ?? [:]
                 if (self.nowMajor.text! == i["major"] as? String) {
                     if(self.searchBar.text! == "" || (i["subject"] as! String).contains(self.searchBar.text!) || (i["title"] as! String).contains(self.searchBar.text!) || (i["contents"] as! String).contains(self.searchBar.text!) || (i["professor"] as! String).contains(self.searchBar.text!)) {
-                        self.willDisplayData.append(RoomData(dic: i))
+                        
+                        let fromDate = Date()
+
+                        self.calcDate(fromDate, i["dueDate"]! as! String, i["roomId"] as! Int)
+                        
+                        print("\n\n\(i["isClosed"]!)\n\n")
+                        
+                        if i["isClosed"]! as! Bool == false {
+                            self.willDisplayData.append(RoomData(dic: i))
+                        }
                     }
                 }
             }
@@ -54,7 +83,6 @@ class SubjectVC: UIViewController {
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
         super.viewDidLoad()
-        
         
         let userListRef = ref.child("userList")
         
@@ -75,8 +103,6 @@ class SubjectVC: UIViewController {
         
         self.view.bringSubviewToFront(dropdown)
         self.view.bringSubviewToFront(makeRoom)
-        
-        
     }
 
     
@@ -197,6 +223,6 @@ extension Calendar {
         let toDate = startOfDay(for: to)
         let numberOfDays = dateComponents([.day], from: fromDate, to: toDate)
         
-        return numberOfDays.day! + 1 // <1>
+        return numberOfDays.day!
     }
 }

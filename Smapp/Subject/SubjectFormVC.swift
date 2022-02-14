@@ -31,9 +31,6 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var roomTitleLabel: UILabel!
     
     override func viewDidLoad() {
-        //uiconstraints
-//        roomTitleLabel.adjustsFontSizeToFitWidth  = true
-//        roomTitleLabel.minimumScaleFactor = 1.0
         
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
@@ -180,7 +177,7 @@ extension SubjectFormVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == self.major {
             self.majorDropdown.isHidden = false
-            self.majorDropdown.layer.opacity = 0.8
+            //self.majorDropdown.layer.opacity = 0.9
 
             textField.endEditing(true)
         }
