@@ -56,7 +56,8 @@ class LoginVC: UIViewController {
                 let userInputData = [
                     "email": GIDSignIn.sharedInstance.currentUser?.profile!.email,
                     "studentId": Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)!,
-                    "token": Messaging.messaging().fcmToken!
+                    "token": Messaging.messaging().fcmToken!,
+                    "notification": 1
                 ] as [String : Any]
                 
                 refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(userInputData)

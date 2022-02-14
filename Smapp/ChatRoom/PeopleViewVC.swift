@@ -22,28 +22,28 @@ class PeopleViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         let refUser = ref.child("userList")
-           refUser.observe(DataEventType.value, with:  { (snapshot) in
-               self.array.removeAll()
+        refUser.observe(DataEventType.value, with:  { (snapshot) in
+            self.array.removeAll()
+           
+            let myUid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+           
+            for child in snapshot.children {
+                let fchild = child as! DataSnapshot
+                let userModel = UserModel()
+                userModel.setValuesForKeys(fchild.value as! [String : Any])
                
-               let myUid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+                // 내 목록은 안보이게
+                if(userModel.studentId?.stringValue == myUid) {
+                    continue
+                }
                
-               for child in snapshot.children {
-                   let fchild = child as! DataSnapshot
-                   let userModel = UserModel()
-                   userModel.setValuesForKeys(fchild.value as! [String : Any])
-                   
-                   // 내 목록은 안보이게
-                   if(userModel.studentId?.stringValue == myUid) {
-                       continue
-                   }
-                   
-                   self.array.append(userModel)
-               }
+                self.array.append(userModel)
+            }
 
-               DispatchQueue.main.async {
-                   self.tableView.reloadData()
-               }
-           })
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
     }
     
     

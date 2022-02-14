@@ -16,5 +16,6 @@ class UserModel: NSObject {
     var listOfPartRoom : [NSNumber]?    // 참가중인 방
     var listOfLikeRoom : [NSNumber]?       // 관심있는 방
     var token: String?
+    var notification: Int?
 }
 
