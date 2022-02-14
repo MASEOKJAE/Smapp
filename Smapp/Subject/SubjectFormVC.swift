@@ -32,8 +32,8 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     override func viewDidLoad() {
         //uiconstraints
-        roomTitleLabel.adjustsFontSizeToFitWidth  = true
-        roomTitleLabel.minimumScaleFactor = 1.0
+//        roomTitleLabel.adjustsFontSizeToFitWidth  = true
+//        roomTitleLabel.minimumScaleFactor = 1.0
         
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
@@ -97,7 +97,8 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
             "dueDate" : self.dueDate.text!,
             "isOnce" : isOnce.selectedSegmentIndex == 0 ? true : false,
             "isClosed" : false,
-            "listOfPartUser" : [Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)]
+            "listOfPartUser" : [Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)],
+            "king" : Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!),
         ] as [String : Any]
         
         roomListRef.child(String(childCount)).setValue(inputData)
@@ -179,6 +180,7 @@ extension SubjectFormVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == self.major {
             self.majorDropdown.isHidden = false
+            self.majorDropdown.layer.opacity = 0.8
 
             textField.endEditing(true)
         }

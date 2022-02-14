@@ -40,4 +40,14 @@ class MyPageTableCell: UITableViewCell {
                 print("selected")
             }
     }
+    
+    
+    func viewDidLoad() {
+        roomTitle.font = .systemFont(ofSize: 40)
+        roomTitle.adjustsFontSizeToFitWidth = true
+        roomTitle.translatesAutoresizingMaskIntoConstraints = false
+        roomTitle.textAlignment = .center
+        roomTitle.sizeToFit()
+        roomTitle.minimumScaleFactor = 0.2
+    }
 }

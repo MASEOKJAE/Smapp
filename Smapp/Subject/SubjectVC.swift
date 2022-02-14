@@ -75,6 +75,8 @@ class SubjectVC: UIViewController {
         
         self.view.bringSubviewToFront(dropdown)
         self.view.bringSubviewToFront(makeRoom)
+        
+        
     }
 
     
@@ -120,6 +122,13 @@ extension SubjectVC: UICollectionViewDataSource {
                 cell.LikeImage.image = UIImage(named: "heart.fill")
             } else {
                 cell.LikeImage.image = UIImage(named: "heart")
+            }
+        })
+        
+        ref.child("roomList").child("\(String(describing: cell.roomId))").child("isClosed").getData(completion: {error, snapshot in
+            let value = snapshot.value as? Bool ?? true
+            if value == true {
+                
             }
         })
         
@@ -180,3 +189,14 @@ extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDe
     }
 }
 
+
+//시간 계산해서 기간 지나면 isClosed여부 true로 변경
+extension Calendar {
+    func numberOfDaysBetween(_ from: Date, and to: Date) -> Int {
+        let fromDate = startOfDay(for: from)
+        let toDate = startOfDay(for: to)
+        let numberOfDays = dateComponents([.day], from: fromDate, to: toDate)
+        
+        return numberOfDays.day! + 1 // <1>
+    }
+}
