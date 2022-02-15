@@ -196,6 +196,8 @@ class RoomEnterVC: UIViewController {
            roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").setValue(partUsers)
 
             
+//            roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").updateChildValues([String(count): Int(myUid)])
+
         })
         
         // userList의 listOfPartRoom에 입장하는 방 번호 추가 (중복 허용 x)

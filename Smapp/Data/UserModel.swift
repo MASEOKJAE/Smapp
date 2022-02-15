@@ -17,5 +17,6 @@ class UserModel: NSObject {
     var listOfLikeRoom : [NSNumber]?       // 관심있는 방
     var token: String?
     var notification: Int?
+    var isBackground: Int?
 }
 

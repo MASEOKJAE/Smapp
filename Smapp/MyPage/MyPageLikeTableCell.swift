@@ -17,6 +17,11 @@ class MyPageLikeTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        // Add width constraint if you want dynamic height
+        contentView.translatesAutoresizingMaskIntoConstraints = true
+        contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 60).isActive = true
+        contentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height/10).isActive = true
     }
 
 

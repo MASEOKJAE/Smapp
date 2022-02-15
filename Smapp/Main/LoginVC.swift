@@ -19,17 +19,30 @@ class LoginVC: UIViewController {
     
     @IBOutlet var AppTitle: UILabel!
     @IBOutlet var AppSubTitle: UILabel!
+    @IBOutlet var logoImage: UIImageView!
     @IBOutlet var GoogleLogin: UIButton!
     
     var emailAddress: String?
     var familyName: String?
     var profilePicUrl: URL?
     
+    //uiconstraints
+    let screenWidth = UIScreen.main.fixedCoordinateSpace.bounds.width
+    let screenHeight = UIScreen.main.fixedCoordinateSpace.bounds.height
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        //constraints
+        logoImage.center.x = screenWidth/2
+        logoImage.center.y = screenHeight*(1/3)
+        
+        GoogleLogin.center.x = screenWidth/2
+        GoogleLogin.center.y = screenHeight - 100
     }
 
     @IBAction func TapGoogleLogin(_ sender: Any) {
@@ -50,6 +63,8 @@ class LoginVC: UIViewController {
                 //valid email이 아닌경우 로그인뷰에서 이동하지 못하도록 return함, 이동하는 코드는 이 코드 밑에...
                 if self.forceLogout((GIDSignIn.sharedInstance.currentUser?.profile!.email)!) == false { return }
                 
+                self.appDelegate.uid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+                
                 //firebase realtime database 연동
                 let refUser = ref.child("userList")
 
@@ -57,7 +72,8 @@ class LoginVC: UIViewController {
                     "email": GIDSignIn.sharedInstance.currentUser?.profile!.email,
                     "studentId": Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)!,
                     "token": Messaging.messaging().fcmToken!,
-                    "notification": 1
+                    "notification": 1,
+                    "isBackground": 0
                 ] as [String : Any]
                 
                 refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(userInputData)

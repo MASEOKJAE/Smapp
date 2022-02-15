@@ -13,8 +13,16 @@ import FirebaseDatabase
 class CategoriesVC: UIViewController {
     var ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
 
+    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var textLabel: UILabel!
+    
+    //uiconstraints
+    let screenWidth = UIScreen.main.fixedCoordinateSpace.bounds.width
+    let screenHeight = UIScreen.main.fixedCoordinateSpace.bounds.height
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -52,6 +60,22 @@ class CategoriesVC: UIViewController {
         
         doneButton.layer.masksToBounds = true
         doneButton.layer.cornerRadius = 5
+        
+        //constraints
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.2
+        
+        textLabel.adjustsFontSizeToFitWidth = true
+        textLabel.minimumScaleFactor = 0.2
+        textLabel.numberOfLines = 0
+        
+        secondLabel.adjustsFontSizeToFitWidth = true
+        secondLabel.minimumScaleFactor = 0.2
+        
+        //cell constraints
+        if let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
     }
 }
 
@@ -80,7 +104,6 @@ extension CategoriesVC: UICollectionViewDataSource {
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOffset = CGSize(width: 10, height: 10)
         
-        
         return cell
     }
     
@@ -89,7 +112,7 @@ extension CategoriesVC: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCell", for: indexPath as IndexPath) as! CategoriesCell
         
         cell.majorLabel.text = self.appDelegate.majorList[indexPath.item]
-        
+                
         return cell
     }
 }

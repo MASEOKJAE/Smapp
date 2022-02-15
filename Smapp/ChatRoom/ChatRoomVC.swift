@@ -166,7 +166,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
             if(key != self.uid) {
                 self.refUsers?.child(String(key)).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
                     self.userModelToken = (datasnapshot.value as! [String : Any])["token"] as? String
-                    if((datasnapshot.value as! [String : Any])["notification"] as? Int == 1) {
+                    if(((datasnapshot.value as! [String : Any])["notification"] as? Int == 1) && ((datasnapshot.value as! [String : Any])["isBackground"] as? Int == 1)) {
                         self.sendFcm(dest: self.userModelToken!, name: (self.myModelName)!, text: self.chatText.text)
                     }
                 })

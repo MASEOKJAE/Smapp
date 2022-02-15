@@ -28,6 +28,33 @@ class SubjectVC: UIViewController {
     }
     
     
+    //날짜, 인원 수 계산해서 db 업데이트
+    func calcDate(_ from: Date, _ to: String, _ id: Int, _ count: [Int], _ max: Int) {
+        let roomRef = ref.child("roomList")
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        
+        let toDate = formatter.date(from: to)
+        
+        let type = Calendar(identifier: .gregorian)
+        let dateDif = type.numberOfDaysBetween(from, and: toDate!)
+        
+        let n = count.count
+        
+        print("\n\n\n\(n) vs \(max)\n\n\n")
+        
+        //날짜를 지났거나 최대인원 수 도달시
+        if (dateDif <= 0) || (n >= max){
+            //false -> true
+            let fixData = [
+                "isClosed": true,
+            ]
+            roomRef.child("\(id)").updateChildValues(fixData)
+        }
+    }
+    
+    
     func updateData() {
         willDisplayData.removeAll()
         
@@ -40,7 +67,16 @@ class SubjectVC: UIViewController {
                 let i = item as? Dictionary<String, Any> ?? [:]
                 if (self.nowMajor.text! == i["major"] as? String) {
                     if(self.searchBar.text! == "" || (i["subject"] as! String).contains(self.searchBar.text!) || (i["title"] as! String).contains(self.searchBar.text!) || (i["contents"] as! String).contains(self.searchBar.text!) || (i["professor"] as! String).contains(self.searchBar.text!)) {
-                        self.willDisplayData.append(RoomData(dic: i))
+                        
+                        let fromDate = Date()
+                                                
+                        //시작날짜, 마감날짜, roomId, 참가자 수, 최대 참가자 수
+                        self.calcDate(fromDate, i["dueDate"]! as! String, i["roomId"]! as! Int, i["listOfPartUser"] as! [Int] , i["numberOfMax"]! as! Int)
+                                                
+                        //닫혀 있지 않으면
+                        if (i["isClosed"]! as! Bool == false){
+                            self.willDisplayData.append(RoomData(dic: i))
+                        }
                     }
                 }
             }
@@ -55,7 +91,6 @@ class SubjectVC: UIViewController {
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
         super.viewDidLoad()
-        
         
         let userListRef = ref.child("userList")
         
@@ -126,6 +161,13 @@ extension SubjectVC: UICollectionViewDataSource {
             }
         })
         
+        ref.child("roomList").child("\(String(describing: cell.roomId))").child("isClosed").getData(completion: {error, snapshot in
+            let value = snapshot.value as? Bool ?? true
+            if value == true {
+                
+            }
+        })
+        
         return cell
     }
     
@@ -183,3 +225,14 @@ extension SubjectVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDe
     }
 }
 
+
+//시간 계산해서 기간 지나면 isClosed여부 true로 변경
+extension Calendar {
+    func numberOfDaysBetween(_ from: Date, and to: Date) -> Int {
+        let fromDate = startOfDay(for: from)
+        let toDate = startOfDay(for: to)
+        let numberOfDays = dateComponents([.day], from: fromDate, to: toDate)
+        
+        return numberOfDays.day!
+    }
+}

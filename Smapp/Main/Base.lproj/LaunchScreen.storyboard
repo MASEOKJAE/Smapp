@@ -16,20 +16,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="acK-Rb-lqK">
-                                <rect key="frame" x="147" y="219" width="121" height="91"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="acK-Rb-lqK">
+                                <rect key="frame" x="147" y="144" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="QtH-DI-X4G"/>
+                                    <constraint firstAttribute="width" secondItem="acK-Rb-lqK" secondAttribute="height" multiplier="1:1" id="uuh-DZ-GrG"/>
+                                    <constraint firstAttribute="width" constant="120" id="vi1-HP-mGf"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="공부에 가치를 더하다" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfS-ct-krT">
-                                <rect key="frame" x="20" y="471" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공부에 가치를 더하다" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfS-ct-krT">
+                                <rect key="frame" x="128.5" y="480" width="157.5" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FfS-ct-krT" secondAttribute="height" multiplier="157:23" id="6N8-lz-0IN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Smapp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-en-VQC">
-                                <rect key="frame" x="147" y="422" width="121" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smapp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-en-VQC">
+                                <rect key="frame" x="161" y="430" width="92" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="j3U-en-VQC" secondAttribute="height" multiplier="23:9" id="V65-4m-Pg5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,6 +45,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FfS-ct-krT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3YA-gK-3Ox"/>
+                            <constraint firstItem="FfS-ct-krT" firstAttribute="top" secondItem="j3U-en-VQC" secondAttribute="top" constant="50" id="8F3-y5-UBa"/>
+                            <constraint firstItem="j3U-en-VQC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Aii-dK-U2b"/>
+                            <constraint firstItem="j3U-en-VQC" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="JKa-q2-31R"/>
+                            <constraint firstItem="acK-Rb-lqK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ocj-O5-2qw"/>
+                            <constraint firstItem="acK-Rb-lqK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="o9l-7l-C4U"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

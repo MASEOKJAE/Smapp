@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var enterName: String?
     
     var ref: DatabaseReference!
+    var uid: String?
+    var background: Int?
     
     var roomList = [RoomData]()
     var userList = [UserData]()
@@ -32,11 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(LoginViewController)
             } else {
+                self.uid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
                 self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
                 
                 let refUser = self.ref.child("userList")
                 
-                refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(["token": Messaging.messaging().fcmToken!])
+                refUser.child(self.uid!).updateChildValues(["token": Messaging.messaging().fcmToken!])
                 
                 // Show the app's signed-in state.
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -122,3 +125,14 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     }
 }
 
+extension AppDelegate {
+    func changeCode(code: Int) {
+        self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        let userListRef = self.ref.child("userList")
+        
+        if(self.uid != nil) {
+            userListRef.child(self.uid!).updateChildValues(["isBackground": code])
+        }
+    }
+}
