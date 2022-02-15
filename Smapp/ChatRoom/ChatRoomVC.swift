@@ -12,6 +12,7 @@ import FirebaseDatabase
 import GoogleSignIn
 import Alamofire
 
+
 class ChatRoomVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     var willDisplayData = [RoomData]()
@@ -31,6 +32,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     var prof: String?
     var subject: String?
     var users: [String: AnyObject]?
+    var today: String?
 
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var chatText: UITextView!
@@ -61,6 +63,10 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
                 
         uid =  String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
         
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        self.today = formatter.string(from: Date())
 
         // 유저 정보 가져오기
         let userRef = ref.child("userList")
@@ -70,6 +76,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         
         updateRoomInfo()
         getMessageList()
+        //groupedMessages()
         
         // 채팅 텍스트 박스 꾸미기
         chatText.layer.borderWidth = 0.5
@@ -85,6 +92,21 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
+    
+//    func groupedMessages() {
+//        let groupedMessages = Dictionary(grouping: self.comments) { (element) -> String in
+//            print("--------------element ymdTime: \(element.ymdTime)----------------")
+//            return element.ymdTime!
+//        }
+//
+//        groupedMessages.keys.forEach{(key) in
+//            print("It's Key!!!!----------\(key)--------------")
+//        }
+//
+//        print("----------grouped Message: \(groupedMessages)---------")
+//    }
+    
+
     
     // 방 정보 가져와서 띄우기
     func updateRoomInfo() {
@@ -130,7 +152,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         let value: Dictionary<String, Any> = [
             "uid": uid!,
             "message": self.chatText.text!,
-            "timestamp": ServerValue.timestamp()
+            "timestamp": ServerValue.timestamp(),
+            "ymdTime": self.today!
         ]
         
         self.refUsers = ref.child("userList")
@@ -150,7 +173,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
             }
         }
         
-        let chatListRef = ref.child("chatroomTest")
+        let chatListRef = ref.child("chatRooms")
+        
         
         // 메세지 보내면 텍스트필드 초기화
         chatListRef.child(String(self.roomId!)).child("comments").childByAutoId().setValue(value) { (err, ref) in
@@ -162,14 +186,17 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     
     //메세지 가져오기
     func getMessageList() {
-        refComments = ref.child("chatroomTest").child(String(roomId!)).child("comments")
+        refComments = ref.child("chatRooms").child(String(roomId!)).child("comments")
         observe = refComments?.observe(DataEventType.value, with: { (datasnapshot) in
             self.comments.removeAll()
             var readUserDic : Dictionary<String, AnyObject> = [:]
             for item in datasnapshot.children.allObjects as! [DataSnapshot] {
                 let key = item.key as String
+                //print("-----------item.key = \(key)-------------")
                 let comment = ChatModel.Comment(JSON: item.value as! [String:AnyObject])
+                //print("-----------comment = \(comment)-------------")
                 let comment_forReadUsers = ChatModel.Comment(JSON: item.value as! [String:AnyObject])
+                //print("-----------comment for read users = \(comment_forReadUsers)-------------")
                 comment_forReadUsers?.readUsers[self.uid!] = true
                 readUserDic[key] = comment_forReadUsers?.toJSON() as! NSDictionary
                 self.comments.append(comment!)
@@ -206,14 +233,14 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     func setReadCount(label: UILabel?, position: Int?) {
         let readCount = self.comments[position!].readUsers.count
 
-            refChatrooms = ref.child("chatroomTest")
+            refChatrooms = ref.child("chatRooms")
             refChatrooms?.child(String(self.roomId!)).child("users").observe(DataEventType.value, with:  { (datasnapshot) in
                 let dic = datasnapshot.value as! [String: Bool]
                 self.numOfPartUsers = dic.count
                 
                 // 읽지 않은 인원 수 세기
                 let noReadCount = self.numOfPartUsers! - readCount
-                if(noReadCount > 0) {   // 만 약 읽지 않은 인원이 있다면
+                if(noReadCount > 0) {   // 만약 읽지 않은 인원이 있다면
                     label?.isHidden = false
                     label?.text = String(noReadCount)
                 } else {    // 다 읽었다면
@@ -381,21 +408,32 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
 }
 
 extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 3
+//    }
+    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Section: \(section)"
+//    }
+//
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
+//        return return comments[section].count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EnterAlarmCell", for: indexPath) as? EnterAlarmCell else {
-//             return UITableViewCell()
-//         }
-//        print("-----------------appDelegate.enterName: \(appDelegate.enterName)---------------")
-//        if let username = appDelegate.enterName {
-//            cell.enterMessage.text = username + "님이 들어왔습니다."
-//            print("-------------In username-------------")
-//            appDelegate.enterName = nil
-//            return cell
-//        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EnterAlarmCell", for: indexPath) as? EnterAlarmCell else {
+             return UITableViewCell()
+         }
         
+        if let username = appDelegate.enterName {
+            cell.enterMessage.text = username + "님이 들어왔습니다."
+            print("-------------In username-------------")
+            appDelegate.enterName = nil
+            return cell
+        }
+    
+        
+
         if(self.comments[indexPath.row].uid == uid) {   // 내가 보내는 메세지
             guard let mycell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
                  return UITableViewCell()
@@ -406,9 +444,9 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
                 mycell.label_time.text = time.todaytime
             }
             self.setReadCount(label: mycell.label_readUsers, position: indexPath.row)
-            
+
             return mycell
-            
+
         }else {     // 상대방이 보내는 메세지
             let destinationUser = self.users![self.comments[indexPath.row].uid!]
             guard let decell = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as? DestinationMessageCell else {
@@ -421,10 +459,10 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
                 decell.label_time.text = time.todaytime
             }
             self.setReadCount(label: decell.label_readUsers, position: indexPath.row)
-            
+
             return decell
         }
-
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -438,11 +476,15 @@ extension ChatRoomVC: UIImagePickerControllerDelegate & UINavigationControllerDe
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 이미지 선택 시 (일단 임시)
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-                    //ImageView.image = image
-                    print(info)
+            //self.sendPhoto(image)
             }
             dismiss(animated: true, completion: nil)
         }
+    
+//    private func sendPhoto(_ image: UIImage) {
+//        var isSendingPhoto: Bool? = true
+//        FirebaseStor
+//    }
     
 }
 
@@ -455,9 +497,27 @@ extension Int{
     var todaytime: String{
         let dateformatter = DateFormatter()
         dateformatter.locale = Locale(identifier: "ko_KR")
-        dateformatter.dateFormat = "HH:mm"
+        dateformatter.dateFormat = "a h:mm"
         let date = Date(timeIntervalSince1970: Double(self)/1000)
         return dateformatter.string(from: date)
         
     }
 }
+
+extension Int{
+    var ymdTime: String {
+        let nowDate = Date()
+        let dateformatter = DateFormatter()
+        dateformatter.locale = Locale(identifier: "ko_KR")
+        dateformatter.dateFormat = "yyyy년 MM월 dd일"
+        return dateformatter.string(from: nowDate)
+    }
+}
+//
+//extension Date {
+//    static func ymdTime(customString: String) -> Date {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+//        return dateFormatter.date(from: customString) ?? Date()
+//    }
+//}

@@ -14,6 +14,7 @@ import Alamofire
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var enterName: String?
+    
     var ref: DatabaseReference!
     
     var roomList = [RoomData]()

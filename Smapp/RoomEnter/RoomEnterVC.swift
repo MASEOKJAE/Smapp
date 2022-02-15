@@ -217,7 +217,7 @@ class RoomEnterVC: UIViewController {
         })
         
         // chatroom 에 참여하는 user 추가
-        let chatListRef = ref.child("chatroomTest")
+        let chatListRef = ref.child("chatRooms")
         chatListRef.child(String(self.EnterIndex!)).child("users").updateChildValues([String(myUid):true])
         
         

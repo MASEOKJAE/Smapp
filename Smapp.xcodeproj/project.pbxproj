@@ -19,6 +19,7 @@
 		1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3600C427900FBC00EC8019 /* Register.storyboard */; };
 		1F3600C827900FBD00EC8019 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C527900FBD00EC8019 /* MyPageVC.swift */; };
 		1F3600C927900FBD00EC8019 /* MyPagePartTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */; };
+		3C0539DB27BA08A10095016C /* TimeStampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0539DA27BA08A10095016C /* TimeStampCell.swift */; };
 		3C3339D927A03CD600FD9221 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3339D827A03CD600FD9221 /* ChatModel.swift */; };
 		3C4FB5AE279E728C00488EC5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB5AD279E728C00488EC5 /* RegisterVC.swift */; };
 		3C4FB5B7279F8E8F00488EC5 /* MyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB5B6279F8E8F00488EC5 /* MyMessageCell.swift */; };
@@ -85,6 +86,7 @@
 		1F3600C427900FBC00EC8019 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		1F3600C527900FBD00EC8019 /* MyPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		1F3600C627900FBD00EC8019 /* MyPagePartTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPagePartTableVC.swift; sourceTree = "<group>"; };
+		3C0539DA27BA08A10095016C /* TimeStampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampCell.swift; sourceTree = "<group>"; };
 		3C3339D827A03CD600FD9221 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		3C4FB5AD279E728C00488EC5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		3C4FB5B6279F8E8F00488EC5 /* MyMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageCell.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				1F3600BE27900FA700EC8019 /* ChatRoom.storyboard */,
 				1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */,
+				3C0539DA27BA08A10095016C /* TimeStampCell.swift */,
 				3CC1415827B638040098C228 /* EnterAlarmCell.swift */,
 				3C4FB5B6279F8E8F00488EC5 /* MyMessageCell.swift */,
 				3C4FB5BA279F8EBF00488EC5 /* DestinationMessageCell.swift */,
@@ -515,6 +518,7 @@
 			files = (
 				F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */,
 				3CBB50C9279A8DD600C11CF9 /* SettingTableCell.swift in Sources */,
+				3C0539DB27BA08A10095016C /* TimeStampCell.swift in Sources */,
 				3CBB50C7279A8BD000C11CF9 /* SettingVC.swift in Sources */,
 				664A73042791484600A82E7C /* SubjectVC.swift in Sources */,
 				1F04AE43278E95CB008AC901 /* CategoriesCell.swift in Sources */,
