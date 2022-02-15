@@ -173,15 +173,20 @@ class RoomEnterVC: UIViewController {
     
     // 스터디룸 입장하기 버튼 누르면 입장하는 유저, 방 정보 DB에 추가
     @IBAction func ClickRoomEnter(_ sender: Any) {
+        var containRoom = false
+        
         let myUid: Int! = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
         // roomList의 listOfPartUser에 유저 추가
         let roomListRef = ref.child("roomList")
         roomListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
             var listOfPartUser = value?["listOfPartUser"] as? NSMutableArray ?? []
-        
-            listOfPartUser.add(myUid)
             
+            if listOfPartUser.contains(myUid!) {
+                containRoom = true
+            } else {
+                listOfPartUser.add(myUid!)
+            }
            roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").setValue(listOfPartUser)
         })
         
@@ -192,7 +197,9 @@ class RoomEnterVC: UIViewController {
             let value = snapshot.value as? NSDictionary
             var listOfPartRoom = value?["listOfPartRoom"] as? NSMutableArray ?? []
             
-            listOfPartRoom.add(self.EnterIndex!)
+            if containRoom == false {
+                listOfPartRoom.add(self.EnterIndex!)
+            }
             
            userListRef.child(String(myUid)).child("listOfPartRoom").setValue(listOfPartRoom)
         })

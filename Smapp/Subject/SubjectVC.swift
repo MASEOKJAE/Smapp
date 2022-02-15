@@ -26,8 +26,9 @@ class SubjectVC: UIViewController {
         viewWillAppear(true)
     }
     
-    //날짜 계산해서 db 업데이트
-    func calcDate(_ from: Date, _ to: String, _ id: Int) {
+    
+    //날짜, 인원 수 계산해서 db 업데이트
+    func calcDate(_ from: Date, _ to: String, _ id: Int, _ count: [Int], _ max: Int) {
         let roomRef = ref.child("roomList")
         
         let formatter = DateFormatter()
@@ -38,7 +39,12 @@ class SubjectVC: UIViewController {
         let type = Calendar(identifier: .gregorian)
         let dateDif = type.numberOfDaysBetween(from, and: toDate!)
         
-        if dateDif <= 0 {
+        let n = count.count
+        
+        print("\n\n\n\(n) vs \(max)\n\n\n")
+        
+        //날짜를 지났거나 최대인원 수 도달시
+        if (dateDif <= 0) || (n >= max){
             //false -> true
             let fixData = [
                 "isClosed": true,
@@ -46,6 +52,7 @@ class SubjectVC: UIViewController {
             roomRef.child("\(id)").updateChildValues(fixData)
         }
     }
+    
     
     func updateData() {
         willDisplayData.removeAll()
@@ -61,12 +68,12 @@ class SubjectVC: UIViewController {
                     if(self.searchBar.text! == "" || (i["subject"] as! String).contains(self.searchBar.text!) || (i["title"] as! String).contains(self.searchBar.text!) || (i["contents"] as! String).contains(self.searchBar.text!) || (i["professor"] as! String).contains(self.searchBar.text!)) {
                         
                         let fromDate = Date()
-
-                        self.calcDate(fromDate, i["dueDate"]! as! String, i["roomId"] as! Int)
-                        
-                        print("\n\n\(i["isClosed"]!)\n\n")
-                        
-                        if i["isClosed"]! as! Bool == false {
+                                                
+                        //시작날짜, 마감날짜, roomId, 참가자 수, 최대 참가자 수
+                        self.calcDate(fromDate, i["dueDate"]! as! String, i["roomId"]! as! Int, i["listOfPartUser"] as! [Int] , i["numberOfMax"]! as! Int)
+                                                
+                        //닫혀 있지 않으면
+                        if (i["isClosed"]! as! Bool == false){
                             self.willDisplayData.append(RoomData(dic: i))
                         }
                     }
