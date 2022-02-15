@@ -37,7 +37,6 @@
 		665D082927B395BD00A46547 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665D082827B395BD00A46547 /* NotificationModel.swift */; };
 		667B57D027A3DC68001A8826 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 667B57CF27A3DC68001A8826 /* GoogleService-Info.plist */; };
 		6694B86627B6242F00515755 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6694B86527B6242F00515755 /* NotificationVC.swift */; };
-		66A0F460279C005D00AFCFD6 /* DB_TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */; };
 		66C94C46279544FC00644BDA /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C45279544FC00644BDA /* RoomData.swift */; };
 		66C94C48279545B100644BDA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C94C47279545B100644BDA /* UserData.swift */; };
 		F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EE92795360600D3CE86 /* RoomEnterVC.swift */; };
@@ -103,7 +102,6 @@
 		665D082827B395BD00A46547 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		667B57CF27A3DC68001A8826 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6694B86527B6242F00515755 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
-		66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_TestVC.swift; sourceTree = "<group>"; };
 		66C94C45279544FC00644BDA /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
 		66C94C47279545B100644BDA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		7713F9405E830466318131A9 /* Pods-Smapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smapp.release.xcconfig"; path = "Target Support Files/Pods-Smapp/Pods-Smapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				664A7307279148AF00A82E7C /* SubjectCell.swift */,
 				664A73052791488500A82E7C /* SubjectFormVC.swift */,
 				664A73032791484600A82E7C /* SubjectVC.swift */,
-				66A0F45F279C005D00AFCFD6 /* DB_TestVC.swift */,
 			);
 			path = Subject;
 			sourceTree = "<group>";
@@ -533,7 +530,6 @@
 				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
 				3C85E768279F987300D2595A /* PeopleViewTableCell.swift in Sources */,
 				1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */,
-				66A0F460279C005D00AFCFD6 /* DB_TestVC.swift in Sources */,
 				F4765EFF2799518200D3CE86 /* RoomFixVC.swift in Sources */,
 				1F3600C327900FB000EC8019 /* MyPageLikedTableVC.swift in Sources */,
 				6694B86627B6242F00515755 /* NotificationVC.swift in Sources */,
