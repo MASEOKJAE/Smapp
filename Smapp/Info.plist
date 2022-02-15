@@ -17,7 +17,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.sj.Smapp</string>
+				<string>com.cra.Smapp</string>
 			</array>
 		</dict>
 	</array>

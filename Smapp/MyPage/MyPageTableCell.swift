@@ -20,6 +20,11 @@ class MyPageTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        // Add width constraint if you want dynamic height
+        contentView.translatesAutoresizingMaskIntoConstraints = true
+        contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 40).isActive = true
+        contentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height/10).isActive = true
     }
 
 
@@ -31,8 +36,19 @@ class MyPageTableCell: UITableViewCell {
             }
     }
     
+<<<<<<< HEAD
     override func prepareForReuse() {
         super.prepareForReuse()
         self.accessoryType = .none
+=======
+    
+    func viewDidLoad() {
+        roomTitle.font = .systemFont(ofSize: 40)
+        roomTitle.adjustsFontSizeToFitWidth = true
+        roomTitle.translatesAutoresizingMaskIntoConstraints = false
+        roomTitle.textAlignment = .center
+        roomTitle.sizeToFit()
+        roomTitle.minimumScaleFactor = 0.2
+>>>>>>> seong
     }
 }

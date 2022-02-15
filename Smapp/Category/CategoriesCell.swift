@@ -20,4 +20,20 @@ class CategoriesCell: UICollectionViewCell {
     }
     
     @IBOutlet weak var majorLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        // Add width constraint if you want dynamic height
+        contentView.translatesAutoresizingMaskIntoConstraints = true
+        contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width/2 - 35).isActive = true
+        contentView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+    
+    func viewDidLoad() {
+        majorLabel.adjustsFontSizeToFitWidth = true
+        majorLabel.textAlignment = .center
+        majorLabel.sizeToFit()
+        majorLabel.minimumScaleFactor = 0.2
+    }
 }
