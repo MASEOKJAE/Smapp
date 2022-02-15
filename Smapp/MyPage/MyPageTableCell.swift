@@ -36,11 +36,10 @@ class MyPageTableCell: UITableViewCell {
             }
     }
     
-<<<<<<< HEAD
     override func prepareForReuse() {
         super.prepareForReuse()
         self.accessoryType = .none
-=======
+    }
     
     func viewDidLoad() {
         roomTitle.font = .systemFont(ofSize: 40)
@@ -49,6 +48,5 @@ class MyPageTableCell: UITableViewCell {
         roomTitle.textAlignment = .center
         roomTitle.sizeToFit()
         roomTitle.minimumScaleFactor = 0.2
->>>>>>> seong
     }
 }
