@@ -85,9 +85,9 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableCell", for: indexPath) as? MyPageTableCell else {
+        /*guard*/ let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableCell", for: indexPath) as! MyPageTableCell /*else {
              return UITableViewCell()
-         }
+         }*/
         
         let item = self.roomArray[indexPath.row]
         
