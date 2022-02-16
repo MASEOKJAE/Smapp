@@ -120,8 +120,6 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         chatListRef.child(String(self.childCount)).child("users").setValue(users)
         
         _ = self.navigationController?.popViewController(animated: true)
-        
-        print("\n\n\n\n\nchildcount: \(childCount)\n\n\n\n\n\n\n")
     }
     
     

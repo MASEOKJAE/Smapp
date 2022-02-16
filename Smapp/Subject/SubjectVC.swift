@@ -42,8 +42,6 @@ class SubjectVC: UIViewController {
         
         let n = count.count
         
-        print("\n\n\n\(n) vs \(max)\n\n\n")
-        
         //날짜를 지났거나 최대인원 수 도달시
         if (dateDif <= 0) || (n >= max){
             //false -> true

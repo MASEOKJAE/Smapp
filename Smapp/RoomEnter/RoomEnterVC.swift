@@ -177,28 +177,32 @@ class RoomEnterVC: UIViewController {
         let myUid: Int! = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
         
         // roomList의 listOfPartUser에 유저 추가 (중복 허용 x)
-        let roomListRef = ref.child("roomList")
+        let roomid = String(self.EnterIndex!)
+        let roomListRef = self.ref.child("roomList").child(roomid)
         
-        roomListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
-            print("##### \(snapshot)")
-            let value = snapshot.value as? NSDictionary
-            print("###### \(value)")
-            let partUsers = value?["listOfPartUser"] as? NSMutableArray ?? []
-            
-            if partUsers.contains(myUid) {
-                return
-            } else {
-                print("-------list Of Part User: \(partUsers)--------=-------")
-                partUsers.add(myUid)
-                print("---------After list of part user: \(partUsers)----------------")
+        roomListRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            for child in snapshot.children {
+                let title = child as! DataSnapshot
+                let titlekey = title.key
+                let titlevalue = title.value!
+                var listOfPartUsers: [Int]?
+                
+                if titlekey == "listOfPartUser" {
+                    listOfPartUsers = titlevalue as? [Int]
+                    
+                if let firstIndex = listOfPartUsers?.firstIndex(of: myUid!) {
+                    return
+                } else {
+                    listOfPartUsers?.append(myUid)
+                    roomListRef.child("listOfPartUser").setValue(listOfPartUsers)
+                }
+                }
+                
             }
-
-           roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").setValue(partUsers)
-
-            
-//            roomListRef.child(String(self.EnterIndex!)).child("listOfPartUser").updateChildValues([String(count): Int(myUid)])
-
         })
+        
+        
+        
         
         // userList의 listOfPartRoom에 입장하는 방 번호 추가 (중복 허용 x)
         let userListRef = ref.child("userList")
@@ -210,9 +214,7 @@ class RoomEnterVC: UIViewController {
             if listOfPartRoom.contains(self.EnterIndex!) {
                 return
             } else {
-                print("-------list Of part room: \(listOfPartRoom)--------=-------")
                 listOfPartRoom.add(self.EnterIndex!)
-                print("---------After list of part room: \(listOfPartRoom)----------------")
             }
         
            userListRef.child(String(myUid)).child("listOfPartRoom").setValue(listOfPartRoom)
