@@ -60,9 +60,9 @@ class MyPageLikedTableVC: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
             
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         })
     }
     

@@ -148,6 +148,7 @@
                         <outlet property="settingButton" destination="bDg-9p-zwm" id="i1F-Cn-6r1"/>
                         <outlet property="userEmail" destination="OyE-oS-84C" id="hiW-wd-1EQ"/>
                         <outlet property="userName" destination="Ak5-Qd-TiW" id="Pjr-yp-hhc"/>
+                        <outlet property="view" destination="VGm-wv-EIE" id="Bbs-rS-T3A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

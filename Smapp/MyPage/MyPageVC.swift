@@ -21,7 +21,8 @@ class MyPageVC: UIViewController{
     @IBOutlet weak var userEmail: UILabel!
     
     @IBOutlet weak var settingButton: UIButton!
-
+    @IBOutlet weak var containerView: UIView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +37,17 @@ class MyPageVC: UIViewController{
             
             self.userName.text! = name
         })
-                          
+
         userEmail.text = GIDSignIn.sharedInstance.currentUser?.profile!.email
+        
+        print("?")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let childVC = self.children[1] as? MyPagePartTableVC {
+            childVC.viewWillAppear(true)
+        }
+    }
     
     @IBAction func switchViews(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -47,12 +55,17 @@ class MyPageVC: UIViewController{
 //            likeStudy.alpha = 0
             partStudy.isHidden = false
             likeStudy.isHidden = true
+            if let childVC = self.children[1] as? MyPagePartTableVC {
+                childVC.viewWillAppear(true)
+            }
         } else {
 //            partStudy.alpha = 0
 //            likeStudy.alpha = 1
             partStudy.isHidden = true
             likeStudy.isHidden = false
+            if let childVC = self.children[0] as? MyPageLikedTableVC {
+                childVC.viewWillAppear(true)
+            }
         }
     }
-    
 }

@@ -27,7 +27,6 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         super.viewDidLoad()
         initRefresh()
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
