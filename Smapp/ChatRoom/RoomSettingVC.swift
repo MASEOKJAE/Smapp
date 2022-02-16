@@ -68,20 +68,8 @@ class RoomSettingVC: UIViewController {
                        userListRef.child(String(myUid)).child("listOfPartRoom").setValue(listOfPartRoom)
                     })
         
-                    // chatroom 에 참여하는 user 삭제
-//                    chatListRef.child(String(self.chatRoomId!)).child("users").getData(completion: {error, snapshot in
-//                        let value = snapshot.value as? NSDictionary
-//                        let usersList = value?["listOfPartRoom"] as? NSMutableArray ?? []
-//
-//                        if(usersList.count == 1) {
-//                            chatListRef.child(String(self.chatRoomId!)).removeValue()
-//                        } else {
-//                            if usersList.contains(Int(myUid)) {
-//                                usersList.remove(Int(myUid))
-//                            }
-//                            chatListRef.child(String(self.chatRoomId!)).child("users").setValue(usersList)
-//                        }
-//                    })
+                    // chatroom 에 참여하는 user false로
+                    chatListRef.child(String(self.chatRoomId!)).child("users").updateChildValues([String(myUid!):false])
         
                     _ = self.navigationController?.popViewController(animated: true)
                     _ = self.navigationController?.popViewController(animated: true)
