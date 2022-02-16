@@ -34,6 +34,15 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9C-gE-EAV">
+                                        <rect key="frame" x="299" y="43" width="48" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="SideBar"/>
+                                        <connections>
+                                            <segue destination="YCV-ji-8ak" kind="show" identifier="chatToRoomSetting" id="FUK-7m-cYQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -107,13 +116,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNS-VE-9xg">
-                                                    <rect key="frame" x="310" y="7" width="6" height="14"/>
+                                                    <rect key="frame" x="310" y="8" width="6" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.56470588239999997" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyX-wu-pWs">
-                                                    <rect key="frame" x="296" y="19.666666666666668" width="26.666666666666686" height="16.000000000000004"/>
+                                                    <rect key="frame" x="296" y="20.666666666666668" width="26.666666666666686" height="16.000000000000004"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -138,7 +147,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DestinationMessageCell" id="d8r-Ju-XTP" customClass="DestinationMessageCell" customModule="Smapp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="87.999998092651367" width="390" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="88.999998092651367" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d8r-Ju-XTP" id="KlM-CS-77k">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
@@ -199,7 +208,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EnterAlarmCell" id="smH-hz-MqP" customClass="EnterAlarmCell" customModule="Smapp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="131.66666603088379" width="390" height="49.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="132.66666603088379" width="390" height="49.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="smH-hz-MqP" id="vd2-je-9Vt">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="49.666667938232422"/>
@@ -234,7 +243,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeStampCell" id="7cj-9y-9gL" customClass="TimeStampCell" customModule="Smapp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="181.33333396911621" width="390" height="44"/>
+                                        <rect key="frame" x="0.0" y="182.33333396911621" width="390" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7cj-9y-9gL" id="Wla-vJ-hiV">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
@@ -373,11 +382,22 @@
             </objects>
             <point key="canvasLocation" x="81.538461538461533" y="97.393364928909946"/>
         </scene>
+        <!--RoomSetting-->
+        <scene sceneID="lTm-X0-nV9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RoomSetting" id="YCV-ji-8ak" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xX8-AF-6Lf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3q-a0-uPn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="97"/>
+        </scene>
     </scenes>
     <resources>
         <image name="DestinationMessage" width="201" height="42"/>
         <image name="EnterRoomAlarm" width="150" height="23"/>
         <image name="MyMessage" width="201" height="58"/>
+        <image name="SideBar" width="24" height="24"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
         <image name="paperclip" catalog="system" width="121" height="128"/>

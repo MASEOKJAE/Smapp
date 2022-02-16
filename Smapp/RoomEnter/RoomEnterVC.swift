@@ -227,13 +227,13 @@ class RoomEnterVC: UIViewController {
     
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//                if segue.identifier == "roomEnterToChat" {
-//                    let vc = segue.destination as? ChatRoomVC
-//                    vc?.roomId = self.EnterIndex
-//                }
-//            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+                if segue.identifier == "roomEnterToChat" {
+                    let vc = segue.destination as? ChatRoomVC
+                    vc?.roomId = self.EnterIndex
+                }
+            }
     
 
     

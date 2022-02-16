@@ -7,38 +7,52 @@
 import UIKit
 import FirebaseDatabase
 
-class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var TitleFix: UITextField!
     @IBOutlet weak var SubjectFix: UITextField!
     @IBOutlet weak var ProfessorFix: UITextField!
     @IBOutlet weak var ContentsFix: UITextField!
+    @IBOutlet weak var MajorFix: UITextField!
+    @IBOutlet weak var MajorFixDropdown: UIPickerView!
+    @IBOutlet weak var MaxNumFix: UITextField!
+    @IBOutlet weak var DueDateFix: UITextField!
+    @IBOutlet weak var IsOnceFix: UISegmentedControl!
+    
+    
     
     var TitleText:String? // 기존 방제목을 받아오기 위한 변수
     var SubjectText:String?
     var ProfessorText:String?
     var ContentsText:String?
-    var OpenDateFix:String?
-    var DueDateFix:String?
-    var MajorFix:String?
+    var OpenDateText:String?
+    var DueDateText:String?
+    var MajorText:String?
     
-    var IsClosedFix:Bool?
-    var IsOnceFix:Bool?
+    var IsClosedText:Bool?
+    var IsOnceText:Bool?
     
     var RoomIdFix: Int? // 고치려는 roomId가 담겨 있음
-    var NumberOfMaxFix:Int = 0
-    var ListOfPartUserFix:[Int] = []
+    var MaxNumText:Int?
+    var ListOfPartUserText:[Int] = []
     
     var ref: DatabaseReference!
+    let datePicker = UIDatePicker()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBAction func FixCompleted(_ sender: UIButton) {
         let refRoom = ref.child("roomList")
+        
         let fixData = [
-            "title": TitleFix.text!,
-            "subject": SubjectFix.text!,
-            "professor": ProfessorFix.text!,
-            "contents": ContentsFix.text!,
-        ]
+            "title": self.TitleFix.text!,
+            "subject": self.SubjectFix.text!,
+            "professor": self.ProfessorFix.text!,
+            "contents": self.ContentsFix.text!,
+            "numberOfMax": Int(self.MaxNumFix.text!)!,
+            "dueDate": self.DueDateFix.text!,
+            "isOnce" : IsOnceFix.selectedSegmentIndex == 0 ? true : false,
+        ] as [String : Any]
+        
         refRoom.child("\(RoomIdFix!)").updateChildValues(fixData)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -122,6 +136,71 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         if ContentsText != nil {
             ContentsFix.text = ContentsText
         }
+        if MajorText != nil {
+            MajorFix.text = MajorText
+        }
+        if MaxNumText != nil {
+            MaxNumFix.text = String(MaxNumText!)
+        }
+        if DueDateText != nil {
+            DueDateFix.text = DueDateText
+        }
         
+        FixDatePicker()
+    }
+}
+
+extension RoomFixVC {
+    func FixDatePicker() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let DateButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(DatePressed))
+        toolbar.setItems([DateButton], animated: true)
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
+        
+        DueDateFix.inputAccessoryView = toolbar
+        DueDateFix.inputView = datePicker
+    }
+    
+    @objc func DatePressed() {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        DueDateFix.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+}
+
+extension RoomFixVC: UIPickerViewDelegate, UIPickerViewDataSource {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int{
+        return 1
+    }
+
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+
+        return self.appDelegate.majorList.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+        self.view.endEditing(true)
+        return self.appDelegate.majorList[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
+        self.MajorFix.text = self.appDelegate.majorList[row]
+        self.MajorFixDropdown.isHidden = true
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == self.MajorFix {
+            self.MajorFixDropdown.isHidden = false
+
+            textField.endEditing(true)
+        }
     }
 }

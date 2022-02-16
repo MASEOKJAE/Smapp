@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xWF-HT-Bed">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--RoomFix-->
+        <scene sceneID="uqM-c6-wiM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RoomFix" id="Jhr-73-4gc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8k9-kW-9tB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iTW-Sg-HzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="641" y="100"/>
+        </scene>
+        <!--스터디룸 설정-->
+        <scene sceneID="fhR-Jx-qtn">
+            <objects>
+                <viewController storyboardIdentifier="Setting" title="스터디룸 설정" id="xWF-HT-Bed" customClass="RoomSettingVC" customModule="Smapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dZ5-YK-TnQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-ZC-Osk">
+                                <rect key="frame" x="0.0" y="104" width="414" height="405"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="405" id="EVC-hy-dgo"/>
+                                    <constraint firstAttribute="width" constant="414" id="d0e-YC-AZZ"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomSettingTableCell" rowHeight="65" id="EFp-yu-6ea" customClass="RoomSettingTableCell" customModule="Smapp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EFp-yu-6ea" id="nGl-aX-ML1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Um2-qF-Wvj">
+                                                    <rect key="frame" x="20" y="14" width="281" height="37"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="37" id="Ido-JJ-zTm"/>
+                                                        <constraint firstAttribute="height" constant="37" id="Phe-EW-bUg"/>
+                                                        <constraint firstAttribute="width" constant="281" id="bAl-wd-Zpk"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="281" id="jas-af-8pc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Um2-qF-Wvj" firstAttribute="top" secondItem="nGl-aX-ML1" secondAttribute="topMargin" constant="3" id="45W-ur-O0s"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Um2-qF-Wvj" secondAttribute="bottom" constant="3" id="NXC-Rg-h5g"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Um2-qF-Wvj" secondAttribute="trailing" constant="93" id="mky-C7-gzs"/>
+                                                <constraint firstItem="Um2-qF-Wvj" firstAttribute="leading" secondItem="nGl-aX-ML1" secondAttribute="leadingMargin" id="opy-f8-Dfw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="roomMenus" destination="Um2-qF-Wvj" id="vA2-Bd-5Dx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xWF-HT-Bed" id="ZhM-lU-7cM"/>
+                                    <outlet property="delegate" destination="xWF-HT-Bed" id="3u8-uM-Vid"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zwU-xN-d2B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TZd-ZC-Osk" firstAttribute="trailing" secondItem="zwU-xN-d2B" secondAttribute="trailing" id="8Jc-C4-OpO"/>
+                            <constraint firstItem="TZd-ZC-Osk" firstAttribute="leading" secondItem="zwU-xN-d2B" secondAttribute="leading" id="j65-sT-z9s"/>
+                            <constraint firstItem="TZd-ZC-Osk" firstAttribute="top" secondItem="zwU-xN-d2B" secondAttribute="top" constant="60" id="m9z-1O-zVE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="설정" id="5q1-sl-w4p"/>
+                    <connections>
+                        <outlet property="RoomTableView" destination="TZd-ZC-Osk" id="2nP-8b-kyk"/>
+                        <segue destination="Jhr-73-4gc" kind="show" identifier="RoomFix" id="Yu5-zn-FZR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gsg-r9-z4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17.39130434782609" y="99.776785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -468,6 +468,13 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chatToRoomSetting" {
+            let vc = segue.destination as? RoomSettingVC
+            vc?.chatRoomId = self.roomId
+        }
+    }
 }
 
 
