@@ -34,6 +34,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="ClickRoomEnter:" destination="WYB-MB-YfM" eventType="touchUpInside" id="bE9-h0-HIc"/>
+                                    <segue destination="u56-dY-VX7" kind="show" identifier="roomEnterToChat" id="h9z-AB-TcV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="앱 프로그래밍 중간고사 준비 같이 하실 분 ~" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sss-ql-rur">
@@ -252,6 +253,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ScN-aJ-r4t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1225" y="-246"/>
+        </scene>
+        <!--ChatRoom-->
+        <scene sceneID="AnU-tZ-PnH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChatRoom" id="u56-dY-VX7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ZFK-tq-GXq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HiE-Jk-gEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1250" y="-54"/>
         </scene>
     </scenes>
     <resources>

@@ -43,6 +43,9 @@
 		F4765EEC2795362A00D3CE86 /* RoomEnter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EEB2795362A00D3CE86 /* RoomEnter.storyboard */; };
 		F4765EFD2799517000D3CE86 /* RoomFix.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4765EFC2799516F00D3CE86 /* RoomFix.storyboard */; };
 		F4765EFF2799518200D3CE86 /* RoomFixVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4765EFE2799518200D3CE86 /* RoomFixVC.swift */; };
+		F484113527BCA5160037D782 /* RoomSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F484113427BCA5160037D782 /* RoomSetting.storyboard */; };
+		F484113727BCA5470037D782 /* RoomSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484113627BCA5470037D782 /* RoomSettingVC.swift */; };
+		F484113927BCA5720037D782 /* RoomSettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484113827BCA5720037D782 /* RoomSettingTableCell.swift */; };
 		F49A000027840CF500DAC7AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49AFFFE27840CF500DAC7AA /* Main.storyboard */; };
 		F49A000227840CFC00DAC7AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49A000127840CFC00DAC7AA /* Assets.xcassets */; };
 		F49A000527840CFC00DAC7AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49A000327840CFC00DAC7AA /* LaunchScreen.storyboard */; };
@@ -110,6 +113,9 @@
 		F4765EEB2795362A00D3CE86 /* RoomEnter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomEnter.storyboard; sourceTree = "<group>"; };
 		F4765EFC2799516F00D3CE86 /* RoomFix.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomFix.storyboard; sourceTree = "<group>"; };
 		F4765EFE2799518200D3CE86 /* RoomFixVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFixVC.swift; sourceTree = "<group>"; };
+		F484113427BCA5160037D782 /* RoomSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomSetting.storyboard; sourceTree = "<group>"; };
+		F484113627BCA5470037D782 /* RoomSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSettingVC.swift; sourceTree = "<group>"; };
+		F484113827BCA5720037D782 /* RoomSettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSettingTableCell.swift; sourceTree = "<group>"; };
 		F49A000127840CFC00DAC7AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F49A000427840CFC00DAC7AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F49A000627840CFC00DAC7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,6 +186,9 @@
 			isa = PBXGroup;
 			children = (
 				1F3600BE27900FA700EC8019 /* ChatRoom.storyboard */,
+				F484113427BCA5160037D782 /* RoomSetting.storyboard */,
+				F484113627BCA5470037D782 /* RoomSettingVC.swift */,
+				F484113827BCA5720037D782 /* RoomSettingTableCell.swift */,
 				1F3600BC27900FA700EC8019 /* ChatRoomVC.swift */,
 				3C4FB5B6279F8E8F00488EC5 /* MyMessageCell.swift */,
 				3C4FB5BA279F8EBF00488EC5 /* DestinationMessageCell.swift */,
@@ -438,6 +447,7 @@
 				1F04AE3F278E644C008AC901 /* Categories.storyboard in Resources */,
 				F4765EFD2799517000D3CE86 /* RoomFix.storyboard in Resources */,
 				1F3600C727900FBD00EC8019 /* Register.storyboard in Resources */,
+				F484113527BCA5160037D782 /* RoomSetting.storyboard in Resources */,
 				F49A000027840CF500DAC7AA /* Main.storyboard in Resources */,
 				F4765EEC2795362A00D3CE86 /* RoomEnter.storyboard in Resources */,
 				3CBB50CB279A8F5800C11CF9 /* Setting.storyboard in Resources */,
@@ -507,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F484113927BCA5720037D782 /* RoomSettingTableCell.swift in Sources */,
 				F4765EEA2795360600D3CE86 /* RoomEnterVC.swift in Sources */,
 				3CBB50C9279A8DD600C11CF9 /* SettingTableCell.swift in Sources */,
 				3CBB50C7279A8BD000C11CF9 /* SettingVC.swift in Sources */,
@@ -527,6 +538,7 @@
 				F49AFFF927840CF500DAC7AA /* AppDelegate.swift in Sources */,
 				3C85E76A279F99DE00D2595A /* UserModel.swift in Sources */,
 				664A7308279148AF00A82E7C /* SubjectCell.swift in Sources */,
+				F484113727BCA5470037D782 /* RoomSettingVC.swift in Sources */,
 				66C94C46279544FC00644BDA /* RoomData.swift in Sources */,
 				3C85E768279F987300D2595A /* PeopleViewTableCell.swift in Sources */,
 				1F04AE45278E97B7008AC901 /* CategoriesVC.swift in Sources */,

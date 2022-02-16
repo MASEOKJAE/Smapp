@@ -43,6 +43,15 @@
                                             <action selector="tapOutButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eWR-v7-kTb"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9C-gE-EAV">
+                                        <rect key="frame" x="248" y="45" width="48" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="SideBar"/>
+                                        <connections>
+                                            <segue destination="YCV-ji-8ak" kind="show" id="FUK-7m-cYQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -100,14 +109,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" id="lYl-a1-1HR" customClass="MyMessageCell" customModule="Smapp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="44.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lYl-a1-1HR" id="fBT-Ig-35x">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="44.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tc-Xh-L54">
-                                                    <rect key="frame" x="328.66666666666669" y="11.000000000000002" width="41.333333333333314" height="20.666666666666671"/>
+                                                    <rect key="frame" x="328.66666666666669" y="11.000000000000002" width="41.333333333333314" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -119,7 +128,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNS-VE-9xg">
-                                                    <rect key="frame" x="309.66666666666669" y="14" width="6" height="14"/>
+                                                    <rect key="frame" x="309.66666666666669" y="15" width="6" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.56470588239999997" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -141,20 +150,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DestinationMessageCell" id="d8r-Ju-XTP" customClass="DestinationMessageCell" customModule="Smapp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="87.999998092651367" width="390" height="44"/>
+                                        <rect key="frame" x="0.0" y="88.999998092651367" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d8r-Ju-XTP" id="KlM-CS-77k">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOV-ma-FMP">
-                                                    <rect key="frame" x="70" y="10.999999999999998" width="36" height="21.333333333333329"/>
+                                                    <rect key="frame" x="70" y="11" width="36" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="크랑이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIL-Lk-veQ">
-                                                    <rect key="frame" x="26" y="20" width="33" height="17"/>
+                                                    <rect key="frame" x="26" y="19.666666666666668" width="33" height="17.000000000000004"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="0sq-WU-dsF"/>
                                                         <constraint firstAttribute="width" constant="33" id="2if-52-zaM"/>
@@ -170,7 +179,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoB-vH-eTT">
-                                                    <rect key="frame" x="119" y="10.666666666666664" width="6" height="14"/>
+                                                    <rect key="frame" x="119" y="10.333333333333336" width="6" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.56470588239999997" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -303,8 +312,19 @@
             </objects>
             <point key="canvasLocation" x="81.538461538461533" y="97.393364928909946"/>
         </scene>
+        <!--RoomSetting-->
+        <scene sceneID="lTm-X0-nV9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RoomSetting" id="YCV-ji-8ak" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xX8-AF-6Lf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3q-a0-uPn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="97"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="SideBar" width="24" height="24"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
         <image name="paperclip" catalog="system" width="121" height="128"/>
