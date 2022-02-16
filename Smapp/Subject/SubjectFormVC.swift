@@ -116,7 +116,7 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         
         // chatroom DB 생성
         users[myUid] = true
-        let chatListRef = ref.child("chatroomTest")
+        let chatListRef = ref.child("chatRooms")
         chatListRef.child(String(self.childCount)).child("users").setValue(users)
         
         _ = self.navigationController?.popViewController(animated: true)
