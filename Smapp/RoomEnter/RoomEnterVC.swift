@@ -17,11 +17,13 @@ class RoomEnterVC: UIViewController {
     @IBOutlet weak var StudyContents: UILabel!
 
     @IBOutlet weak var RoomMajor: UILabel!
-    @IBOutlet weak var OpenDate: UILabel!
+    @IBOutlet weak var CloseDate: UILabel!
     @IBOutlet weak var MaxNum: UILabel!
     
     @IBOutlet weak var RoomEnterButton: UIButton!
 
+    @IBOutlet weak var KingName: UILabel!
+    @IBOutlet weak var KingId: UILabel!
     
     var TitleOrigin:String? // 수정된 방제목을 받아오기 위한 변수
     var ClassOrigin:String?
@@ -126,10 +128,18 @@ class RoomEnterVC: UIViewController {
                     self.StudyContents.text = titlevalue as? String
                 } else if titlekey == "major" {
                     self.RoomMajor.text = titlevalue as? String
-                } else if titlekey == "openDate" {
-                    self.OpenDate.text = titlevalue as? String
+                } else if titlekey == "dueDate" {
+                    self.CloseDate.text = titlevalue as? String
                 } else if titlekey == "numberOfMax" {
                     self.MaxNum.text = "\(titlevalue)"
+                } else if titlekey == "king" {
+                    self.KingId.text = "\(titlevalue)"
+                    ref.child("userList").child(self.KingId.text!).getData(completion: {error, snapshot in
+                        let value = snapshot.value as? NSDictionary
+                        let name = value?["name"] as? String ?? "Error!"
+                        
+                        self.KingName.text = "\(name)"
+                    })
                 }
             }
         })

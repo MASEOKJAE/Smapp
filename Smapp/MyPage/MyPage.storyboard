@@ -148,6 +148,7 @@
                         <outlet property="settingButton" destination="bDg-9p-zwm" id="i1F-Cn-6r1"/>
                         <outlet property="userEmail" destination="OyE-oS-84C" id="hiW-wd-1EQ"/>
                         <outlet property="userName" destination="Ak5-Qd-TiW" id="Pjr-yp-hhc"/>
+                        <outlet property="view" destination="VGm-wv-EIE" id="Bbs-rS-T3A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -196,7 +197,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCh-2q-aoT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCh-2q-aoT">
                                                     <rect key="frame" x="79" y="49" width="41.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="B3R-jH-2cY"/>
@@ -205,7 +206,7 @@
                                                     <color key="textColor" systemColor="systemGray2Color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmr-Oe-sfC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmr-Oe-sfC">
                                                     <rect key="frame" x="125.5" y="49" width="41.5" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -226,7 +227,7 @@
                                                 <constraint firstItem="Dmr-Oe-sfC" firstAttribute="top" secondItem="RCh-2q-aoT" secondAttribute="top" id="AD1-0W-Eyd"/>
                                                 <constraint firstItem="RCh-2q-aoT" firstAttribute="centerY" secondItem="Dmr-Oe-sfC" secondAttribute="centerY" id="CKb-gm-kZZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="A7Z-if-Lmh" secondAttribute="bottom" constant="10" id="Cpf-xi-NcR"/>
-                                                <constraint firstItem="QBy-FI-xve" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Dmr-Oe-sfC" secondAttribute="trailing" constant="5" id="O02-fn-eb9"/>
+                                                <constraint firstItem="QBy-FI-xve" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Dmr-Oe-sfC" secondAttribute="trailing" constant="10" id="O02-fn-eb9"/>
                                                 <constraint firstItem="10Y-Xb-fCu" firstAttribute="leading" secondItem="A7Z-if-Lmh" secondAttribute="trailing" constant="10" id="QfH-n1-o8G"/>
                                                 <constraint firstItem="tcN-Bq-Rlx" firstAttribute="top" secondItem="A7Z-if-Lmh" secondAttribute="top" id="VlO-4N-Z5v"/>
                                                 <constraint firstItem="QBy-FI-xve" firstAttribute="bottom" secondItem="A7Z-if-Lmh" secondAttribute="bottom" id="WAq-2m-my3"/>
