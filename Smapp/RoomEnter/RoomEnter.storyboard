@@ -103,7 +103,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개설일:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mg-OS-ClE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마감일:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mg-OS-ClE">
                                 <rect key="frame" x="81.5" y="724.5" width="35" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -227,10 +227,10 @@
                     <navigationItem key="navigationItem" id="nGp-6m-9Kl"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="CloseDate" destination="M5S-T9-1j1" id="IZn-F4-PCQ"/>
                         <outlet property="ImageView" destination="Ovn-zg-t9n" id="C8t-Ma-DtK"/>
                         <outlet property="LikeButton" destination="fTj-5J-KTe" id="Kpq-r4-78L"/>
                         <outlet property="MaxNum" destination="v3m-mo-v28" id="J2E-gg-3wq"/>
-                        <outlet property="OpenDate" destination="M5S-T9-1j1" id="IZn-F4-PCQ"/>
                         <outlet property="ProfessorName" destination="36O-qK-je5" id="TW7-MA-Pde"/>
                         <outlet property="RoomEnterButton" destination="Qem-kh-LzA" id="CnS-f8-enJ"/>
                         <outlet property="RoomMajor" destination="Yg4-TO-Ej6" id="p8J-Mh-fA8"/>
@@ -238,6 +238,8 @@
                         <outlet property="ShareButton" destination="q5F-W7-rFA" id="VyE-C8-ghO"/>
                         <outlet property="StudyContents" destination="kbM-B4-6PB" id="Yhe-Mi-rOR"/>
                         <outlet property="SubjectTitle" destination="NsL-ED-gSY" id="7N4-jq-s6h"/>
+                        <outlet property="kingId" destination="EfE-PO-b7U" id="OSc-k9-n6l"/>
+                        <outlet property="kingName" destination="6fy-ye-Saf" id="i63-tq-OMO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkT-U0-OTm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
