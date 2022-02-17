@@ -8,6 +8,7 @@
 import UIKit
 import MobileCoreServices
 import Firebase
+import FirebaseStorage
 import FirebaseDatabase
 import GoogleSignIn
 import Alamofire
@@ -481,18 +482,57 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
 
 extension ChatRoomVC: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        // 이미지 선택 시 (일단 임시)
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            //self.sendPhoto(image)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let user = Auth.auth().currentUser else { return }
+            
+        self.uploadImage(image: selectedImage, pathRoot: user.uid) { url in
+            if let url = url {
+                UserDefaults.standard.set(url.absoluteString, forKey: "myImageUrl")
+                self.title = "이미지 업로드 완료"
             }
-            dismiss(animated: true, completion: nil)
         }
+
+        dismiss(animated: true, completion: nil)
+    }
     
-//    private func sendPhoto(_ image: UIImage) {
-//        var isSendingPhoto: Bool? = true
-//        FirebaseStor
+//    추후에 있을 이미지 다운로드
+//    @objc private func didTapLoadImageFromFirebaseButton() {
+//        guard let urlString = UserDefaults.standard.string(forKey: "myImageUrl") else { return }
+//
+//        FirebaseStorageManager.downloadImage(urlString: urlString) { [weak self] image in
+//            self?.downloadImageView.image = image
+//        }
 //    }
+}
+
+extension ChatRoomVC {
+    func uploadImage(image: UIImage, pathRoot: String, completion: @escaping (URL?) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else { return }
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        
+        let imageName = UUID().uuidString + String(Date().timeIntervalSince1970)
+        
+        let firebaseReference = Storage.storage().reference().child("\(imageName)")
+        
+        firebaseReference.putData(imageData, metadata: metaData) { metaData, error in
+            firebaseReference.downloadURL { url, _ in
+                completion(url)
+            }
+        }
+    }
     
+    func downloadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
+        let storageReference = Storage.storage().reference(forURL: urlString)
+        let megaByte = Int64(1 * 1024 * 1024)
+        
+        storageReference.getData(maxSize: megaByte) { data, error in
+            guard let imageData = data else {
+                completion(nil)
+                return
+            }
+            completion(UIImage(data: imageData))
+        }
+    }
 }
 
 extension ChatRoomVC: UIDocumentPickerDelegate {
