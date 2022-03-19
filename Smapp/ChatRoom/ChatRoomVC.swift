@@ -33,6 +33,7 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     var subject: String?
     var users: [String: AnyObject]?
     var today: String?
+    var cnt: Int? = 0
 
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var chatText: UITextView!
@@ -424,30 +425,18 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EnterAlarmCell", for: indexPath) as? EnterAlarmCell else {
              return UITableViewCell()
          }
-        
-        if let username = appDelegate.enterName {
-            cell.enterMessage.text = username + "님이 들어왔습니다."
-            print("-------------In username-------------")
-            appDelegate.enterName = nil
-            return cell
-        }
     
         
-
-        if(self.comments[indexPath.row].uid == uid) {   // 내가 보내는 메세지
-            guard let mycell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
-                 return UITableViewCell()
-             }
-            mycell.label_message.text = self.comments[indexPath.row].message
-            mycell.label_message.numberOfLines = 0
-            if let time = self.comments[indexPath.row].timestamp {
-                mycell.label_time.text = time.todaytime
+        if let username = appDelegate.enterName {
+            if(cnt == 0) {
+                cell.enterMessage.text = username + "님이 들어왔습니다."
+                print("username: -------------------\(username) 님이 들어왔습니다.")
+                cnt! += 1
+                return cell
             }
-            self.setReadCount(label: mycell.label_readUsers, position: indexPath.row)
-
-            return mycell
-
-        }else {     // 상대방이 보내는 메세지
+        }
+        
+        if(self.comments[indexPath.row].uid != uid) {   // 상대방이 보내는 메세지
             let destinationUser = self.users![self.comments[indexPath.row].uid!]
             guard let decell = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as? DestinationMessageCell else {
                  return UITableViewCell()
@@ -461,8 +450,22 @@ extension ChatRoomVC: UITableViewDelegate, UITableViewDataSource {
             self.setReadCount(label: decell.label_readUsers, position: indexPath.row)
 
             return decell
+
         }
-        return cell
+        else {     // 내가 보내는 메세지
+            guard let mycell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as? MyMessageCell else {
+                 return UITableViewCell()
+             }
+            mycell.label_message.text = self.comments[indexPath.row].message
+            mycell.label_message.numberOfLines = 0
+            if let time = self.comments[indexPath.row].timestamp {
+                mycell.label_time.text = time.todaytime
+            }
+            self.setReadCount(label: mycell.label_readUsers, position: indexPath.row)
+
+            return mycell
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
