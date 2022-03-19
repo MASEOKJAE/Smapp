@@ -13,7 +13,7 @@ class SettingVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet weak var logoutButton: UIButton!
-    let myPageMenu = ["공지사항", "전공 수정", "알림 설정", "개발자에게 피드백", "회원목록(테스트)"]
+    let myPageMenu = ["공지사항", "전공 수정", "알림 설정", "개발자에게 피드백"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +59,6 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
             performSegue(withIdentifier: "setAlarm", sender: nil)
         case 3:
             performSegue(withIdentifier: "feedBack", sender: nil)
-        case 4:
-            performSegue(withIdentifier: "peopleview", sender: nil)
         default:
             return
         }

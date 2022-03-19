@@ -16,6 +16,7 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     let datePicker = UIDatePicker()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var users = Dictionary<String, Bool>()
+    var roomId: Int?
     let myUid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
     
     @IBOutlet weak var roomTitle: UITextField!
@@ -118,6 +119,7 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         users[myUid] = true
         let chatListRef = ref.child("chatRooms")
         chatListRef.child(String(self.childCount)).child("users").setValue(users)
+        chatListRef.child(String(self.childCount)).child("roomId").setValue(self.childCount)
         
         _ = self.navigationController?.popViewController(animated: true)
     }

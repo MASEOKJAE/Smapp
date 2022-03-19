@@ -18,20 +18,24 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     let chattingContent = ["오늘 2시에 괜찮으신가요?","네 이따가 봅시다!", "안녕하세요", "이거는 그 문제 같은데요..? 블라블라 블라블라", "소라에서 볼까요?", "넵", "거의 다 도착했습니다!", "오늘 2시에 괜찮으신가요?","네 이따가 봅시다!", "안녕하세요", "이거는 그 문제 같은데요..? 블라블라 블라블라", "소라에서 볼까요?", "넵", "거의 다 도착했습니다!", "오늘 2시에 괜찮으신가요?","네 이따가 봅시다!", "안녕하세요", "이거는 그 문제 같은데요..? 블라블라 블라블라", "소라에서 볼까요?", "넵", "거의 다 도착했습니다!"]
 
     var ref: DatabaseReference!
+    var observe: UInt?
     var roomArray: [RoomData] = []
+    var chatArray: [ChatModel] = []
     var listOfPartRoomId: [Int?] = []
     var EnterIndex: Int?
-    
+                                                 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initRefresh()
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchListOfPartRoomId()
         updateData()
+        updateChat()
     }
     
     func initRefresh() {
@@ -61,11 +65,33 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
                 let roomList = RoomData(dic: item.value as! [String:Any])
                 if self.listOfPartRoomId.contains(roomList.roomId) {    // 유저가 참여하는 방만 가져오기
                     self.roomArray.append(roomList)
+                
                 }
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        })
+    }
+    
+    func updateChat() {
+        let refChatrooms = ref.child("chatRooms")
+        observe = refChatrooms.observe(DataEventType.value, with: { (datasnapshot) in
+            self.chatArray.removeAll()
+            
+            for item in datasnapshot.children.allObjects as! [DataSnapshot] {
+                
+                if let chatroomdic = item.value as? [String:AnyObject] {
+                    let chatModel = ChatModel(JSON: chatroomdic)
+                    
+                    if self.listOfPartRoomId.contains(chatModel?.roomId) {
+                        self.chatArray.append(chatModel!)
+                    }
+                }
+                
+            }
+            self.tableView.reloadData()
+            
         })
     }
     
@@ -93,20 +119,20 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         cell.roomId = item.roomId
         cell.roomTitle.text = item.title
         cell.participants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
+        
+        let lastMessageKey = self.chatArray[indexPath.row].comments.keys.sorted(){$0>$1}
+        
+        // 채팅방에 채팅 없을 때 - 아직 오류남 예외처리해야함
+        if(lastMessageKey == nil) {
+            cell.chatsContent.text = ""
+        } else {    // 마지막 채팅메세지 가져오기
+            cell.chatsContent.text =  self.chatArray[indexPath.row].comments[lastMessageKey[0]]?.message
+        }
+        
+        // 마지막 채팅친 사람 가져오기
         cell.chatsName.text = chattingName[indexPath.row]
-        cell.chatsContent.text = chattingContent[indexPath.row]
 
         return cell
-        
-//        let item = self.appDelegate.roomList[indexPath.row]
-//
-//        cell.roomTitle.text = item.title
-//        print("------*_*_*_*_*-*----parttitle: \(item.title)----------------------")
-//        cell.participants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
-//        cell.chatsName.text = chattingName[indexPath.row]
-//        cell.chatsContent.text = chattingContent[indexPath.row]
-//
-//        return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

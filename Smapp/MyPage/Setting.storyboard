@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -134,7 +134,6 @@
                         <segue destination="vVy-Ra-Xnp" kind="show" identifier="feedBack" id="LJL-zu-xqV"/>
                         <segue destination="gaZ-DA-szm" kind="presentation" identifier="reselectMajor" modalPresentationStyle="pageSheet" id="wJX-Ug-jRY"/>
                         <segue destination="uEs-2E-1nf" kind="show" identifier="setAlarm" id="dXG-ck-0p4"/>
-                        <segue destination="2ey-Qr-fQ9" kind="show" identifier="peopleview" id="PxI-ym-qcj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -279,16 +278,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbb-Gb-elG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-120" y="842"/>
-        </scene>
-        <!--PeopleView-->
-        <scene sceneID="icb-S3-SDA">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PeopleView" id="2ey-Qr-fQ9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="obw-fl-u3Z"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vT9-r1-tef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="251" y="522"/>
         </scene>
         <!--피드백-->
         <scene sceneID="qhD-eS-3iA">

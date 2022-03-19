@@ -11,6 +11,7 @@ import ObjectMapper
 class ChatModel: Mappable {
     public var users: Dictionary<String, Bool> = [:]    // 채팅방에 참여한 사람들
     public var comments: Dictionary<String, Comment> = [:]      // 채팅방의 대화내용
+    public var roomId: Int?
     
     required init?(map: Map) {
         
@@ -19,6 +20,7 @@ class ChatModel: Mappable {
     func mapping(map: Map) {
         users <- map["users"]
         comments <- map["comments"]
+        roomId <- map["roomId"]
     }
     
     public class Comment: Mappable {
