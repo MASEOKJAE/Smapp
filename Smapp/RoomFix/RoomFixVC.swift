@@ -39,11 +39,13 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     var ref: DatabaseReference!
     let datePicker = UIDatePicker()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let majorpicker = UIPickerView()
     
     @IBAction func FixCompleted(_ sender: UIButton) {
         let refRoom = ref.child("roomList")
         
         let fixData = [
+            "major": self.MajorFix.text!,
             "title": self.TitleFix.text!,
             "subject": self.SubjectFix.text!,
             "professor": self.ProfessorFix.text!,
@@ -147,16 +149,25 @@ class RoomFixVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         }
         
         FixDatePicker()
+        configPickerView()
     }
 }
 
 extension RoomFixVC {
     func FixDatePicker() {
         let toolbar = UIToolbar()
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.isTranslucent = true
+        toolbar.tintColor = UIColor.blue
         toolbar.sizeToFit()
         
-        let DateButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(DatePressed))
-        toolbar.setItems([DateButton], animated: true)
+        let yesBT = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(self.yesPicker))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let nolBT = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(self.noPicker))
+        
+        toolbar.setItems([nolBT,flexibleSpace,yesBT], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
         
@@ -164,7 +175,7 @@ extension RoomFixVC {
         DueDateFix.inputView = datePicker
     }
     
-    @objc func DatePressed() {
+    @objc func yesPicker() {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateFormat = "yyyy-MM-dd"
@@ -172,35 +183,64 @@ extension RoomFixVC {
         DueDateFix.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
+    
+    @objc func noPicker() {
+        self.DueDateFix.text = nil
+        self.DueDateFix.resignFirstResponder()
+    }
 }
 
 extension RoomFixVC: UIPickerViewDelegate, UIPickerViewDataSource {
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int{
+    
+    func configPickerView() {
+        majorpicker.delegate = self
+        majorpicker.dataSource = self
+        MajorFix.inputView = majorpicker
+        
+        configToolbar()
+    }
+    
+    func configToolbar() {
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor.blue
+        toolBar.sizeToFit()
+        let doneBT = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(self.donePicker))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelBT = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(self.cancelPicker))
+        
+        toolBar.setItems([cancelBT,flexibleSpace,doneBT], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        MajorFix.inputAccessoryView = toolBar
+    }
+    
+    @objc func donePicker() {
+        let row = self.majorpicker.selectedRow(inComponent: 0)
+        self.majorpicker.selectRow(row, inComponent: 0, animated: false)
+        self.MajorFix.text = self.appDelegate.majorList[row]
+        self.MajorFix.resignFirstResponder()
+    }
+    
+    @objc func cancelPicker() {
+        self.MajorFix.text = nil
+        self.MajorFix.resignFirstResponder()
+    }
+    
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.appDelegate.majorList.count
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-
-        self.view.endEditing(true)
         return self.appDelegate.majorList[row]
     }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-        self.MajorFix.text = self.appDelegate.majorList[row]
-        self.MajorFixDropdown.isHidden = true
-    }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == self.MajorFix {
-            self.MajorFixDropdown.isHidden = false
-
-            textField.endEditing(true)
-        }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) { self.MajorFix.text = self.appDelegate.majorList[row]
     }
 }

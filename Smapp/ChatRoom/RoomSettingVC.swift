@@ -10,8 +10,16 @@ import FirebaseDatabase
 import GoogleSignIn
 
 class RoomSettingVC: UIViewController {
+    var TitleSetting:String? // 기존 방제목을 받아오기 위한 변수
+    var SubjectSetting:String?
+    var ProfessorSetting:String?
+    var ContentsSetting:String?
+    var RoomIdSetting: Int?
+    
     var ref: DatabaseReference!
     let myUid: Int? = Int((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
+    
+    
     
     @IBOutlet weak var RoomTableView: UITableView!
     let RoomMenu = ["스터디룸 수정", "방 나가기"]
@@ -114,6 +122,11 @@ extension RoomSettingVC: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RoomSettingTableCell", for: indexPath) as? RoomSettingTableCell else {
              return UITableViewCell()
          }
+        cell.TitleCell = TitleSetting
+        cell.SubjectCell = SubjectSetting
+        cell.ProfessorCell = ProfessorSetting
+        cell.ContentsCell = ContentsSetting
+        cell.RoomIdCell = RoomIdSetting
         cell.roomMenus.text = RoomMenu[indexPath.row]
         cell.accessoryType = .disclosureIndicator
         

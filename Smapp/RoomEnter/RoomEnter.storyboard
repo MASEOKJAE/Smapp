@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="BasicView" translatesAutoresizingMaskIntoConstraints="NO" id="Ovn-zg-t9n">
-                                <rect key="frame" x="30" y="94" width="354" height="367.5"/>
+                                <rect key="frame" x="30" y="94" width="354" height="361"/>
                                 <color key="backgroundColor" red="0.18503809970000001" green="0.43188924080000002" blue="0.89349349499999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qem-kh-LzA">
@@ -38,31 +38,31 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="앱 프로그래밍 중간고사 준비 같이 하실 분 ~" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sss-ql-rur">
-                                <rect key="frame" x="30" y="541" width="354" height="62"/>
+                                <rect key="frame" x="30" y="535" width="354" height="62"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱 프로그래밍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsL-ED-gSY">
-                                <rect key="frame" x="30" y="608" width="87.5" height="21"/>
+                                <rect key="frame" x="30" y="602" width="87.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RV3-EF-fVc">
-                                <rect key="frame" x="122.5" y="608" width="5" height="21"/>
+                                <rect key="frame" x="122.5" y="602" width="5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="조성배" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36O-qK-je5">
-                                <rect key="frame" x="132.5" y="608" width="44.5" height="21"/>
+                                <rect key="frame" x="132.5" y="602" width="44.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22-1 앱 프로그래밍 나대영 교수님 수업 같이 공부할 사람 구합니다. 아무나 대환영 :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbM-B4-6PB">
-                                <rect key="frame" x="30" y="634" width="354" height="41"/>
+                                <rect key="frame" x="30" y="628" width="354" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -136,7 +136,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전산전자공학부" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-TO-Ej6">
-                                <rect key="frame" x="30" y="491.5" width="97" height="19.5"/>
+                                <rect key="frame" x="30" y="485" width="97" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -156,12 +156,29 @@
                                     <action selector="ClickShare:" destination="WYB-MB-YfM" eventType="touchUpInside" id="LXv-dP-Ry2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGM-NZ-6R6">
+                                <rect key="frame" x="309" y="474" width="75" height="43"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="수정 (임시)" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="FixBtnClick:" destination="WYB-MB-YfM" eventType="touchUpInside" id="gaG-8s-U4N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l4a-nP-tKZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Tay-ss-5VO" firstAttribute="centerY" secondItem="MIw-nE-5mG" secondAttribute="centerY" id="0DL-PT-XlH"/>
                             <constraint firstItem="Ovn-zg-t9n" firstAttribute="leading" secondItem="3aN-7M-u2e" secondAttribute="leading" constant="30" id="0Z1-vd-MT9"/>
+                            <constraint firstItem="sGM-NZ-6R6" firstAttribute="leading" secondItem="Yg4-TO-Ej6" secondAttribute="trailing" constant="182" id="2hh-9V-3lU"/>
+                            <constraint firstItem="l4a-nP-tKZ" firstAttribute="trailing" secondItem="sGM-NZ-6R6" secondAttribute="trailing" constant="30" id="3Gd-pZ-FQF"/>
+                            <constraint firstItem="sGM-NZ-6R6" firstAttribute="baseline" secondItem="Yg4-TO-Ej6" secondAttribute="baseline" id="3Sv-tn-LhA"/>
                             <constraint firstItem="kbM-B4-6PB" firstAttribute="leading" secondItem="NsL-ED-gSY" secondAttribute="leading" id="49Y-rp-xGO"/>
                             <constraint firstItem="v3m-mo-v28" firstAttribute="leading" secondItem="8Gi-vc-uni" secondAttribute="trailing" constant="5" id="4Z0-qr-NE4"/>
                             <constraint firstItem="q5F-W7-rFA" firstAttribute="trailing" secondItem="Ovn-zg-t9n" secondAttribute="trailing" id="5hw-rP-z63"/>
@@ -172,7 +189,10 @@
                             <constraint firstItem="v3m-mo-v28" firstAttribute="bottom" secondItem="8Gi-vc-uni" secondAttribute="bottom" id="Ah4-ou-Muy"/>
                             <constraint firstItem="fTj-5J-KTe" firstAttribute="top" secondItem="q5F-W7-rFA" secondAttribute="top" id="Dxd-Hc-Wpu"/>
                             <constraint firstItem="NsL-ED-gSY" firstAttribute="leading" secondItem="Sss-ql-rur" secondAttribute="leading" id="EAc-b6-KjX"/>
+                            <constraint firstItem="l4a-nP-tKZ" firstAttribute="trailing" secondItem="sGM-NZ-6R6" secondAttribute="trailing" constant="30" id="ElV-wD-FEB"/>
                             <constraint firstItem="6fy-ye-Saf" firstAttribute="leading" secondItem="kbM-B4-6PB" secondAttribute="leading" id="GLh-IR-SNU"/>
+                            <constraint firstItem="Sss-ql-rur" firstAttribute="top" secondItem="sGM-NZ-6R6" secondAttribute="bottom" constant="18" id="KdA-WM-YKQ"/>
+                            <constraint firstItem="sGM-NZ-6R6" firstAttribute="leading" secondItem="Yg4-TO-Ej6" secondAttribute="trailing" constant="182" id="L6g-P3-T51"/>
                             <constraint firstItem="M5S-T9-1j1" firstAttribute="leading" secondItem="7mg-OS-ClE" secondAttribute="trailing" constant="5" id="LE5-sz-12s"/>
                             <constraint firstItem="Sss-ql-rur" firstAttribute="leading" secondItem="Yg4-TO-Ej6" secondAttribute="leading" id="NWK-ci-XZT"/>
                             <constraint firstItem="v3m-mo-v28" firstAttribute="centerY" secondItem="MIw-nE-5mG" secondAttribute="centerY" id="O8t-zD-gVl"/>
@@ -195,12 +215,14 @@
                             <constraint firstItem="RV3-EF-fVc" firstAttribute="top" secondItem="36O-qK-je5" secondAttribute="top" id="dki-qT-RD5"/>
                             <constraint firstItem="EfE-PO-b7U" firstAttribute="centerY" secondItem="6fy-ye-Saf" secondAttribute="centerY" id="eUa-Y1-gHb"/>
                             <constraint firstItem="fTj-5J-KTe" firstAttribute="bottom" secondItem="q5F-W7-rFA" secondAttribute="bottom" id="ec3-uZ-iNL"/>
+                            <constraint firstAttribute="bottom" secondItem="sGM-NZ-6R6" secondAttribute="bottom" constant="379" id="fG5-iG-Upi"/>
                             <constraint firstItem="36O-qK-je5" firstAttribute="bottom" secondItem="NsL-ED-gSY" secondAttribute="bottom" id="fwh-rE-ydN"/>
                             <constraint firstItem="MIw-nE-5mG" firstAttribute="top" secondItem="6fy-ye-Saf" secondAttribute="bottom" constant="5" id="fyg-q9-9JT"/>
                             <constraint firstItem="RV3-EF-fVc" firstAttribute="centerY" secondItem="NsL-ED-gSY" secondAttribute="centerY" id="gR3-WV-OQs"/>
                             <constraint firstItem="RV3-EF-fVc" firstAttribute="bottom" secondItem="36O-qK-je5" secondAttribute="bottom" id="hbL-pO-vnh"/>
                             <constraint firstItem="kbM-B4-6PB" firstAttribute="trailing" secondItem="Sss-ql-rur" secondAttribute="trailing" id="hm4-7a-OrE"/>
                             <constraint firstItem="8Gi-vc-uni" firstAttribute="centerY" secondItem="MIw-nE-5mG" secondAttribute="centerY" id="i4V-RQ-vh6"/>
+                            <constraint firstItem="sGM-NZ-6R6" firstAttribute="top" secondItem="Ovn-zg-t9n" secondAttribute="bottom" constant="19" id="i6z-LV-omf"/>
                             <constraint firstItem="7mg-OS-ClE" firstAttribute="centerY" secondItem="MIw-nE-5mG" secondAttribute="centerY" id="iRT-fd-UUI"/>
                             <constraint firstItem="Sss-ql-rur" firstAttribute="top" secondItem="Yg4-TO-Ej6" secondAttribute="bottom" constant="30" id="iyx-PH-GS3"/>
                             <constraint firstItem="Tay-ss-5VO" firstAttribute="bottom" secondItem="v3m-mo-v28" secondAttribute="bottom" id="kU5-CY-eOm"/>

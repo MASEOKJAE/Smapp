@@ -34,6 +34,19 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     var subject: String?
     var users: [String: AnyObject]?
     var today: String?
+// roomfix에 보내줄 데이터 받을 변수
+    var RoomTitle:String?
+    var SubjectTitle:String?
+    var ProfessorName:String?
+    var StudyContents:String?
+
+    var RoomMajor:String?
+    var CloseDate:String?
+    var MaxNum:String?
+
+    var KingName:String?
+    var KingId:String?
+//
 
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var chatText: UITextView!
@@ -75,6 +88,8 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
             self.users = datasnapshot.value as! [String: AnyObject]
         })
         
+        updateLabel()
+        
         updateRoomInfo()
         getMessageList()
         //groupedMessages()
@@ -92,6 +107,58 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
         view.addGestureRecognizer(tap)
         
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+    }
+    
+    func updateLabel(){
+        let subinfo = roomId!
+        let roomListRef = ref.child("roomList").child("\(subinfo)")
+        
+        roomListRef.observeSingleEvent(of: .value, with: { [self] (snapshot) in
+            for child in snapshot.children {
+                let title = child as! DataSnapshot
+                let titlekey = title.key
+                let titlevalue = title.value!
+                
+
+                if titlekey == "title" {
+                    RoomTitle = titlevalue as? String
+                } else if titlekey == "subject" {
+                    SubjectTitle = titlevalue as? String
+                } else if titlekey == "professor" {
+                    ProfessorName = titlevalue as? String
+                } else if titlekey == "contents" {
+                    StudyContents = titlevalue as? String
+                } else if titlekey == "major" {
+                    RoomMajor = titlevalue as? String
+                } else if titlekey == "dueDate" {
+                    CloseDate = titlevalue as? String
+                } else if titlekey == "numberOfMax" {
+                    MaxNum = "\(titlevalue)"
+                } else if titlekey == "king" {
+                    KingId = "\(titlevalue)"
+                    ref.child("userList").child(KingId!).getData(completion: {error, snapshot in
+                        let value = snapshot.value as? NSDictionary
+                        let name = value?["name"] as? String ?? "Error!"
+                        
+                        KingName = "\(name)"
+                    })
+                }
+            }
+        })
+
+    }
+    
+    // data를 RoomSetting으로 보내줌
+    @IBAction func RoomSettingClick(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "RoomSetting", bundle: nil)
+        let EnterController  = storyboard.instantiateViewController(identifier: "Setting") as! RoomSettingVC
+                EnterController.TitleSetting = RoomTitle // 방 제목 전달
+                EnterController.SubjectSetting = SubjectTitle // 방 강의명 전달
+                EnterController.ProfessorSetting = ProfessorName // 방 교수 전달
+                EnterController.ContentsSetting = StudyContents // 방 스터디 설명 전달
+                EnterController.RoomIdSetting = roomId
+
+                present(EnterController, animated: true, completion: nil)
     }
     
 //    func groupedMessages() {
@@ -568,3 +635,4 @@ extension Int{
 //        return dateFormatter.date(from: customString) ?? Date()
 //    }
 //}
+
