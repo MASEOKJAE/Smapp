@@ -17,6 +17,7 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var users = Dictionary<String, Bool>()
     var roomId: Int?
+    var myName: String?
     let myUid = String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)
     
     @IBOutlet weak var roomTitle: UITextField!
@@ -39,10 +40,11 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         
         let userListRef = ref.child("userList")
         
-        userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+        userListRef.child(myUid).getData(completion: {error, snapshot in
             let value = snapshot.value as? NSDictionary
             
             self.major.text = value?["likeMajor"] as? String ?? "Error"
+            self.myName = value?["name"] as? String ?? "Error"
         })
         
         self.contents.delegate = self
@@ -121,8 +123,27 @@ class SubjectFormVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         chatListRef.child(String(self.childCount)).child("users").setValue(users)
         chatListRef.child(String(self.childCount)).child("roomId").setValue(self.childCount)
         
+        
+        sendMessage()
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    // 메세지 보내기
+    @objc
+    func sendMessage() {
+        let value: Dictionary<String, Any> = [
+            "uid": "CRA",
+            "message": myName! + "님이 입장하였습니다",
+            "timestamp": ServerValue.timestamp(),
+            "ymdTime": "0"
+        ]
+
+        let chatListRef = ref.child("chatRooms")
+        chatListRef.child(String(self.childCount)).child("comments").childByAutoId().setValue(value)
+           
+        
+    }
+    
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

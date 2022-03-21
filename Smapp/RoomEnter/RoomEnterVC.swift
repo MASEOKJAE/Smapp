@@ -25,6 +25,8 @@ class RoomEnterVC: UIViewController {
     @IBOutlet weak var KingName: UILabel!
     @IBOutlet weak var KingId: UILabel!
     
+    var myName: String?
+    
     var TitleOrigin:String? // 수정된 방제목을 받아오기 위한 변수
     var ClassOrigin:String?
     var ProfessorOrigin:String?
@@ -82,6 +84,13 @@ class RoomEnterVC: UIViewController {
             } else { self.LikeButton.setImage(UIImage(systemName: "heart"), for: .normal) }
         })
         
+        let userListRef = ref.child("userList")
+        
+        userListRef.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            
+            self.myName = value?["name"] as? String ?? "Error"
+        })
 //        picker.delegate = self
         
 
@@ -235,8 +244,26 @@ class RoomEnterVC: UIViewController {
         chatListRef.child(String(self.EnterIndex!)).child("users").updateChildValues([String(myUid):true])
         
         
+        sendMessage()
+        
         _ = self.navigationController?.popViewController(animated: true)
     
+    }
+    
+    // 메세지 보내기
+    @objc
+    func sendMessage() {
+        let value: Dictionary<String, Any> = [
+            "uid": "CRA",
+            "message": self.myName! + "님이 입장하였습니다",
+            "timestamp": ServerValue.timestamp(),
+            "ymdTime": "0"
+        ]
+
+        let chatListRef = ref.child("chatRooms")
+        chatListRef.child(String(self.EnterIndex!)).child("comments").childByAutoId().setValue(value)
+           
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

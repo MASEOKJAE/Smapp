@@ -136,8 +136,8 @@
             filePath = "Smapp/MyPage/MyPagePartTableVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "fetchListOfPartRoomId()"
             landmarkType = "7">
          </BreakpointContent>

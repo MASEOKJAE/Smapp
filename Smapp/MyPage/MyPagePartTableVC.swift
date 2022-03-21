@@ -21,6 +21,7 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
     var observe: UInt?
     var roomArray: [RoomData] = []
     var chatArray: [ChatModel] = []
+    var users: [String: AnyObject]?
     var listOfPartRoomId: [Int?] = []
     var EnterIndex: Int?
                                                  
@@ -30,6 +31,11 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         initRefresh()
         ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
+        // 유저 정보 가져오기
+        let userRef = ref.child("userList")
+        userRef.observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
+            self.users = datasnapshot.value as! [String: AnyObject]
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,17 +126,26 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         cell.roomTitle.text = item.title
         cell.participants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
         
-        let lastMessageKey = self.chatArray[indexPath.row].comments.keys.sorted(){$0>$1}
         
         // 채팅방에 채팅 없을 때 - 아직 오류남 예외처리해야함
-        if(lastMessageKey == nil) {
+        if(self.chatArray.isEmpty) {
             cell.chatsContent.text = ""
-        } else {    // 마지막 채팅메세지 가져오기
+            cell.chatsName.text = ""
+        } else {
+            let lastMessageKey = self.chatArray[indexPath.row].comments.keys.sorted(){$0>$1}
+            // 마지막 채팅메세지 가져오기
             cell.chatsContent.text =  self.chatArray[indexPath.row].comments[lastMessageKey[0]]?.message
+
+            // 마지막 채팅친 사람 가져오기
+            let lastUid = self.chatArray[indexPath.row].comments[lastMessageKey[0]]?.uid
+            
+            if lastUid == "CRA" {
+                cell.chatsName.text = ""
+            } else {
+                let destinationUser = self.users![lastUid!]
+                cell.chatsName.text = destinationUser!["name"] as! String
+            }
         }
-        
-        // 마지막 채팅친 사람 가져오기
-        cell.chatsName.text = chattingName[indexPath.row]
 
         return cell
     }
