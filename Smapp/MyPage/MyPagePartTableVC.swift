@@ -127,7 +127,7 @@ class MyPagePartTableVC: UIViewController, UITableViewDataSource, UITableViewDel
         cell.participants.text = String(item.listOfPartUser?.count ?? -1) + "/" + String(item.numberOfMax!)
         
         
-        // 채팅방에 채팅 없을 때 - 아직 오류남 예외처리해야함
+        // 채팅방에 채팅 없을 때
         if(self.chatArray.isEmpty) {
             cell.chatsContent.text = ""
             cell.chatsName.text = ""

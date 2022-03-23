@@ -39,8 +39,6 @@ class MyPageVC: UIViewController{
         })
 
         userEmail.text = GIDSignIn.sharedInstance.currentUser?.profile!.email
-        
-        print("?")
     }
     
     override func viewWillAppear(_ animated: Bool) {

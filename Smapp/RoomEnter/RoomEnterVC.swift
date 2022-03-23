@@ -7,6 +7,7 @@
 import UIKit
 import GoogleSignIn
 import FirebaseDatabase
+import Alamofire
 
 class RoomEnterVC: UIViewController {
     
@@ -241,10 +242,22 @@ class RoomEnterVC: UIViewController {
         
         // chatroom 에 참여하는 user 추가
         let chatListRef = ref.child("chatRooms")
-        chatListRef.child(String(self.EnterIndex!)).child("users").updateChildValues([String(myUid):true])
-        
-        
-        sendMessage()
+        chatListRef.child(String(self.EnterIndex!)).getData(completion: {error, snapshot in
+            let value = snapshot.value as? NSDictionary
+            let users = value?["users"] as? NSDictionary
+            
+            print("users list -------------: ")
+            print(users)
+            if users == nil {
+                return
+            }
+            if (users![String(myUid)] != nil) == true {
+                return
+            } else {
+                self.sendMessage()
+                chatListRef.child(String(self.EnterIndex!)).child("users").updateChildValues([String(myUid):true])
+            }
+        })
         
         _ = self.navigationController?.popViewController(animated: true)
     

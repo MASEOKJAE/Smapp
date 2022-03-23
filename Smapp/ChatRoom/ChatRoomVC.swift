@@ -137,6 +137,12 @@ class ChatRoomVC: UIViewController, UITextViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // 유저 정보 가져오기
+        let userRef = ref.child("userList")
+        userRef.observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
+            self.users = datasnapshot.value as! [String: AnyObject]
+        })
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
