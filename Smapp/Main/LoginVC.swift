@@ -9,9 +9,11 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FirebaseDatabase
+import AuthenticationServices
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, ASAuthorizationControllerDelegate {
     
+    @IBOutlet weak var appleLoginButton: ASAuthorizationAppleIDButton!
     //DB 정보 전달
     var ref: DatabaseReference!
     
@@ -43,8 +45,36 @@ class LoginVC: UIViewController {
         
         GoogleLogin.center.x = screenWidth/2
         GoogleLogin.center.y = screenHeight - 100
+        
+        appleLoginButton.addTarget(self, action: #selector(LoginVC.appleLoginButtonTapped), for: .touchDown)
     }
 
+    
+    //성공적으로 로그인한 경우
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else {
+            return
+        }
+    }
+    
+    //로그인 에러
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        //에러 대처 코드
+    }
+    
+    
+    @objc func appleLoginButtonTapped() {
+        let authorizationProvider = ASAuthorizationAppleIDProvider()
+        let request = authorizationProvider.createRequest()
+        request.requestedScopes = [.email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    
     @IBAction func TapGoogleLogin(_ sender: Any) {
         let signInConfig = GIDConfiguration.init(clientID: "784619439338-5521ne6gp5nq2p57pjm3vaphh04g1ncq.apps.googleusercontent.com")
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
@@ -77,9 +107,7 @@ class LoginVC: UIViewController {
                 ] as [String : Any]
                 
                 refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(userInputData)
-                
-                //self.showToast(message: "로그인 완료", font: .systemFont(ofSize: 15.0))
-                
+                                
                 refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).child("name").getData(completion: {error, snapshot in
                     let value = snapshot.value as? String
                     //로그인한 유저의 이메일이 db에 존재하면
@@ -105,7 +133,7 @@ class LoginVC: UIViewController {
     
     //"handong.edu" 검사
     func isValidEmail(_ testStr:String) -> Bool {
-        if testStr.contains("handong") {
+        if testStr.contains("@handong.") {
             return true
         } else {
             return false
@@ -149,5 +177,14 @@ extension LoginVC {
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
+    }
+}
+
+                        
+@available(iOS 13.0, *)
+extension LoginVC: ASAuthorizationControllerPresentationContextProviding {
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,21 +41,30 @@
                                     <constraint firstAttribute="width" secondItem="KCT-e0-bB1" secondAttribute="height" multiplier="1:1" id="JsM-Ad-EgF"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdO-c6-wz4" customClass="ASAuthorizationAppleIDButton">
+                                <rect key="frame" x="30" y="697" width="354" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3a3-9E-CGH" secondAttribute="bottom" constant="50" id="1MY-jP-moF"/>
+                            <constraint firstItem="bdO-c6-wz4" firstAttribute="trailing" secondItem="3a3-9E-CGH" secondAttribute="trailing" id="2Nt-Ll-0pq"/>
                             <constraint firstItem="3a3-9E-CGH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7lE-hh-Weq"/>
                             <constraint firstItem="3a3-9E-CGH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="BGx-Pq-kVs"/>
                             <constraint firstItem="KCT-e0-bB1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="EZg-uf-Gdw"/>
                             <constraint firstItem="KCT-e0-bB1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JA9-9V-utO"/>
+                            <constraint firstItem="3a3-9E-CGH" firstAttribute="top" secondItem="bdO-c6-wz4" secondAttribute="bottom" constant="40" id="RY4-zQ-cTd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3a3-9E-CGH" secondAttribute="trailing" constant="30" id="aHK-mp-1xf"/>
+                            <constraint firstItem="bdO-c6-wz4" firstAttribute="leading" secondItem="3a3-9E-CGH" secondAttribute="leading" id="f7D-Td-wDJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bD2-Fm-QjT"/>
                     <connections>
                         <outlet property="GoogleLogin" destination="3a3-9E-CGH" id="KEh-3o-8KZ"/>
+                        <outlet property="appleLoginButton" destination="bdO-c6-wz4" id="udU-8K-nEH"/>
                         <outlet property="logoImage" destination="KCT-e0-bB1" id="aNs-Dm-2To"/>
                     </connections>
                 </viewController>

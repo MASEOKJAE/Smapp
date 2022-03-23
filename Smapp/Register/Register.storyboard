@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rmg-Kz-3Ek">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rmg-Kz-3Ek">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="height" constant="120" id="uEo-br-LtW"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름을 입력해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCr-qJ-PJr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름과 학번을 입력해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCr-qJ-PJr">
                                 <rect key="frame" x="20" y="348" width="350" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VCr-qJ-PJr" secondAttribute="height" multiplier="350:27" id="VDl-5v-uLf"/>
@@ -62,10 +62,16 @@
                                     <segue destination="0w4-Nr-CIo" kind="show" id="z1y-vR-5qh"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="학번 8자리를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpp-6h-1HX">
+                                <rect key="frame" x="30" y="459" width="330" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cpp-6h-1HX" firstAttribute="top" secondItem="udq-Uv-W4p" secondAttribute="bottom" constant="20" id="9r7-eF-aI9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="udq-Uv-W4p" secondAttribute="trailing" constant="30" id="AlK-B1-KwV"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VCr-qJ-PJr" secondAttribute="trailing" constant="20" id="B4u-up-5MF"/>
                             <constraint firstItem="vh7-ph-Rep" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Dde-pZ-wnS"/>
@@ -75,7 +81,9 @@
                             <constraint firstItem="udq-Uv-W4p" firstAttribute="top" secondItem="VCr-qJ-PJr" secondAttribute="bottom" constant="30" id="bhF-mo-Aym"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vh7-ph-Rep" secondAttribute="trailing" constant="30" id="d4b-aH-lNf"/>
                             <constraint firstItem="udq-Uv-W4p" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="dIO-F4-aAl"/>
+                            <constraint firstItem="cpp-6h-1HX" firstAttribute="leading" secondItem="udq-Uv-W4p" secondAttribute="leading" id="rY8-Jf-KsO"/>
                             <constraint firstItem="ZoD-PN-D0Y" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="rxs-Od-kKF"/>
+                            <constraint firstItem="cpp-6h-1HX" firstAttribute="trailing" secondItem="udq-Uv-W4p" secondAttribute="trailing" id="tha-wS-EiM"/>
                             <constraint firstItem="udq-Uv-W4p" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="u8p-Gs-JBI"/>
                             <constraint firstItem="vh7-ph-Rep" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="xKr-ge-i0i"/>
                             <constraint firstItem="VCr-qJ-PJr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="zzv-Pv-0k2"/>
@@ -84,6 +92,7 @@
                     <navigationItem key="navigationItem" id="dbl-qd-Ipt"/>
                     <connections>
                         <outlet property="enterNameLabel" destination="VCr-qJ-PJr" id="1Wz-2L-Pic"/>
+                        <outlet property="idTextField" destination="cpp-6h-1HX" id="vhe-aG-mSk"/>
                         <outlet property="logoImage" destination="ZoD-PN-D0Y" id="u6H-6S-HhA"/>
                         <outlet property="nameSelect" destination="vh7-ph-Rep" id="LGP-0d-3mW"/>
                         <outlet property="nameTextField" destination="udq-Uv-W4p" id="3ur-WN-8fB"/>

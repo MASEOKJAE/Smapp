@@ -28,6 +28,7 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var enterNameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var nameSelect: UIButton!
     
     //uiconstraints
@@ -36,7 +37,7 @@ class RegisterVC: UIViewController {
     
     
     @IBAction func nameClicked(_ sender: UIButton) {
-        if nameTextField.text != "" {
+        if (nameTextField.text != "") || (idTextField.text != "") {
             //경고창
             let alert = UIAlertController(title: "이름 변경이 불가능합니다.", message: "계속 진행하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             
@@ -55,7 +56,7 @@ class RegisterVC: UIViewController {
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
         } else {
-            let warning = UIAlertController(title: "이름설정", message: "이름을 입력하시오.", preferredStyle: UIAlertController.Style.alert)
+            let warning = UIAlertController(title: "이름/학번설정", message: "이름/학번을 입력하시오.", preferredStyle: UIAlertController.Style.alert)
             let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
             
             warning.addAction(yes)
@@ -67,23 +68,13 @@ class RegisterVC: UIViewController {
     func userName() {
         let refUser = ref.child("userList")
         
-        refUser.child(String((GIDSignIn.sharedInstance.currentUser?.profile!.email.prefix(8))!)).updateChildValues(["name": nameTextField.text!])
+        refUser.child(idTextField.text!).updateChildValues(["name": nameTextField.text!])
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.ref = Database.database(url: "https://smapp-69029-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-        
-        //constraints
-//        enterNameLabel.center.x = screenWidth/2
-//        enterNameLabel.center.y = (screenHeight/2)-50
-//        
-//        nameTextField.center.x = screenWidth/2
-//        nameTextField.center.y = screenHeight/2
-//        
-//        nameSelect.center.x = screenWidth/2
-//        nameSelect.center.y = screenHeight-100
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
