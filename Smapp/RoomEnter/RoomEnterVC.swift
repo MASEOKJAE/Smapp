@@ -46,11 +46,14 @@ class RoomEnterVC: UIViewController {
     @IBAction func FixBtnClick(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "RoomFix", bundle: nil)
         let EnterController  = storyboard.instantiateViewController(identifier: "RoomFix") as! RoomFixVC
+                    EnterController.MajorText = RoomMajor.text // 방 전공 전달
                     EnterController.TitleText = RoomTitle.text // 방 제목 전달
                     EnterController.SubjectText = SubjectTitle.text // 방 강의명 전달
                     EnterController.ProfessorText = ProfessorName.text // 방 교수 전달
                     EnterController.ContentsText = StudyContents.text // 방 스터디 설명 전달
-                    EnterController.RoomIdFix = EnterIndex
+                    EnterController.RoomIdFix = EnterIndex // 방 아이디 전달
+                    EnterController.MaxNumText = Int(MaxNum.text!)! // 방 최대 인원 전달
+                    EnterController.DueDateText = CloseDate.text // 방 마감 날짜 전달
 
                     present(EnterController, animated: true, completion: nil)
     }
