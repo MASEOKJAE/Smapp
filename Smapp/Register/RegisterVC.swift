@@ -37,7 +37,19 @@ class RegisterVC: UIViewController {
     
     
     @IBAction func nameClicked(_ sender: UIButton) {
-        if (nameTextField.text != "") || (idTextField.text != "") {
+        if (nameTextField.text == "") || (idTextField.text == ""){
+            let warning = UIAlertController(title: "이름/학번설정", message: "이름/학번을 입력하시오.", preferredStyle: UIAlertController.Style.alert)
+            let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
+            
+            warning.addAction(yes)
+            present(warning, animated: true, completion: nil)
+        } else if (idTextField.text?.count != 8) {
+            let warning = UIAlertController(title: "이름/학번설정", message: "학번 8자리 기입하시오.", preferredStyle: UIAlertController.Style.alert)
+            let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
+            
+            warning.addAction(yes)
+            present(warning, animated: true, completion: nil)
+        } else {
             //경고창
             let alert = UIAlertController(title: "이름 변경이 불가능합니다.", message: "계속 진행하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             
@@ -55,12 +67,6 @@ class RegisterVC: UIViewController {
             alert.addAction(cancel)
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
-        } else {
-            let warning = UIAlertController(title: "이름/학번설정", message: "이름/학번을 입력하시오.", preferredStyle: UIAlertController.Style.alert)
-            let yes = UIAlertAction(title: "확인", style: .default, handler: nil)
-            
-            warning.addAction(yes)
-            present(warning, animated: true, completion: nil)
         }
     }
     
