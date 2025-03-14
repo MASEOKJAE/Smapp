@@ -17,11 +17,11 @@
 
 - **프론트엔드**: Swift, UIKit
 - **백엔드**: Firebase Authentication, Firestore
-- **버전 관리**: Git[gist.github.com](https://gist.github.com/ihoneymon/652be052a0727ad59601)
+- **버전 관리**: Git
 
 ## 🚀 설치 및 실행 방법
 
-1. 이 저장소를 클론합니다:[gist.github.com](https://gist.github.com/ihoneymon/652be052a0727ad59601)
+1. 이 저장소를 클론합니다:
     
     ```bash
     git clone https://github.com/MASEOKJAE/Smapp.git
@@ -53,7 +53,3 @@
 - **이예준**
 - **최진아**
 - **김성빈**
-
-## 📄 라이선스
-
-이 프로젝트는 MIT 라이선스에 따라 배포됩니다. 자세한 내용은 [LICENSE](https://www.notion.so/LICENSE) 파일을 참고하세요.
