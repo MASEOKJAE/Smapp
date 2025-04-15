@@ -14,10 +14,12 @@
 - **알림 기능**: 스터디 참여 승인, 새로운 메시지 등 주요 이벤트에 대한 알림 수신
 
 ## 🛠️ 기술 스택
+| 분야 | 기술 스택 |
+| --- | --- |
+| **프론트엔드** | Swift, UIKit, Storyboard |
+| **백엔드** | Firebase Authentication, Firestore |
+| **버전 관리** | Git |
 
-- **프론트엔드**: Swift, UIKit
-- **백엔드**: Firebase Authentication, Firestore
-- **버전 관리**: Git
 
 ## 🚀 설치 및 실행 방법
 
