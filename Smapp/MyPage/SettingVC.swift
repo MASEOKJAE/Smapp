@@ -35,9 +35,9 @@ class SettingVC: UIViewController {
             let LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(LoginViewController)
         }
-        let cancle = UIAlertAction(title: "취소", style: .default, handler: nil)
+        let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
         
-        alert.addAction(cancle)
+        alert.addAction(cancel)
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
     }
